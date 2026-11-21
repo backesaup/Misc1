@@ -76,7 +76,7 @@ for (const lesson of lessons) {
   })
 }
 
-test('home, sections, sandbox and ask open without errors', async ({ page }) => {
+test('home, sections, sandbox, farm and ask open without errors', async ({ page }) => {
   const problems = watch(page)
   await page.goto('/')
   await expect(page.getByRole('heading', { name: /Hi/ })).toBeVisible()
@@ -87,6 +87,9 @@ test('home, sections, sandbox and ask open without errors', async ({ page }) => 
   }
   await page.getByRole('button', { name: 'Free build' }).click()
   await expect(page.locator('.sandbox canvas')).toBeVisible()
+  await page.getByRole('button', { name: 'Home' }).click()
+  await page.getByRole('button', { name: 'Farm' }).click()
+  await expect(page.locator('.farm canvas')).toBeVisible()
   await page.getByRole('button', { name: 'Home' }).click()
   await page.getByRole('button', { name: 'Ask' }).click()
   await expect(page.getByRole('heading', { name: 'What do you want to learn?' })).toBeVisible()
