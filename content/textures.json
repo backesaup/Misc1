@@ -1,0 +1,35 @@
+{
+  "_note": "Block textures for voxel scenes. `npm run textures:fetch` downloads each block's first available candidate into src/assets/textures/<key>.png (gitignored, bundled only when present). A block whose file is missing uses its built-in original look. Add a key here, then reference it from a scene. See docs/ASSET_LIBRARY.md.",
+  "sources": {
+    "bedrock": { "repo": "Mojang/bedrock-samples", "branch": "main", "base": "resource_pack/textures/blocks", "edition": "bedrock", "licence": "Mojang sample pack, Minecraft EULA / usage guidelines", "verified": true },
+    "inventive": { "repo": "InventivetalentDev/minecraft-assets", "branch": "1.21.4", "base": "assets/minecraft/textures/block", "edition": "java", "licence": "Mojang assets, Minecraft EULA (same files as mcasset.cloud)", "verified": true },
+    "prismarine": { "repo": "PrismarineJS/minecraft-assets", "branch": "master", "base": "data/1.21.4/blocks", "edition": "java", "licence": "Mojang assets, Minecraft EULA", "verified": true },
+    "destruc7i0n": { "repo": "destruc7i0n/minecraft-textures", "branch": "master", "base": "", "edition": "java", "licence": "Mojang assets", "verified": false },
+    "owen": { "repo": "Owen1212055/mc-assets", "branch": "main", "base": "", "edition": "java", "licence": "Mojang assets", "verified": false },
+    "craft": { "repo": "fogleman/Craft", "branch": "master", "base": "textures", "edition": "original", "licence": "MIT (original art, safe to share)", "verified": true, "atlas": true },
+    "create": { "repo": "Creators-of-Create/Create", "branch": "mc1.20.1/dev", "base": "src/main/resources/assets/create/textures/block", "edition": "mod:create", "licence": "see repo (code MIT; check asset terms before sharing publicly)", "verified": true },
+    "farmersdelight": { "repo": "vectorwing/FarmersDelight", "branch": "1.20", "base": "src/main/resources/assets/farmersdelight/textures/block", "edition": "mod:farmersdelight", "licence": "see repo", "verified": true },
+    "mekanism": { "repo": "mekanism/Mekanism", "branch": "1.21.x", "base": "src/main/resources/assets/mekanism/textures/block", "edition": "mod:mekanism", "licence": "MIT (see repo)", "verified": true },
+    "securitycraft": { "repo": "Geforce132/SecurityCraft", "branch": "master", "base": "", "edition": "mod:securitycraft", "licence": "see repo", "verified": false },
+    "ic2": { "repo": "IndustrialCraftMC/IndustrialCraft2", "branch": "master", "base": "", "edition": "mod:ic2", "licence": "see repo", "verified": false },
+    "furniture": { "repo": "MrCrayfish/MrCrayfishFurnitureMod-Refurbished", "branch": "master", "base": "", "edition": "mod:refurbished_furniture", "licence": "see repo", "verified": false },
+    "littletiles": { "repo": "CreativeMD/LittleTiles", "branch": "master", "base": "", "edition": "mod:littletiles", "licence": "see repo", "verified": false },
+    "car": { "repo": "henkelmax/car", "branch": "master", "base": "", "edition": "mod:car", "licence": "see repo", "verified": false }
+  },
+  "blocks": {
+    "planks": { "file": "planks.png", "from": ["bedrock:planks_oak.png", "inventive:oak_planks.png", "prismarine:oak_planks.png"] },
+    "stone": { "file": "stone.png", "from": ["bedrock:stone.png", "inventive:stone.png"] },
+    "dirt": { "file": "dirt.png", "from": ["bedrock:dirt.png", "inventive:dirt.png"] },
+    "grass_top": { "file": "grass_top.png", "from": ["bedrock:grass_top.png", "inventive:grass_block_top.png"] },
+    "tnt_side": { "file": "tnt_side.png", "from": ["bedrock:tnt_side.png", "inventive:tnt_side.png"] },
+    "dispenser_front": { "file": "dispenser_front.png", "from": ["bedrock:dispenser_front_horizontal.png", "inventive:dispenser_front.png"] },
+    "redstone_dust": { "file": "redstone_dust.png", "from": ["bedrock:redstone_dust_cross.png", "inventive:redstone_dust_dot.png"] },
+    "repeater": { "file": "repeater.png", "from": ["bedrock:repeater_off.png", "inventive:repeater.png"] },
+    "lever": { "file": "lever.png", "from": ["bedrock:lever.png", "inventive:lever.png"] },
+    "craft_atlas": { "file": "craft_atlas.png", "from": ["craft:texture.png"] },
+    "create_cogwheel": { "file": "create_cogwheel.png", "from": ["create:cogwheel.png"] },
+    "create_andesite_casing": { "file": "create_andesite_casing.png", "from": ["create:andesite_casing.png"] },
+    "fd_cutting_board": { "file": "fd_cutting_board.png", "from": ["farmersdelight:cutting_board.png"] },
+    "mek_steel_casing": { "file": "mek_steel_casing.png", "from": ["mekanism:steel_casing.png"] }
+  }
+}

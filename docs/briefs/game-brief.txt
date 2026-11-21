@@ -1,0 +1,401 @@
+Game Section — Design Brief
+
+Game Section — Design Brief
+​Nov 21, 2026 · ​@Esa
+
+Overview
+The game section is a fourth area of the app: a real game first, built on the same core
+mechanics as any good game (a world to explore, problems to solve, abilities that grow),
+where the maths and engineering are the mechanics. It is not lessons with a game skin.
+Why: most educational apps are "chocolate-covered broccoli", quizzes wrapped in game
+art. In Habgood and Ainsworth's Zombie Division study, children learned more when the
+maths was the combat itself than when it was quizzes between levels, and chose to play
+that version about seven times longer.
+How this fits the other briefs
+Build brief: same tech stack, PWA, offline use. The game lives alongside the three
+lesson sections.
+Lesson Direction Brief: still governs how ideas are framed: define everything, no
+skipped steps, respectful voice, stretch him. In the game, "testing understanding"
+happens through play instead of questions.
+Links between sections: lessons and shorts can become optional "how it works"
+videos inside the game, and solving something in the game can unlock the matching
+lesson.
+Goal for v1: one small, polished playable slice (see First playable slice), tested with him
+before anything more is built.
+
+Design pillars and core loop
+Pillars (every feature must pass all five)
+1. The idea is the mechanic. Each concept is something he does to make progress. Test
+for every puzzle: can he get past it without understanding the idea? If yes, redesign it.
+2. The world gives the feedback. No right/wrong screens. The fence has a gap and the
+sheep escape; the tank overflows; the door stays shut. Failure is visible, harmless and
+makes him want to try again.
+3. Understanding unlocks power. Progression comes from new tools and abilities
+earned by understanding (learn area → unlock the floor-planner; learn parallel →
+unlock wires). No points, stars, streaks or badges.
+
+Page 1 of 8
+
+Game Section — Design Brief
+
+4. Simple to control, deep to play. Tap, drag and place are enough. Depth comes from
+the problems, not the controls.
+5. Engaging, not compulsive. Natural stopping points, short sessions, nothing designed
+to make him play longer than is good for him.
+Core loop
+1. Explore: walk the world, find something broken, locked or needed.
+2. Meet the problem: a character needs something (a pen for sheep, water for crops).
+3. Experiment: build, test, watch what happens. Predictions are made through play
+("will these blocks be enough?").
+4. Understand: when it works, the idea is named and the sidekick sums it up in one line.
+5. Unlock: a new tool, area or ability that makes bigger problems possible.
+The loop repeats at growing scale: one puzzle, then an area of puzzles, then the whole
+world changing as he restores it.
+
+World, story and characters
+He is 5, so the story and the game stay very simple. No lore, no plot to follow, no cast to
+remember. If an idea needs more than one sentence of story, cut the story.
+Setting: one small farm. That's the whole world for the first slice.
+Characters: just two.
+The player: a builder he can name.
+The sidekick: a friendly little robot who needs help fixing the farm. It's the only
+character who talks. It gives each task in one sentence, cheers when something
+works, and sometimes makes a simple mistake he can spot.
+The "story" is one line per puzzle: "My bed broke, can you build me a new one?", "The
+sheep keep running away!", "The plants are thirsty." Each task is obvious from what he can
+see.
+Rules
+One goal at a time, with no side quests, branching choices, dialogue trees or anything
+he has to keep track of. Hidden surprises are fine (see Emotion, fun and exploration).
+The farm gets visibly nicer as he fixes things. That's the only progression story.
+New places (the mine, the workshop and so on in the mechanics catalogue) are added
+only if he's clearly ready, one at a time, each just as simple.
+
+Page 2 of 8
+
+Game Section — Design Brief
+
+Emotion, fun and exploration
+Clear and simple isn't enough: he has to want to be there. A 5-year-old engages through
+feeling, silliness and freedom.
+Emotion: he's helping a friend
+The robot has an expressive face and big reactions: thrilled when its bed is built, upset
+when the sheep run off, a silly victory dance when something works. He is fixing
+things for someone he likes, not completing tasks.
+The robot remembers what he's built ("I love my bed!"), waves when he comes back,
+and is a bit dramatic in a funny way. It never guilt-trips him for leaving or not playing.
+He can name the robot and choose its colour.
+Silliness and chaos
+Failure is funny, never sad: sheep bounce over gaps like springs, an overfilled tank
+erupts like a fountain, a wobbly tower slowly topples.
+Things to knock down and blow up. A safe boom zone where he can stack towers and
+set off cartoon TNT (an original design, no Minecraft TNT). Cause and effect is huge
+fun at his age, and it can later teach balance and structure (why do some towers
+survive?).
+Exploration with no goal
+The farm is full of things that react to a tap: chickens squawk and flap, trees drop
+apples, the pond splashes, a mole pops up and ducks away, the scarecrow spins.
+Small hidden surprises to stumble on: a secret cave behind the waterfall, a golden
+chicken, a hidden robot friend. Nothing to collect or track; finding them is the reward.
+New tappable surprises appear as the farm is fixed, so it keeps changing.
+Hooks and pacing (the good parts of short-form video)
+Every puzzle opens with a hook in the first 3 seconds: a sheep sprints off-screen, the
+robot's bed collapses with a crash.
+Something new happens every few seconds: a reaction, a sound, a movement.
+Every puzzle ends with a big emotional payoff: the fix works, the robot celebrates, the
+farm visibly changes.
+Retention: competing with YouTube
+The game has to pull him back as strongly as YouTube does. It wins by being something
+YouTube can't be: made for him, starring a friend who needs him, in a world that changes
+because of what he did.
+
+Page 3 of 8
+
+Game Section — Design Brief
+
+Instant start. Opening the app drops him straight back into the farm where he left off,
+with the robot waving. No menus, no loading screens, no taps before the fun.
+Something new every day. Each day one new thing appears on the farm (a new
+animal, a strange egg, a mysterious crate, a new boom-zone toy). Missing a day loses
+nothing; it's just waiting for him.
+Cliffhanger endings. Every session ends with the payoff and then a teaser: the robot
+hears a rumble behind the locked barn door, an egg starts to wobble. He leaves
+wanting to know what happens.
+Bite-size episodes. Each puzzle plays like a 2–5 minute episode with a hook, a build
+and a big finish, the same rhythm as a video he'd choose, but he's doing it.
+A world that's visibly his. The farm fills up with everything he's built and every animal
+he's helped. He can show it off, and the parent screen can save a picture to share with
+family.
+Surprise everywhere. Tappable things react in varied, funny ways, so exploring
+always feels fresh.
+Growing friend. The robot slowly gains new abilities, outfits and dances as the farm is
+fixed, so there's always something to look forward to.
+Left out on purpose: slot-machine style random rewards, streaks that punish missed
+days, guilt messages ("the robot is sad you left"), push notifications, autoplay and
+sessions with no end. These create compulsion rather than enjoyment, and their pull is
+strongest on young children whose self-control is still developing.
+
+First playable slice: the farm
+One area of the valley, about 15–25 minutes of play across several sessions, teaching area,
+perimeter and volume. Each starts from squares and cubes, which he already knows.
+Build only this slice first.
+Key mechanic: the block store. Before building, he chooses how many blocks or pieces to
+take from a store using a big number dial. That choice is his prediction. Taking too few
+leaves a visible gap; too many leaves a visible pile. No one tells him he was wrong.
+1. The sidekick's bed (area). The robot's bed broke. A glowing 3 × 4 outline on the
+ground. He places blocks one by one. After the first row, the sidekick notices every
+row is the same length. A second outline (5 × 3) appears with no counting help: he
+dials how many blocks to take first. Unlock: the floor tool (drag to fill a rectangle in
+one go), earned because he now knows how many it will use.
+2. The sheep pen (perimeter). The sheep keep escaping. Fence pieces go along the
+edges of a grass patch. A 4 × 4 patch needs 16 pieces; any gap and a sheep wanders
+out. Then the twist: there are only 16 fence pieces and wants room for as many sheep
+
+Page 4 of 8
+
+Game Section — Design Brief
+
+as possible. He tries shapes: 4 × 4 holds 16 sheep, 2 × 6 holds 12, 1 × 7 holds only 7.
+Same fence, different space inside. This is the moment area and perimeter separate in
+his head. Unlock: the fence tool.
+3. The water tank (volume). The crops need water. The tank is a 3 × 3 × 3 box; each
+bucket fills one block. He sees it fill layer by layer: one layer is 9 (3 × 3), three layers
+are 27 (3 × 3 × 3). He dials his buckets before pouring, and the tank overflows or stops
+short. Optional next step: a 4 × 4 × 4 tank where the pump fills a whole 16-block layer
+at a time, so 4 pumps make 64, which links to the stack-of-64 short. Unlock: the water
+pump.
+4. The watchtower (stretch). Rebuild a 3 × 3 × 3 tower that is hollow inside. The store
+has exactly 26 blocks. Why not 27? Finding the missing middle block is the payoff. It's
+also the number of pieces on a Rubik's cube, a hook into the solar cube story.
+Every puzzle must have: a one-line setup from a character; the idea needed to succeed;
+visible, funny, harmless failure; a sidekick line naming the idea after success; and a hint if
+he's stuck for about 60 seconds (a nudge, never the answer).
+Slice is done when: it plays smoothly on iPad and iPhone, all four puzzles are completable,
+and he can explain one of the ideas in his own words afterwards.
+
+Mechanics catalogue
+Ideas for later valley areas, each mapping a concept onto a mechanic that cannot be
+beaten without understanding it. Build these only after the first slice has been tested
+with him.
+Area
+
+Concept
+
+Mechanic
+
+Failure he sees
+
+Storehouse
+
+Division,
+remainders
+
+Pack harvested items into
+crates of 64; order the
+right number of crates
+
+Items spill on the floor, or
+an empty crate is wasted
+
+Market
+
+Fractions
+
+Share pies between
+villagers fairly by cutting
+them
+
+A villager gets a smaller
+slice and complains
+
+Chicken
+coop
+
+Doubling,
+powers of 2
+
+Chickens double each day;
+build the coop big enough
+before day 6
+
+Chickens overflow into
+the garden
+
+Mine
+
+Negative
+numbers
+
+Dig down past Y = 0 to
+reach ores at set depths
+below zero
+
+The lift stops at the wrong
+level
+
+Page 5 of 8
+
+Game Section — Design Brief
+
+Area
+
+Concept
+
+Mechanic
+
+Failure he sees
+
+Treasure
+map
+
+Coordinates
+
+Read X and Z on the
+inventor's map to dig in
+the right place
+
+Digging finds dirt instead
+of the chest
+
+Cliff path
+
+Rise and run,
+staircases
+
+Build stairs up a cliff with
+equal step heights
+
+Uneven steps and the
+sidekick trips
+
+Solar
+workshop
+
+Series and
+parallel
+
+Wire panels to reach a
+voltage (to open the door)
+and a current (to run the
+machine)
+
+Door stays shut, or the
+machine runs slowly
+
+Mill
+
+Gears and ratios
+
+Connect big and small
+gears to make the
+millstone turn at the right
+speed
+
+Too slow to grind, or it
+spins out of control
+
+Seesaw
+bridge
+
+Balance and
+levers
+
+Place weights at distances
+to balance a lift bridge
+
+The bridge tips and the
+cart rolls back
+
+The solar workshop is the climax: it uses the real ideas from the solar Rubik's cube
+breakdown, so the lesson and the game reinforce each other.
+
+Simple, obvious and guided
+As a game, it must be super simple and obvious. He should never wonder what to do next
+or how to do it. Depth lives in the ideas, never in the controls or the menus. Where this
+conflicts with anything else in this brief, simplicity wins.
+Always one clear goal. A single glowing marker shows where to go and what to do.
+Never more than one active task at a time.
+Show, don't explain, the controls. The first time any action is needed, a hand icon
+demonstrates it (tap here, drag this) and the sidekick says it aloud. Repeat the demo
+if he hesitates.
+Hand-hold the doing, not the thinking. The game guides him firmly on how to act
+(where to tap, what to drag) but leaves the idea for him to work out, with hints that
+get stronger if he's stuck.
+Hint ladder: about 20 s stuck → the sidekick restates the goal; 40 s → it points at the
+key thing ("look, every row is the same"); 60 s → it does the first step with him. It never
+gives the final answer outright.
+One new thing at a time. One new control or one new idea per puzzle, never both
+together.
+
+Page 6 of 8
+
+Game Section — Design Brief
+
+Few choices on screen. Only the blocks and tools needed for the current puzzle; no
+inventory management, crafting trees or menus to navigate.
+No reading needed. Every instruction is spoken and shown with icons.
+Nothing can get stuck or lost. He can't fall off the world, break a puzzle or lose
+progress. Undo and "reset this puzzle" are always available.
+Keep puzzles small. Few blocks per puzzle (under about 30), and twists like the
+sheep-pen shapes or the hollow tower are separate, optional steps after the basic
+version.
+
+Controls, feel and healthy engagement
+Controls
+Tap the ground to walk there; tap an object to interact. No virtual joystick.
+Drag a block from the hotbar to place it; tap a placed block to pick it back up. Undo is
+always one tap away.
+Camera: one finger rotates around the build, pinch to zoom; it auto-frames the current
+puzzle so he never gets lost.
+Number dial for choosing quantities: big plus and minus buttons, number shown large
+and spoken aloud.
+Every interactive thing is at least 64 pt and clearly highlighted.
+Game feel (this is what makes it feel like a real game)
+Blocks snap, bounce and click into place; water sloshes; sheep wander and react.
+Short, satisfying celebration when a machine works: the windmill starts turning, lights
+come on. The world changing is the reward.
+Characters react with personality, and small hidden surprises reward exploring.
+Music shifts as areas come back to life.
+Healthy engagement
+Each puzzle is a natural stopping point; the game saves automatically.
+No timers, lives, energy bars, daily rewards or streaks.
+A gentle, optional session limit set from the parent screen; when reached, the
+sidekick goes to sleep and the game ends with a cliffhanger, not a hard cut.
+No dark patterns: nothing that makes stopping feel like losing something.
+
+Tech, milestones and playtesting
+Tech notes
+
+Page 7 of 8
+
+Game Section — Design Brief
+
+Same stack as the build brief: Vite + TypeScript + Three.js, PWA, offline, Vercel.
+A simple grid-based voxel engine: blocks on integer coordinates, one unit each. No
+physics engine; outcomes (gap in fence, tank overflow) come from rule checks on the
+grid, then animate.
+Puzzles are data files (goal, allowed blocks, success check, hint ladder lines, unlock),
+so new puzzles don't need new engine code.
+Save progress in localStorage (wrapped in try/catch); keep frame rate smooth on an
+older iPad by limiting draw distance and merging block meshes.
+Narration through the same Kokoro bm_lewis pipeline as the lessons.
+Milestones
+1. Grey-box: walk, place and remove blocks, camera, number dial, one puzzle (the bed)
+with plain shapes. Test the controls with him straight away.
+2. The farm slice: all four puzzles, the sidekick, hints, unlocks, narration.
+3. Polish: game feel, sound, music, celebrations, the valley visibly changing.
+4. Playtest, then decide what to build next from the mechanics catalogue.
+Playtesting with him (the most important step)
+Watch him play without helping. Note where he hesitates, taps the wrong thing or
+gets bored; those are design bugs, not his mistakes.
+Afterwards, ask him to explain one idea ("why did the fence need 16?"). If he can't, the
+mechanic didn't teach it.
+Best sign it's working: he asks to play again on his own.
+Open questions
+Keep the valley and workshop setting, or something else he'd love more?
+Names for the robot sidekick and the valley (let him choose?).
+Main device: his iPad, your iPhone, or both?
+
+Page 8 of 8
+
+

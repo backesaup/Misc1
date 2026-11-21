@@ -1,0 +1,399 @@
+{
+  "id": "stack-64",
+  "section": "maths",
+  "title": "Why is a stack 64?",
+  "cardArt": "stack64",
+  "status": "ready",
+  "order": 1,
+  "_stepChain": "counting → a row → every row the same → rows × blocks-per-row → 8 × 8 → the times and equals signs → a cube is layers of squares → 4 × 4 × 4 → doubling → 64 reached by doubling → use it on something new",
+  "assumes": [
+    "counting",
+    "adding",
+    "times",
+    "square number",
+    "cube number",
+    "block",
+    "stack",
+    "Minecraft"
+  ],
+  "talk": [
+    {
+      "ask": "Why is 8 rows of 8 the same as 64?",
+      "goodAnswer": "every row has 8, so you count 8 eight times (8, 16, 24 … 64); it's 8 times 8."
+    },
+    {
+      "ask": "When the flat square became a cube, did the number of blocks change? How do you know?",
+      "goodAnswer": "no; the blocks only moved, none were added or taken away. 4 layers of 16 is still 64."
+    },
+    {
+      "ask": "What does doubling mean? What comes after 64?",
+      "goodAnswer": "making two of the same; 64 and 64 more is 128."
+    }
+  ],
+  "handsOn": "Find 64 small things at home, like Lego bricks or pasta. Lay them in 8 rows of 8. Then try to build a cube that is 4 by 4 by 4.",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": {
+        "type": "voxel",
+        "preset": "blocks64",
+        "params": {
+          "layout": "wall",
+          "visible": 0
+        }
+      },
+      "narration": {
+        "text": "In Minecraft, a stack of blocks stops at 64. Not 50. Not 100. Let's find out what is special about 64."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "fillStack",
+          "to": 64,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "id": "row",
+      "term": "row",
+      "narration": {
+        "text": "Let's lay all 64 blocks flat. Look at this line of blocks going across. Count them with me. 1, 2, 3, 4, 5, 6, 7, 8. A line going across like this is called a row."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "morph",
+          "to": "square",
+          "duration": 1.6
+        },
+        {
+          "at": 2.6,
+          "action": "lightRows",
+          "to": 1,
+          "duration": 0.3
+        }
+      ]
+    },
+    {
+      "id": "same",
+      "narration": {
+        "text": "Now look at every row. Each one has 8 blocks. And there are 8 rows. So we have 8 rows, with 8 blocks in each row."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "lightRows",
+          "to": 0,
+          "duration": 0.2
+        },
+        {
+          "at": 1.4,
+          "action": "showSides",
+          "a": "8 in each row",
+          "b": "8 rows"
+        }
+      ]
+    },
+    {
+      "id": "guess-1",
+      "question": {
+        "prompt": "8 rows, with 8 blocks in each row. How many blocks altogether?",
+        "choices": [
+          "16",
+          "64",
+          "88"
+        ],
+        "answer": 1,
+        "onRight": "Yes. You counted 8 rows of 8, and that makes 64.",
+        "wrong": {
+          "0": {
+            "mistake": "added 8 and 8 instead of counting 8 rows of 8",
+            "hint": "Look at the picture. Count the rows going down. Are there 2 rows, or more?",
+            "say": "You added 8 and 8. That would be 2 rows of 8. Look again: there are 8 rows. Let's count them, 8 at a time. 8, 16, 24, 32, 40, 48, 56, 64."
+          },
+          "2": {
+            "mistake": "put the two 8s side by side instead of counting rows",
+            "hint": "Look at the picture. Every row has 8 blocks. How many rows are there?",
+            "say": "88 is the two 8s written side by side. But we need 8 rows of 8 blocks. Let's count them, 8 at a time. 8, 16, 24, 32, 40, 48, 56, 64."
+          }
+        },
+        "reveal": "8 rows of 8 blocks makes 64.",
+        "revealAnimation": [
+          {
+            "at": 0,
+            "action": "countRows",
+            "duration": 4
+          }
+        ],
+        "retry": {
+          "prompt": "Now try this. 3 rows, with 8 blocks in each row. How many blocks?",
+          "choices": [
+            "11",
+            "24",
+            "38"
+          ],
+          "answer": 1,
+          "onRight": "Yes. You counted 3 rows of 8: 8, 16, 24.",
+          "wrong": {
+            "0": {
+              "mistake": "added 3 and 8",
+              "hint": "Picture 3 rows, each with 8 blocks. Count the first row, then the next.",
+              "say": "You added 3 and 8. We need 3 rows of 8. Count 8 at a time: 8, 16, 24."
+            },
+            "2": {
+              "mistake": "put 3 and 8 side by side",
+              "hint": "Picture 3 rows, each with 8 blocks. Count the first row, then the next.",
+              "say": "38 is 3 and 8 written side by side. Count 3 rows of 8, 8 at a time: 8, 16, 24."
+            }
+          },
+          "reveal": "3 rows of 8 is 24."
+        }
+      }
+    },
+    {
+      "id": "times-sign",
+      "term": "times sign",
+      "label": "8 × 8",
+      "narration": {
+        "text": "Counting rows that are all the same size is called times. We write 8 rows of 8 like this. The little cross is called the times sign. We say: 8 times 8."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "hideSides"
+        }
+      ]
+    },
+    {
+      "id": "equals-sign",
+      "term": "equals sign",
+      "label": "8 × 8 = 64",
+      "narration": {
+        "text": "These two little lines mean: makes the same as. It's called the equals sign. 8 times 8 equals 64."
+      }
+    },
+    {
+      "id": "cube",
+      "term": "layer",
+      "narration": {
+        "text": "Now watch. The same 64 blocks fold up into a cube. Each flat square of blocks in the cube is called a layer. Every layer is 4 rows of 4."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "morph",
+          "to": "cube",
+          "duration": 2
+        },
+        {
+          "at": 2.4,
+          "action": "showSides",
+          "a": "4 wide",
+          "b": "4 deep",
+          "c": "4 tall"
+        }
+      ]
+    },
+    {
+      "id": "guess-2",
+      "question": {
+        "narration": {
+          "text": "4 rows of 4 is 16 blocks in each layer. And there are 4 layers."
+        },
+        "prompt": "Is that 64 blocks too?",
+        "choices": [
+          "Yes",
+          "No"
+        ],
+        "answer": 0,
+        "onRight": "Yes. We only moved the blocks. Moving them doesn't change how many there are.",
+        "wrong": {
+          "1": {
+            "mistake": "thinks changing the shape changes how many blocks there are",
+            "hint": "Did any blocks come in, or go away? Or did they only move?",
+            "say": "We didn't add any blocks or take any away. We only moved them. Let's count the layers, 16 at a time. 16, 32, 48, 64."
+          }
+        },
+        "reveal": "4 times 4 times 4 is 64. The same blocks, in a new shape.",
+        "revealAnimation": [
+          {
+            "at": 0,
+            "action": "countLayers",
+            "duration": 3.2
+          }
+        ]
+      }
+    },
+    {
+      "id": "doubling",
+      "term": "doubling",
+      "narration": {
+        "text": "Now start again with 1 block. Make two of the same. That's 2. Making two of the same is called doubling. Keep doubling. 4. 8. 16. 32."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "hideSides"
+        },
+        {
+          "at": 0,
+          "action": "doubleTo",
+          "to": 1,
+          "duration": 0.6
+        },
+        {
+          "at": 2.2,
+          "action": "doubleTo",
+          "to": 2,
+          "duration": 0.5
+        },
+        {
+          "at": 6.4,
+          "action": "doubleTo",
+          "to": 4,
+          "duration": 0.5
+        },
+        {
+          "at": 7.3,
+          "action": "doubleTo",
+          "to": 8,
+          "duration": 0.6
+        },
+        {
+          "at": 8.2,
+          "action": "doubleTo",
+          "to": 16,
+          "duration": 0.7
+        },
+        {
+          "at": 9.2,
+          "action": "doubleTo",
+          "to": 32,
+          "duration": 0.9
+        }
+      ]
+    },
+    {
+      "id": "guess-3",
+      "question": {
+        "prompt": "What comes after 32?",
+        "choices": [
+          "48",
+          "64",
+          "40"
+        ],
+        "answer": 1,
+        "onRight": "Yes. Two lots of 32 make 64.",
+        "wrong": {
+          "0": {
+            "mistake": "added 16, the size of the last jump, instead of doubling",
+            "hint": "Doubling means two of the same. What is 32, and 32 more?",
+            "say": "You added 16, the size of the last jump. Doubling means making two of the same. So we need 32, and 32 more."
+          },
+          "2": {
+            "mistake": "added 8, like counting in rows, instead of doubling",
+            "hint": "Doubling means two of the same. What is 32, and 32 more?",
+            "say": "You added 8. Doubling 32 means two lots of 32. 32, and 32 more."
+          }
+        },
+        "reveal": "32 and 32 more makes 64. And look, the cube is full again.",
+        "revealAnimation": [
+          {
+            "at": 0,
+            "action": "doubleTo",
+            "to": 64,
+            "duration": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "connect",
+      "narration": {
+        "text": "So 64 turned up three times. 8 rows of 8. A cube, 4 by 4 by 4. And 1, doubled 6 times. Computers count in doubles, so people who make games often pick numbers like 64."
+      },
+      "animation": [
+        {
+          "at": 0.6,
+          "action": "morph",
+          "to": "square",
+          "duration": 1.2
+        },
+        {
+          "at": 3.2,
+          "action": "morph",
+          "to": "cube",
+          "duration": 1.2
+        },
+        {
+          "at": 6.5,
+          "action": "spin",
+          "turns": 0.5,
+          "duration": 2.4
+        }
+      ]
+    },
+    {
+      "id": "apply",
+      "question": {
+        "narration": {
+          "text": "Let's use this on something new. A farm has rows of plants."
+        },
+        "prompt": "10 rows, with 10 plants in each row. How many plants?",
+        "choices": [
+          "20",
+          "100",
+          "1,000"
+        ],
+        "answer": 1,
+        "onRight": "Yes. You saw 10 rows of 10, so you counted in tens: 100.",
+        "wrong": {
+          "0": {
+            "mistake": "added 10 and 10 instead of 10 rows of 10",
+            "hint": "There aren't 2 rows. There are 10 rows, each with 10 plants. Try counting in tens.",
+            "say": "You added 10 and 10. That's only 2 rows. There are 10 rows of 10. Count in tens: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100."
+          },
+          "2": {
+            "mistake": "multiplied by 10 again, as if the farm were a cube",
+            "hint": "The farm is flat, like one layer. It has 10 rows of 10. Try counting in tens.",
+            "say": "1,000 would be 10 layers, like a cube. The farm is flat: one layer of 10 rows of 10. Count in tens: 10, 20, 30, up to 100."
+          }
+        },
+        "reveal": "10 rows of 10 is 100. 10 times 10 equals 100."
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "64 = 8 × 8 = 4 × 4 × 4 = 1 doubled 6 times",
+        "ask": "Can you say why 64 is special? Say it out loud. Then tap the eye to check.",
+        "spoken": "64 is 8 times 8. It's 4 times 4 times 4. And it's 1, doubled 6 times."
+      }
+    }
+  ],
+  "bonus": {
+    "prompt": "4 times 4 times 4 is 64. What is 4 times 4 times 4 times 4?",
+    "choices": [
+      "16",
+      "256",
+      "68"
+    ],
+    "answer": 1,
+    "onRight": "Yes. You took 64 and made 4 lots of it.",
+    "wrong": {
+      "0": {
+        "mistake": "only multiplied two of the fours",
+        "hint": "4 times 4 times 4 is already 64. Now we need 4 lots of that 64.",
+        "say": "16 is 4 times 4. There are two more fours. 16 times 4 is 64. Then 4 lots of 64."
+      },
+      "2": {
+        "mistake": "added 4 to 64 instead of times 4",
+        "hint": "Times 4 means 4 lots of 64, not 64 and 4 more.",
+        "say": "You added 4 to 64. Times 4 means 4 lots of 64. 64, 128, 192, 256."
+      }
+    },
+    "reveal": "4 lots of 64 is 256."
+  }
+}

@@ -1,0 +1,302 @@
+Lesson Direction Brief — How to Teach Him
+
+Lesson Direction Brief — How to Teach Him
+​Nov 21, 2026 · ​@Esa
+
+Stance
+This brief governs how every lesson is framed, not what it teaches. Apply it to every
+lesson, script and question in the app, and re-read it before writing a new one.
+The learner is a 5-year-old who is genuinely capable: he knows square and cube numbers,
+loves arithmetic and asks real engineering questions. Treat him as a serious learner. He is
+not a genius, and he is still only 5. Both halves matter.
+Don't underestimate him. Use real ideas and real words (volts, parallel, perimeter,
+remainder). Never baby talk, sing-song voice, fake excitement or "good job,
+superstar!". Never dismiss a hard idea as "too grown-up".
+Don't overestimate him either. Being bright doesn't mean he already knows the steps
+in between. Being able to multiply doesn't mean he knows what area is. Assume
+nothing he hasn't been taught.
+Speak to him like a respectful, patient expert explaining something to a curious
+person who just hasn't met this idea yet. Warm, calm, direct, plain words.
+The goal is real learning: after a lesson he should be able to explain the idea back and
+use it on something new, not just remember the ending.
+
+The expert blind spot
+The biggest risk in these lessons is you, the expert, skipping steps that feel obvious to
+you. Psychologists call this the curse of knowledge: once you know something, it's very
+hard to imagine not knowing it. In Elizabeth Newton's tapping study, people tapping out a
+well-known song expected listeners to name about half of them; listeners got about 1 in
+40. Education researchers (Nathan and Petrosino) call the teaching version the expert
+blind spot: experts order and skip steps the way the subject is organised, not the way a
+beginner learns it.
+So before writing any lesson, do this:
+1. Write the step chain. List every idea the learner must hold to reach the goal, from
+what he already knows to the target. Example for "why a stack is 64": counting →
+equal rows → multiplying as rows × columns → 8 × 8 → a cube as layers of squares → 4
+× 4 × 4 → doubling → 64 reached by doubling.
+2. Check every link. For each step, ask: does he already know this, or was it taught
+earlier in this lesson? If neither, it's a missing step. Add it, or move the lesson later.
+
+Page 1 of 7
+
+Lesson Direction Brief — How to Teach Him
+
+3. Hunt for hidden assumptions. Words he hasn't heard, symbols (×, =, −), units,
+conventions ("rows go across"), and "obviously" moments. If you'd write "obviously",
+"just", "simply" or "of course", there is probably a skipped step there.
+4. Read it as him. Go through the script pretending to know only his starting knowledge.
+Anywhere you'd have to guess, the lesson is broken.
+
+First principles: understanding before procedure
+Teach why something is true before how to do it. A rule he can rebuild himself is worth
+more than ten he has memorised.
+Start from something he can see or already knows, then build each new idea out of
+the previous one. Never introduce a result he can't trace back to something earlier.
+Show why it must be true, not just that it is. Not "area is length times width", but: lay
+the blocks out in rows, count one row, notice every row is the same, so the total is
+rows × blocks-per-row.
+Let him reach the conclusion. Where possible, set up the pieces and ask him to
+predict the next step before you state it. Being told the answer is weaker than nearly
+getting there yourself.
+Name the idea after he understands it ("this is called perimeter"), not before. The
+word is a label for something he already gets.
+Resolve contradictions immediately. If something seems to clash with what he
+knows (54 × 60 mA is over 3,000, so why didn't the cube charge the phone?), make
+that the centre of the lesson, not a footnote.
+Connect ideas. Point out when a new idea is an old one in disguise (a cube is squares
+stacked up; doubling 6 times lands on 64 again). Connections are what make
+knowledge stick.
+Concept, then procedure, then practice. Only after he understands should a lesson
+give him a quick method to use.
+
+Define everything
+Nothing in a lesson may be undefined. Every word, number, symbol and unit must be
+explained the first time it appears, in that lesson or an earlier one he has done.
+Every number says what it counts. Not "60" but "60 milliamps, the amount of
+electricity one panel makes". Not "9" but "9 panels on one face". When two numbers
+are on screen, he must know which is which.
+Every symbol is introduced before it's used. If × or = or a minus sign hasn't appeared
+before, say what it means in words first, then show the symbol.
+
+Page 2 of 7
+
+Lesson Direction Brief — How to Teach Him
+
+Every unit is grounded. A unit needs a picture or comparison he can hold onto
+("milliamps measure how much electricity is flowing, like how much water comes out
+of a tap"), and then the lesson must stay consistent with it.
+One new term at a time. Never introduce two new words in the same step.
+Keep a glossary. Each lesson lists the terms it defines and the terms it assumes. Any
+assumed term must be defined in an earlier lesson. Claude Code should check this
+automatically when building.
+State assumptions out loud. "Let's pretend the sun is shining straight at it" is better
+than quietly assuming perfect sunlight.
+Use words consistently. If you've called it a "panel", don't switch to "cell" halfway
+through without saying they're the same thing.
+
+Testing understanding
+Check understanding with questions he has to think through, never with "does that make
+sense?" (a 5-year-old will almost always say yes).
+Predict before reveal. Asking learners to commit to a prediction before seeing the
+answer improves learning, even when the prediction is wrong (studied by Brod and
+colleagues). Every lesson has at least one prediction, at the moment of the key idea.
+Test understanding, not memory. A good question can only be answered by someone
+who understood. Types that work:
+What happens if…? ("If the cube had 4 panels on each face, how many
+altogether?")
+Which one is different, and why?
+Use it on something new (the same idea in a different object).
+Spot the mistake (a character gets it wrong; can he see where?).
+Wrong choices must be real mistakes, not silly ones. Each wrong option should be
+the answer a beginner would get from one specific misunderstanding (e.g. 8 + 8 = 16
+instead of 8 × 8). Write down which misunderstanding each wrong option represents.
+When he's wrong, find the broken step. Don't just show the right answer. Use the
+misunderstanding behind his choice to go back to the step that failed, re-explain it a
+different way, then let him try a similar question.
+Mix in earlier ideas. Later lessons should include a question or two that need an idea
+from a previous lesson, so knowledge is retrieved and connected, not left behind.
+End by having him say the rule. The narrator asks him to say the rule out loud before
+it's shown.
+
+Page 3 of 7
+
+Lesson Direction Brief — How to Teach Him
+
+Stretching him and giving feedback
+Aim each lesson one step past what he can do alone, close enough that he can reach it
+with the lesson's help. This is Vygotsky's zone of proximal development: too easy teaches
+nothing, too far just frustrates.
+Always include a stretch. End lessons with an optional bonus question that goes a bit
+further ("what's 4 × 4 × 4 × 4?"). Make it clearly a challenge, so not getting it isn't
+failure.
+Say when something is hard. "This part is tricky. Lots of grown-up engineers find it
+tricky too" is honest and keeps him going. Pretending it's easy makes him feel bad
+when it isn't.
+Praise what he did, not what he is. Mueller and Dweck found that children praised for
+being clever went on to avoid challenges and give up sooner after failure, while
+children praised for their effort and approach took on harder problems. So: "you
+noticed every row was the same, which is how you knew to multiply", never "you're so
+smart".
+Make feedback specific. Say exactly what was right or exactly which step went
+wrong. No vague "nearly!" or "great job!".
+Getting stuck is normal. Treat a wrong answer as useful information, calmly and
+without fuss: "Let's see what happened."
+
+Working with a 5-year-old's mind
+Respecting him means designing for how a 5-year-old's mind actually works. The limits are
+about capacity, not intelligence.
+Small working memory. Young children can hold far fewer new things in mind at once
+than adults. One new idea per step; keep the earlier pieces visible on screen so he
+doesn't have to remember them.
+Concrete before abstract. Real objects and blocks first, then pictures, then numbers
+and symbols. Don't jump straight to "8 × 8"; show 8 rows of 8 blocks, then write it.
+Short attention, so momentum matters. Keep steps short and let something happen
+on screen every few seconds. A long talking pause loses him even if the content is
+good.
+Voice and pictures carry the lesson. Assume very little reading. Words on screen are
+labels and numbers, and everything is also said aloud.
+Numbers are his strength; use them. He loves arithmetic, so give him things to
+calculate. A sum he can do is often the best way into a new idea.
+
+Page 4 of 7
+
+Lesson Direction Brief — How to Teach Him
+
+Let him control the pace. He taps Next when ready and can replay any step. Never
+rush him past a question.
+Repetition with variation. Revisit a big idea in a new setting a few lessons later rather
+than repeating the same example.
+
+Creativity, engagement and stories
+Every lesson should be genuinely creative and engaging, using everything the app can do.
+A lesson that's just narration over a static picture is a missed opportunity.
+Use every asset to the fullest
+The voxel world: blocks fall, stack, rearrange, explode, grow and split apart. Show the
+maths happening (8 rows sliding together into a square, a square folding into a cube)
+rather than describing it.
+3D and camera: fly inside things. Zoom into the cube's core, open up the iPad layer by
+layer, follow electricity along a wire.
+Interaction: he taps, drags, builds and breaks. He should do something every few
+steps, not just watch.
+Sound: satisfying sound effects for blocks landing, circuits connecting and correct
+predictions, with a light music bed. Sound carries a lot of the energy.
+Voice: use narration with character and timing (pauses, surprise, a dry joke), not a flat
+read-out.
+Variety: vary the format across lessons: a mission, a mystery, an experiment, a build
+challenge, a "what went wrong?" investigation.
+Teach through stories
+Stories are easier to remember than lists of facts. The psychologist Daniel Willingham
+calls them "psychologically privileged" because the mind follows causes, goals and
+conflicts naturally.
+Give the app a world and recurring original characters: for example an inventor who
+builds things and a sidekick who asks the questions he might ask. Keep their
+personalities consistent across lessons.
+Frame lessons as problems to solve. The village needs a staircase up a cliff; the
+inventor's phone is dead and only the solar cube can save it; a storage room only holds
+64 blocks per slot, so why? The idea being taught must be what solves the problem.
+Let characters make mistakes he can catch. The sidekick adds 8 + 8 instead of
+multiplying, or points the cube's shaded side at the sun. Spotting their mistake is a
+great test of his understanding.
+
+Page 5 of 7
+
+Lesson Direction Brief — How to Teach Him
+
+Link lessons into a bigger story so finishing one leads into the next (the solar cube's
+battery is charged, so now what can the inventor build?).
+The story serves the learning. Keep the setup short, so the idea arrives within the
+first 15–20 seconds. Cut any story beat that delays or distracts from the concept.
+
+Balancing the method
+The principles above are the default, not a rigid formula. These points refine them; where
+they seem to conflict, these win.
+Watch him, don't assume. This method suits a careful, older learner. A 5-year-old may
+learn differently. Watch which lessons he replays, where he gets bored and what he
+asks about, and adjust the approach to fit what actually works for him.
+Make room for play. Young children learn a lot through free exploration. Include a
+sandbox mode with no questions and no goals: a block world where he can build
+squares, cubes and stacks, and a counter that shows how many blocks he's used.
+Analogies are allowed, but make them honest. At his age, comparisons ("milliamps
+are like how much water comes out of a tap") are often the only way into an abstract
+idea. Use them, then point out where the analogy stops working as the topic goes
+deeper.
+Wonder can come first. Not every lesson has to open with a derivation. It's fine to
+start with the surprising thing ("this cube can charge a phone!") and explain why
+afterwards. Curiosity is what brings him back.
+Let him struggle a little. After a wrong answer, give him one more try with a small hint
+before re-explaining. Productive struggle helps learning; rescuing him too fast
+doesn't.
+The real test is him explaining it. The app can't hear him explain yet. Each lesson ends
+with a "Talk about it" card for a grown-up: one or two questions to ask him ("why did
+the cube not charge the phone much?"), plus what a good answer includes.
+Hands-on beats screens. Each lesson ends with a real-world challenge where
+possible: build a 3 × 3 × 3 cube from Lego, count the pieces, find 64 things in the
+house, test which chair wobbles. Keep sessions short; the app is a starting point, not
+the whole lesson.
+
+Page 6 of 7
+
+Lesson Direction Brief — How to Teach Him
+
+Voice examples and checklist
+Don't
+
+Do
+
+"Wowee! Solar panels are SUPER magic!"
+
+"Solar panels turn sunlight into electricity.
+Let's see how."
+
+"This is a bit grown-up, so don't worry
+about it."
+
+"This part is tricky. Let's take it one step at a
+time."
+
+"Area is length times width. Remember
+that!"
+
+"Count one row. Now, is every row the same?
+Then how could we count them all faster?"
+
+"The panel makes 60."
+
+"One panel makes 60 milliamps. Milliamps
+measure how much electricity is flowing."
+
+"Great job, superstar, you're a genius!"
+
+"Yes. You saw that each face has 9, so 6 faces
+is 6 × 9."
+
+"Oops, wrong! The answer is 64."
+
+"You added 8 and 8. Look again: are there 2
+rows or 8 rows?"
+
+"Does that make sense?"
+
+"If there were 10 rows of 10, how many
+blocks?"
+
+Before any lesson ships, check:
+Step chain written; every link is known or taught earlier.
+Every number, unit, symbol and new word is defined at first use; one new term per
+step.
+The why is shown before the rule; the rule is named only after it's understood.
+At least one prediction at the key moment.
+Every wrong option maps to a named misunderstanding, with a re-explanation for it.
+At least one question needs the idea applied to something new.
+A stretch question at the end.
+No baby talk, empty praise, "obviously", "just" or "simply".
+Read through as him: no point where he'd have to guess what something means.
+Any analogy used is flagged where it stops being accurate.
+A "Talk about it" card for a grown-up and, where possible, a hands-on challenge.
+He does something (tap, drag, build) every few steps; the idea is shown in motion, not
+just described.
+If there's a story, the problem in it can only be solved with the lesson's idea, and the
+idea arrives within 20 seconds.
+
+Page 7 of 7
+
+

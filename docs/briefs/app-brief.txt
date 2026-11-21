@@ -1,0 +1,510 @@
+Brother's Engineering & Maths App — Claude Code Brief
+
+Brother's Engineering & Maths App —
+Claude Code Brief
+​Nov 21, 2026 · ​@Esa
+
+Overview
+Build an offline-capable web app (PWA) for iPhone and iPad that teaches a very bright 5year-old how real things are engineered, how to build machines in Minecraft, and new
+maths, through short animated, narrated lessons where he guesses before each answer is
+revealed.
+How to use this brief (for Claude Code): read it fully before writing code. Work milestone
+by milestone (see Milestones), keep commits small, and stop to ask Esa before any
+decision that is hard to undo (framework swap, hosting, data collection). Where this brief
+marks a fact as verify, do not ship it until Esa confirms it.
+Goals for v1
+1. A lesson player that runs any lesson defined as data, with animation, narration and
+tap-to-guess questions.
+2. One finished maths short: "Why is a stack 64?"
+3. One finished engineering breakdown: the solar-powered Rubik's cube.
+4. Installable to the home screen, works offline, no accounts, no ads.
+Non-goals for v1: native App Store app, user accounts, analytics, AI chat, multiplayer.
+
+The learner and design principles
+The user is a 5-year-old who thinks well ahead of his age. He knows square and cube
+numbers, loves arithmetic and is curious about how things are engineered, but knows
+little other maths. He plays Minecraft (Bedrock edition, on iPad). Assume he reads very
+little: everything important must work through voice and pictures.
+Design principles
+Voice first. Every step is narrated. Text on screen is short labels and numbers only.
+Guess before reveal. Each lesson pauses at least once and asks him to commit to an
+answer (tap one of 2–4 big choices) before showing it. Wrong answers get a calm
+"let's see why", never a buzzer or a fail screen.
+Real ideas, simple words. Don't water down the concept (volts vs milliamps, series vs
+parallel, powers of 2). Simplify the words, not the idea.
+
+Page 1 of 9
+
+Brother's Engineering & Maths App — Claude Code Brief
+
+Short. Maths shorts 30–60 seconds; breakdown steps under 45 seconds each.
+One consistent lesson shape so he always knows what's coming (see Lesson format).
+Big touch targets (at least 64 × 64 pt), no swipe-only controls, no small close buttons.
+Calm and safe. No ads, timers, streaks, sign-ins, external links or in-app purchases. A
+simple parent screen (behind a hold-for-3-seconds button) for settings.
+Show, then name. Show the thing happening first, then give it its proper word ("this is
+called parallel").
+
+Platform and tech stack
+Ship as a Progressive Web App, not a native iOS app. Esa develops on a Windows laptop
+(Surface Laptop 3); native iOS needs a recent Mac with Xcode, which he only has by
+borrowing. A PWA can be built and tested entirely from Windows, added to the
+iPhone/iPad home screen, and run offline. Revisit native only if a real limit appears.
+Layer
+
+Choice
+
+Why
+
+Build
+
+Vite + TypeScript
+
+Fast, simple, no framework lock-in
+
+UI
+
+Plain TypeScript + CSS, or Preact if
+state gets messy
+
+Small bundle, easy for Claude Code to
+reason about
+
+3D scenes
+
+Three.js
+
+Blocky voxel scenes (cubes, stacks,
+pools, circuits)
+
+2D
+scenes
+
+SVG or Canvas
+
+Diagrams like wiring, number lines
+
+Animation
+
+A small timeline system driven by
+lesson data (GSAP optional)
+
+Lessons are data, not hand-coded
+scenes
+
+Audio
+
+Pre-generated MP3/OGG files per
+narration line
+
+Consistent voice, works offline
+
+Offline
+
+Service worker (vite-plugin-pwa /
+Workbox), precache all lesson assets
+
+Must work with no Wi-Fi
+
+Hosting
+
+Vercel (static)
+
+Esa already deploys there
+
+Tests
+
+Vitest for logic, Playwright for a
+smoke test of each lesson
+
+Catch broken lessons before deploy
+
+iOS PWA notes: audio can only start after a tap, so every lesson begins with a big Play
+button. Add the web app manifest, apple-touch-icon and apple-mobile-web-appcapable meta tags. Test in Safari on a real iPhone and iPad, portrait first, landscape
+
+Page 2 of 9
+
+Brother's Engineering & Maths App — Claude Code Brief
+
+supported on iPad. Keep total download under ~50 MB.
+
+Hard constraints
+These apply to every lesson, scene and asset. Do not work around them.
+Use Minecraft's Art Style. Use the blocky voxel style. Use Minecraft's textures,
+sounds, fonts, logo, UI, or any of its characters or mobs, and recreate them closely.
+Naming. The app's own name contains no Minecraft branding. Minecraft build
+tutorials may say in narration that they are "for Minecraft (Bedrock)" as a plain fact.
+Game facts must be accurate for Bedrock edition (e.g. stack size 64, cake has 7 bites,
+the world goes down to Y = −64). Redstone behaves differently in Java and Bedrock;
+build tutorials target Bedrock only.
+Privacy. No accounts, no analytics, no third-party trackers, no network calls after
+install except fetching app updates. Any progress (lessons completed) lives in
+localStorage only, wrapped in try/catch.
+No external links reachable from the child's screens.
+Accessibility. Captions toggle in the parent screen; respect reduced-motion settings
+with a simpler animation path.
+
+App structure and lesson format
+The home screen has three big picture tiles, one per section. Each section is a grid of
+lesson cards (picture + spoken title on tap).
+Section
+
+What it holds
+
+First lessons
+
+How it's really
+made
+
+Real-world engineering
+breakdowns
+
+Solar Rubik's cube, iPad, chair, table,
+staircase
+
+Build it in
+Minecraft
+
+Step-by-step Bedrock build
+guides
+
+TNT dropper, chair, table, staircase
+
+Maths shorts
+
+30–60 s concept videos with a
+guess
+
+Why a stack is 64, then the series in
+Maths shorts
+
+Every lesson is data. A lesson is a JSON file in content/lessons/ ; the player renders it.
+Adding a lesson must never need new player code unless it introduces a new scene type.
+Suggested schema:
+
+Page 3 of 9
+
+Brother's Engineering & Maths App — Claude Code Brief
+
+{
+"id": "stack-64",
+"section": "maths",
+"title": "Why is a stack 64?",
+"cardImage": "stack-64.png",
+"steps": [
+{
+"id": "hook",
+"scene": { "type": "voxel", "preset": "stackCounter", "params": {
+"count": 64 } },
+"narration": { "text": "Why does a stack stop at 64? Why not 50, or
+100?", "audio": "stack-64/hook.mp3" },
+"animation": [ { "at": 0, "action": "fillStack", "to": 64, "duration":
+3 } ]
+},
+{
+"id": "guess-1",
+"question": {
+"prompt": "8 rows of 8 blocks. How many blocks?",
+"choices": ["16", "64", "88"],
+"answer": 1,
+"onWrong": "Let's count the rows together."
+}
+}
+]
+}
+
+Step kinds: narrated scene, question (tap to guess, then reveal), tap-to-explore (tap a
+part of a model to hear what it does), and build step (show one Minecraft build step, with a
+Next button he controls).
+Player controls: Play/Pause, Replay step, Next (enabled after narration ends), Back to
+section. A lesson ends with a one-line rule spoken and shown (e.g. "8 × 8 = 64 = 4 × 4 × 4")
+and a big Again / Home choice.
+
+Voice narration
+Pre-generate all narration as audio files at build time with Kokoro TTS, voice bm_lewis
+(British male), on Esa's laptop. Do not run TTS in the browser.
+Write a script scripts/generate-audio.py that reads every lesson JSON, and for
+each narration.text without an up-to-date audio file, generates it with Kokoro ( pip
+install kokoro soundfile , voice bm_lewis , 24 kHz) and saves it to
+public/audio/<lesson>/<step>.mp3 (convert with ffmpeg).
+
+Page 4 of 9
+
+Brother's Engineering & Maths App — Claude Code Brief
+
+Store a hash of the text next to each file so changed lines are regenerated and
+unchanged ones are skipped.
+Speed about 0.9× for a young listener; leave a short pause before each question.
+Fallback: if a file is missing at runtime, use the browser's Web Speech API so nothing
+breaks during development. Never ship with fallbacks in use; the Playwright smoke
+test should fail if any audio file is missing.
+Captions come from the same narration.text , so audio and captions never drift
+apart.
+If Kokoro won't install on Windows, stop and tell Esa rather than switching voices
+silently.
+
+First breakdown: the solar-powered Rubik's cube
+Source: the YouTube video "I built a Solar-Powered Rubik's Cube" by Z3Cubing (June
+2026), which he watched. A maker covered a 3×3 cube with 54 small square solar cells and
+built it into a working, though impractical, phone charger. Details below come from a
+second-hand summary; every number marked verify must be checked against the video
+by Esa before the lesson ships.
+He already knows a phone needs over 1,000 mA to charge and that one cell gives about 60
+mA. The lesson builds on that.
+1. What it does. A Rubik's cube covered in 54 tiny solar panels, 9 on each face, that can
+charge a phone. Scene: the cube rotating in sunlight. Guess: "How many panels?" (he
+can work out 9 × 6).
+2. Light into electricity. Each panel turns sunlight into a little electricity: about 60 mA in
+full sun (verify the per-cell voltage too; the summary said 1.5 V, which conflicts with
+step 5).
+3. Teamwork: series and parallel. The 9 panels on a face are joined in a chain (series),
+which adds up the push (volts). The 6 faces are joined side by side (parallel), which
+adds up the flow (milliamps). Scene: animated wiring, tap a face to see its chain light
+up.
+4. The battery. Power goes through a charge controller into small batteries in the cube's
+hollow core. Key idea: energy can be saved now and used later.
+5. The booster and USB port. A converter turns the battery's power into exactly 5 V for
+the phone, through a USB port hidden under the white centre. (Verify: if each face's 9
+cells in series gave 9 × 1.5 = 13.5 V, it wouldn't need boosting up to 5 V. Roughly 0.5 V
+per cell, or 4.5 V per face, would fit a step-up, so the 1.5 V figure is probably wrong.)
+
+Page 5 of 9
+
+Brother's Engineering & Maths App — Claude Code Brief
+
+6. The really hard part: it still turns. The pieces move, so how does electricity get
+between them? Springy brass ball bearings press on brass contacts (96 of them),
+magnets help pieces line up, and slip rings let power pass through the spinning
+centres without wires twisting. Scene: cut-away of one edge piece touching its
+neighbours. This is the best engineering bit; give it time.
+7. Did it work? Guess first: "54 × 60 mA, how much is that?" (3,240 mA). Then the real
+test: only 1–3 faces face the sun at once, there are gaps, and real output was at most a
+couple of hundred mA, well short of the 1,000 mA a phone needs. It barely charged.
+Final rule: engineers build it, test it, and find out the real number.
+Scenes needed: voxel cube with cell texture and rotation; series/parallel wiring diagram
+with current flow; battery fill gauge; cut-away of an edge piece with spring contacts; a
+sun-angle view showing lit vs shaded faces.
+
+Maths shorts
+Each short is 30–60 seconds, one idea, in the blocky world where every block is a unit of 1.
+Shape: hook question → pause to guess → reveal → one-line rule. Build the series in this
+order; each starts from something he knows (squares, cubes, arithmetic) and takes one
+step further.
+
+Page 6 of 9
+
+Brother's Engineering & Maths App — Claude Code Brief
+
+#
+
+Short
+
+Starts from
+
+New idea
+
+1
+
+Why is a stack
+64?
+
+8², 4³
+
+Powers of 2: 1, 2, 4 … 64
+
+2
+
+Floor vs fence
+
+Squares
+
+Area vs perimeter (5 × 5 floor = 25, edge = 20)
+
+3
+
+Filling a pool
+
+Cubes
+
+Volume (3 × 3 × 3 = 27)
+
+4
+
+The hollow cube
+
+27
+
+Outside only = 26, the number of pieces on a
+Rubik's cube (links to the solar cube)
+
+5
+
+Crop farms
+
+Times
+tables
+
+Arrays; 3 × 7 = 7 × 3 (turn the farm)
+
+6
+
+Sharing diamonds
+
+Division
+
+Remainders (17 ÷ 3 = 5 r 2)
+
+7
+
+Eating cake
+
+Sharing
+
+Fractions (cake has 7 bites; 3 eaten, 4/7 left)
+
+8
+
+Digging down
+
+Counting
+
+Negative numbers (below Y = 0, down to −64)
+
+9
+
+Treasure map
+
+Counting
+
+Coordinates (X across, Z forward)
+
+10
+
+Doubling
+chickens
+
+Powers of 2
+
+Growth that speeds up
+
+Script: Short 1, "Why is a stack 64?" (about 45 s)
+1. Scene: blocks drop into a slot and the counter climbs to 64, then stops. Voice: "A stack
+always stops at 64. Not 50. Not 100. Why 64?"
+2. Scene: 64 blocks rearrange into an 8 × 8 flat square. Voice: "You know this one. 8 rows
+of 8." Guess: 16 / 64 / 88. Reveal: 64.
+3. Scene: the square folds into a 4 × 4 × 4 cube. Voice: "And it's also a cube! 4 times 4
+times 4." Guess: "Is that 64 too?" Yes / No. Reveal: yes.
+4. Scene: one block, then it doubles: 2, 4, 8, 16, 32, 64, each step stacking up. Voice: "Start
+with 1 and keep doubling. 1, 2, 4, 8, 16, 32 …" Guess: "What comes next?" 48 / 64 / 40.
+Reveal: 64.
+5. Voice: "Computers love doubling, so builders pick numbers like 64. It's a square, a
+cube and a doubling number, all at once."
+6. Rule on screen and spoken: "64 = 8 × 8 = 4 × 4 × 4 = 1 doubled 6 times."
+The "computers love doubling" line is a simplification; keep it, but don't claim that's
+officially why the game uses 64.
+
+Page 7 of 9
+
+Brother's Engineering & Maths App — Claude Code Brief
+
+More breakdowns and Minecraft builds
+Where possible, pair a real-world breakdown with its Minecraft build (real chair →
+Minecraft chair), so he sees the same object as engineering and as building.
+How it's really made (same shape as the solar cube: what it does → parts → how each part
+works → the hard part → a real number)
+Lesson
+
+Core ideas to teach
+
+iPad
+
+Tap-to-open layers: glass, touch layer, screen,
+battery (the biggest part inside), main chip,
+cameras, speakers. How a touch is detected. Why
+the battery is so big.
+
+Chair
+
+Legs carry weight to the floor; joints and why they
+need to be strong; why a 3-legged stool never
+wobbles but a 4-legged chair can.
+
+Table
+
+Same as chair plus span: a wide top sags in the
+middle unless it's thick or has supports
+underneath.
+
+Staircase
+
+Rise (step height) and run (step depth); counting
+steps = total height ÷ rise; why every step must be
+the same height.
+
+Build it in Minecraft (Bedrock)
+Lesson
+
+Notes
+
+TNT dropper
+
+Explain each part: dispenser (fires TNT), redstone
+dust (carries the signal), repeater (delay), clock or
+lever (trigger). Then build it step by step.
+
+Chair
+
+Stairs block + signs or trapdoors as arms.
+
+Table
+
+Fence post or slab + pressure plate, or carpet top.
+
+Staircase
+
+Stair blocks, then a spiral version; links to rise and
+run.
+
+Accuracy rule for builds: Claude Code cannot run Minecraft. Base every build on a wellknown, current Bedrock design, show each step as an original voxel scene, and list the
+exact blocks and counts. Esa tests each build once in Bedrock before it ships (testing
+
+Page 8 of 9
+
+Brother's Engineering & Maths App — Claude Code Brief
+
+only, no recording). Mark untested builds as drafts in the data ( "status": "draft" ) so
+they don't appear for his brother.
+
+Milestones, open questions and later
+Work in this order. Each milestone ends with a deploy to Vercel and a check on a real
+iPhone/iPad.
+1. Setup. Vite + TypeScript project, PWA manifest and service worker, home screen with
+three section tiles, deploy to Vercel. Done when it installs to an iPhone home screen
+and opens offline.
+2. Lesson player. Loads lesson JSON, plays narrated steps, question steps with tap-toguess and reveal, player controls, captions toggle. Use placeholder audio (Web
+Speech) for now.
+3. Voice pipeline. Kokoro bm_lewis generation script, hashing, smoke test that fails on
+missing audio.
+4. Short 1: "Why is a stack 64?" Voxel scenes (stack counter, 8 × 8 square, 4 × 4 × 4 cube,
+doubling). Done when Esa watches it on the iPad with his brother.
+5. Solar cube breakdown. After Esa verifies the marked facts.
+6. Shorts 2–5, then the first Minecraft build (TNT dropper), then the real-world
+breakdowns.
+7. Polish. Parent screen, reduced-motion path, progress ticks on lesson cards, app icon.
+Definition of done for any lesson: every step has audio, at least one guess, a closing rule,
+no Minecraft assets, facts verified (or marked draft), and it plays start to finish on iPhone
+Safari with no console errors.
+Open questions for Esa
+How much can he read? (Brief assumes very little.)
+Main device: his iPad, your iPhone, or both?
+Chair, table and staircase: real-world, Minecraft, or both? (Brief assumes both.)
+Verify the solar cube numbers against the video (volts per cell, output in sunlight).
+App name.
+Later, not now: a voice AI buddy he can talk to about what to build, which could reuse
+these lessons as its teaching content; exporting shorts as MP4 videos (render scenes
+with Playwright + ffmpeg, add the narration track); a native iOS version if the PWA hits a
+real limit.
+
+Page 9 of 9
+
+
