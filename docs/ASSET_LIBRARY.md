@@ -45,6 +45,19 @@ Actions: `spin`, `countPanels`, `panelsOff`, `sunrise`, `pulsePanels`, `twist`, 
 `focusEdge`, `sunAngle`, `tag` (`name`: `panel`). Tags shown automatically: sun, battery, springy
 balls, magnets, slip ring. Explore part ids: `springs`, `magnets`, `slipring`.
 
+### `voxel:disco` — a disco room (ready)
+`src/scenes/voxel/Disco.tsx`. Dark room, mirror ball of 10 rows × 10 mirrors on a motor, a
+spotlight with a visible beam, reflected dots that land on the walls and floor and sweep as the
+ball turns (a second light doubles them to 200), two speakers whose cones pump to the beat, a
+4 × 4 light-up floor, and coloured light (white/red/green/yellow). Plays an original synthesised
+beat (2 beats a second) through `startMusic`/`stopMusic` in `src/lib/sfx.ts`.
+
+Actions: `lights`, `spin` (`on`), `dots` (`on`, `count`), `secondLight`, `oneMirror` (one beam
+bouncing off one mirror), `countMirrors`, `clearCount`, `music` (`on`, `volume`), `colour` (`to`),
+`floorDance`, `countFloor`, `tag` (`name`: ball, light, mirror, motor, speaker, floor), `untag`.
+Explore part ids: `ball`, `light`, `motor`, `speaker`, `floor`. Good for: reflection, light and
+colour, sound and vibration, rhythm and counting in twos, arrays (mirrors, tiles), doubling.
+
 ### `diagram:wiring` — series and parallel (ready)
 `src/scenes/diagram/Wiring.tsx`. SVG: 6 rows (faces) of 9 panels, rails, battery, moving current.
 Actions: `flow` (`on`), `lightFace` (`face`), `lightRails`. Tappable: any row → part `chain` (and
@@ -64,8 +77,8 @@ visible outlines.
 
 ## 2. Card art (ready)
 `src/components/CardArt.tsx` draws isometric voxel pictures as SVG (no files, no WebGL).
-Presets: `stack64`, `solarCube`, `made` (chair), `build` (grass-topped stairs), `maths` (doubling
-1, 2, 4, 8). Add a preset as a list of voxels with a base colour. Lessons pick one with `cardArt`.
+Presets: `stack64`, `solarCube`, `disco`, `made` (chair), `build` (grass-topped stairs), `maths`
+(doubling 1, 2, 4, 8). Add a preset as a list of voxels with a base colour. Lessons pick one with `cardArt`.
 
 ## 3. Characters
 - **Guide** (ready) — `src/components/Guide.tsx`. Blocky third-person builder in a yellow hard hat,
@@ -163,11 +176,20 @@ has errors (Bedrock cake stack size says 64), so verify any fact a lesson depend
 | **LDraw parts library** (library.ldraw.org) + three.js **LDrawLoader**, leozide/LeoCAD, mubaidr/ldraw-models, Mecabricks | CC BY 4.0 (LDraw) | Exact Lego builds for hands-on challenges ("build this 3×3×3 cube"). Plan: pack models with three's LDraw packer into single `.mpd` files so they work offline, add a `ldraw:model` scene |
 | Poly Haven | CC0 | Textures/HDRIs for realistic objects (iPad layers, chair wood) |
 
-## 8. Sound and voice
-- Narration: Kokoro TTS, voice `bm_lewis`, 0.9× (scripts/generate-audio.py). Files in
+## 8. Sound, voice and speech input
+- Narration: Kokoro TTS, voice `bm_lewis`, 0.9× (scripts/generate-audio.py), recorded
+  automatically by the GitHub Action `.github/workflows/narration.yml` whenever lesson or game text
+  changes (it commits the MP3s back). Files in
   `public/audio/<lesson>/<line>.mp3` with `.hash` sidecars and `manifest.json`. Line names come
   from `src/lesson/lines.ts`. Missing files fall back to the device voice in development only.
 - Effects: synthesised in `src/lib/sfx.ts` (tap, block click, right-answer chime). No buzzer, ever.
+- Music: `startMusic()` / `stopMusic()` in `src/lib/sfx.ts`, an original beat (kick, hi-hat,
+  bass) at 2 beats a second. Respects the sound setting.
+- **Speech input** (ready): `src/lib/listen.ts` (browser speech recognition; on iPad it's Apple's)
+  and `MicButton`. Used on every question (`matchChoice` turns "sixty four" into the 64 choice),
+  the say-the-rule step (what he said is logged for the parent screen), Ask dictation, and naming
+  the robot and the farm. `src/lib/spoken.ts` parses spoken numbers and yes/no. Parent toggle.
+- Names he chooses (robot, farm) are shown, never spoken, so all narration can be pre-recorded.
 - Game sounds from the texture sources' asset packs are available but not used yet.
 
 ## 9. App data you can build on
@@ -177,6 +199,7 @@ has errors (Bedrock cake stack size says 64), so verify any fact a lesson depend
   `activity.json` (replays, wrong answers chosen, where he stopped). Make lessons from these.
 
 ## Changelog
+- 2026-11-21 — disco scene + lesson, speech input, music, recorded-narration workflow, Blocky name.
 - 2026-11-21 — game grey-box: robot sidekick, Block/GlowCell, number dial, bed puzzle data.
 - 2026-11-21 — first version: scenes blocks64/solarCube/wiring/power, card art, guide, textures
   from 14 sources, minecraft-data, UI libraries, non-Minecraft sources, LDraw plan.

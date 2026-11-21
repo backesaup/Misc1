@@ -19,8 +19,8 @@ export default defineConfig({
       injectRegister: 'auto',
       includeAssets: ['favicon.svg', 'apple-touch-icon.png', 'logo-mark.png'],
       manifest: {
-        name: 'Blockwise',
-        short_name: 'Blockwise',
+        name: 'Blocky',
+        short_name: 'Blocky',
         description: 'How real things are made, building guides, and maths shorts.',
         theme_color: '#f3ead8',
         background_color: '#f3ead8',

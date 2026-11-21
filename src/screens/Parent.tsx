@@ -8,6 +8,7 @@ import { go } from '@/lib/router'
 import { audioStatus, type AudioStatus } from '@/lib/audioStatus'
 import { learner, appName } from '@/config'
 import { readActivity, summarise, clearActivity } from '@/lib/activity'
+import { readJSON, writeJSON } from '@/lib/storage'
 import { exportZip, listItems, clearItems } from '@/lib/inbox'
 
 function Row({ id, title, hint, checked, onChange }: { id: string; title: string; hint: string; checked: boolean; onChange: (v: boolean) => void }) {
@@ -77,6 +78,13 @@ export function Parent() {
           checked={settings.reduceMotion === 'on'}
           onChange={(v) => update({ reduceMotion: v ? 'on' : 'system' })}
         />
+        <Row
+          id="speech"
+          title="Speech input"
+          hint="He can answer, name things and say the rule out loud. On iPad this uses Apple's speech recognition, which may send his voice to Apple to turn it into words."
+          checked={settings.speechInput}
+          onChange={(v) => update({ speechInput: v })}
+        />
         <div className="p-row">
           <div className="p-row-text">
             <span className="p-row-title">Narration speed</span>
@@ -135,6 +143,11 @@ export function Parent() {
         )}
       </section>
 
+      <section className="p-card" aria-labelledby="p-farm">
+        <h2 id="p-farm">The farm</h2>
+        <FarmNames />
+      </section>
+
       <section className="p-card" aria-labelledby="p-ask">
         <h2 id="p-ask">{learner.name}'s requests</h2>
         <p className="p-stat">
@@ -177,6 +190,12 @@ export function Parent() {
             </ul>
           </div>
         )}
+        {activity.said.length > 0 && (
+          <div>
+            <p className="p-row-title">How he said the rules (speech input)</p>
+            <ul className="p-list">{activity.said.map((t, i) => <li key={i}>“{t}”</li>)}</ul>
+          </div>
+        )}
         {activity.quits.length > 0 && (
           <div>
             <p className="p-row-title">Where he stopped</p>
@@ -201,5 +220,29 @@ export function Parent() {
         {appName} keeps everything on this device. No accounts, no tracking.
       </p>
     </main>
+  )
+}
+
+function FarmNames() {
+  const [g, setG] = useState(() => readJSON<{ robotName?: string; farmName?: string }>('game', {}))
+  return (
+    <>
+      <p className="p-row-hint">
+        Robot: <strong>{g.robotName ?? 'not named yet'}</strong> · Farm: <strong>{g.farmName ?? 'not named yet'}</strong>. He chooses these himself the
+        first time he opens the farm.
+      </p>
+      <HoldButton
+        ms={1200}
+        label="Hold to ask him for new names"
+        className="p-danger"
+        onDone={() => {
+          const next = { ...readJSON<Record<string, unknown>>('game', {}), robotName: undefined, robotColor: undefined, farmName: undefined }
+          writeJSON('game', next)
+          setG({})
+        }}
+      >
+        Hold to ask for new names
+      </HoldButton>
+    </>
   )
 }

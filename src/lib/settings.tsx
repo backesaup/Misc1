@@ -9,9 +9,11 @@ export interface Settings {
   speed: number
   /** 'system' follows the device setting; 'on' always uses the simple path. */
   reduceMotion: 'system' | 'on'
+  /** Let him answer and name things by speaking (uses the device's speech recognition). */
+  speechInput: boolean
 }
 
-const DEFAULTS: Settings = { captions: false, showDrafts: false, sounds: true, speed: 1, reduceMotion: 'system' }
+const DEFAULTS: Settings = { captions: false, showDrafts: false, sounds: true, speed: 1, reduceMotion: 'system', speechInput: true }
 
 type Progress = Record<string, { done: true; at: number }>
 

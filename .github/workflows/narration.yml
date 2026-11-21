@@ -1,0 +1,72 @@
+# Records the narration with Kokoro (voice bm_lewis) whenever lesson or game text changes,
+# and commits the MP3s back to the same branch. Nobody needs to run anything on a laptop:
+# the files ship with the app, so the iPad plays them offline.
+name: Narration
+
+on:
+  push:
+    paths:
+      - 'content/lessons/**'
+      - 'content/puzzles/**'
+      - 'src/lesson/lines.ts'
+      - 'src/config.ts'
+      - 'scripts/generate-audio.py'
+      - 'scripts/list-lines.ts'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: narration-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: .github/workflows/narration.yml
+
+      - name: System packages
+        run: sudo apt-get update && sudo apt-get install -y espeak-ng ffmpeg
+
+      - name: Kokoro (CPU)
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install "kokoro>=0.9" soundfile
+
+      - name: Cache the voice model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: kokoro-hf-v1
+
+      - name: Record new or changed lines
+        run: python scripts/generate-audio.py
+
+      - name: Check every line is recorded
+        run: node scripts/check-audio.mjs
+
+      - name: Commit the audio
+        run: |
+          git config user.name "narration-bot"
+          git config user.email "narration-bot@users.noreply.github.com"
+          git add public/audio
+          if git diff --cached --quiet; then
+            echo "No new narration."
+          else
+            git commit -m "Record narration"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi

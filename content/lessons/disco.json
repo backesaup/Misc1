@@ -1,0 +1,559 @@
+{
+  "id": "disco",
+  "section": "made",
+  "title": "How a disco is made",
+  "cardArt": "disco",
+  "status": "ready",
+  "order": 2,
+  "_source": "Ismaeel asked how a 'disco place' is made (via Esa, Nov 2026).",
+  "_stepChain": "wonder: one light, hundreds of dots → light travels in straight lines → a mirror bounces it (reflect) → a disco ball is covered in mirrors → 10 rows of 10 = 100 mirrors (rows × columns from stack-64) → pretend the light reaches every mirror: each mirror makes its own dot → 100 dots → a second light doubles it: 200 (doubling from stack-64) → a motor spins the ball, so the dots sweep → sound is shaking air (vibration, feel it on your throat) → a speaker cone pushes the air → the beat is the thumps that come again and again → 2 beats a second, 10 seconds = 20 beats → red light + green light = yellow light (unlike paint) → the floor is 4 rows of 4 = 16 tiles",
+  "assumes": [
+    "counting",
+    "adding",
+    "times",
+    "row",
+    "doubling",
+    "light",
+    "mirror",
+    "music",
+    "colour",
+    "dancing",
+    "ears"
+  ],
+  "requires": [
+    "stack-64"
+  ],
+  "talk": [
+    {
+      "ask": "How does one light make so many dots?",
+      "goodAnswer": "the ball is covered in little mirrors; each mirror reflects (bounces) its own bit of the light to a different place, so 100 mirrors make about 100 dots. The motor turns the ball so the dots move."
+    },
+    {
+      "ask": "How does a speaker make sound?",
+      "goodAnswer": "a cone inside pushes forwards and backwards very fast; it pushes the air, the air shakes (vibrates), and the shaking reaches your ears."
+    },
+    {
+      "ask": "What colour do red light and green light make together?",
+      "goodAnswer": "yellow. Light mixes differently from paint."
+    }
+  ],
+  "handsOn": "In a dark room, shine a torch at a spoon or a small mirror and watch the dot jump onto the wall. Then hum with your hand on your throat and feel the vibration.",
+  "steps": [
+    {
+      "id": "wonder",
+      "scene": {
+        "type": "voxel",
+        "preset": "disco"
+      },
+      "narration": {
+        "text": "This is a disco. The music is playing, and lots of little lights are dancing round the walls. But look: there's only one light shining. How can one light make all these dots?"
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "music",
+          "on": true,
+          "volume": 0.16
+        },
+        {
+          "at": 0.4,
+          "action": "lights",
+          "duration": 0.8
+        },
+        {
+          "at": 0.8,
+          "action": "dots",
+          "duration": 1.6
+        },
+        {
+          "at": 0.8,
+          "action": "spin",
+          "on": true
+        },
+        {
+          "at": 1.2,
+          "action": "floorDance",
+          "on": true
+        },
+        {
+          "at": 7,
+          "action": "tag",
+          "name": "light"
+        }
+      ]
+    },
+    {
+      "id": "reflect",
+      "term": "reflect",
+      "narration": {
+        "text": "Let's look at one tiny mirror. Light travels in straight lines. When it hits a mirror, it bounces off in a new direction, and makes a bright dot where it lands. Bouncing light like that is called reflecting."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "music",
+          "on": false
+        },
+        {
+          "at": 0,
+          "action": "floorDance",
+          "on": false
+        },
+        {
+          "at": 0,
+          "action": "spin",
+          "on": false
+        },
+        {
+          "at": 0,
+          "action": "untag"
+        },
+        {
+          "at": 0,
+          "action": "dots",
+          "on": false,
+          "duration": 0.6
+        },
+        {
+          "at": 1.4,
+          "action": "oneMirror",
+          "on": true
+        },
+        {
+          "at": 1.4,
+          "action": "tag",
+          "name": "mirror"
+        }
+      ]
+    },
+    {
+      "id": "ball",
+      "narration": {
+        "text": "The shiny ball is covered in tiny mirrors, all pointing different ways. It's called a disco ball. Each mirror reflects the light to a different place."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "oneMirror",
+          "on": false
+        },
+        {
+          "at": 0,
+          "action": "untag"
+        },
+        {
+          "at": 0.6,
+          "action": "tag",
+          "name": "ball"
+        }
+      ],
+      "term": "disco ball"
+    },
+    {
+      "id": "guess-mirrors",
+      "question": {
+        "narration": {
+          "text": "This ball has 10 rows of mirrors going round it, with 10 mirrors in each row."
+        },
+        "prompt": "How many mirrors are on the ball?",
+        "choices": [
+          "20",
+          "100",
+          "1,000"
+        ],
+        "answer": 1,
+        "onRight": "Yes. You saw 10 rows of 10, and counted in tens to 100.",
+        "wrong": {
+          "0": {
+            "mistake": "added 10 and 10 instead of 10 rows of 10",
+            "hint": "There aren't 2 rows. There are 10 rows, each with 10 mirrors. Try counting in tens.",
+            "say": "You added 10 and 10. That's only 2 rows. There are 10 rows of 10. Count in tens: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100."
+          },
+          "2": {
+            "mistake": "multiplied by 10 again, as if there were 10 balls",
+            "hint": "There's only one ball. It has 10 rows, each with 10 mirrors.",
+            "say": "1,000 would be 10 balls like this one. One ball has 10 rows of 10. Count in tens: 10, 20, 30, up to 100."
+          }
+        },
+        "reveal": "10 rows of 10 is 100 mirrors.",
+        "revealAnimation": [
+          {
+            "at": 0,
+            "action": "countMirrors",
+            "duration": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "guess-dots",
+      "question": {
+        "narration": {
+          "text": "Now the spotlight shines on the ball. Let's pretend the light reaches every single mirror."
+        },
+        "prompt": "One light, 100 mirrors. How many dots of light?",
+        "choices": [
+          "1",
+          "100",
+          "200"
+        ],
+        "answer": 1,
+        "onRight": "Yes. Every mirror reflects its own bit of light, so 100 mirrors make 100 dots.",
+        "wrong": {
+          "0": {
+            "mistake": "thinks one light can only make one dot",
+            "hint": "Each mirror bounces its own little bit of the light. How many mirrors are there?",
+            "say": "There's one light, but it hits 100 mirrors. Every mirror reflects its own bit of light to its own place. So 100 mirrors make 100 dots."
+          },
+          "2": {
+            "mistake": "doubled when nothing was doubled",
+            "hint": "How many lights are there? And how many mirrors?",
+            "say": "There's only 1 light here. Each of the 100 mirrors makes 1 dot. So that's 100 dots."
+          }
+        },
+        "reveal": "100 mirrors make 100 dots.",
+        "revealAnimation": [
+          {
+            "at": 0,
+            "action": "clearCount"
+          },
+          {
+            "at": 0,
+            "action": "dots",
+            "count": true,
+            "duration": 2.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "guess-two",
+      "question": {
+        "narration": {
+          "text": "Now we add a second light, shining at the ball from somewhere else."
+        },
+        "prompt": "How many dots now?",
+        "choices": [
+          "101",
+          "200",
+          "100"
+        ],
+        "answer": 1,
+        "onRight": "Yes. Each light makes 100 dots, so two lights make 200. That's doubling.",
+        "wrong": {
+          "0": {
+            "mistake": "added 1 for the new light instead of 100 more dots",
+            "hint": "The new light hits all 100 mirrors too. How many dots does it make?",
+            "say": "The second light doesn't make only 1 dot. It hits all 100 mirrors, so it makes 100 more dots. 100 and 100 is 200."
+          },
+          "2": {
+            "mistake": "thinks the number of dots stays the same",
+            "hint": "The first light makes 100 dots. Does the second light make any?",
+            "say": "The first light still makes its 100 dots, and the second light makes 100 more. 100 and 100 more is 200. Doubling!"
+          }
+        },
+        "reveal": "Two lights, 100 dots each, make 200 dots.",
+        "revealAnimation": [
+          {
+            "at": 0,
+            "action": "secondLight",
+            "on": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "motor",
+      "term": "motor",
+      "narration": {
+        "text": "But the dots move! Up on the ceiling there's a small machine that turns the ball slowly round and round. A machine that makes something spin is called a motor. As the ball turns, every mirror points somewhere new, so the dots sweep round the room."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "clearCount"
+        },
+        {
+          "at": 0,
+          "action": "untag"
+        },
+        {
+          "at": 0,
+          "action": "secondLight",
+          "on": false
+        },
+        {
+          "at": 2.6,
+          "action": "spin",
+          "on": true
+        },
+        {
+          "at": 5.4,
+          "action": "tag",
+          "name": "motor"
+        }
+      ]
+    },
+    {
+      "id": "vibration",
+      "term": "vibration",
+      "narration": {
+        "text": "Now the music. Sound is the air shaking, very fast. Put your hand on your throat and hum. Can you feel it shaking? Fast shaking like that is called vibration."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "untag"
+        },
+        {
+          "at": 0,
+          "action": "dots",
+          "on": false,
+          "duration": 0.6
+        },
+        {
+          "at": 0,
+          "action": "spin",
+          "on": false
+        }
+      ]
+    },
+    {
+      "id": "speaker",
+      "kind": "explore",
+      "narration": {
+        "text": "Inside a speaker is a round cone. Electricity makes the cone push forwards and backwards, very fast. The cone pushes the air, the air vibrates, and the vibration reaches your ears. That's the sound you hear. Tap the parts of the disco to hear what they do."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "music",
+          "on": true,
+          "volume": 0.12
+        },
+        {
+          "at": 1,
+          "action": "tag",
+          "name": "speaker"
+        }
+      ],
+      "parts": [
+        {
+          "id": "speaker",
+          "label": "Speaker",
+          "narration": "The cone pushes the air back and forth. The air vibrates, and that's the sound."
+        },
+        {
+          "id": "ball",
+          "label": "Disco ball",
+          "narration": "100 tiny mirrors. Each one reflects its own bit of the light."
+        },
+        {
+          "id": "light",
+          "label": "Spotlight",
+          "narration": "One bright light, shining at the ball."
+        },
+        {
+          "id": "motor",
+          "label": "Motor",
+          "narration": "The motor turns the ball round and round, so the dots move."
+        }
+      ]
+    },
+    {
+      "id": "beat",
+      "term": "beat",
+      "narration": {
+        "text": "Listen. Boom, boom, boom, boom. Thumps that come again and again, evenly, are called the beat. Dancers move to the beat, and this floor lights up to it."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "untag"
+        },
+        {
+          "at": 0,
+          "action": "music",
+          "on": true,
+          "volume": 0.2
+        },
+        {
+          "at": 0.5,
+          "action": "floorDance",
+          "on": true
+        },
+        {
+          "at": 1,
+          "action": "tag",
+          "name": "floor"
+        }
+      ]
+    },
+    {
+      "id": "guess-beats",
+      "question": {
+        "narration": {
+          "text": "This music has 2 beats every second."
+        },
+        "prompt": "How many beats in 10 seconds?",
+        "choices": [
+          "12",
+          "20",
+          "5"
+        ],
+        "answer": 1,
+        "onRight": "Yes. 10 seconds with 2 beats in each one: 10 lots of 2 is 20.",
+        "wrong": {
+          "0": {
+            "mistake": "added 10 and 2 instead of 10 lots of 2",
+            "hint": "Every second has its own 2 beats. How many lots of 2 are there?",
+            "say": "You added 10 and 2. But every one of the 10 seconds has 2 beats. Count in twos: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20."
+          },
+          "2": {
+            "mistake": "shared 10 by 2 instead of 10 lots of 2",
+            "hint": "There are more beats than seconds. Each second has 2.",
+            "say": "5 would be if the beats were slower than the seconds. Here every second has 2 beats. Count in twos: 2, 4, 6, up to 20."
+          }
+        },
+        "reveal": "10 lots of 2 is 20 beats."
+      }
+    },
+    {
+      "id": "colours",
+      "narration": {
+        "text": "One more trick. Watch the spotlight. Red light. Green light. Now red and green light shining together make yellow light! Light mixes differently from paint. Red and green paint would make a muddy brown."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "untag"
+        },
+        {
+          "at": 0,
+          "action": "floorDance",
+          "on": false
+        },
+        {
+          "at": 0,
+          "action": "music",
+          "on": false
+        },
+        {
+          "at": 0,
+          "action": "dots",
+          "duration": 0.6
+        },
+        {
+          "at": 0.4,
+          "action": "spin",
+          "on": true
+        },
+        {
+          "at": 3.4,
+          "action": "colour",
+          "to": "red"
+        },
+        {
+          "at": 4.8,
+          "action": "colour",
+          "to": "green"
+        },
+        {
+          "at": 7.4,
+          "action": "colour",
+          "to": "yellow"
+        }
+      ]
+    },
+    {
+      "id": "guess-floor",
+      "question": {
+        "narration": {
+          "text": "Last one. The light-up floor is made of square tiles: 4 rows, with 4 tiles in each row."
+        },
+        "prompt": "How many tiles are on the floor?",
+        "choices": [
+          "8",
+          "16",
+          "44"
+        ],
+        "answer": 1,
+        "onRight": "Yes. 4 rows of 4: 4, 8, 12, 16.",
+        "wrong": {
+          "0": {
+            "mistake": "added 4 and 4 instead of 4 rows of 4",
+            "hint": "There aren't 2 rows. Count the rows of tiles: there are 4.",
+            "say": "You added 4 and 4. That's only 2 rows. There are 4 rows of 4. Count in fours: 4, 8, 12, 16."
+          },
+          "2": {
+            "mistake": "put the two 4s side by side",
+            "hint": "44 is the two 4s written side by side. Try counting in fours.",
+            "say": "44 is the 4s written next to each other. We need 4 rows of 4 tiles. Count in fours: 4, 8, 12, 16."
+          }
+        },
+        "reveal": "4 rows of 4 is 16 tiles.",
+        "revealAnimation": [
+          {
+            "at": 0,
+            "action": "colour",
+            "to": "white"
+          },
+          {
+            "at": 0,
+            "action": "countFloor",
+            "duration": 3.2
+          }
+        ]
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "animation": [
+        {
+          "at": 0,
+          "action": "music",
+          "on": true,
+          "volume": 0.12
+        },
+        {
+          "at": 0,
+          "action": "floorDance",
+          "on": true
+        },
+        {
+          "at": 0,
+          "action": "clearCount"
+        }
+      ],
+      "rule": {
+        "text": "Mirrors bounce light. Speakers shake the air.",
+        "ask": "Can you say how a disco ball makes so many dots, and how a speaker makes sound? Say it out loud. Then tap the eye to check.",
+        "spoken": "The disco ball's mirrors bounce one light into lots of dots. And the speakers shake the air to make the music."
+      }
+    }
+  ],
+  "bonus": {
+    "prompt": "Our ball has 100 mirrors. A giant disco ball has 10 times as many. How many mirrors does the giant ball have?",
+    "choices": [
+      "110",
+      "1,000",
+      "200"
+    ],
+    "answer": 1,
+    "onRight": "Yes. 10 lots of 100 is 1,000.",
+    "wrong": {
+      "0": {
+        "mistake": "added 10 instead of 10 times as many",
+        "hint": "10 times as many means 10 lots of 100, not 100 and 10 more.",
+        "say": "You added 10. 10 times as many means 10 lots of 100. Count in hundreds: 100, 200, 300, up to 1,000."
+      },
+      "2": {
+        "mistake": "doubled instead of 10 times",
+        "hint": "200 is 2 lots of 100. We need 10 lots.",
+        "say": "200 is only 2 lots of 100. We need 10 lots. Count in hundreds: 100, 200, 300, up to 1,000."
+      }
+    },
+    "reveal": "10 lots of 100 is 1,000 mirrors."
+  }
+}

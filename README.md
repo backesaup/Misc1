@@ -1,4 +1,4 @@
-# Blockwise
+# Blocky
 
 An offline web app for iPad and iPhone that teaches Ismaeel how real things are made, how to build
 in Minecraft, and maths, through short narrated lessons where he guesses before every answer.
@@ -16,7 +16,9 @@ npm run dev
 ```
 
 ## Voice
-Narration is pre-generated with Kokoro (voice `bm_lewis`) on the laptop:
+Narration is pre-recorded with Kokoro (voice `bm_lewis`) by a GitHub Action
+(`.github/workflows/narration.yml`) whenever lesson text changes; it commits the MP3s, and they ship
+with the app so the iPad plays them offline. To record locally instead:
 ```bash
 pip install kokoro soundfile    # and ffmpeg on PATH
 python scripts/generate-audio.py

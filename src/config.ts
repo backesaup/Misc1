@@ -5,5 +5,5 @@ export const learner = {
   spoken: 'Ismaeel',
 }
 
-/** Working title: the brief leaves the app name open. No Minecraft branding. */
-export const appName = 'Blockwise'
+/** The app's name (chosen by Esa). */
+export const appName = 'Blocky'

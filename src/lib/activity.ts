@@ -15,6 +15,7 @@ export type ActivityEvent =
   | { type: 'quit'; lesson: string; step: string }
   | { type: 'bonus'; lesson: string }
   | { type: 'sandbox'; blocks: number }
+  | { type: 'said'; text: string }
 
 type Stored = ActivityEvent & { at: number }
 const KEY = 'activity'
@@ -35,6 +36,7 @@ export function summarise(events: Stored[]) {
   const wrongs = new Map<string, Map<string, number>>()
   const quits = new Map<string, number>()
   let finished = 0
+  const said: string[] = []
   for (const e of events) {
     if (e.type === 'replay') replays.set(e.step, (replays.get(e.step) ?? 0) + 1)
     if (e.type === 'wrong') {
@@ -44,6 +46,7 @@ export function summarise(events: Stored[]) {
     }
     if (e.type === 'quit') quits.set(`${e.lesson} at ${e.step}`, (quits.get(`${e.lesson} at ${e.step}`) ?? 0) + 1)
     if (e.type === 'finish') finished++
+    if (e.type === 'said') said.push(e.text)
   }
   const top = <K,>(m: Map<K, number>) => [...m.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6)
   return {
@@ -51,5 +54,6 @@ export function summarise(events: Stored[]) {
     replays: top(replays),
     wrongs: [...wrongs.entries()].map(([step, m]) => ({ step, choices: top(m) })),
     quits: top(quits),
+    said: said.slice(-8).reverse(),
   }
 }

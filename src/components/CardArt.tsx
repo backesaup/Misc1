@@ -47,6 +47,14 @@ const presets: Record<string, () => Vox[]> = {
     for (let x = 0; x < 4; x++) for (let z = 0; z < 2; z++) for (let y = 0; y <= x; y++) v.push(block(x, y, z, y === x ? GRASS : STONE))
     return v
   },
+  disco: () => {
+    // a 4 × 4 light-up floor under a blocky mirror ball
+    const v: Vox[] = []
+    const tiles = ['#ff6b5c', '#ffd166', '#58b368', '#4f8ff0']
+    for (let x = 0; x < 4; x++) for (let z = 0; z < 4; z++) v.push({ ...block(x, 0, z, tiles[(x + z) % 4]), top: tiles[(x + z) % 4] })
+    for (let x = 1; x < 3; x++) for (let z = 1; z < 3; z++) for (let y = 3; y < 5; y++) v.push(block(x, y, z, '#c9d0de'))
+    return v
+  },
   maths: () => {
     // doubling: 1, 2, 4, 8
     const v: Vox[] = []

@@ -1,4 +1,4 @@
-# Blockwise — notes for Claude
+# Blocky — notes for Claude
 
 A PWA for iPhone/iPad that teaches **Ismaeel** (5) how real things are engineered, how to build
 in Minecraft, and maths, through narrated, animated lessons where he predicts before each answer.
@@ -16,9 +16,9 @@ in Minecraft, and maths, through narrated, animated lessons where he predicts be
   scene type. `content/known.json` = words he already knows. `content/textures.json` = block
   textures and where they come from.
 - `src/player/`: the lesson player. `src/scenes/`: scenes (`catalog.ts` lists their actions).
-- `src/screens/`: home, section, sandbox, ask, parent. `src/lib/`: narrator, settings, storage,
+- `src/screens/`: home, section, sandbox, ask, parent. `src/game/`: the farm game. `src/lib/`: narrator, settings, storage,
   activity log, inbox.
-- `scripts/`: `generate-audio.py` (Kokoro bm_lewis, run on Esa's laptop), `check-audio.mjs`,
+- `scripts/`: `generate-audio.py` (Kokoro bm_lewis; run automatically by `.github/workflows/narration.yml`), `check-audio.mjs`,
   `list-lines.ts`, `fetch-textures.mjs`, `build-asset-index.mjs`, `shot.mjs` (screenshots).
 
 ## Commands

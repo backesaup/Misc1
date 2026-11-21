@@ -5,6 +5,7 @@ import { sfx } from '@/lib/sfx'
 import { narrator } from '@/lib/narrator'
 import { commonLine } from '@/lesson/lines'
 import { addItem, listItems, newId, removeItem, type InboxItem } from '@/lib/inbox'
+import { MicButton } from '@/components/MicButton'
 
 // "What do you want to learn?" He can say it, take a photo (of homework, a
 // toy, anything), or type. Everything stays on this iPad until a grown-up exports it.
@@ -124,6 +125,7 @@ export function Ask() {
         <form className="ask-type" onSubmit={(e) => (e.preventDefault(), void sendText())}>
           <label htmlFor="ask-text" className="sr-only">What do you want to learn?</label>
           <input id="ask-text" value={text} onChange={(e) => setText(e.target.value)} autoComplete="off" enterKeyHint="send" placeholder="How do rockets work?" />
+          <MicButton label="Speak to type" showWords={false} onHeard={(t) => setText((cur) => (cur ? `${cur} ${t}` : t))} />
           <button type="submit" className="dock-btn next" aria-label="Save" disabled={!text.trim()}>
             <Send aria-hidden />
           </button>

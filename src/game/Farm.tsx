@@ -4,6 +4,9 @@ import { OrbitControls } from '@react-three/drei'
 import * as THREE from 'three'
 import { ArrowLeft, Minus, Plus, ShoppingCart, RotateCcw, Hand, Play } from 'lucide-react'
 import bed from '@content/puzzles/bed.json'
+import meet from '@content/puzzles/meet.json'
+import { MicButton } from '@/components/MicButton'
+import { Check } from 'lucide-react'
 import { puzzleLine, commonLine, numberLine } from '@/lesson/lines'
 import { narrator } from '@/lib/narrator'
 import { sfx } from '@/lib/sfx'
@@ -18,9 +21,12 @@ import { HtmlRoot, SceneHtml } from '@/scenes/SceneHtml'
 // part 1 he fills a 3 × 4 outline block by block; part 2 he must dial how many blocks
 // to take for a 5 × 3 bed BEFORE building. The world gives the feedback (a gap, or a pile).
 
-type Phase = 'start' | 'part1' | 'done1' | 'dial' | 'building' | 'few' | 'many' | 'done2' | 'free'
+type Phase = 'start' | 'name-robot' | 'colour' | 'name-farm' | 'part1' | 'done1' | 'dial' | 'building' | 'few' | 'many' | 'done2' | 'free'
 type Mood = 'idle' | 'happy' | 'sad' | 'talk'
-interface Save { bedDone: boolean; floorTool: boolean }
+interface Save { bedDone: boolean; floorTool: boolean; robotName?: string; robotColor?: string; farmName?: string }
+
+const ROBOT_COLOURS = ['#5fa3d9', '#e07a4f', '#5fa04e', '#f2b84b', '#e8789a']
+const sayMeet = (k: keyof typeof meet.lines) => narrator.say(puzzleLine(meet, k)).done
 
 const P1 = bed.part1
 const P2 = bed.part2
@@ -32,7 +38,7 @@ function cellPos(o: THREE.Vector3, i: number, w: number) {
   return new THREE.Vector3(o.x + (i % w) + 0.5, 0.5, o.z + Math.floor(i / w) + 0.5)
 }
 
-function Robot({ mood, pos }: { mood: Mood; pos: [number, number, number] }) {
+function Robot({ mood, pos, color = '#5fa3d9', name }: { mood: Mood; pos: [number, number, number]; color?: string; name?: string }) {
   const g = useRef<THREE.Group>(null)
   const head = useRef<THREE.Group>(null)
   useFrame(({ clock }) => {
@@ -45,10 +51,13 @@ function Robot({ mood, pos }: { mood: Mood; pos: [number, number, number] }) {
   })
   return (
     <group position={pos}>
+      <SceneHtml position={[0, 2.75, 0]} center zIndexRange={[10, 0]}>
+        <div className="scene-tag small" style={{ display: name ? undefined : 'none' }}>{name}</div>
+      </SceneHtml>
       <group ref={g}>
         <mesh position={[0, 0.65, 0]} castShadow>
           <boxGeometry args={[0.9, 0.9, 0.7]} />
-          <meshStandardMaterial color="#5fa3d9" roughness={0.5} />
+          <meshStandardMaterial color={color} roughness={0.5} />
         </mesh>
         <mesh position={[0, 0.7, 0.36]}>
           <boxGeometry args={[0.4, 0.3, 0.02]} />
@@ -184,7 +193,7 @@ function Scenery() {
 export function Farm() {
   const { reducedMotion } = useSettings()
   const [save, setSave] = useState<Save>(() => readJSON<Save>('game', { bedDone: false, floorTool: false }))
-  const [phase, setPhase] = useState<Phase>(save.bedDone ? 'free' : 'start')
+  const [phase, setPhase] = useState<Phase>(save.bedDone && save.robotName ? 'free' : 'start')
   const [mood, setMood] = useState<Mood>('idle')
   const [placed1, setPlaced1] = useState<Set<number>>(new Set())
   const [dial, setDial] = useState(10)
@@ -231,6 +240,43 @@ export function Farm() {
   const begin = async () => {
     narrator.unlock()
     sfx.tap()
+    if (!save.robotName) {
+      setPhase('name-robot')
+      setMood('talk')
+      await sayMeet('askRobotName')
+      setMood('idle')
+      return
+    }
+    await startBed()
+  }
+  const nameRobot = async (name: string) => {
+    persist({ ...save, robotName: name })
+    sfx.correct()
+    setMood('happy')
+    await sayMeet('likeName')
+    setPhase('colour')
+    setMood('talk')
+    await sayMeet('askColour')
+    setMood('idle')
+  }
+  const pickColour = async (c: string) => {
+    persist({ ...save, robotColor: c })
+    sfx.tap()
+    setMood('happy')
+    await sayMeet('colourDone')
+    setPhase('name-farm')
+    setMood('talk')
+    await sayMeet('askFarmName')
+    setMood('idle')
+  }
+  const nameFarm = async (name: string) => {
+    persist({ ...save, farmName: name })
+    sfx.correct()
+    setMood('happy')
+    await sayMeet('farmNamed')
+    await startBed()
+  }
+  const startBed = async () => {
     log({ type: 'start', lesson: 'game-bed' })
     setPhase('part1')
     acted()
@@ -348,8 +394,9 @@ export function Farm() {
         <button className="icon-btn" onClick={() => (narrator.stop(), go({ name: 'home' }))} aria-label="Home">
           <ArrowLeft aria-hidden />
         </button>
-        <span className="farm-title" aria-hidden>
-          {save.floorTool && 'Floor tool unlocked'}
+        <span className="farm-title">
+          {save.farmName ?? ''}
+          {save.floorTool && <span className="farm-tool">Floor tool</span>}
         </span>
         <button className="icon-btn" onClick={resetPuzzle} aria-label="Start this puzzle again">
           <RotateCcw aria-hidden />
@@ -362,7 +409,7 @@ export function Farm() {
           <directionalLight position={[6, 12, 8]} intensity={1.6} castShadow shadow-mapSize={[1024, 1024]} shadow-camera-left={-10} shadow-camera-right={10} shadow-camera-top={10} shadow-camera-bottom={-10} />
           <HtmlRoot.Provider value={htmlRoot}>
             <Scenery />
-            <Robot mood={mood} pos={[2.6, 0, -1.2]} />
+            <Robot mood={mood} pos={[2.6, 0, -1.2]} color={save.robotColor} name={save.robotName} />
             {/* bed 1: 3 × 4 */}
             {Array.from({ length: P1.w * P1.h }, (_, i) => {
               const p = cellPos(O1, i, P1.w)
@@ -393,6 +440,18 @@ export function Farm() {
           <OrbitControls enablePan={false} minDistance={8} maxDistance={20} maxPolarAngle={Math.PI / 2.3} target={[-0.6, 0, -0.4]} enableDamping={!reducedMotion} />
         </Canvas>
         <div className="stage-html" ref={htmlRoot} />
+        {(phase === 'name-robot' || phase === 'name-farm') && (
+          <NameCard key={phase} onDone={(n) => void (phase === 'name-robot' ? nameRobot(n) : nameFarm(n))} placeholder={phase === 'name-robot' ? 'Robot name' : 'Farm name'} />
+        )}
+        {phase === 'colour' && (
+          <div className="name-card" role="radiogroup" aria-label="Robot colour">
+            <div className="palette">
+              {ROBOT_COLOURS.map((c) => (
+                <button key={c} role="radio" aria-checked={save.robotColor === c} aria-label="Colour" className="swatch" style={{ background: c }} onClick={() => void pickColour(c)} />
+              ))}
+            </div>
+          </div>
+        )}
         {phase === 'start' && (
           <div className="farm-start">
             <button className="play-big" onClick={() => void begin()} aria-label="Play">
@@ -424,5 +483,20 @@ export function Farm() {
         </p>
       )}
     </main>
+  )
+}
+
+/** Name something by saying it (or typing it), then tap the tick. */
+function NameCard({ onDone, placeholder }: { onDone: (name: string) => void; placeholder: string }) {
+  const [name, setName] = useState('')
+  const tidy = (t: string) => t.replace(/[.!?]+$/, '').replace(/^(call (it|you|me)|it'?s|i want to call (it|you)|your name is|its name is)\s+/i, '').trim().slice(0, 24).replace(/^./, (c) => c.toUpperCase())
+  return (
+    <form className="name-card" onSubmit={(e) => (e.preventDefault(), name.trim() && onDone(name.trim()))}>
+      <MicButton label="Say the name" showWords={false} onHeard={(t) => setName(tidy(t))} />
+      <input value={name} onChange={(e) => setName(e.target.value)} placeholder={placeholder} aria-label={placeholder} autoComplete="off" enterKeyHint="done" maxLength={24} />
+      <button type="submit" className="dial-take" aria-label="That's the name" disabled={!name.trim()}>
+        <Check aria-hidden strokeWidth={3} />
+      </button>
+    </form>
   )
 }

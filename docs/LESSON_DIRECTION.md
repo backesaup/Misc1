@@ -11,7 +11,9 @@ since. **Where a brief and Esa's later instructions disagree, the instructions b
 - Builds don't have to be Bedrock-only. Tag each with `edition`.
 - External links are allowed.
 - No hard 50 MB size limit (keep it reasonable: iOS can evict offline storage for unused apps).
-- The learner is **Ismaeel** (`src/config.ts`).
+- The learner is **Ismaeel** (`src/config.ts`). The app is called **Blocky**.
+- He names the robot and the farm himself (in the game, by speaking or typing).
+- Speech input is on: he can say answers. Narration is recorded by a GitHub Action, not on a laptop.
 
 ## The learner
 Five, genuinely capable: knows square and cube numbers, loves arithmetic, asks real engineering

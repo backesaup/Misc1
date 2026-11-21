@@ -34,6 +34,7 @@ export const COMMON_LINES: Record<string, string> = {
   'ask-empty': 'Tap the microphone and tell me what you want to learn about. Or take a photo.',
   'section-play': 'Free building. Make anything you like.',
   'section-ask': 'What do you want to learn about?',
+  'didnt-catch': "I didn't catch that. Try saying it again, or tap your answer.",
   'game-more': 'More of the farm is on the way. Come back soon.',
   'section-game': 'The farm. The robot needs your help.',
   hello: `Hi ${learner.spoken}! Pick something to learn.`,

@@ -19,6 +19,8 @@ import { Guide } from '@/components/Guide'
 import ClickSpark, { type ClickSparkHandle } from '@/components/vendor/reactbits/ClickSpark'
 import CountUp from '@/components/vendor/reactbits/CountUp'
 import VerticalCutReveal from '@/components/vendor/fancy/vertical-cut-reveal'
+import { MicButton } from '@/components/MicButton'
+import { matchChoice } from '@/lib/spoken'
 
 type Phase = 'intro' | 'playing' | 'end'
 interface QState {
@@ -579,6 +581,17 @@ function Choices({
           )
         })}
       </div>
+      {state.chosen === null && !state.revealed && (
+        <MicButton
+          className="choices-mic"
+          label="Say your answer"
+          onHeard={(text) => {
+            const i = matchChoice(text, question.choices)
+            if (i !== null && !state.tried.includes(i)) onChoose(i)
+            else narrator.say(commonLine('didnt-catch'))
+          }}
+        />
+      )}
       {state.revealed && !Number.isNaN(numeric) && numeric > 9 && (
         <div className="reveal-num" aria-hidden>
           = <CountUp to={numeric} duration={reduced ? 0 : 1.1} separator="," />
@@ -603,6 +616,7 @@ function EndCard({
   onShow: () => void
   children?: React.ReactNode
 }) {
+  const [said, setSaid] = useState('')
   return (
     <div className="end">
       <Guide wave={ready} still={reduced} className="guide end-guide" />
@@ -621,10 +635,21 @@ function EndCard({
           ))}
         </p>
       ) : (
-        <button className="show-rule" onClick={onShow} aria-label="Show the rule">
-          <Eye aria-hidden strokeWidth={2.5} />
-        </button>
+        <div className="say-rule">
+          <MicButton
+            label="Say the rule"
+            showWords={false}
+            onHeard={(text) => {
+              setSaid(text)
+              log({ type: 'said', text })
+            }}
+          />
+          <button className="show-rule" onClick={onShow} aria-label="Show the rule">
+            <Eye aria-hidden strokeWidth={2.5} />
+          </button>
+        </div>
       )}
+      {said && <p className="you-said">You said: “{said}”</p>}
       {children}
     </div>
   )

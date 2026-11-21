@@ -3,11 +3,12 @@ import { sceneCatalog } from './catalog'
 import type { SceneDef } from './types'
 import { blocks64 } from './voxel/Blocks64'
 import { solarCube } from './voxel/SolarCube'
+import { disco } from './voxel/Disco'
 import { wiring } from './diagram/Wiring'
 import { power } from './diagram/Power'
 
 export const scenes: Record<string, Record<string, SceneDef>> = {
-  voxel: { blocks64, solarCube },
+  voxel: { blocks64, solarCube, disco },
   diagram: { wiring, power },
 }
 
