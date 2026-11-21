@@ -34,9 +34,15 @@ export const COMMON_LINES: Record<string, string> = {
   'ask-empty': 'Tap the microphone and tell me what you want to learn about. Or take a photo.',
   'section-play': 'Free building. Make anything you like.',
   'section-ask': 'What do you want to learn about?',
+  'game-more': 'More of the farm is on the way. Come back soon.',
+  'section-game': 'The farm. The robot needs your help.',
   hello: `Hi ${learner.spoken}! Pick something to learn.`,
   'well-done': `You worked through every step, ${learner.spoken}. Try explaining it to someone at home.`,
 }
+
+// Numbers 1–30, spoken by the number dial in the game.
+for (let n = 1; n <= 30; n++) COMMON_LINES[`n-${n}`] = String(n)
+export const numberLine = (n: number): SpokenLine => commonLine(`n-${n}`)
 
 export const commonLine = (key: keyof typeof COMMON_LINES & string): SpokenLine => ({
   key: `common/${key}`,
@@ -113,3 +119,12 @@ export function allLessonLines(lesson: Lesson): SpokenLine[] {
 export function commonLines(): SpokenLine[] {
   return Object.keys(COMMON_LINES).map((k) => commonLine(k))
 }
+
+/** Narration for a game puzzle: content/puzzles/<id>.json → audio/game-<id>/<key>.mp3 */
+export interface PuzzleLines { id: string; lines: Record<string, string> }
+export const puzzleLine = (p: PuzzleLines, key: string): SpokenLine => ({
+  key: `game-${p.id}/${key}`,
+  text: p.lines[key] ?? '',
+  audio: `audio/game-${p.id}/${key}.mp3`,
+})
+export const allPuzzleLines = (p: PuzzleLines) => Object.keys(p.lines).map((k) => puzzleLine(p, k))

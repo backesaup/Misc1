@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { Settings2, Boxes, MessageCircleQuestion } from 'lucide-react'
+import { Settings2, Boxes, MessageCircleQuestion, Tractor } from 'lucide-react'
 import { sections } from '@/lesson/content'
 import { commonLine } from '@/lesson/lines'
 import { narrator } from '@/lib/narrator'
@@ -64,6 +64,10 @@ export function Home() {
         ))}
       </nav>
       <nav className="tiles-small" aria-label="More">
+        <button className="tile small" data-tone="maths" onClick={() => (narrator.unlock(), sfx.tap(), narrator.say(commonLine('section-game')), go({ name: 'game' }))}>
+          <Tractor aria-hidden />
+          <span className="tile-title">Farm</span>
+        </button>
         <button className="tile small" data-tone="build" onClick={() => (narrator.unlock(), sfx.tap(), narrator.say(commonLine('section-play')), go({ name: 'play' }))}>
           <Boxes aria-hidden />
           <span className="tile-title">Free build</span>

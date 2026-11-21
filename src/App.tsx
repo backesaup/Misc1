@@ -11,6 +11,7 @@ import { appName } from '@/config'
 import type { SectionId } from '@/lesson/types'
 
 const Sandbox = lazy(() => import('@/screens/Sandbox').then((m) => ({ default: m.Sandbox })))
+const Farm = lazy(() => import('@/game/Farm').then((m) => ({ default: m.Farm })))
 const LessonPlayer = lazy(() => import('@/player/LessonPlayer').then((m) => ({ default: m.LessonPlayer })))
 
 export default function App() {
@@ -28,6 +29,12 @@ export default function App() {
 
   if (route.name === 'parent') return <Parent />
   if (route.name === 'ask') return <Ask />
+  if (route.name === 'game')
+    return (
+      <Suspense fallback={<div className="player loading" aria-busy="true" />}>
+        <Farm />
+      </Suspense>
+    )
   if (route.name === 'play')
     return (
       <Suspense fallback={<div className="player loading" aria-busy="true" />}>

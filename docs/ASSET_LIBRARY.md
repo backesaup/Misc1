@@ -72,8 +72,18 @@ Presets: `stack64`, `solarCube`, `made` (chair), `build` (grass-topped stairs), 
   rendered with **skinview3d** from an original 64×64 skin drawn in code. Waves on the lesson
   start and end screens. Animations available from skinview3d: idle, walk, run, fly, wave, crouch,
   hit, swim. Swap the skin by replacing `drawSkin()` or calling `viewer.loadSkin(url)`.
-- **Robot sidekick** (planned, game brief) — not built yet. The guide's renderer can't draw a robot;
-  build it as an R3F voxel model so it can have an expressive face.
+- **Robot sidekick** (ready, grey-box) — `Robot` in `src/game/Farm.tsx`. R3F voxel robot with a face
+  and moods: `idle` (bob), `talk` (head wobble), `happy` (jumping spin, squint eyes), `sad` (droopy
+  head, frown). Next: name/colour choice, victory dance, waving on return.
+
+## 3b. Game pieces (`src/game/Farm.tsx`, ready, grey-box)
+- `Block` — outlined block that drops in with a bounce; optional solid colour (bed blankets).
+- `GlowCell` — pulsing outline cell he taps to place a block.
+- `Scenery` — grass field, voxel trees, the barn (for the teaser).
+- Number dial (plus/minus, big number, spoken 1–30 via `numberLine(n)`), take-from-store cart.
+- Hint ladder (20/40/60 s), hand demo over the next target, "start this puzzle again".
+- Puzzle data: `content/puzzles/<id>.json` (`lines` are narrated through the same audio pipeline:
+  `audio/game-<id>/<key>.mp3`). Today: `bed` (area). Save: localStorage `game`.
 
 ## 4. Block textures
 Manifest: `content/textures.json`. Each block key lists candidates `"source:path"`; `npm run
@@ -167,5 +177,6 @@ has errors (Bedrock cake stack size says 64), so verify any fact a lesson depend
   `activity.json` (replays, wrong answers chosen, where he stopped). Make lessons from these.
 
 ## Changelog
+- 2026-11-21 — game grey-box: robot sidekick, Block/GlowCell, number dial, bed puzzle data.
 - 2026-11-21 — first version: scenes blocks64/solarCube/wiring/power, card art, guide, textures
   from 14 sources, minecraft-data, UI libraries, non-Minecraft sources, LDraw plan.

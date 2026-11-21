@@ -8,6 +8,7 @@ export type Route =
   | { name: 'parent' }
   | { name: 'play' }
   | { name: 'ask' }
+  | { name: 'game' }
 
 export function parse(hash: string): Route {
   const [path] = hash.replace(/^#/, '').split('?')
@@ -17,6 +18,7 @@ export function parse(hash: string): Route {
   if (a === 'parent') return { name: 'parent' }
   if (a === 'play') return { name: 'play' }
   if (a === 'ask') return { name: 'ask' }
+  if (a === 'game') return { name: 'game' }
   return { name: 'home' }
 }
 

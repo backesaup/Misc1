@@ -630,7 +630,7 @@ code { font-size: 0.92em; background: var(--paper-3); padding: 1px 6px; border-r
 .ask-note { color: var(--ink-2); margin: 0; }
 .ask-empty { font-size: 1.3rem; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.tiles-small { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 1100px; width: 100%; margin: 0 auto; }
+.tiles-small { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1100px; width: 100%; margin: 0 auto; }
 .tile.small { min-height: 0; grid-template-rows: auto; grid-auto-flow: column; justify-content: center; gap: 14px; padding: 18px 20px 22px; }
 .tile.small svg { width: 40px; height: 40px; }
 .tile.small .tile-title { font-size: clamp(1.3rem, 3vw, 1.7rem); }
@@ -639,3 +639,29 @@ code { font-size: 0.92em; background: var(--paper-3); padding: 1px 6px; border-r
 .p-btn { min-height: 56px; padding: 0 20px; border: 0; border-radius: 14px; background: var(--ink); color: var(--paper); font-weight: 700; }
 .p-list { margin: 4px 0 0; padding-left: 20px; color: var(--ink-2); line-height: 1.5; }
 .stage-html { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+
+/* ───────────────────────── Farm (game) ───────────────────────── */
+.farm {
+  height: 100dvh; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 10px;
+  padding: calc(10px + var(--safe-t)) calc(14px + var(--safe-r)) calc(12px + var(--safe-b)) calc(14px + var(--safe-l));
+  background: linear-gradient(180deg, #cfe9f6 0%, #e4f0dc 60%, var(--paper) 100%);
+}
+.farm-stage { touch-action: none; }
+.farm-title { font-weight: 700; color: var(--build-ink); }
+.farm-start { position: absolute; inset: 0; display: grid; place-items: center; background: rgb(243 234 216 / 0.35); }
+.farm-start .play-big { --tone: var(--build); }
+.hand-demo { color: var(--ink); animation: hand 1s var(--ease-in-out) infinite; filter: drop-shadow(0 4px 6px rgb(0 0 0 / 0.3)); }
+.hand-demo svg { width: 54px; height: 54px; fill: white; }
+@keyframes hand { 0%, 100% { transform: translateY(-14px); } 50% { transform: translateY(0) scale(0.92); } }
+.dial { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.dial-btn, .dial-take {
+  display: grid; place-items: center; width: 88px; height: 88px; border: 0; border-radius: 26px;
+  background: var(--paper-2); box-shadow: inset 0 -6px 0 var(--paper-3), 0 12px 24px -14px rgb(43 42 51 / 0.5);
+  transition: transform 160ms var(--ease-out);
+}
+.dial-btn:active, .dial-take:active { transform: scale(0.96); }
+.dial-btn svg, .dial-take svg { width: 40px; height: 40px; }
+.dial-take { background: var(--build); color: white; box-shadow: inset 0 -6px 0 rgb(0 0 0 / 0.18), 0 12px 24px -14px var(--build); }
+.dial-btn:disabled, .dial-take:disabled { opacity: 0.4; }
+.dial-num { display: grid; justify-items: center; min-width: 120px; font-family: var(--font-display); font-weight: 800; font-size: 4rem; line-height: 0.95; }
+.farm-note { text-align: center; color: var(--ink-2); font-weight: 700; margin: 0; padding: 8px; }

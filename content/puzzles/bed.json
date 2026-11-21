@@ -1,0 +1,22 @@
+{
+  "id": "bed",
+  "idea": "area",
+  "order": 1,
+  "_design": "Game brief, first slice puzzle 1. Part 1: place blocks one by one in a 3 × 4 outline; after the first row the sidekick notices every row is the same. Part 2: a 5 × 3 outline; he dials how many blocks to take from the store first (his prediction). Too few leaves a gap, too many leaves a pile. Unlock: the floor tool.",
+  "lines": {
+    "hook": "Oh no! My bed broke! Can you build me a new one? Tap the glowing squares to put blocks down.",
+    "firstRow": "Look! That row has 4 blocks. Every row is the same length: 4.",
+    "done1": "My bed! You filled 3 rows of 4 blocks. That's 12. The space inside a shape is called its area.",
+    "intro2": "Now my friend needs a bed too. This one is 5 blocks long and 3 rows. How many blocks should we take from the store? Use the plus and minus, then tap the cart.",
+    "tooFew": "Whoops! There's a gap. We needed more blocks. Let's take them back and try again.",
+    "tooMany": "Look at all these spare blocks! We took too many. Let's take them back and try again.",
+    "done2": "Exactly right! 3 rows of 5 is 15. You worked out the area before building. That's what builders do.",
+    "unlock": "You unlocked the floor tool. Now you can fill a whole rectangle in one go.",
+    "hint1": "We need to fill the glowing shape with blocks.",
+    "hint2": "Look, every row is the same. How many in one row? How many rows?",
+    "hint3": "Let's count the first row together: 1, 2, 3, 4, 5. Now, how many rows?",
+    "teaser": "Did you hear that? Something is bleating behind the barn…"
+  },
+  "part1": { "w": 4, "h": 3 },
+  "part2": { "w": 5, "h": 3 }
+}

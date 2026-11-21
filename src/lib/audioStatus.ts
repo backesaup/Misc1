@@ -1,5 +1,6 @@
 import { lessons } from '@/lesson/content'
-import { allLessonLines, commonLines, hashInput, type SpokenLine } from '@/lesson/lines'
+import { allLessonLines, allPuzzleLines, commonLines, hashInput, type SpokenLine } from '@/lesson/lines'
+import bed from '@content/puzzles/bed.json'
 
 async function sha256(text: string) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text))
@@ -14,7 +15,7 @@ export interface AudioStatus {
 
 /** Compares every spoken line with public/audio/manifest.json written by generate-audio.py. */
 export async function audioStatus(): Promise<AudioStatus> {
-  const lines = [...commonLines(), ...lessons.flatMap(allLessonLines)]
+  const lines = [...commonLines(), ...lessons.flatMap(allLessonLines), ...allPuzzleLines(bed)]
   let manifest: Record<string, string> = {}
   try {
     const res = await fetch(`${import.meta.env.BASE_URL}audio/manifest.json`, { cache: 'no-cache' })

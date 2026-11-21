@@ -64,4 +64,4 @@ words, glossary across lessons, scene actions, talk card, hands-on).
 See `briefs/game-brief.txt`. First slice: the farm (bed = area, sheep pen = perimeter, water tank =
 volume, hollow watchtower = 26), the block-store number dial as his prediction, the world gives
 the feedback, hint ladder at 20/40/60 s, no rewards beyond the world changing. Milestone 1 is a
-grey-box of the bed puzzle; the sandbox's block placing is the starting point.
+grey-box of the bed puzzle: **built** (`src/game/Farm.tsx`, `content/puzzles/bed.json`, the Farm tile). Next: test the controls with him, then the sheep pen (perimeter), water tank (volume) and hollow watchtower (26).

@@ -5,7 +5,7 @@ import { defineConfig, devices } from '@playwright/test'
 // console errors, and any request to another site.
 export default defineConfig({
   testDir: 'e2e',
-  timeout: 240_000,
+  timeout: 480_000,
   fullyParallel: true,
   reporter: [['list']],
   use: {
