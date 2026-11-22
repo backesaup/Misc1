@@ -5,6 +5,7 @@ export const sceneCatalog = {
     blocks64: ['fillStack', 'morph', 'showSides', 'hideSides', 'lightRows', 'countRows', 'countLayers', 'doubleTo', 'spin'],
     solarCube: ['spin', 'countPanels', 'panelsOff', 'sunrise', 'pulsePanels', 'twist', 'explode', 'focusEdge', 'sunAngle', 'tag'],
     arrange: ['arrive', 'set', 'robot'],
+    solids: ['show', 'roll', 'spin', 'fold'],
     disco: ['lights', 'spin', 'dots', 'secondLight', 'oneMirror', 'countMirrors', 'clearCount', 'music', 'colour', 'floorDance', 'countFloor', 'tag', 'untag'],
   },
   diagram: {
@@ -16,5 +17,7 @@ export const sceneCatalog = {
     clock: ['time', 'shade', 'labels'],
     coins: ['coins'],
     gauge: ['place', 'fill', 'set'],
+    shapes: ['set'],
+    board: ['move', 'set', 'hot'],
   },
 } satisfies Record<string, Record<string, string[]>>

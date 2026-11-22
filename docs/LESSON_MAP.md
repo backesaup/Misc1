@@ -44,9 +44,10 @@ Status: ✅ built · 🟡 partly (an existing lesson touches it) · ⬜ to do. M
 - ✅ The market stall (diagram:coins; make: coins) · Price it yourself
 
 ## Shape, position, data
-- 🟡 Faces, edges, corners (solar cube counts faces; stack-64 cube)
-- ⬜ Shape detective / Corners and sides / Unfolding a box / Mirror world / Turn cards / Tiles with no gaps
-- ⬜ Secret sorting rule / Farm survey / What does the chart say?
+- ✅ Shape detective · Corners and sides (diagram:shapes; make: sides) · Tiles with no gaps (shapes tiles)
+- ✅ Faces, edges and corners · Unfolding a box (voxel:solids: highlight, roll, cube net)
+- ✅ Mirror world · Turn cards (diagram:grid mirror and robot cards)
+- ✅ Secret sorting rule · The farm survey + What does the chart say? (diagram:board sort, pictogram, bar chart)
 
 ## Science (every lesson is an experiment he runs)
 - ⬜ Parts of a plant / What do seeds need? / Animal groups / Who eats what? / Your senses

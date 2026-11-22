@@ -1,0 +1,147 @@
+{
+  "id": "mirror-world",
+  "section": "maths",
+  "title": "Mirror world",
+  "cardArt": "build",
+  "status": "ready",
+  "order": 36,
+  "_map": "Mirror world (Y2). Big idea: lines of symmetry. Creative: design a symmetrical house or butterfly; the robot builds half wrong for him to fix.",
+  "_story": "The robot builds a house in blocks, but only one half. A mirror line shows how the other half must look. Then the robot builds a whole house with a mistake for Ismaeel to spot.",
+  "_stepChain": "a mirror (disco: reflect) shows a flipped copy → fold line: both halves match → that line is called a line of symmetry → complete the other half → spot the robot's mistake → design your own",
+  "assumes": [
+    "mirror",
+    "block"
+  ],
+  "talk": [
+    {
+      "ask": "What does symmetrical mean?",
+      "goodAnswer": "both halves match exactly, like a reflection in a mirror along the line."
+    },
+    {
+      "ask": "How did you spot the robot's mistake?",
+      "goodAnswer": "one window wasn't in the matching place on the other side of the line."
+    }
+  ],
+  "handsOn": "Fold a piece of paper in half, paint blobs on one side, then fold and press. Open it up: a symmetrical butterfly! Or build a symmetrical house from Lego.",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": {
+        "type": "diagram",
+        "preset": "grid",
+        "params": {
+          "cols": 8,
+          "rows": 6,
+          "numbers": false,
+          "cells": "3:3,10:3,11:3,17:3,18:3,19:3,25:0,26:1,27:0,33:0,34:0,35:5,41:0,42:0,43:5"
+        }
+      },
+      "narration": {
+        "speaker": "robot",
+        "text": "I started building a house, but I only finished one half! I want both sides to match perfectly."
+      }
+    },
+    {
+      "id": "line",
+      "term": "line of symmetry",
+      "narration": {
+        "text": "Imagine a mirror standing right down the middle. Each block on this side has a twin on the other side, the same distance from the mirror. A line where both halves match like that is called a line of symmetry."
+      },
+      "animation": [
+        {
+          "at": 1.2,
+          "action": "mirror",
+          "on": true
+        },
+        {
+          "at": 5.6,
+          "action": "mirror",
+          "on": true,
+          "fill": true
+        }
+      ]
+    },
+    {
+      "id": "spot",
+      "question": {
+        "narration": {
+          "speaker": "robot",
+          "text": "Now I built a whole house by myself. It's perfectly symmetrical. I think."
+        },
+        "prompt": "Is the robot's house symmetrical?",
+        "choices": [
+          "Yes",
+          "No"
+        ],
+        "answer": 1,
+        "onRight": "Yes, you spotted it. The window on the right is one block too far out.",
+        "wrong": {
+          "0": {
+            "mistake": "looked at the whole shape but didn't compare each pair of twins",
+            "hint": "Look at the windows. Is each one the same distance from the line?",
+            "say": "Compare the windows. The left window is one block from the edge of the wall. The right window is right at the edge. They don't match, so it isn't symmetrical."
+          }
+        },
+        "reveal": "Moving the window one block in makes both sides match.",
+        "revealAnimation": [
+          {
+            "at": 0,
+            "action": "cells",
+            "cells": "3:3,4:3,10:3,11:3,12:3,13:3,17:3,18:3,19:3,20:3,21:3,22:3,25:0,26:1,27:0,28:0,29:1,30:0,33:0,34:0,35:5,36:5,37:0,38:0,41:0,42:0,43:5,44:5,45:0,46:0"
+          },
+          {
+            "at": 0,
+            "action": "mirror",
+            "on": true,
+            "fill": false
+          }
+        ]
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "mirror",
+          "on": true,
+          "fill": false
+        },
+        {
+          "at": 0,
+          "action": "cells",
+          "cells": "3:3,4:3,10:3,11:3,12:3,13:3,17:3,18:3,19:3,20:3,21:3,22:3,25:0,26:1,27:0,28:0,29:0,30:1,33:0,34:0,35:5,36:5,37:0,38:0,41:0,42:0,43:5,44:5,45:0,46:0"
+        }
+      ]
+    },
+    {
+      "id": "nature",
+      "narration": {
+        "text": "Symmetry is everywhere. A butterfly's wings. Your face. A leaf. A Minecraft creeper face too! Look around and find something symmetrical."
+      }
+    },
+    {
+      "id": "design",
+      "narration": {
+        "text": "Now design your own symmetrical house, or a butterfly. Build one half, then copy each block to the other side of the line, the same distance away."
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Symmetrical: both halves match across the line.",
+        "ask": "Can you say what a line of symmetry is? Say it out loud. Then tap the eye.",
+        "spoken": "A line of symmetry splits a shape into two halves that match exactly, like a reflection in a mirror."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: how many lines of symmetry does a square have?",
+    "choices": [
+      "1",
+      "2",
+      "4"
+    ],
+    "answer": 2,
+    "reveal": "4! Up and down, side to side, and both diagonals."
+  }
+}

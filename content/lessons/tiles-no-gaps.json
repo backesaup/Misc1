@@ -1,0 +1,71 @@
+{
+  "id": "tiles-no-gaps",
+  "section": "maths",
+  "title": "Tiles with no gaps",
+  "cardArt": "build",
+  "status": "ready",
+  "order": 38,
+  "_map": "Tiles with no gaps (stretch). Big idea: some shapes fit together with no gaps (tessellation). Creative: which tiles can cover the barn floor perfectly? Invent a new tile that works.",
+  "_story": "The robot wants to tile the barn floor so no mud shows through. It tries squares, triangles, hexagons and circles. Circles leave gaps everywhere.",
+  "_stepChain": "shapes (corners-and-sides) → cover a floor with no gaps → squares work → triangles work → hexagons work (like honeycomb) → circles leave gaps → shapes that fit with no gaps tessellate",
+  "assumes": ["square", "triangle", "circle"],
+  "requires": ["corners-and-sides"],
+  "talk": [
+    { "ask": "Why can't circles cover a floor without gaps?", "goodAnswer": "they're curved, so they only touch at points and leave gaps between." },
+    { "ask": "Which shapes did tessellate?", "goodAnswer": "squares, triangles and hexagons." }
+  ],
+  "handsOn": "Cut out lots of the same shape from paper and try to cover a page with no gaps and no overlaps. Try squares, then circles, then a shape you invent.",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "shapes", "params": { "view": "tiles", "tile": 0 } },
+      "narration": { "speaker": "robot", "text": "My barn floor is muddy! I want to cover it with tiles, with no gaps for mud to squelch through. Squares work perfectly." }
+    },
+    {
+      "id": "triangles",
+      "narration": { "text": "Triangles work too: point up, point down, point up. No gaps!" },
+      "animation": [{ "at": 0.6, "action": "set", "tile": 1 }]
+    },
+    {
+      "id": "circles",
+      "question": {
+        "narration": { "speaker": "robot", "text": "Circles are my favourite. I'll use circles!" },
+        "prompt": "Will circles cover the floor with no gaps?",
+        "choices": ["Yes", "No"],
+        "answer": 1,
+        "onRight": "Yes, you predicted it. Curved edges only touch at points, so gaps are left between them.",
+        "wrong": {
+          "0": { "mistake": "hasn't pictured how curved edges meet", "hint": "Imagine pushing coins together on a table. Do they fit with no spaces?", "say": "Circles only touch at tiny points. There are always little gaps between them, where the mud would show." }
+        },
+        "reveal": "Gaps everywhere! Mud would squelch through.",
+        "revealAnimation": [{ "at": 0, "action": "set", "tile": 3 }]
+      }
+    },
+    {
+      "id": "tessellate",
+      "term": "tessellate",
+      "narration": { "text": "Hexagons, with 6 sides, fit perfectly too. That's why bees build honeycomb from them. When a shape covers a floor with no gaps and no overlaps, we say it tessellates." },
+      "animation": [{ "at": 0, "action": "set", "tile": 2 }]
+    },
+    {
+      "id": "invent",
+      "narration": { "text": "Can you invent a new tile that tessellates? Here's a trick: start with a square, cut a bump out of one side, and stick it on the opposite side. It still fits with no gaps!" }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Shapes that tessellate fit with no gaps.",
+        "ask": "Can you say which shapes tessellate, and why circles don't? Say it out loud. Then tap the eye.",
+        "spoken": "Squares, triangles and hexagons tessellate: they fit together with no gaps. Circles don't, because they're curved."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: do shapes with 5 equal sides (pentagons) tessellate?",
+    "choices": ["Yes", "No"],
+    "answer": 1,
+    "reveal": "Not regular ones! They leave gaps. But some stretched pentagons do tessellate. Mathematicians are still finding new ones."
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "shape-detective",
+  "section": "maths",
+  "title": "Shape detective",
+  "cardArt": "made",
+  "status": "ready",
+  "order": 32,
+  "_map": "Shape detective (Y1). Big idea: naming 2D and 3D shapes. Creative: build an animal using only squares, circles and triangles.",
+  "_story": "The robot made a picture of the farm cat out of shapes. Ismaeel finds each shape, names it, then makes his own animal.",
+  "_stepChain": "shapes have names → triangle (3 sides), square (4 equal sides), circle (no corners) → find them in the cat → 3D shapes are solid: cube, sphere → make your own animal",
+  "assumes": ["counting"],
+  "talk": [
+    { "ask": "What shapes made the cat?", "goodAnswer": "a circle head, triangle ears, a square body, rectangle legs and tail." },
+    { "ask": "What's the difference between a square and a cube?", "goodAnswer": "a square is flat; a cube is solid, made of 6 squares." }
+  ],
+  "handsOn": "Cut out paper squares, circles and triangles. Make an animal from only those shapes. What would you call it?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "shapes", "params": { "view": "animal" } },
+      "narration": { "speaker": "robot", "text": "Look! I made a picture of the farm cat, using only shapes. Can you be a shape detective and find them?" }
+    },
+    {
+      "id": "triangle",
+      "term": "triangle",
+      "narration": { "text": "The ears have 3 straight sides and 3 corners. A shape like that is called a triangle." },
+      "animation": [{ "at": 0, "action": "set", "view": "shape", "sides": 3, "corners": true, "sideNums": true }]
+    },
+    {
+      "id": "square",
+      "term": "square",
+      "narration": { "text": "The body has 4 straight sides, all the same length, and 4 corners. That's a square." },
+      "animation": [{ "at": 0, "action": "set", "view": "shape", "sides": 4, "corners": true, "sideNums": true }]
+    },
+    {
+      "id": "circle",
+      "term": "circle",
+      "question": {
+        "narration": { "text": "And the head is perfectly round." },
+        "prompt": "How many corners does a circle have?",
+        "choices": ["1", "0", "4"],
+        "answer": 1,
+        "onRight": "Yes. A circle is one curved line, with no corners at all.",
+        "wrong": {
+          "0": { "mistake": "thinks the place where you start drawing is a corner", "hint": "Run your finger round a circle. Do you ever hit a pointy bit?", "say": "A circle is one smooth curve, with no pointy bits. So it has zero corners." },
+          "2": { "mistake": "confused with a square", "hint": "Is a circle pointy anywhere?", "say": "4 corners is a square. A circle is round all the way, so it has zero corners." }
+        },
+        "reveal": "A circle has no corners and no straight sides.",
+        "revealAnimation": [{ "at": 0, "action": "set", "view": "shape", "sides": 0 }]
+      }
+    },
+    {
+      "id": "animal",
+      "narration": { "speaker": "robot", "text": "Now it's your turn. Make an animal using only squares, circles and triangles! A triangle beak? Circle eyes? Square wings? Show a grown-up your creature." },
+      "animation": [{ "at": 0, "action": "set", "view": "animal" }]
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Triangle: 3 sides. Square: 4 sides. Circle: no corners.",
+        "ask": "Can you say how many sides a triangle has, and a square? Say it out loud. Then tap the eye.",
+        "spoken": "A triangle has 3 sides and 3 corners. A square has 4 equal sides and 4 corners. A circle has no corners at all."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: a shape with 6 sides is called a hexagon. Where might you see one?",
+    "choices": ["A honeycomb", "A football", "A pencil"],
+    "answer": 0,
+    "reveal": "Bees build honeycomb out of hexagons! Footballs and pencils can have hexagons too."
+  }
+}

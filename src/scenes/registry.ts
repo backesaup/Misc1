@@ -13,10 +13,13 @@ import { fraction } from './diagram/Fraction'
 import { clock } from './diagram/Clock'
 import { coins } from './diagram/Coins'
 import { gauge } from './diagram/Gauge'
+import { shapes } from './diagram/Shapes'
+import { board } from './diagram/Board'
+import { solids } from './voxel/Solids'
 
 export const scenes: Record<string, Record<string, SceneDef>> = {
-  voxel: { blocks64, solarCube, disco, arrange },
-  diagram: { wiring, power, balance, grid, fraction, clock, coins, gauge },
+  voxel: { blocks64, solarCube, disco, arrange, solids },
+  diagram: { wiring, power, balance, grid, fraction, clock, coins, gauge, shapes, board },
 }
 
 export const sceneKey = (s: SceneRef) => `${s.type}:${s.preset}`

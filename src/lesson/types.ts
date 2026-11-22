@@ -117,7 +117,7 @@ export interface MakeStep extends StepBase {
   kind: 'make'
   narration: Line
   make: {
-    mode: 'rows' | 'pairs' | 'split' | 'tens' | 'share' | 'stairs' | 'square' | 'groups' | 'line' | 'balance' | 'every' | 'cut' | 'coins'
+    mode: 'rows' | 'pairs' | 'split' | 'tens' | 'share' | 'stairs' | 'square' | 'groups' | 'line' | 'balance' | 'every' | 'cut' | 'coins' | 'sides'
     item: 'chicken' | 'sheep' | 'apple' | 'brick' | 'block' | 'pumpkin' | 'egg' | 'carrot' | 'stone' | 'grass'
     total: number
     /** share: how many friends; groups: the group size; line: how long the thing is. */

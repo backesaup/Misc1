@@ -1,0 +1,100 @@
+{
+  "id": "faces-edges-corners",
+  "section": "maths",
+  "title": "Faces, edges and corners",
+  "cardArt": "stack64",
+  "status": "ready",
+  "order": 34,
+  "_map": "Faces, edges, corners (Y2). Big idea: a cube has 6 faces, 12 edges and 8 corners. Creative: which 3D shapes stack and which roll? Build the tallest stable tower; count a Rubik's cube's faces.",
+  "_story": "Building with solid shapes. Every Minecraft block is a cube. The robot counts faces, edges and corners with Ismaeel, then tests which shapes roll away and which stack.",
+  "_stepChain": "3D shapes are solid → a cube (every Minecraft block) → flat sides are faces: 6 → where two faces meet is an edge: 12 → corners: 8 → flat faces stack, curved ones roll → test",
+  "assumes": ["square", "counting", "Minecraft", "Rubik's cube"],
+  "requires": ["shape-detective"],
+  "talk": [
+    { "ask": "How many faces, edges and corners does a cube have?", "goodAnswer": "6 faces, 12 edges, 8 corners." },
+    { "ask": "Why does a ball roll but a cube doesn't?", "goodAnswer": "the ball is curved all over; the cube has flat faces to sit on." }
+  ],
+  "handsOn": "Find a box, a ball, a tin and a Lego brick. Which roll? Which stack? Count the faces on the box. Then count the faces on a Rubik's cube (or a dice).",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "voxel", "preset": "solids", "params": { "shape": "cube", "highlight": "plain" } },
+      "narration": { "speaker": "robot", "text": "Every block in Minecraft is this shape: a cube. Let's take a really close look at one." },
+      "animation": [{ "at": 0, "action": "spin", "turns": 1, "duration": 5 }]
+    },
+    {
+      "id": "faces",
+      "term": "face",
+      "narration": { "text": "The flat sides of a solid shape are called faces. A cube has 6 faces, all squares. Top, bottom, front, back, and two sides." },
+      "animation": [{ "at": 0, "action": "show", "highlight": "faces", "count": "6 faces" }, { "at": 0.4, "action": "spin", "turns": 1, "duration": 6 }]
+    },
+    {
+      "id": "edges",
+      "term": "edge",
+      "question": {
+        "narration": { "text": "Where two faces meet, there's a straight line called an edge." },
+        "prompt": "How many edges does a cube have? Make a guess.",
+        "choices": ["6", "8", "12"],
+        "answer": 2,
+        "onRight": "Yes. 4 round the top, 4 round the bottom, and 4 going up the sides.",
+        "wrong": {
+          "0": { "mistake": "counted faces instead of edges", "hint": "6 is the faces. Count the lines where faces meet: start with the top square.", "say": "6 is the faces. The edges are the lines: 4 round the top, 4 round the bottom, 4 up the sides. 12 edges." },
+          "1": { "mistake": "counted corners instead of edges", "hint": "8 is the corners. Count the lines between them.", "say": "8 is the corners. The edges are the lines joining them: 4 round the top, 4 round the bottom, 4 up the sides. 12." }
+        },
+        "reveal": "12 edges.",
+        "revealAnimation": [{ "at": 0, "action": "show", "highlight": "edges", "count": "12 edges" }, { "at": 0.3, "action": "spin", "turns": 1, "duration": 5 }]
+      }
+    },
+    {
+      "id": "corners",
+      "narration": { "text": "And the pointy corners, where edges meet: 4 on top and 4 underneath. 8 corners." },
+      "animation": [{ "at": 0, "action": "show", "highlight": "corners", "count": "8 corners" }, { "at": 0.3, "action": "spin", "turns": 1, "duration": 5 }]
+    },
+    {
+      "id": "roll",
+      "question": {
+        "open": true,
+        "narration": { "speaker": "robot", "text": "Experiment time! I'll give each shape a push." },
+        "prompt": "Which do you think will roll away?",
+        "choices": ["The cube", "The ball", "Both"],
+        "answer": 1,
+        "reveal": "The ball rolls, because it's curved all over. The cube only slides a tiny bit, because it sits flat on a face. Flat faces are why Minecraft blocks stack so well.",
+        "revealAnimation": [
+          { "at": 0, "action": "show", "shape": "cube", "highlight": "faces", "count": "" },
+          { "at": 0.2, "action": "roll", "duration": 1.4 },
+          { "at": 2, "action": "show", "shape": "sphere", "highlight": "faces", "count": "" },
+          { "at": 2.2, "action": "roll", "duration": 2 }
+        ]
+      }
+    },
+    {
+      "id": "others",
+      "narration": { "text": "Here are more solid shapes: a cylinder like a tin, a cone like an ice-cream cone, and a pyramid. The cylinder can roll and stack. Which way up?" },
+      "animation": [
+        { "at": 0, "action": "show", "shape": "cylinder", "highlight": "faces" },
+        { "at": 3.2, "action": "show", "shape": "cone", "highlight": "faces" },
+        { "at": 5.4, "action": "show", "shape": "pyramid", "highlight": "edges" }
+      ]
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "A cube: 6 faces, 12 edges, 8 corners.",
+        "ask": "Can you say how many faces, edges and corners a cube has? Say it out loud. Then tap the eye.",
+        "spoken": "A cube has 6 faces, 12 edges and 8 corners. Flat faces stack. Curved shapes roll."
+      }
+    }
+  ],
+  "bonus": {
+    "prompt": "Bonus: a Rubik's cube has 9 little squares on each face. How many little squares altogether?",
+    "choices": ["15", "54", "27"],
+    "answer": 1,
+    "onRight": "Yes. 6 faces with 9 each: 54. The same as the solar panels!",
+    "wrong": {
+      "0": { "mistake": "added 9 and 6", "hint": "Each of the 6 faces has its own 9 squares.", "say": "Count 9 for each of the 6 faces: 9, 18, 27, 36, 45, 54." },
+      "2": { "mistake": "counted the small cubes instead of the squares on the outside", "hint": "27 is the little cubes inside. Count the squares on the faces.", "say": "27 is how many little cubes make the whole thing. The squares on the outside: 9 on each of 6 faces, 54." }
+    },
+    "reveal": "54 little squares."
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "id": "turn-cards",
+  "section": "maths",
+  "title": "Turn cards",
+  "cardArt": "build",
+  "status": "ready",
+  "order": 37,
+  "_map": "Turn cards (Y1–2). Big idea: quarter, half and full turns; clockwise and anticlockwise; right angles. Creative: guide the robot to treasure with direction and turn cards (his first coding).",
+  "_story": "The robot can only follow cards: forward, turn left, turn right. Treasure is buried on the farm. Ismaeel plans the cards, runs them, and fixes the bugs. His first program.",
+  "_stepChain": "the robot faces a way → forward moves one square → a quarter turn → right and left → a list of instructions is a program → plan cards to the treasure → fix a bug",
+  "assumes": [
+    "counting"
+  ],
+  "talk": [
+    {
+      "ask": "What cards did you give the robot to reach the treasure?",
+      "goodAnswer": "something like forward 3, turn right, forward 3; any program that works."
+    },
+    {
+      "ask": "What's a quarter turn?",
+      "goodAnswer": "turning a quarter of the way round, like from facing forwards to facing the side. Four quarter turns make a full turn."
+    }
+  ],
+  "handsOn": "Be the robot! A grown-up gives you cards or calls out forward, turn left, turn right to guide you to a hidden toy. Then swap.",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": {
+        "type": "diagram",
+        "preset": "grid",
+        "params": {
+          "cols": 6,
+          "rows": 6,
+          "numbers": false,
+          "robot": true,
+          "robotX": 0,
+          "robotY": 5,
+          "robotDir": 0,
+          "goalX": 3,
+          "goalY": 2
+        }
+      },
+      "narration": {
+        "speaker": "robot",
+        "text": "There's treasure buried on the farm! But I can only follow cards: forward, turn left, or turn right. Can you guide me?"
+      }
+    },
+    {
+      "id": "forward",
+      "narration": {
+        "text": "Forward moves the robot one square, the way it's facing. Forward, forward, forward."
+      },
+      "animation": [
+        {
+          "at": 2,
+          "action": "cards",
+          "cards": "FFF"
+        }
+      ]
+    },
+    {
+      "id": "quarter",
+      "term": "quarter turn",
+      "narration": {
+        "text": "Now turn right. The robot turns a quarter of the way round, on the spot, without moving square. That's called a quarter turn. Four quarter turns make a full turn, back where it started."
+      },
+      "animation": [
+        {
+          "at": 1,
+          "action": "cards",
+          "cards": "R"
+        }
+      ]
+    },
+    {
+      "id": "program",
+      "term": "program",
+      "question": {
+        "narration": {
+          "text": "A list of cards for the robot to follow is called a program. The robot is facing right, 3 squares away from the treasure."
+        },
+        "prompt": "Which program reaches the treasure?",
+        "choices": [
+          "Forward 3",
+          "Turn left, forward 3",
+          "Forward 2"
+        ],
+        "answer": 0,
+        "onRight": "Yes. You planned it: 3 squares straight ahead.",
+        "wrong": {
+          "1": {
+            "mistake": "turned when the robot was already facing the right way",
+            "hint": "Which way is the robot facing right now? Is the treasure that way?",
+            "say": "The robot is already facing the treasure. Turning left would point it up, away from the treasure. It only needs to go forward 3."
+          },
+          "2": {
+            "mistake": "counted the squares wrong",
+            "hint": "Count the squares between the robot and the treasure.",
+            "say": "Count the squares: 1, 2, 3. Forward 2 stops one square short. It needs forward 3."
+          }
+        },
+        "reveal": "Forward, forward, forward. Treasure!",
+        "revealAnimation": [
+          {
+            "at": 0,
+            "action": "cards",
+            "cards": "FFF"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bug",
+      "question": {
+        "narration": {
+          "speaker": "robot",
+          "text": "New treasure! I'm back at the start, facing up. I wrote my own program: forward 3, turn left, forward 3. Here I go!"
+        },
+        "prompt": "Will the robot reach the treasure?",
+        "choices": [
+          "Yes",
+          "No"
+        ],
+        "answer": 1,
+        "onRight": "Yes, you found the bug: it should turn right, not left.",
+        "wrong": {
+          "0": {
+            "mistake": "mixed up left and right",
+            "hint": "After going up, the treasure is to the robot's right. Which turn faces it that way?",
+            "say": "After going forward 3, the treasure is to the right. Turning left points the robot the wrong way, off the edge. Change the left card to right."
+          }
+        },
+        "reveal": "A mistake in a program is called a bug. Swap left for right, and it works.",
+        "revealAnimation": [
+          {
+            "at": 0,
+            "action": "robot",
+            "x": 0,
+            "y": 5,
+            "dir": 0
+          },
+          {
+            "at": 0.3,
+            "action": "cards",
+            "cards": "FFFRFFF"
+          }
+        ]
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "robot",
+          "x": 0,
+          "y": 5,
+          "dir": 0
+        }
+      ]
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "A program is a list of steps. Four quarter turns make a full turn.",
+        "ask": "Can you say what a program is? Say it out loud. Then tap the eye.",
+        "spoken": "A program is a list of steps for a robot to follow. A quarter turn is a quarter of the way round, and four make a full turn."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: facing up, the robot does two quarter turns to the right. Which way is it facing now?",
+    "choices": [
+      "Right",
+      "Down",
+      "Up"
+    ],
+    "answer": 1,
+    "reveal": "Down! Two quarter turns make a half turn: the robot faces the opposite way."
+  }
+}

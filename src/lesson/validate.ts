@@ -54,10 +54,10 @@ export function validateLesson(lesson: Lesson, catalog?: SceneCatalog): string[]
       if (step.scene) currentScene = `${step.scene.type}:${step.scene.preset}`
       questions++ // an open challenge counts as his prediction-and-test
       const m = step.make
-      if (!['rows', 'pairs', 'split', 'tens', 'share', 'stairs', 'square', 'groups', 'line', 'balance', 'every', 'cut', 'coins'].includes(m.mode)) at(step, `unknown make mode "${m.mode}"`)
+      if (!['rows', 'pairs', 'split', 'tens', 'share', 'stairs', 'square', 'groups', 'line', 'balance', 'every', 'cut', 'coins', 'sides'].includes(m.mode)) at(step, `unknown make mode "${m.mode}"`)
       if (!(m.total > 0 && m.total <= 100)) at(step, 'make.total must be 1–100 (stairs/square: the most blocks needed)')
       if (m.mode === 'share' && !(m.extra && m.extra > 0)) at(step, 'share needs extra (how many friends)')
-      const needs = ({ balance: 'diagram:balance', every: 'diagram:grid', cut: 'diagram:fraction', coins: 'diagram:coins' } as Record<string, string>)[m.mode] ?? 'voxel:arrange'
+      const needs = ({ balance: 'diagram:balance', every: 'diagram:grid', cut: 'diagram:fraction', coins: 'diagram:coins', sides: 'diagram:shapes' } as Record<string, string>)[m.mode] ?? 'voxel:arrange'
       if (currentScene !== needs) at(step, `make mode ${m.mode} needs the ${needs} scene`)
     }
     if (kind === 'build' && 'blocks' in step) {

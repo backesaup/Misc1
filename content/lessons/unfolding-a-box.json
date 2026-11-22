@@ -1,0 +1,68 @@
+{
+  "id": "unfolding-a-box",
+  "section": "maths",
+  "title": "Unfolding a box",
+  "cardArt": "stack64",
+  "status": "ready",
+  "order": 35,
+  "_map": "Unfolding a box (stretch). Big idea: a flat net folds into a 3D shape. Creative: find different flat shapes that fold into a cube (there are 11).",
+  "_story": "The robot wants a box for its eggs. It unfolds a cube into a flat cross of 6 squares, then folds it back. There are 11 different nets; Ismaeel hunts for some with paper.",
+  "_stepChain": "a cube has 6 square faces (faces-edges-corners) → cut along some edges and lay it flat → a flat shape that folds into a solid is called a net → fold it back → not every 6-square shape works → there are 11 cube nets",
+  "assumes": ["face", "edge", "square"],
+  "requires": ["faces-edges-corners"],
+  "talk": [
+    { "ask": "What is a net?", "goodAnswer": "a flat shape that folds up into a 3D shape, like the cross of 6 squares that makes a cube." },
+    { "ask": "Does every shape made of 6 squares fold into a cube?", "goodAnswer": "no; only 11 of them do. Some overlap or leave a gap." }
+  ],
+  "handsOn": "Draw a cross of 6 squares on paper, cut it out, and fold it into a cube. Then try to invent a different net that also works. There are 11 to find!",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "voxel", "preset": "solids", "params": { "net": true, "fold": 1 } },
+      "narration": { "speaker": "robot", "text": "I need a box for my eggs. Look, here's a cube box. I wonder what it looks like if I unfold it?" }
+    },
+    {
+      "id": "unfold",
+      "term": "net",
+      "narration": { "text": "Cut along some of the edges, and lay it flat. It's a cross of 6 squares! A flat shape that folds up into a solid shape is called a net." },
+      "animation": [{ "at": 1, "action": "fold", "to": 0, "duration": 3 }]
+    },
+    {
+      "id": "fold",
+      "narration": { "text": "Now watch it fold back up. Each square folds up to become one face. 6 squares, 6 faces." },
+      "animation": [{ "at": 0.6, "action": "fold", "to": 1, "duration": 3 }]
+    },
+    {
+      "id": "guess",
+      "question": {
+        "open": true,
+        "narration": { "speaker": "robot", "text": "Is the cross the only net for a cube? I think there must be hundreds!" },
+        "prompt": "How many different nets do you think fold into a cube?",
+        "choices": ["Just 1", "11", "Hundreds"],
+        "answer": 1,
+        "reveal": "11! Mathematicians have checked every way. Some shapes made of 6 squares fold perfectly. Others overlap, or leave a hole.",
+        "revealAnimation": [{ "at": 0, "action": "fold", "to": 0, "duration": 2 }]
+      }
+    },
+    {
+      "id": "hunt",
+      "narration": { "text": "Here's a hunt for you. With paper and scissors, find some of the 11 nets. Try a line of 4 squares, with one square on top and one underneath. Does it fold into a cube?" }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "A net folds up into a solid shape.",
+        "ask": "Can you say what a net is? Say it out loud. Then tap the eye.",
+        "spoken": "A net is a flat shape that folds up into a solid. A cube's net has 6 squares, and there are 11 different ones."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: a net for a pyramid with a square bottom. How many triangles does it need?",
+    "choices": ["3", "4", "6"],
+    "answer": 1,
+    "reveal": "4 triangles round one square: they fold up to meet at the top."
+  }
+}
