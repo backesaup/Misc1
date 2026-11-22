@@ -20,39 +20,39 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "lab", "params": { "view": "states", "heat": 0 } },
-      "narration": { "speaker": "steve", "text": "I've got a block of ice from the frozen pond. It's hard and keeps its shape. What happens if I warm it up?" }
+      "narration": { "speaker": "steve", "text": "Look! I've got a block of ice from the frozen pond. Brrr! It's hard, and it keeps its shape. What happens if I warm it up?" }
     },
     {
       "id": "solid",
       "term": "solid",
-      "narration": { "text": "Ice is a solid. Solids keep their shape: you can hold them, and they don't spread out." }
+      "narration": { "text": "Ice is a solid. Solids keep their shape. You can hold them, and they don't spread out." }
     },
     {
       "id": "melt",
       "term": "liquid",
-      "narration": { "text": "Warm it up, and the ice melts into water. Water is a liquid. Liquids flow, and take the shape of whatever they're in." },
+      "narration": { "text": "Warm it up, and drip, drip, drip! The ice melts into water. Water is a liquid. Liquids can pour and splash, and they take the shape of whatever they're in!" },
       "animation": [{ "at": 0.8, "action": "heat", "to": 1, "duration": 3 }]
     },
     {
       "id": "boil",
       "term": "gas",
       "question": {
-        "narration": { "speaker": "steve", "text": "Now I'll heat it much more. Oh! The water is disappearing. It's gone forever!" },
+        "narration": { "speaker": "steve", "text": "Now I'll heat it much, much more. Oh! The water's disappearing! It's gone forever!" },
         "prompt": "Where is the water going?",
         "choices": ["Gone forever", "Into the air as steam", "Into the pan"],
         "answer": 1,
-        "onRight": "Yes. It turns into steam, a gas, and spreads out into the air.",
+        "onRight": "Yes! It turns into steam, a gas, and spreads out into the air!",
         "wrong": {
-          "0": { "mistake": "thinks evaporated water stops existing", "hint": "Look above the pan. What's rising up?", "say": "It hasn't vanished. The water turns into steam, a gas, and spreads out into the air. You can't always see it, but it's there." },
-          "2": { "mistake": "thinks the pan soaks it up", "hint": "Metal pans don't soak things up. Look at what's rising.", "say": "The pan doesn't soak it up. The water turns into steam, a gas, which rises and spreads into the air." }
+          "0": { "mistake": "thinks evaporated water stops existing", "hint": "Look above the pan. What's rising up?", "say": "It hasn't vanished! The water turns into steam, a gas, and spreads out into the air. You can't always see it, but it's there!" },
+          "2": { "mistake": "thinks the pan soaks it up", "hint": "Metal pans don't soak things up. Look at what's rising!", "say": "The pan doesn't soak it up! The water turns into steam, a gas, which floats up and spreads into the air." }
         },
-        "reveal": "Water boils into steam, a gas. Gases spread out to fill the space.",
+        "reveal": "Water boils into steam, a gas! Gases spread out to fill all the space.",
         "revealAnimation": [{ "at": 0, "action": "heat", "to": 2, "duration": 3 }]
       }
     },
     {
       "id": "states",
-      "narration": { "text": "Solid, liquid and gas are called the three states. Water can be all three: ice, water and steam. When steam cools on a cold lid, it turns back into water drops. It was there all along!" },
+      "narration": { "text": "Solid, liquid and gas are called the three states. Water can be all three! Ice, water and steam. And when steam touches a cold lid, it turns back into water drops. It was there all along!" },
       "animation": [{ "at": 6, "action": "heat", "to": 1, "duration": 2 }]
     },
     {
@@ -60,16 +60,16 @@
       "kind": "rule",
       "rule": {
         "text": "Heat it: solid → liquid → gas. Cool it: back again.",
-        "ask": "Can you say the three states of water? Say it out loud. Then tap the eye.",
+        "ask": "Can you say the three states of water? Say it out loud! Then tap the eye.",
         "spoken": "Ice is solid, water is liquid, and steam is a gas. Heating changes it one way, and cooling changes it back."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: chocolate melts in your hand. Is melted chocolate a solid or a liquid?",
+    "prompt": "Bonus! Chocolate melts in your hand. Is melted chocolate a solid, or a liquid?",
     "choices": ["Solid", "Liquid"],
     "answer": 1,
-    "reveal": "A liquid! Put it in the fridge, and it turns back into a solid."
+    "reveal": "A liquid! Pop it in the fridge, and it turns back into a solid. Yum!"
   }
 }

@@ -20,12 +20,12 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "lab", "params": { "view": "lever", "pivot": 0.5 } },
-      "narration": { "speaker": "steve", "text": "My giant pumpkin is too heavy to lift onto the cart! I tried and tried. Do you have an idea?" }
+      "narration": { "speaker": "steve", "text": "Hnnnngh! My giant pumpkin is too heavy to lift onto the cart! I tried and tried! Ismaeel, have you got an idea?" }
     },
     {
       "id": "lever",
       "term": "lever",
-      "narration": { "text": "Put a long plank over a log, with the pumpkin on one end. Push down on the other end, and up goes the pumpkin! A plank that turns on a point like that is called a lever. The point it turns on is the pivot." },
+      "narration": { "text": "Here's a trick! Put a long plank over a log, with the pumpkin on one end. Push down on the other end, and… up goes the pumpkin! Whoa! A plank that tips on a point like that is called a lever. The point it tips on is called the pivot." },
       "animation": [{ "at": 5, "action": "lift", "to": 0.6, "duration": 1.6 }]
     },
     {
@@ -36,14 +36,14 @@
         "prompt": "Pivot close to the pumpkin, or close to Steve?",
         "choices": ["Close to the pumpkin", "Close to Steve"],
         "answer": 0,
-        "reveal": "Close to the pumpkin! Then Steve pushes down on a long end, and even a small push lifts the heavy pumpkin.",
+        "reveal": "Close to the pumpkin! Then Steve pushes on the long end, and even a little push lifts the heavy pumpkin! Easy as anything!",
         "revealAnimation": [{ "at": 0, "action": "lift", "to": 0, "duration": 0.4 }, { "at": 0.4, "action": "pivot", "to": 0.2 }, { "at": 1.8, "action": "lift", "to": 1, "duration": 1.6 }]
       }
     },
     {
       "id": "gears",
       "term": "gear",
-      "narration": { "text": "Now the mill. A wheel with teeth round the edge is called a gear. When two gears touch, the teeth push each other round. Here a small gear with 8 teeth turns a big gear with 16 teeth." },
+      "narration": { "text": "Now the windmill! A wheel with teeth round the edge is called a gear. When two gears touch, their teeth push each other round. Click, click, click! Here, a little gear with 8 teeth turns a big gear with 16 teeth." },
       "scene": { "type": "diagram", "preset": "lab", "params": { "view": "gears", "bigTeeth": 16 } },
       "animation": [{ "at": 0, "action": "gears", "on": true }]
     },
@@ -51,14 +51,14 @@
       "id": "speed",
       "question": {
         "narration": { "speaker": "steve", "text": "The big gear has twice as many teeth. So it must turn twice as fast!" },
-        "prompt": "Does the big gear turn faster or slower than the small one?",
+        "prompt": "Does the big gear turn faster, or slower, than the little one?",
         "choices": ["Faster", "Slower"],
         "answer": 1,
-        "onRight": "Yes. The small gear goes round twice for every once the big gear turns.",
+        "onRight": "Yes! The little gear goes round twice, for every once the big gear turns!",
         "wrong": {
-          "0": { "mistake": "thinks more teeth means faster", "hint": "The small gear has 8 teeth. How many times must it turn to push all 16 teeth of the big one past?", "say": "The small gear's 8 teeth have to go round twice to push all 16 teeth of the big gear once. So the big gear turns more slowly." }
+          "0": { "mistake": "thinks more teeth means faster", "hint": "The little gear has 8 teeth. How many times must it turn, to push all 16 teeth of the big one past?", "say": "The little gear's 8 teeth have to go round twice, to push all 16 teeth of the big gear round once! So the big gear turns more slowly." }
         },
-        "reveal": "Big gear: slower and stronger. Small gear: faster."
+        "reveal": "Big gear: slower, but stronger. Little gear: faster!"
       }
     },
     {
@@ -66,16 +66,16 @@
       "kind": "rule",
       "rule": {
         "text": "Levers and gears make jobs easier.",
-        "ask": "Can you say where to put a lever's pivot to lift something heavy? Say it out loud. Then tap the eye.",
+        "ask": "Where should a lever's pivot go, to lift something heavy? Say it out loud! Then tap the eye.",
         "spoken": "A lever lifts heavy things more easily when the pivot is close to the load. Gears change speed: a small gear turns a big gear slowly."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: on a bike, which gear makes going up a hill easiest?",
+    "prompt": "Bonus! On a bike, which gear makes going up a hill easiest?",
     "choices": ["A big gear at the back", "A small gear at the back"],
     "answer": 0,
-    "reveal": "A big gear at the back. Your legs go round more times, but each push is easier."
+    "reveal": "A big gear at the back! Your legs go round more times, but each push is easier."
   }
 }

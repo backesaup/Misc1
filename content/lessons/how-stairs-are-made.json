@@ -39,7 +39,7 @@
       },
       "narration": {
         "speaker": "steve",
-        "text": "I want to get upstairs, but it's far too high to jump. In my world I'd pile up blocks. How do builders make real stairs?"
+        "text": "I want to get upstairs! But it's way too high to jump. Boing! Nope. In my world, I'd pile up blocks. How do builders make real stairs?"
       },
       "animation": [
         {
@@ -52,7 +52,7 @@
     {
       "id": "measure",
       "narration": {
-        "text": "First the builder measures from this floor to the floor upstairs. Here it's 240 centimetres. That's taller than a grown-up."
+        "text": "First, the builder measures, from this floor to the floor upstairs. Here it's 240 centimetres. That's taller than a grown-up!"
       },
       "animation": [
         {
@@ -66,7 +66,7 @@
       "id": "count",
       "question": {
         "narration": {
-          "text": "The builder wants every step to be 20 centimetres tall."
+          "text": "The builder wants every step to be 20 centimetres tall. That's about as tall as a big book!"
         },
         "prompt": "Count up in twenties to 240. How many steps?",
         "choices": [
@@ -75,20 +75,20 @@
           "24"
         ],
         "answer": 1,
-        "onRight": "Yes. 20, 40, 60 … 240 is 12 steps of 20.",
+        "onRight": "Yes! 20, 40, 60, all the way to 240. 12 steps!",
         "wrong": {
           "0": {
             "mistake": "stopped counting at 200",
             "hint": "Keep counting past 200: 220, 240.",
-            "say": "10 steps of 20 is only 200. Two more steps reach 240: 12 steps."
+            "say": "10 steps of 20 is only 200. Two more steps reach 240! 12 steps."
           },
           "2": {
             "mistake": "counted in tens instead of twenties",
             "hint": "Each step is 20, not 10. Count 20, 40, 60…",
-            "say": "24 steps would be steps of 10. In twenties: 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240. That's 12."
+            "say": "24 steps would be steps of 10. In twenties: 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240. That's 12!"
           }
         },
-        "reveal": "12 steps of 20 centimetres make 240."
+        "reveal": "12 steps of 20 centimetres make 240!"
       }
     },
     {
@@ -96,7 +96,7 @@
       "question": {
         "narration": {
           "speaker": "steve",
-          "text": "Why not make 4 giant steps instead? That's less work!"
+          "text": "Why not make 4 giant steps instead? That's way less work!"
         },
         "prompt": "Why don't builders make giant steps?",
         "choices": [
@@ -105,27 +105,27 @@
           "Stairs must have 12 steps"
         ],
         "answer": 0,
-        "onRight": "Yes. In homes in the UK, each step can be at most 22 centimetres tall, so legs can reach it safely.",
+        "onRight": "Yes! In homes in the UK, each step can be 22 centimetres tall at most, so legs can climb it safely.",
         "wrong": {
           "1": {
             "mistake": "thinks it's about the amount of wood",
             "hint": "Imagine climbing a step as high as your tummy.",
-            "say": "It's about our legs. A step as high as your tummy is hard to climb and easy to fall from. In UK homes, each step is at most 22 centimetres."
+            "say": "It's about our legs! A step as high as your tummy is hard to climb, and easy to fall off. In UK homes, each step is 22 centimetres at most."
           },
           "2": {
             "mistake": "thinks there's a fixed number of steps",
             "hint": "Do taller houses have more steps?",
-            "say": "Stairs can have any number of steps. The rule is that each step mustn't be too tall: at most 22 centimetres in UK homes."
+            "say": "Stairs can have any number of steps! The rule is that each step mustn't be too tall: 22 centimetres at most, in UK homes."
           }
         },
-        "reveal": "Steps must be low enough for legs: at most 22 centimetres in UK homes."
+        "reveal": "Steps must be low enough for legs: 22 centimetres at most, in UK homes!"
       }
     },
     {
       "id": "stringers",
       "term": "stringer",
       "narration": {
-        "text": "The builder cuts two long boards with a zig-zag edge. They hold the steps up, like the sides of a ladder. They're called stringers."
+        "text": "The builder cuts two long boards, with a zig-zag edge. Zig, zag, zig, zag! They hold the steps up, like the sides of a ladder. They're called stringers."
       },
       "animation": [
         {
@@ -161,7 +161,7 @@
       "id": "treads",
       "term": "tread",
       "narration": {
-        "text": "Then the parts you stand on go across, one for each step. They're called treads. Between them go upright boards called risers, all exactly 20 centimetres tall."
+        "text": "Then the bits you stand on go across, one for each step. They're called treads. Between them go boards standing up, called risers. Every one exactly 20 centimetres tall!"
       },
       "animation": [
         {
@@ -211,7 +211,7 @@
       "id": "climb",
       "narration": {
         "speaker": "steve",
-        "text": "Up I go! Every step is the same height, so after one or two steps my legs know exactly what to do."
+        "text": "Up I go! Step, step, step! Every step is the same height. So after one or two steps, my legs know exactly what to do!"
       },
       "animation": [
         {
@@ -232,7 +232,7 @@
       "id": "odd",
       "question": {
         "narration": {
-          "text": "Now watch. What if one step is taller than the rest?"
+          "text": "Now watch carefully! What if one step is taller than the rest?"
         },
         "prompt": "Why did Steve trip?",
         "choices": [
@@ -241,20 +241,20 @@
           "The stairs were too long"
         ],
         "answer": 0,
-        "onRight": "Yes. His legs expected 20 centimetres, but that step was taller, so his foot caught it.",
+        "onRight": "Yes! His legs expected 20 centimetres. But that step was taller, so his foot caught it! Oops!",
         "wrong": {
           "1": {
             "mistake": "blames speed instead of the odd step",
             "hint": "Watch which step he tripped on. Is it the same as the others?",
-            "say": "He climbed at the same speed as before. This time one step was taller, so his foot caught its edge."
+            "say": "He climbed at the same speed as before! This time, one step was taller, so his foot caught its edge."
           },
           "2": {
             "mistake": "thinks long stairs cause trips",
             "hint": "He climbed the same long stairs before without tripping. What changed?",
-            "say": "The stairs are as long as before. What changed is one step: it's taller than the others, and his foot caught it."
+            "say": "The stairs are as long as before! What changed is one step. It's taller than the others, and his foot caught it."
           }
         },
-        "reveal": "One step was taller, so his foot caught it. That's why every step must be the same."
+        "reveal": "One step was taller, so his foot caught it. That's why every step must be the same!"
       },
       "animation": [
         {
@@ -286,20 +286,20 @@
       "kind": "rule",
       "rule": {
         "text": "Measure the height, then make every step the same.",
-        "ask": "Can you say how stairs are made? Say it out loud. Then tap the eye.",
+        "ask": "How are stairs made? Say it out loud! Then tap the eye.",
         "spoken": "Measure from floor to floor, share it into equal steps that aren't too tall, then build: stringers, treads, risers and a handrail."
       }
     }
   ],
   "bonus": {
-    "prompt": "Bonus: each step is 20 centimetres. How high are 5 steps?",
+    "prompt": "Bonus! Each step is 20 centimetres. How high are 5 steps?",
     "choices": [
       "25",
       "100",
       "50"
     ],
     "answer": 1,
-    "onRight": "Yes. 20, 40, 60, 80, 100.",
+    "onRight": "Yes! 20, 40, 60, 80, 100!",
     "wrong": {
       "0": {
         "mistake": "added 20 and 5",
@@ -309,9 +309,9 @@
       "2": {
         "mistake": "counted steps of 10",
         "hint": "Each step is 20, not 10.",
-        "say": "50 would be 5 steps of 10. In twenties it's 100."
+        "say": "50 would be 5 steps of 10. In twenties, it's 100!"
       }
     },
-    "reveal": "5 steps of 20 is 100 centimetres."
+    "reveal": "5 steps of 20 is 100 centimetres!"
   }
 }

@@ -35,7 +35,7 @@
       },
       "narration": {
         "speaker": "steve",
-        "text": "I built a chair out of blocks and sat on it, and it fell to pieces! In my world, blocks can float in the air. But in your world, everything gets pulled down. So how do people make a real chair that holds you up?"
+        "text": "Crash! Ow! I built a chair out of blocks, sat on it, and it fell to pieces! In my world, blocks can float in the air. But in your world, everything gets pulled down to the ground. So how do people make a real chair that holds you up?"
       },
       "animation": [
         {
@@ -49,7 +49,7 @@
       "id": "log",
       "term": "sawmill",
       "narration": {
-        "text": "A wooden chair starts as a tree. The tree is cut down, and its trunk, the log, goes to a sawmill. A sawmill is a building full of giant saws."
+        "text": "A wooden chair starts as a tall tree! The tree is cut down. Timber! Its trunk, called a log, goes to a sawmill. A sawmill is a building full of giant saws. Bzzzzz!"
       },
       "animation": [
         {
@@ -68,7 +68,7 @@
       "id": "kiln",
       "term": "kiln",
       "narration": {
-        "text": "The saws cut the log into long flat planks. But fresh wood is wet inside. So the planks go into a hot room called a kiln, to dry. If the wood dried later, it would shrink and bend, and the chair would go wobbly."
+        "text": "The saws slice the log into long flat planks. But fresh wood is wet inside, like a sponge! So the planks go into a hot room called a kiln, to dry out. If the wood dried later, it would shrink and bend, and the chair would go wobbly!"
       },
       "animation": [
         {
@@ -83,7 +83,7 @@
       "question": {
         "narration": {
           "speaker": "steve",
-          "text": "Before we cut anything: how many legs does a chair need?"
+          "text": "Before we cut anything, a puzzle! How many legs does a chair really need?"
         },
         "prompt": "What's the fewest legs that can stand up on their own?",
         "choices": [
@@ -92,27 +92,27 @@
           "4"
         ],
         "answer": 1,
-        "onRight": "Yes. 3 legs can stand up on their own, like a milking stool on a farm.",
+        "onRight": "Yes! 3 legs can stand up all by themselves, like a milking stool on a farm.",
         "wrong": {
           "0": {
             "mistake": "thinks 2 legs can balance on their own",
             "hint": "Imagine a stool with 2 legs. Which way would it fall?",
-            "say": "With 2 legs it tips over forwards or backwards, like a bike without its stand. 3 is the fewest that stand up by themselves."
+            "say": "With 2 legs, it tips over, forwards or backwards. Bonk! Like a bike without its stand. 3 is the fewest that stand up by themselves."
           },
           "2": {
             "mistake": "thinks 4 is the fewest because most chairs have 4",
             "hint": "Have you ever seen a stool with 3 legs?",
-            "say": "Most chairs have 4, but 3 is enough to stand. 4 legs make a chair harder to tip over when you lean back."
+            "say": "Most chairs have 4, but 3 is enough to stand up! 4 legs make a chair harder to tip over when you lean back."
           }
         },
-        "reveal": "3 legs is the fewest. Most chairs have 4, so they're harder to tip over."
+        "reveal": "3 legs is the fewest! Most chairs have 4, so they're harder to tip over."
       }
     },
     {
       "id": "cut",
       "term": "carpenter",
       "narration": {
-        "text": "A person who makes things from wood is called a carpenter. The carpenter measures and cuts the planks into parts: 4 legs, 4 rails, a seat and a back."
+        "text": "A person who makes things out of wood is called a carpenter. The carpenter measures, and saws the planks into parts. 4 legs, 4 rails, a seat and a back!"
       },
       "animation": [
         {
@@ -131,7 +131,7 @@
       "id": "joints",
       "term": "joint",
       "narration": {
-        "text": "Now the parts must hold together. The carpenter cuts a hole in the leg, and a peg on the end of the rail, so the peg fits tightly into the hole. A place where two parts lock together is called a joint. Glue goes in the joint too."
+        "text": "Now the parts must hold together. The carpenter cuts a hole in the leg, and a peg on the end of the rail. The peg fits tightly into the hole. Squeak! A place where two parts lock together is called a joint. And glue goes in the joint too!"
       },
       "animation": [
         {
@@ -160,20 +160,20 @@
           "To hold your drink"
         ],
         "answer": 1,
-        "onRight": "Yes. When you sit down, the legs want to spread out. The rails hold them together.",
+        "onRight": "Yes! When you sit down, the legs want to spread out. The rails hold them together!",
         "wrong": {
           "0": {
             "mistake": "thinks every part is decoration",
             "hint": "What would the legs do when someone heavy sits down?",
-            "say": "They do look nice, but their real job is holding the legs together, so the legs can't spread out when you sit."
+            "say": "They do look nice! But their real job is holding the legs together, so the legs can't spread out when you sit."
           },
           "2": {
             "mistake": "mixes up a rail with a shelf",
             "hint": "Look where the rails are: under the seat, from leg to leg.",
-            "say": "There's no room for a drink there. The rails join leg to leg, so the legs can't spread out or wobble."
+            "say": "There's no room for a drink down there! The rails join leg to leg, so the legs can't spread out or wobble."
           }
         },
-        "reveal": "The rails hold the legs together, so they can't spread or wobble.",
+        "reveal": "The rails hold the legs together, so they can't spread out or wobble!",
         "revealAnimation": [
           {
             "at": 0,
@@ -186,7 +186,7 @@
     {
       "id": "clamps",
       "narration": {
-        "text": "Then the seat and the back go on. The carpenter squeezes each joint tight with clamps, and waits for the glue to dry. Dry glue holds as hard as the wood itself."
+        "text": "Then the seat and the back go on. The carpenter squeezes each joint tight with clamps, and waits for the glue to dry. Dry glue holds as tight as the wood itself!"
       },
       "animation": [
         {
@@ -206,7 +206,7 @@
       "id": "varnish",
       "term": "varnish",
       "narration": {
-        "text": "Last, sandpaper rubs the wood smooth, so there are no splinters. Then a clear shiny coat called varnish goes on. Varnish keeps out water and dirt."
+        "text": "Last, sandpaper rubs the wood smooth. Scritch, scratch! No more splinters. Then a clear, shiny coat called varnish goes on. Varnish keeps out water and dirt."
       },
       "animation": [
         {
@@ -226,7 +226,7 @@
       "id": "sit",
       "narration": {
         "speaker": "steve",
-        "text": "Now let me try. It holds me! Joints, glue and rails. That's how a real chair stays together."
+        "text": "Now let me try. Here goes… It holds me! Hooray! Joints, glue and rails. That's how a real chair stays together!"
       },
       "animation": [
         {
@@ -241,13 +241,13 @@
       "id": "parts",
       "kind": "explore",
       "narration": {
-        "text": "Tap a part of the chair to hear what it does."
+        "text": "Tap a part of the chair, and find out what it does!"
       },
       "parts": [
         {
           "id": "leg",
           "label": "Leg",
-          "narration": "4 legs carry your weight down to the floor."
+          "narration": "4 legs carry your weight all the way down to the floor."
         },
         {
           "id": "rail",
@@ -257,12 +257,12 @@
         {
           "id": "seat",
           "label": "Seat",
-          "narration": "The seat sits on top of the rails and legs."
+          "narration": "The seat sits on top of the rails and legs. Comfy!"
         },
         {
           "id": "back",
           "label": "Back",
-          "narration": "The back is joined to the 2 tall back legs, so you can lean on it."
+          "narration": "The back is joined to the 2 tall back legs, so you can lean back."
         }
       ]
     },
@@ -271,32 +271,32 @@
       "kind": "rule",
       "rule": {
         "text": "Cut the parts, lock them with joints and glue, then finish.",
-        "ask": "Can you say how a real chair is made? Say it out loud. Then tap the eye.",
+        "ask": "How is a real chair made? Say it out loud! Then tap the eye.",
         "spoken": "A carpenter cuts the wood into parts, locks them together with joints and glue, then makes it smooth and shiny."
       }
     }
   ],
   "bonus": {
-    "prompt": "Bonus: 2 chairs and 1 table, each with 4 legs. How many legs altogether?",
+    "prompt": "Bonus! 2 chairs and 1 table, each with 4 legs. How many legs altogether?",
     "choices": [
       "8",
       "12",
       "10"
     ],
     "answer": 1,
-    "onRight": "Yes. 3 lots of 4 is 12.",
+    "onRight": "Yes! 3 lots of 4 is 12.",
     "wrong": {
       "0": {
         "mistake": "forgot the table",
         "hint": "Count the table's legs too.",
-        "say": "8 is the 2 chairs. The table has 4 more: 12."
+        "say": "8 is the 2 chairs. The table has 4 more! 12."
       },
       "2": {
         "mistake": "counted the table as 2 legs",
         "hint": "A table has 4 legs, like a chair.",
-        "say": "2 chairs is 8 legs, and the table has 4: 8, 12."
+        "say": "2 chairs is 8 legs, and the table has 4 more! 8, 12."
       }
     },
-    "reveal": "3 lots of 4 legs is 12."
+    "reveal": "3 lots of 4 legs is 12!"
   }
 }
