@@ -1,0 +1,221 @@
+[00:00] Have you ever sat around on a hot summer day and thought,
+[00:02] I sure wish my Rubik's Cube could capture this sunlight to charge my phone right now?
+[00:06] Yeah, me neither.
+[00:07] But if you think about it, a solar panel really is just a flat surface
+[00:10] with a bunch of individual solar cells laid out onto it and wired together.
+[00:14] And what is a Rubik's Cube if not the perfect canvas to put a bunch of little square tiles onto?
+[00:20] Is it a practical way to charge your phone?
+[00:22] Uh, no.
+[00:23] But would it be really cool?
+[00:25] Absolutely.
+[00:26] And so that's why I bought over 50 of the smallest square shaped solar cells I can find
+[00:31] in hopes of making the world's first solar powered Rubik's Cube.
+[00:34] Now you can't just wire up a solar cell to a USB cable, plug it into your phone, and expect it to do anything.
+[00:40] A single cell like this in full sunlight produces about 1.5 volts and 60 milliamps,
+[00:45] whereas a smartphone would generally expect something like 5 volts and over a thousand milliamps.
+[00:50] So to fix that, we're gonna have to wire a bunch of these up together.
+[00:53] To increase the voltage, we can do what's called wiring them in series,
+[00:56] which basically just means connecting one to the next to the next to the next like this,
+[01:00] and we're gonna do that with nine of them just enough to cover one full side of a Rubik's Cube.
+[01:04] Then to increase the current, we're gonna repeat this chain six different times,
+[01:08] one for each side of the Rubik's Cube, and then we can do what's called wiring them up in parallel,
+[01:12] which is just connecting them up at the ends like this,
+[01:14] which should give us enough power to charge a phone with.
+[01:17] But it's still not quite as easy as just plugging this into a USB cable.
+[01:21] Next up, I'm actually going to connect them to this little solar charging controller right here,
+[01:25] which basically just keeps all these cells at the right voltage and uses it to charge a couple of small batteries
+[01:30] that will keep inside the core of the cube.
+[01:32] Batteries will make this thing a lot more convenient because you can be gathering power from the sun all the time
+[01:36] rather than just when your phone is plugged in.
+[01:38] And then from there, we're actually gonna connect to another little chip that takes the battery voltage
+[01:43] and converts that into 5 volts for your phone.
+[01:45] Then we'll wire that up to a USB connector,
+[01:47] which you can then plug a standard cable into and use that to charge your phone.
+[01:51] Simple, right?
+[01:52] Well, believe it or not, everything we've done so far has actually been pretty standard practice
+[01:55] when it comes to designing a solar charger.
+[01:57] The really tricky part comes in when you realize that all of this has to fit inside the pieces
+[02:02] of a three-dimensional object, which really is just a loosely connected set of a bunch of different pieces,
+[02:08] which you can't exactly run wires between.
+[02:10] So how do you wire up 54 solar cells while still allowing the movement of a Rubik's Cube
+[02:15] and still allowing them to be wired up correctly, no matter what position the Rubik's Cube is in?
+[02:19] Well, I think the key is utilizing the core of the cube.
+[02:22] That's the only sensible place to put the batteries and the solar charger and everything
+[02:26] is right in the middle of the cube.
+[02:28] And from the middle, of course, you can run some wires out in each direction to connect up to the centerpieces.
+[02:34] And from the centerpieces, you can run some wires out each direction to connect to the edge pieces.
+[02:39] And from the edge pieces, you can run some wires out to connect to the corners.
+[02:42] But to make this work, every single half of every single edge piece is going to need not one,
+[02:48] but two electrical connections to its closest center and another two electrical connections to its closest corner.
+[02:54] So how do we electrically connect two pieces that are only barely touching each other?
+[02:58] Well, I think the best solution actually comes back to an ancient Rubik's Cube technology,
+[03:02] which is ball bearings.
+[03:04] These were used in the days back before magnets as kind of a clicking mechanism.
+[03:07] But the way it works is you have a little metal ball sticking out of the piece with a spring behind it to push it out.
+[03:14] And so the other piece sitting up next to it usually has a little divot in it for that ball bearing to sit into.
+[03:19] And so if you can imagine turning this divot into something metal, now we have a metal spring pushing a metal ball up against something metal on the opposite piece.
+[03:27] And that should actually make a very good electrical contact between those two pieces.
+[03:31] So what that means for us is we're going to need a lot of ball bearings in our solar Rubik's Cube.
+[03:36] 96 to be exact.
+[03:37] I actually bought some brass ball bearings, which should be a little bit more conductive, and some springs here.
+[03:42] And then for the electrical contact on the opposite piece, I'm actually using these little brass bolts,
+[03:47] which hear me out, I think is actually the perfect electrical contact because it has this nice flat surface on this outside
+[03:53] that a ball bearing can easily spring into.
+[03:56] They're very cheap, easy to get in a ton of different sizes.
+[03:58] And if we take a little brass nut and screw it on here like this,
+[04:02] it actually becomes super easy to attach wires to because we can just basically tighten that bolt on there.
+[04:08] And there we go.
+[04:09] Now we have a perfect electrical connection, no soldering required.
+[04:12] Of course, there is still going to be a lot of soldering involved.
+[04:15] We're going to have to solder these wires to the solar cells, the solar cells, the springs, the springs to each other.
+[04:20] It's going to be this whole mess.
+[04:21] I have it all planned out, but if it works and that's a big if, it's going to be incredible.
+[04:26] Now I was originally toying around with the idea of building this all within the mass produced,
+[04:30] Diane Shang 10 centimeter 3 by 3.
+[04:32] It's about the right size to fit these solar cells on top of,
+[04:35] but I started to realize with the literal hundreds of holes we would have to drill into this thing,
+[04:39] it would start to make a lot more sense just to build my own 10 centimeter 3 by 3 from scratch.
+[04:44] If you've seen my recent videos, you'll know it should be no problem to design and 3D print our own.
+[04:48] We can put in all the custom holes and indents and everything that we want.
+[04:52] And most importantly, we can make the core completely hollow and really big to fit all those big batteries inside.
+[04:58] Of course, it'll be a stickerless design, which will look a little bit funky once we cover up all the pieces with solar cells,
+[05:03] kind of like one of those carbon fiber cubes, but it should be a pretty cool aesthetic.
+[05:07] Here's what the final design looks like.
+[05:09] It went through a lot of iterations to get to this point, a lot of trial and error,
+[05:12] but I think I finally have everything tuned perfectly.
+[05:15] Just to walk you through it real quick, here's a printed out corner and edge.
+[05:18] Here's the two holes where they're going to connect together electrically,
+[05:21] as well as a magnet on each one just to kind of hold it in place better.
+[05:24] So on the corner side, we're going to have this little bolt and nut,
+[05:27] which will fit nicely into this little hole right here if we push it in.
+[05:30] There we go. Now we have a nice metal contact flush with the outside of the corner.
+[05:34] And then in the edge, we have this big hole where we can drop in a ball bearing like that and then put a spring.
+[05:40] And that'll push on the ball bearing so that it's always sticking out just past the edge of the piece.
+[05:45] And so now as these pieces slide against each other,
+[05:47] once they're lined up, that ball bearing is perfectly pushing against the screw.
+[05:51] And these two electrical connections between each edge and corner,
+[05:54] as well as two between each edge and center,
+[05:57] will allow us to find the glue on a whole of the solar cells,
+[06:00] wire those up to the screws, wire them up to the springs,
+[06:03] get all nine of them on each side in series, like I showed you earlier.
+[06:06] And then through the core, we can then wire everything all up together.
+[06:09] And one more thing you might not have thought about,
+[06:11] how do you get an electrical connection between the center piece and the core
+[06:16] when one of these things is spinning and the other one isn't?
+[06:19] You could just run some wires up in there,
+[06:21] but eventually they get all twisted around each other.
+[06:23] Well, that's why I bought these nifty little things called slip rings.
+[06:26] Basically, it's this little part that fits perfectly into the core.
+[06:29] There's wires coming out both sides,
+[06:31] but you can see one end of it is spinning and the other end isn't.
+[06:34] It just helps us maintain a connection without getting all twisted up.
+[06:37] I probably could have made my own with some more ball bearings, but this is a lot easier.
+[06:41] I also have these little tiny springs and some more 3D printed pieces
+[06:44] that I can slide onto the end here.
+[06:46] And with a little bit of super glue that will lock our center pieces into place
+[06:49] while still allowing them to spin and have a little bit of springiness like normal.
+[06:53] And of course, there'll be another half to this core
+[06:55] and we're going to have to fit a lot of stuff inside, which should be a lot of fun.
+[06:58] So we've got a bunch more 3D printed parts to print out.
+[07:01] That process should go a lot easier since last time,
+[07:03] since I figured out how to get the support materials to come off a lot easier.
+[07:06] We've got our miscellaneous electronics.
+[07:08] We've got a whole load of solar cells.
+[07:10] We got professional electrical connectors.
+[07:12] Make shift brass electrical connectors.
+[07:14] Big springs and little springs.
+[07:16] I didn't mention this, but we have a whole load of wire that we're going to have to solder everything to.
+[07:20] We've got loads of solder.
+[07:21] We've got tons of super glue.
+[07:22] We have a bunch of magnets.
+[07:24] We have even more electrical components I haven't even talked about for extra safety.
+[07:28] It's going to be quite the project.
+[07:30] I think it's time to get started.
+[09:12] I present to you what is not only the world's most impractical solar panel,
+[09:17] but also the world's most impractical Rubik's cube.
+[09:20] I'll tell you what, this thing took so much more work than I expected
+[09:24] and the end product leaves a little bit to be desired,
+[09:27] but let's just take a minute to admire the beauty that is a Rubik's cube covered in solar panels.
+[09:32] Even before I started filming any part of this video,
+[09:35] there were so many months of thinking,
+[09:37] wait a minute, what parts do I even need to build this?
+[09:40] Ordering those parts and then months later realizing,
+[09:42] wait a minute, those aren't going to work.
+[09:44] I'm going to need some more parts.
+[09:45] Printing out stuff, realizing those aren't going to work.
+[09:47] So many prototypes, so many different iterations.
+[09:50] And then once I finally got down to building the darn thing,
+[09:52] it was well over a dozen hours of very tedious work,
+[09:55] just soldering stuff together, assembling parts,
+[09:57] just so many individual electrical contacts to put in the right place.
+[10:01] And as cool as it looks and as functional as it is as a Rubik's cube,
+[10:04] you may have already noticed some of the issues with the solar panel part.
+[10:07] For one thing, as you can tell, there's some pretty big gaps between these pieces,
+[10:11] even when the cube is just totally sitting still like this.
+[10:14] And I could probably fix it in the future just by shrinking that spherical core down a little bit,
+[10:18] just to give the pieces a little bit more room to kind of hug each other a little bit more tightly.
+[10:22] Why haven't I done that already?
+[10:23] Well, as you probably saw during the time lapse,
+[10:25] there's a lot of delicate cables that I've already committed to running perfectly inside the core of the cube.
+[10:30] And so if I wanted to change out the core itself,
+[10:33] it's going to be a lot of rewiring to get that to work.
+[10:35] But I'll have plenty of motivation to do that later because on the electrical side,
+[10:39] things didn't exactly go perfectly either.
+[10:41] The solar charging controller that I was originally going to use,
+[10:44] I couldn't quite figure out how to get it to work.
+[10:46] I thought this would allow me to set the exact voltage that I want the solar cells to run at for maximum efficiency,
+[10:50] but they just wouldn't do what I told them to, so we're gonna have to figure that out another day.
+[10:54] As for now, I used a much simpler board that's just a little bit less efficient.
+[10:58] But besides those little kinks that I think I should be able to work out at some point,
+[11:02] this is a fully functional Rubik's cube solar panel.
+[11:05] So let's try it out.
+[11:06] The first aspect of it to try, of course, is the Rubik's cube.
+[11:09] You've already seen a little bit of it.
+[11:10] Of course, the turning isn't going to be fantastic, but it's actually not bad.
+[11:14] The biggest thing that's kind of restricting you from turning it super well is the weight.
+[11:18] It's pretty hefty and of course quite large too.
+[11:21] But because of the perfectly symmetrical way that I wired everything up,
+[11:24] we can now go ahead and test out the electrical portion,
+[11:26] and it will remain perfectly functional regardless of what state the cube is in.
+[11:30] So if you want to do your solar charging in a checkerboard pattern, then there's no reason not to.
+[11:34] Now, if you're actually going to use this thing in practice,
+[11:36] what you'd probably want to do is set it outside in the sun,
+[11:39] perhaps on a stain like this, so that all of the panels can get a little bit of light,
+[11:43] and maybe on a reflective surface so that these bottom ones can help out too.
+[11:47] But in practice, not all the pieces are going to be making a perfect electrical connection at all times.
+[11:51] So right now, what I'm going to do is just very carefully focus on maybe three sides
+[11:56] and try and make sure that all these pieces are touching each other as good as possible
+[12:00] and just point it towards the sun like this.
+[12:02] But hold on a second.
+[12:03] Where do you actually plug your phone into this thing?
+[12:06] Well, I'm glad you asked because right underneath the solar cell in the white center,
+[12:09] which is lovingly duct-taped on there, there's a USB port,
+[12:13] and you can just go ahead and plug in a USB-C cable,
+[12:15] then plug our phone into the opposite end, which conveniently is on 13% battery.
+[12:20] I made sure the cube's batteries were completely discharged ahead of time,
+[12:23] so I can use this app on my phone to see exactly how much current the solar cells are providing.
+[12:27] So you can see it's really struggling right now
+[12:29] because these solar cells are barely producing any power under these artificial lights.
+[12:32] It'll charge up the battery just enough to get it to 160mA for a few seconds,
+[12:37] which is not a lot, but then it just completely cuts out.
+[12:39] So let's go ahead and bring all this outside to see if we can get any better results in some real sunlight.
+[12:44] So after leaving it plugged in for a few minutes in the sun, the result is...
+[12:47] It's still terrible!
+[12:49] The current is still wildly inconsistent, upwards of only a couple hundred milliamps.
+[12:53] At the very least, I can say that the Srebrix Cube did use the sun to charge my phone a little bit,
+[12:59] but in the end, I think I used up more battery trying to measure how much it charged than actually got charged.
+[13:05] So at the end of the day, are you ever gonna charge your phone using your Rubik's Cube?
+[13:09] Heck no!
+[13:09] I'm the guy who just spent months of my life building this thing,
+[13:12] and I'm not sure if I'm ever gonna fully charge my phone with this Rubik's Cube.
+[13:15] I think the goal is to someday redesign the core and its electronics to get it working better.
+[13:19] Maybe I'll upload a short about it if I can fix it up,
+[13:21] but as impractical and non-functional as it may be,
+[13:24] you do have to admit that it is quite the unique object that we ended up with.
+[13:27] For years, I've been looking for an excuse to run electrical contacts through all the pieces of Rubik's Cube like this,
+[13:33] and now that I've finally done it, I realize how terrible of an idea it was.
+[13:36] All joking aside though, I certainly learned a ton and have much more to learn about solar panel design and Rubik's Cube design,
+[13:43] and I hope you guys learned a few things too and enjoyed the video.
+[13:46] Let me know what you think down in the comments because that's pretty much it, and wait a minute,
+[13:50] has that yellow centerpiece been rotated the wrong way this whole time?
+[13:54] I'll see you guys next time!
