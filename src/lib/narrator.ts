@@ -164,7 +164,7 @@ class Narrator {
       u.lang = voice?.lang ?? 'en-GB'
       u.rate = d.rate * this.rate
       u.pitch = d.pitch
-      u.onend = () => window.setTimeout(nextSentence, 320) // a breath between sentences
+      u.onend = () => window.setTimeout(nextSentence, 120) // a short breath between sentences
       u.onerror = () => finish('ended')
       this.utter = u
       window.speechSynthesis.speak(u)

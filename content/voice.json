@@ -1,18 +1,42 @@
 {
-  "_note": "Narration voices, one per character. Change and push: the Narration workflow re-records every affected line. engine 'fish' needs the repo secret FISH_API_KEY and a voice id per speaker (listen on the parent screen after running the 'Voice samples' workflow). 'pitch' > 1 raises the voice.",
+  "_note": "Narration voices, one per character. Change and push: the Narration workflow re-records every affected line. Kokoro voices, best first: af_heart (most expressive, American), af_bella, bf_emma (best British), am_puck/am_michael (male). Each line is recorded in one go so the voice keeps its natural rise and fall; only counting lists are split, to give each number a beat. engine 'fish' needs the repo secret FISH_API_KEY and a voice id per speaker. 'pitch' > 1 raises the voice.",
   "engine": "kokoro",
   "fishModel": "s2.1-pro",
-  "pauses": { "sentence": 0.38, "count": 0.28, "beforeQuestion": 0.45 },
+  "pauses": {
+    "sentence": 0.12,
+    "count": 0.18,
+    "beforeQuestion": 0.25
+  },
   "speakers": {
     "narrator": {
-      "kokoro": { "voice": "bm_lewis", "speed": 0.92, "pitch": 1 },
-      "fish": { "voice": "", "speed": 0.95 },
-      "device": { "pitch": 1, "rate": 0.95 }
+      "kokoro": {
+        "voice": "af_heart",
+        "speed": 1.08,
+        "pitch": 1
+      },
+      "fish": {
+        "voice": "",
+        "speed": 0.95
+      },
+      "device": {
+        "pitch": 1.05,
+        "rate": 1.08
+      }
     },
     "steve": {
-      "kokoro": { "voice": "am_puck", "speed": 1.0, "pitch": 1.0 },
-      "fish": { "voice": "", "speed": 1.0 },
-      "device": { "pitch": 1.15, "rate": 1.02 }
+      "kokoro": {
+        "voice": "am_puck",
+        "speed": 1.12,
+        "pitch": 1.0
+      },
+      "fish": {
+        "voice": "",
+        "speed": 1.0
+      },
+      "device": {
+        "pitch": 1.15,
+        "rate": 1.12
+      }
     }
   }
 }

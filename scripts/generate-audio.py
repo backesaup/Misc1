@@ -41,32 +41,31 @@ def load_lines():
     return json.loads(out.stdout)["lines"]
 
 
+COUNT_LIST = re.compile(r"(\d[\d,]*\s*(,|and)\s*){2,}\d[\d,]*")
+
+
 def chunks(text):
-    """Split a line into (piece, pause-after) for natural pacing."""
+    """Split a line into (piece, pause-after). A whole line is spoken in one go, so the voice keeps
+    its natural expression across sentences; only counting lists ("8, 16, 24") are split out, with a
+    short beat after each number."""
     cfg = VOICE["pauses"]
+    if not COUNT_LIST.search(text):
+        return [(text, 0.0)]
     parts = []
-    sentences = []
-    for sent in re.findall(r"[^.!?…]+[.!?…]*", text):
-        head, sep, tail = sent.partition(": ")
-        if sep and re.match(r"\s*\d", tail):  # "Count in tens: 10, 20, 30" -> "Count in tens." + the list
-            sentences += [head.strip() + ".", tail]
-        else:
-            sentences.append(sent)
-    for sent in sentences:
-        sent = sent.strip()
-        if not sent:
-            continue
-        # counting lists: "8, 16, 24, 32" -> a pause after each number
-        if re.fullmatch(r"(\d[\d,]*\s*,\s*){2,}\d[\d,]*\.?", sent.replace(" and ", ", ")):
-            nums = [n.strip(" .") for n in re.split(r",\s*|\s+and\s+", sent) if n.strip(" .")]
-            for i, n in enumerate(nums):
-                parts.append((n + ("." if i == len(nums) - 1 else ","), cfg["count"]))
-            parts[-1] = (parts[-1][0], cfg["sentence"])
-        else:
-            parts.append((sent, cfg["sentence"]))
-    if parts:
-        parts[-1] = (parts[-1][0], 0.0)
-    return parts or [(text, 0.0)]
+    pos = 0
+    for m in COUNT_LIST.finditer(text):
+        before = text[pos:m.start()].strip()
+        if before:
+            parts.append((before, cfg["sentence"]))
+        nums = [n.strip(" .") for n in re.split(r",\s*|\s+and\s+", m.group(0)) if n.strip(" .")]
+        for i, n in enumerate(nums):
+            parts.append((n + ("." if i == len(nums) - 1 else ","), cfg["count"]))
+        pos = m.end()
+    after = text[pos:].strip(" .")
+    if after:
+        parts.append((after if after[-1] in ".!?" else after + ".", 0.0))
+    parts[-1] = (parts[-1][0], 0.0)
+    return parts
 
 
 class Kokoro:

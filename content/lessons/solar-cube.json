@@ -24,11 +24,11 @@
   "talk": [
     {
       "ask": "Why didn't the cube charge the phone much?",
-      "goodAnswer": "even in perfect sun the 6 lines only make 360 milliamps, a phone wants about 1,000; and really the sun only reaches 1 to 3 faces, there are gaps, and not every contact touches, so it made about 200."
+      "goodAnswer": "even with sun on every panel, the 6 lines only make 360 milliamps, and a phone wants about 1,000; really the sun only reaches 1 to 3 faces, there are gaps, and not every contact touches, so it made about 200."
     },
     {
       "ask": "What's the difference between series and parallel?",
-      "goodAnswer": "series is in a line, one after another, and adds up the push (volts); parallel is side by side and adds up the flow (milliamps)."
+      "goodAnswer": "series is in a line, one after another, like train carriages: the push (volts) adds up. Parallel is side by side, like taps filling one bath: the flow (milliamps) adds up."
     },
     {
       "ask": "How does electricity get between pieces that turn?",
@@ -48,7 +48,7 @@
         }
       },
       "narration": {
-        "text": "This is a Rubik's cube with something new on it. Each little dark square turns sunlight into electricity. A square like that is called a solar panel. This cube can charge a phone."
+        "text": "Ismaeel, look at this! It's a Rubik's cube. But it's covered in shiny dark squares. Guess what they do? They catch sunshine, and turn it into electricity! A square that does that is called a solar panel. And this cube can charge a phone. Whoa!"
       },
       "animation": [
         {
@@ -68,7 +68,7 @@
       "id": "guess-panels",
       "question": {
         "narration": {
-          "text": "Each face of the cube has 9 panels. A cube has 6 faces."
+          "text": "Let's count the solar panels. Each side of the cube has 9. And a cube has 6 sides."
         },
         "prompt": "How many panels altogether?",
         "choices": [
@@ -77,20 +77,20 @@
           "36"
         ],
         "answer": 1,
-        "onRight": "Yes. You saw that each face has 9, so 6 faces is 6 times 9.",
+        "onRight": "Yes! 6 sides, 9 on each. 6 lots of 9 is 54!",
         "wrong": {
           "0": {
             "mistake": "added 9 and 6 instead of 6 lots of 9",
             "hint": "Every face has its own 9 panels. How many lots of 9 are there?",
-            "say": "You added 9 and 6. But each of the 6 faces has its own 9 panels. Count 9 at a time: 9, 18, 27, 36, 45, 54."
+            "say": "Ooh, close. You added 9 and 6. But every side has its own 9! Let's count in nines: 9, 18, 27, 36, 45, 54."
           },
           "2": {
             "mistake": "counted only the 4 side faces",
             "hint": "Don't forget the top and the bottom of the cube.",
-            "say": "36 is 4 faces of 9: the sides. Don't forget the top and the bottom. 36, 45, 54."
+            "say": "36 is only the 4 sides you can see around the edge. Don't forget the top and the bottom! 36, 45, 54."
           }
         },
-        "reveal": "54 panels. 9 on each of the 6 faces.",
+        "reveal": "54 solar panels! 9 on each of the 6 sides.",
         "revealAnimation": [
           {
             "at": 0,
@@ -99,24 +99,24 @@
           }
         ],
         "retry": {
-          "prompt": "A smaller cube has 4 panels on each face. How many panels altogether?",
+          "prompt": "Here's a smaller cube, with 4 panels on each side. How many altogether?",
           "choices": [
             "10",
             "24",
             "16"
           ],
           "answer": 1,
-          "onRight": "Yes. 6 faces, with 4 on each, is 24.",
+          "onRight": "Yes! 6 sides with 4 on each is 24.",
           "wrong": {
             "0": {
               "mistake": "added 4 and 6",
               "hint": "Every face has its own 4 panels. How many faces are there?",
-              "say": "You added 4 and 6. Count 4 for each of the 6 faces: 4, 8, 12, 16, 20, 24."
+              "say": "You added 4 and 6. Count 4 for each of the 6 sides: 4, 8, 12, 16, 20, 24."
             },
             "2": {
               "mistake": "counted only the 4 side faces",
               "hint": "Don't forget the top and the bottom.",
-              "say": "16 is the 4 sides. Add the top and the bottom: 20, 24."
+              "say": "16 is the 4 sides around the edge. Now add the top and the bottom: 20, 24."
             }
           },
           "reveal": "6 faces with 4 panels each is 24."
@@ -127,7 +127,7 @@
       "id": "milliamps",
       "term": "milliamps",
       "narration": {
-        "text": "When sunlight hits a panel, electricity flows out of it. Think of a tap. The amount of water coming out is like the amount of electricity flowing. We measure that flow in milliamps. One panel makes about 60 milliamps in bright sun."
+        "text": "Now, a secret about electricity. It's made of tiny, tiny bits, far too small to see. When sunshine hits a panel, the bits zoom out along the wire. Zoom, zoom, zoom! How many bits rush past at once is called the flow. Like a tap! A little flow is a dribble. A big flow is a gush! We measure the flow in milliamps. One panel makes about 60 milliamps."
       },
       "label": "1 panel: 60 milliamps",
       "animation": [
@@ -155,7 +155,7 @@
         "preset": "wiring"
       },
       "narration": {
-        "text": "Electricity also needs a push to get it moving. Back to the tap: the push is how hard the water is squeezed out. That push is called volts. Here are all 54 panels, drawn flat."
+        "text": "Electricity needs one more thing: a push. Squeeze a water bottle gently, and the water only dribbles out. Squeeze it hard, and whoosh! It shoots out. That push is called volts. Now here are all 54 panels, laid out flat, so we can see the wires."
       },
       "animation": [
         {
@@ -169,7 +169,7 @@
       "id": "series",
       "term": "series",
       "narration": {
-        "text": "On each face, the 9 panels are joined in a line, one after another, like train carriages. Joining them in a line adds up their push, their volts. This is called series."
+        "text": "On each side, the 9 panels hold hands in a line, one after another, like train carriages. Each panel adds its own push. So the push gets bigger and bigger! Joining them in a line like this is called series."
       },
       "animation": [
         {
@@ -184,7 +184,7 @@
       "id": "parallel",
       "term": "parallel",
       "narration": {
-        "text": "Then the 6 faces are joined side by side, like 6 taps filling one bath. Side by side adds up the flow, the milliamps. This is called parallel. Electricity isn't really water, but the tap picture helps us think about push and flow."
+        "text": "Then the 6 lines are joined side by side. Imagine 6 taps all pouring into one bath. Splash! Side by side, the flow adds up. More bits rushing at once! This is called parallel. Remember: electricity isn't really water. But thinking of water helps us picture the push and the flow."
       },
       "animation": [
         {
@@ -198,23 +198,23 @@
       "id": "explore-wiring",
       "kind": "explore",
       "narration": {
-        "text": "Tap a part of the picture to hear what it does."
+        "text": "Tap a part of the picture, and I'll tell you what it does."
       },
       "parts": [
         {
           "id": "chain",
           "label": "Line of 9",
-          "narration": "9 panels in a line, one after another. In series, the push adds up."
+          "narration": "9 panels in a line, like train carriages. In a line, the push adds up."
         },
         {
           "id": "rails",
           "label": "Side by side",
-          "narration": "6 faces side by side. In parallel, the flow adds up."
+          "narration": "6 lines side by side, like 6 taps into one bath. Side by side, the flow adds up."
         },
         {
           "id": "out",
           "label": "Battery",
-          "narration": "All of the electricity flows out to the battery."
+          "narration": "All the electricity flows into the battery, to be saved."
         }
       ]
     },
@@ -225,7 +225,7 @@
         "preset": "power"
       },
       "narration": {
-        "text": "The electricity goes into small batteries hidden in the middle of the cube. A battery saves electricity now, so you can use it later. The maker designed their own cube on a computer and printed it with a 3D printer, so the middle could be big and hollow."
+        "text": "Where does all that electricity go? Into batteries, hidden right in the middle of the cube! A battery is like a lunchbox for electricity. Fill it up now, and use it later. The maker even designed their own cube on a computer, and printed it on a 3D printer, so the middle was big and hollow. Smart building!"
       },
       "label": "Save now, use later",
       "animation": [
@@ -246,7 +246,7 @@
       "id": "booster",
       "term": "booster",
       "narration": {
-        "text": "A phone needs a push of exactly 5 volts. A small chip changes the battery's push to exactly 5 volts. That part is called a booster. The plug for the phone is hidden under the white centre."
+        "text": "A phone is fussy. It wants a push of exactly 5 volts. Not more, not less. So a tiny chip changes the battery's push to exactly 5 volts. That chip is called a booster. And the plug for the phone? It's hidden under the white middle square. Sneaky!"
       },
       "label": "5 volts",
       "animation": [
@@ -272,7 +272,7 @@
         }
       },
       "narration": {
-        "text": "Now the tricky part. Lots of grown-up engineers find this tricky too. The pieces of the cube turn. So how does electricity get from one moving piece to the next?"
+        "text": "Now here's the really tricky bit. Even grown-up engineers scratch their heads at this one. Watch the cube turn. Twist! Every piece moves. So how can electricity jump from one moving piece to the next?"
       },
       "animation": [
         {
@@ -301,7 +301,7 @@
       "term": "contacts",
       "label": "96 springy balls",
       "narration": {
-        "text": "Look inside one edge piece. The places where metal touches metal are called contacts. The whole cube has 96 springy metal balls pressing on contacts. Tap each part to hear what it does."
+        "text": "Let's peek inside one piece. Where metal touches metal, electricity can cross over. That's called a contact. This cube has 96 springy metal balls, pressing on contacts. Tap each part to find out what it does."
       },
       "animation": [
         {
@@ -315,17 +315,17 @@
         {
           "id": "springs",
           "label": "Springy balls",
-          "narration": "Springy metal balls press against the contacts. So electricity can cross, even while the cube turns."
+          "narration": "Springy metal balls push against the contacts, boing! So electricity can cross, even while the cube is turning."
         },
         {
           "id": "magnets",
           "label": "Magnets",
-          "narration": "Magnets pull the pieces into line, so the contacts always touch."
+          "narration": "Magnets pull the pieces back into line, click! So the contacts touch again."
         },
         {
           "id": "slipring",
           "label": "Slip ring",
-          "narration": "In the middle, a slip ring lets electricity flow through the spinning centre, without the wires getting twisted."
+          "narration": "In the middle, a slip ring lets electricity flow through the spinning centre, without the wires getting tangled up."
         }
       ]
     },
@@ -333,29 +333,29 @@
       "id": "guess-total",
       "question": {
         "narration": {
-          "text": "Now let's predict. Remember: in a line of 9, the push adds up, but the flow stays the same. So each line of 9 makes 60 milliamps. And there are 6 lines, side by side. Let's pretend the sun shines brightly on every single panel."
+          "text": "Time for a big sum! Remember: in a line of 9, the push adds up, but the flow stays the same. So each line makes 60 milliamps of flow. And there are 6 lines side by side. Let's pretend the sun is shining on every single panel."
         },
-        "prompt": "6 lines, side by side, each making 60 milliamps. How much flow altogether?",
+        "prompt": "6 lines, each with a flow of 60 milliamps. How much flow altogether?",
         "choices": [
           "66",
           "360",
           "3,240"
         ],
         "answer": 1,
-        "onRight": "Yes. Side by side, the flow adds up: 6 lots of 60 is 360.",
+        "onRight": "Yes! Side by side, the flow adds up. 6 lots of 60 is 360!",
         "wrong": {
           "0": {
             "mistake": "added 6 and 60 instead of 6 lots of 60",
-            "hint": "Each of the 6 lines makes its own 60. How many lots of 60?",
-            "say": "You added 6 and 60. But each of the 6 lines makes 60, so it's 6 lots of 60: 60, 120, 180, 240, 300, 360."
+            "hint": "Each of the 6 lines makes its own 60. How many lots of 60 is that?",
+            "say": "You added 6 and 60. But every line makes its own 60! Count in sixties: 60, 120, 180, 240, 300, 360."
           },
           "2": {
             "mistake": "multiplied all 54 panels by 60, as if every panel were side by side",
-            "hint": "In a line of 9, does the flow add up, or the push?",
-            "say": "3,240 is 54 lots of 60. But in a line of 9, only the push adds up. The flow of a whole line is still 60. So it's 6 lines of 60: 360."
+            "hint": "When panels are in a line, which one adds up: the push, or the flow?",
+            "say": "That's a tricky trap! 3,240 is every panel times 60. But in a line, only the push adds up. The flow of a whole line stays at 60. So it's 6 lines of 60: 360."
           }
         },
-        "reveal": "360 milliamps, even with perfect sun on every panel. A phone wants about 1,000. So the batteries help: they save up electricity all day.",
+        "reveal": "360 milliamps, even with sunshine on every panel. But a phone wants about 1,000! That's why the batteries help. They save up electricity all day long.",
         "revealAnimation": [
           {
             "at": 0,
@@ -381,7 +381,7 @@
       "id": "predict-test",
       "question": {
         "narration": {
-          "text": "Now the real test. The maker put the cube in the sun and plugged in a phone."
+          "text": "Now the real test! The maker put the cube out in the sunshine, and plugged in a phone. Ready?"
         },
         "prompt": "Do you think the phone charged quickly?",
         "choices": [
@@ -389,21 +389,21 @@
           "No"
         ],
         "answer": 1,
-        "onRight": "You're right to wonder. Our sum pretended the sun shines on every panel. Let's see what really happened.",
+        "onRight": "Good thinking! Our sum pretended the sun was shining on every panel. Let's see what really happened.",
         "wrong": {
           "0": {
             "mistake": "trusts the sum without checking what it pretended",
-            "hint": "Our sum pretended the sun shines on every panel at once. Can the sun reach all 6 faces at the same time?",
-            "say": "That's what our sum said. But our sum pretended the sun shines on every panel at once. Let's see what really happened."
+            "hint": "Our sum pretended the sun shines on every panel. Can the sun shine on all 6 sides at the same time?",
+            "say": "That's what our sum said! But our sum pretended the sun shines on every single panel. Let's see what really happened."
           }
         },
-        "reveal": "It barely charged. Let's find out why."
+        "reveal": "Uh oh. It barely charged at all! Let's find out why."
       }
     },
     {
       "id": "real-test",
       "narration": {
-        "text": "The sun can only shine on 1, 2 or 3 faces at a time. The other faces are in shadow. There are gaps between the pieces, and not every contact touches all the time. The real flow was only about 200 milliamps, and it kept cutting out. A phone wants about 1,000. So it barely charged."
+        "text": "Look where the sun is. It can only reach 1, 2 or 3 sides at once. The other sides are in shadow. Plus there are gaps between the pieces, and the contacts didn't always touch. So the real flow was only about 200 milliamps, and it kept stopping. A phone wants about 1,000. So it barely charged! But that's how engineers learn: they test, and find the real number."
       },
       "label": "about 200 milliamps",
       "animation": [
@@ -426,30 +426,30 @@
       "kind": "rule",
       "rule": {
         "text": "Build it. Test it. Find the real number.",
-        "ask": "Can you say what engineers do? Say it out loud. Then tap the eye to check.",
+        "ask": "What do engineers do? Say it out loud! Then tap the eye to check.",
         "spoken": "Engineers build it, test it, and find out the real number."
       }
     }
   ],
   "bonus": {
-    "prompt": "If 3 faces are in the sun, how many panels are in the sun?",
+    "prompt": "Bonus! If the sun shines on 3 sides, how many panels get sunshine?",
     "choices": [
       "12",
       "27",
       "18"
     ],
     "answer": 1,
-    "onRight": "Yes. 3 faces, with 9 on each, is 27.",
+    "onRight": "Yes! 3 sides, 9 on each, is 27.",
     "wrong": {
       "0": {
         "mistake": "added 9 and 3",
         "hint": "Each face in the sun has 9 panels. How many lots of 9?",
-        "say": "You added 9 and 3. Each face in the sun has 9 panels. Count 9 at a time: 9, 18, 27."
+        "say": "You added 9 and 3. But each sunny side has 9 panels! Count in nines: 9, 18, 27."
       },
       "2": {
         "mistake": "counted 2 faces instead of 3",
         "hint": "Count the faces in the sun again: 3 faces, 9 on each.",
-        "say": "18 is 2 faces. Count 3 faces of 9: 9, 18, 27."
+        "say": "18 is only 2 sides. Count 3 sides of 9: 9, 18, 27."
       }
     },
     "reveal": "3 faces of 9 is 27 panels."

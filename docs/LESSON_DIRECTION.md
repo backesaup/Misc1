@@ -12,6 +12,17 @@ since. **Where a brief and Esa's later instructions disagree, the instructions b
 - External links are allowed.
 - No hard 50 MB size limit (keep it reasonable: iOS can evict offline storage for unused apps).
 - The learner is **Ismaeel** (`src/config.ts`). The app is called **Blocky**.
+- **Talk like you're playing with a 5-year-old, not teaching homework.** (Esa, 2026-11-22.) Every line:
+  short sentences (most under 10 words), excitement and surprise ("Whoa!", "Guess what?",
+  "Uh oh!"), sound words ("Zoom!", "Splash!", "Boing!"), his name ("Ismaeel, look!"), things to do
+  with his body ("Hold up your hands!", "Count with me!"), and Steve being funny and getting things
+  wrong. Questions sound like a game ("Ready? Which one?"), right answers get specific joy ("Yes! 6
+  lots of 9 is 54!"), wrong answers get warmth ("Ooh, close!"), never "Correct" or "Incorrect".
+- **Never use a word before it's explained, and never skip a step.** Every new idea gets a picture he
+  already knows first (flow = how many tiny bits of electricity rush past at once, like a dribble
+  or a gush from a tap), then its name, then it's used. Nothing like "the flow" or "volts" may appear
+  before the step that explains it. Check: read the lesson as a 5-year-old who knows only
+  `content/known.json` and the lessons it `requires`.
 - **Every lesson needs a hook worth tapping.** The title is a mystery, a problem or stakes
   ("The table that wouldn't stop rocking", "Is £1 less than 50p?"), never a topic name ("Halves").
   Each lesson has a `thumb`: 1–3 big words (`"WOBBLE!"`), an accent colour, and the `step` whose
