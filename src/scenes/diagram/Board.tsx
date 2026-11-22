@@ -8,6 +8,22 @@ import {
 } from 'lucide-react'
 import type { SceneDef, SceneProps } from '../types'
 import { useTicker } from '../useTicker'
+import manifest from '@content/textures.json'
+
+// Minecraft item icons (content/textures.json `items`, fetched at build). When one exists for an
+// icon name it is used; otherwise the lucide drawing is.
+// Animals use a face cut from the mob's texture (`mobs`, see content/textures.json).
+const MC_ITEMS = import.meta.glob<string>('../../assets/textures/items/*.png', { eager: true, query: '?url', import: 'default' })
+const MC_MOBS = import.meta.glob<string>('../../assets/textures/mobs/*.png', { eager: true, query: '?url', import: 'default' })
+const MOBS = (manifest as unknown as { mobs: Record<string, { face: number[]; size: number[] }> }).mobs
+const MOB_ALIAS: Record<string, string> = { bird: 'chicken', dog: 'wolf' }
+export function mcIcon(name: string): { url: string; face: number[]; size: number[] } | undefined {
+  const mob = MOB_ALIAS[name] ?? name
+  const mobUrl = MOBS[mob] && MC_MOBS[`../../assets/textures/mobs/${mob}.png`]
+  if (mobUrl) return { url: mobUrl, face: MOBS[mob].face, size: MOBS[mob].size }
+  const item = MC_ITEMS[`../../assets/textures/items/${name}.png`]
+  return item ? { url: item, face: [0, 0, 16, 16], size: [16, 16] } : undefined
+}
 
 // A board for sorting, matching and charts, drawn with a real icon library (lucide).
 // Items: "id:icon:label:zone|…". Zones: "id:label|…" (hoops). Modes: 0 sort into zones,
@@ -23,6 +39,8 @@ export const ICONS: Record<string, LucideIcon> = {
   shirt: Shirt, snail: Snail, snow: Snowflake, sprout: Sprout, squirrel: Squirrel, star: Star, sun: Sun, tent: Tent, thermometer: Thermometer,
   tree: TreeDeciduous, pine: TreePine, turtle: Turtle, umbrella: Umbrella, waves: Waves, wheat: Wheat, wind: Wind, worm: Worm,
   battery: Battery, scissors: Scissors, skull: Skull,
+  // animals drawn from Minecraft faces when fetched; these are the backups
+  pig: PawPrint, cow: PawPrint, sheep: PawPrint, chicken: Bird, wolf: Dog, fox: Dog, bee: Bug, frog: Turtle, parrot: Bird, horse: PawPrint, axolotl: Fish,
 }
 const ZONE_COLS = ['#ffd166', '#4f8ff0', '#58b368', '#ff6b5c', '#e8789a']
 
@@ -44,10 +62,17 @@ function parseZones(s?: string): Zone[] {
 
 function Icon({ name, x, y, size, highlight }: { name: string; x: number; y: number; size: number; highlight?: boolean }) {
   const I = ICONS[name] ?? Star
+  const mc = mcIcon(name)
   return (
     <g transform={`translate(${x - size / 2} ${y - size / 2})`}>
       <circle cx={size / 2} cy={size / 2} r={size * 0.62} fill={highlight ? '#ffd166' : 'white'} stroke="#2b2a33" strokeWidth={3} />
-      <I x={size * 0.12} y={size * 0.12} width={size * 0.76} height={size * 0.76} strokeWidth={2.2} color="#2b2a33" />
+      {mc ? (
+        <svg x={size * 0.1} y={size * 0.1} width={size * 0.8} height={size * 0.8} viewBox={mc.face.join(' ')}>
+          <image href={mc.url} width={mc.size[0]} height={mc.size[1]} style={{ imageRendering: 'pixelated' }} />
+        </svg>
+      ) : (
+        <I x={size * 0.12} y={size * 0.12} width={size * 0.76} height={size * 0.76} strokeWidth={2.2} color="#2b2a33" />
+      )}
     </g>
   )
 }

@@ -5,9 +5,9 @@
   "cardArt": "science",
   "status": "ready",
   "order": 10,
-  "_map": "What's it made of? (Y1). Big idea: wood, metal, plastic, glass, rock and water have different properties. Creative: build the robot a raincoat, a window, a bridge: which material for each, and why?",
-  "_story": "The robot needs a raincoat, a window and a bridge. It wants to make the window out of wood. Ismaeel matches each job to the best material using its properties.",
-  "_stepChain": "things are made of materials → each has properties: see-through, waterproof, strong, bendy → choose a material for its job → the robot's wooden window → design",
+  "_map": "What's it made of? (Y1). Big idea: wood, metal, plastic, glass, rock and water have different properties. Creative: build Steve a raincoat, a window, a bridge: which material for each, and why?",
+  "_story": "Steve needs a raincoat, a window and a bridge. It wants to make the window out of wood. Ismaeel matches each job to the best material using its properties.",
+  "_stepChain": "things are made of materials → each has properties: see-through, waterproof, strong, bendy → choose a material for its job → Steve's wooden window → design",
   "assumes": ["property"],
   "requires": ["secret-sorting-rule"],
   "talk": [
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "w:Window|r:Raincoat|b:Bridge", "items": "g:glasses:Glass:|p:umbrella:Plastic:|m:hammer:Metal:|wd:tree:Wood:|wl:shirt:Wool:" } },
-      "narration": { "speaker": "robot", "text": "I need three things: a raincoat for rainy days, a window for my shed, and a bridge over the stream. What should I make them from?" }
+      "narration": { "speaker": "steve", "text": "I need three things: a raincoat for rainy days, a window for my shed, and a bridge over the stream. What should I make them from?" }
     },
     {
       "id": "material",
@@ -29,7 +29,7 @@
     {
       "id": "window",
       "question": {
-        "narration": { "speaker": "robot", "text": "I'll make my window out of wood. Wood is strong!" },
+        "narration": { "speaker": "steve", "text": "I'll make my window out of wood. Wood is strong!" },
         "prompt": "What's the best material for a window?",
         "choices": ["Wood", "Glass", "Wool"],
         "answer": 1,

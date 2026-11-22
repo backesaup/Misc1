@@ -6,8 +6,8 @@
   "status": "ready",
   "order": 7,
   "_map": "Habitats (Y2). Big idea: animals live where their needs are met. Creative: build the right home for each new animal that arrives (pond, burrow, nest).",
-  "_story": "New animals arrive and the robot puts the fish in a nest. Ismaeel finds each animal the home that gives it what it needs.",
-  "_stepChain": "animals need food, water, shelter → the place an animal lives is its habitat → match animals to pond, burrow, nest → the robot's fish-in-a-nest mistake → build a home",
+  "_story": "New animals arrive and Steve puts the fish in a nest. Ismaeel finds each animal the home that gives it what it needs.",
+  "_stepChain": "animals need food, water, shelter → the place an animal lives is its habitat → match animals to pond, burrow, nest → Steve's fish-in-a-nest mistake → build a home",
   "assumes": ["property"],
   "requires": ["animal-groups"],
   "talk": [
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "p:Pond|b:Burrow|n:Nest", "items": "f:fish:Fish:n|r:rabbit:Rabbit:|bd:bird:Bird:|w:worm:Worm:|t:turtle:Turtle:" } },
-      "narration": { "speaker": "robot", "text": "New animals! I put the fish in a nest up a tree. It looks very uncomfortable. Hmm." }
+      "narration": { "speaker": "steve", "text": "New animals! I put the fish in a nest up a tree. It looks very uncomfortable. Hmm." }
     },
     {
       "id": "habitat",

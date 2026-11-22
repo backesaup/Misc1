@@ -6,8 +6,8 @@
   "status": "ready",
   "order": 7,
   "_map": "What is zero? (Y1). Big idea: zero is a number meaning none; adding zero changes nothing. Creative: find things on the farm there are zero of; people once had no number for zero.",
-  "_story": "The robot looks for its pet chicken in an empty field and needs a number for 'none'. Zero is shown, named, tested with adding, and the robot thinks adding zero makes more.",
-  "_stepChain": "counting down a field 3, 2, 1 … none → a number for none: zero → 10 sheep split 10 and 0 → adding zero → the robot thinks 7 + 0 is 8 → a long time ago people had no zero",
+  "_story": "Steve looks for its pet chicken in an empty field and needs a number for 'none'. Zero is shown, named, tested with adding, and Steve thinks adding zero makes more.",
+  "_stepChain": "counting down a field 3, 2, 1 … none → a number for none: zero → 10 sheep split 10 and 0 → adding zero → Steve thinks 7 + 0 is 8 → a long time ago people had no zero",
   "assumes": ["counting", "adding", "taking away"],
   "talk": [
     { "ask": "What does zero mean?", "goodAnswer": "none, nothing of something. It's still a number." },
@@ -18,7 +18,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "split", "item": "chicken", "total": 3, "choice": 3, "robot": true } },
-      "narration": { "speaker": "robot", "text": "I've got 3 chickens in this field. One goes for a wander. Then another. Then the last one! How many chickens are in the field now?" },
+      "narration": { "speaker": "steve", "text": "I've got 3 chickens in this field. One goes for a wander. Then another. Then the last one! How many chickens are in the field now?" },
       "animation": [
         { "at": 0, "action": "arrive", "duration": 1 },
         { "at": 4.2, "action": "set", "choice": 2 },
@@ -41,7 +41,7 @@
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "robot", "text": "I have 7 chickens. I add zero more chickens. So now I've got 8, because adding always makes more!" },
+        "narration": { "speaker": "steve", "text": "I have 7 chickens. I add zero more chickens. So now I've got 8, because adding always makes more!" },
         "prompt": "What is 7 add zero?",
         "choices": ["8", "7", "0"],
         "answer": 1,

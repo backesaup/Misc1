@@ -5,9 +5,9 @@
   "cardArt": "science",
   "status": "ready",
   "order": 11,
-  "_map": "Squash, bend, twist, stretch (Y2). Big idea: some materials change shape when pushed. Creative: test materials with the robot's hands; design a bouncy material for the trampoline.",
-  "_story": "The robot wants a trampoline. It tests materials by squashing, bending, twisting and stretching them. A metal trampoline would hurt!",
-  "_stepChain": "materials (whats-it-made-of) → pushing and pulling can change shape → squash, bend, twist, stretch → some spring back (elastic), some stay changed, some don't change → test → the robot's metal trampoline",
+  "_map": "Squash, bend, twist, stretch (Y2). Big idea: some materials change shape when pushed. Creative: test materials with Steve's hands; design a bouncy material for the trampoline.",
+  "_story": "Steve wants a trampoline. It tests materials by squashing, bending, twisting and stretching them. A metal trampoline would hurt!",
+  "_stepChain": "materials (whats-it-made-of) → pushing and pulling can change shape → squash, bend, twist, stretch → some spring back (elastic), some stay changed, some don't change → test → Steve's metal trampoline",
   "assumes": ["material", "property"],
   "requires": ["whats-it-made-of"],
   "talk": [
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "y:Springs back|c:Stays changed|n:Won't change", "items": "sp:box:Sponge:|el:gift:Elastic band:|pd:cookie:Play dough:|st:mountain:Stone:|sp2:key:Metal spoon:" } },
-      "narration": { "speaker": "robot", "text": "I want to build a trampoline! I need a material that bounces. Let's test some." }
+      "narration": { "speaker": "steve", "text": "I want to build a trampoline! I need a material that bounces. Let's test some." }
     },
     {
       "id": "test",
@@ -40,7 +40,7 @@
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "robot", "text": "I'll make my trampoline out of metal. Metal is really strong!" },
+        "narration": { "speaker": "steve", "text": "I'll make my trampoline out of metal. Metal is really strong!" },
         "prompt": "Is metal good for a trampoline?",
         "choices": ["Yes", "No"],
         "answer": 1,

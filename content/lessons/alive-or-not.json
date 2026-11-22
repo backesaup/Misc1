@@ -6,8 +6,8 @@
   "status": "ready",
   "order": 6,
   "_map": "Alive, dead or never alive? (Y2). Big idea: living things grow, feed and reproduce. Creative: sort farm objects into three groups; argue the tricky ones (a seed? a log?).",
-  "_story": "The robot thinks it might be alive because it moves. Ismaeel learns what living things do, sorts farm things into three groups, and argues the tricky ones.",
-  "_stepChain": "living things grow, feed and make new living things → a sheep: alive → a stone: never alive → a log: was alive, now dead → the robot moves, but does it grow or feed? → tricky ones: a seed",
+  "_story": "Steve thinks it might be alive because it moves. Ismaeel learns what living things do, sorts farm things into three groups, and argues the tricky ones.",
+  "_stepChain": "living things grow, feed and make new living things → a sheep: alive → a stone: never alive → a log: was alive, now dead → Steve moves, but does it grow or feed? → tricky ones: a seed",
   "assumes": ["property"],
   "requires": ["secret-sorting-rule"],
   "talk": [
@@ -18,8 +18,8 @@
   "steps": [
     {
       "id": "hook",
-      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "a:Alive|d:Dead|n:Never alive", "items": "s:paw:Sheep:|st:mountain:Stone:|l:tree:Log:|f:flower:Flower:|g:gem:Glass:|sh:shell:Empty shell:" } },
-      "narration": { "speaker": "robot", "text": "I move, I talk, I beep. So I must be alive! Right?" }
+      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "a:Alive|d:Dead|n:Never alive", "items": "s:sheep:Sheep:|st:mountain:Stone:|l:tree:Log:|f:flower:Flower:|g:gem:Glass:|sh:shell:Empty shell:" } },
+      "narration": { "speaker": "steve", "text": "Look! I built an iron golem out of iron blocks and a pumpkin. It moves! It walks around the farm. So it must be alive! Right?" }
     },
     {
       "id": "living",
@@ -51,15 +51,15 @@
     {
       "id": "robot",
       "question": {
-        "narration": { "speaker": "robot", "text": "So what about me? Do I grow? Do I eat? Can I have baby robots?" },
-        "prompt": "Is the robot alive?",
+        "narration": { "speaker": "steve", "text": "So what about my iron golem? Does it grow? Does it eat? Can it have babies?" },
+        "prompt": "Is the iron golem alive?",
         "choices": ["Yes", "No"],
         "answer": 1,
-        "onRight": "Yes, you used the rules. Moving isn't enough. The robot doesn't grow, eat or have babies.",
+        "onRight": "Yes, you used the rules. Moving isn't enough. The iron golem doesn't grow, eat or have babies.",
         "wrong": {
-          "0": { "mistake": "thinks moving means alive", "hint": "Check the rules: does the robot grow, eat food and make babies?", "say": "The robot moves, but so does a car. It doesn't grow, eat food or make baby robots. So it's never been alive." }
+          "0": { "mistake": "thinks moving means alive", "hint": "Check the rules: does the iron golem grow, eat food and make babies?", "say": "The golem moves, but so does a car. It doesn't grow, eat food or make baby golems. It's made of iron blocks and a pumpkin. So it's never been alive." }
         },
-        "reveal": "The robot is never alive. But it's still a very good friend!"
+        "reveal": "The iron golem was never alive. But it's still a very good guard for the farm!"
       }
     },
     {

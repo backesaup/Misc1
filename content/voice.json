@@ -1,5 +1,5 @@
 {
-  "_note": "Narration voices, one per character. Change and push: the Narration workflow re-records every affected line. engine 'fish' needs the repo secret FISH_API_KEY and a voice id per speaker (listen on the parent screen after running the 'Voice samples' workflow). 'pitch' > 1 raises the voice (used for the robot).",
+  "_note": "Narration voices, one per character. Change and push: the Narration workflow re-records every affected line. engine 'fish' needs the repo secret FISH_API_KEY and a voice id per speaker (listen on the parent screen after running the 'Voice samples' workflow). 'pitch' > 1 raises the voice.",
   "engine": "kokoro",
   "fishModel": "s2.1-pro",
   "pauses": { "sentence": 0.38, "count": 0.28, "beforeQuestion": 0.45 },
@@ -9,10 +9,10 @@
       "fish": { "voice": "", "speed": 0.95 },
       "device": { "pitch": 1, "rate": 0.95 }
     },
-    "robot": {
-      "kokoro": { "voice": "am_puck", "speed": 1.0, "pitch": 1.18 },
+    "steve": {
+      "kokoro": { "voice": "am_puck", "speed": 1.0, "pitch": 1.0 },
       "fish": { "voice": "", "speed": 1.0 },
-      "device": { "pitch": 1.7, "rate": 1.05 }
+      "device": { "pitch": 1.15, "rate": 1.02 }
     }
   }
 }

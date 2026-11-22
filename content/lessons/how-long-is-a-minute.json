@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 28,
   "_map": "How long is a minute? (Y1–2). Big idea: comparing durations. Creative: guess what he can do in one minute (jumps, blocks placed), then test it.",
-  "_story": "The robot says it can build a whole barn in one minute. Ismaeel guesses what he can do in a minute, then tests it for real with a grown-up timing, and finds out a minute is longer than it sounds.",
+  "_story": "Steve says it can build a whole barn in one minute. Ismaeel guesses what he can do in a minute, then tests it for real with a grown-up timing, and finds out a minute is longer than it sounds.",
   "_stepChain": "a minute (farm-clock) → seconds: 60 in a minute → some things take seconds, some minutes, some hours → guess, then test → compare",
   "assumes": ["counting", "half past"],
   "requires": ["farm-clock"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "clock", "params": { "hour": 3, "minute": 0 } },
-      "narration": { "speaker": "robot", "text": "I bet I can build a whole barn in one minute! Easy." }
+      "narration": { "speaker": "steve", "text": "I bet I can build a whole barn in one minute! Easy." }
     },
     {
       "id": "seconds",
@@ -51,7 +51,7 @@
     },
     {
       "id": "test",
-      "narration": { "speaker": "robot", "text": "OK, maybe I can't build a barn in a minute. But I could stack about 20 blocks! What can you do in a minute? Go and test it!" }
+      "narration": { "speaker": "steve", "text": "OK, maybe I can't build a barn in a minute. But I could stack about 20 blocks! What can you do in a minute? Go and test it!" }
     },
     {
       "id": "rule",

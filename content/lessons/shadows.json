@@ -5,9 +5,9 @@
   "cardArt": "made",
   "status": "ready",
   "order": 6,
-  "_map": "Shadows (stretch, usually Y3). Big idea: light travels in straight lines; shadows form where it's blocked. Creative: make the biggest and smallest shadow of the robot by moving the lamp.",
-  "_story": "The robot sees a giant robot on the barn wall and gets scared. It's only its shadow. Ismaeel moves the lamp to make the shadow huge and tiny.",
-  "_stepChain": "light travels in straight lines (disco: reflect) → the robot blocks some light → the dark shape behind it is a shadow → move the lamp closer: bigger shadow → further: smaller → the robot thinks moving further makes it bigger",
+  "_map": "Shadows (stretch, usually Y3). Big idea: light travels in straight lines; shadows form where it's blocked. Creative: make the biggest and smallest shadow of Steve by moving the lamp.",
+  "_story": "Steve sees a giant shape on the barn wall and gets scared. It's only his shadow. Ismaeel moves the lamp to make the shadow huge and tiny.",
+  "_stepChain": "light travels in straight lines (disco: reflect) → Steve blocks some light → the dark shape behind it is a shadow → move the lamp closer: bigger shadow → further: smaller → Steve thinks moving further makes it bigger",
   "assumes": ["light", "reflect"],
   "requires": ["disco"],
   "talk": [
@@ -19,29 +19,29 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "lab", "params": { "view": "shadow", "dist": 0.5 } },
-      "narration": { "speaker": "robot", "text": "Aaah! There's a giant dark robot on the barn wall! Oh. It moves when I move. Is that me?" }
+      "narration": { "speaker": "steve", "text": "Aaah! There's a giant dark shape on the barn wall! Oh. It moves when I move. Is that me?" }
     },
     {
       "id": "shadow",
       "term": "shadow",
-      "narration": { "text": "Light travels in straight lines. The robot blocks some of the lamp's light, and light can't bend round it. So behind the robot there's a dark patch, the same shape as the robot. That dark patch is called a shadow." }
+      "narration": { "text": "Light travels in straight lines. Steve blocks some of the lamp's light, and light can't bend round him. So behind Steve there's a dark patch, the same shape as Steve. That dark patch is called a shadow." }
     },
     {
       "id": "closer",
       "question": {
         "open": true,
-        "narration": { "text": "Now we move the lamp closer to the robot." },
+        "narration": { "text": "Now we move the lamp closer to Steve." },
         "prompt": "What will happen to the shadow?",
         "choices": ["Bigger", "Smaller", "Same"],
         "answer": 0,
-        "reveal": "Bigger! The lamp is close, so the robot blocks a wide fan of light.",
+        "reveal": "Bigger! The lamp is close, so Steve blocks a wide fan of light.",
         "revealAnimation": [{ "at": 0, "action": "lamp", "to": 0.1, "duration": 1.6 }]
       }
     },
     {
       "id": "further",
       "question": {
-        "narration": { "speaker": "robot", "text": "I want a tiny shadow. So I'll move the lamp closer still!" },
+        "narration": { "speaker": "steve", "text": "I want a tiny shadow. So I'll move the lamp closer still!" },
         "prompt": "How do you make the shadow smaller?",
         "choices": ["Lamp closer", "Lamp further away"],
         "answer": 1,

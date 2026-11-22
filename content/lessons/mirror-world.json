@@ -5,9 +5,9 @@
   "cardArt": "build",
   "status": "ready",
   "order": 36,
-  "_map": "Mirror world (Y2). Big idea: lines of symmetry. Creative: design a symmetrical house or butterfly; the robot builds half wrong for him to fix.",
-  "_story": "The robot builds a house in blocks, but only one half. A mirror line shows how the other half must look. Then the robot builds a whole house with a mistake for Ismaeel to spot.",
-  "_stepChain": "a mirror (disco: reflect) shows a flipped copy → fold line: both halves match → that line is called a line of symmetry → complete the other half → spot the robot's mistake → design your own",
+  "_map": "Mirror world (Y2). Big idea: lines of symmetry. Creative: design a symmetrical house or butterfly; Steve builds half wrong for him to fix.",
+  "_story": "Steve builds a house in blocks, but only one half. A mirror line shows how the other half must look. Then Steve builds a whole house with a mistake for Ismaeel to spot.",
+  "_stepChain": "a mirror (disco: reflect) shows a flipped copy → fold line: both halves match → that line is called a line of symmetry → complete the other half → spot Steve's mistake → design your own",
   "assumes": [
     "mirror",
     "block"
@@ -18,7 +18,7 @@
       "goodAnswer": "both halves match exactly, like a reflection in a mirror along the line."
     },
     {
-      "ask": "How did you spot the robot's mistake?",
+      "ask": "How did you spot Steve's mistake?",
       "goodAnswer": "one window wasn't in the matching place on the other side of the line."
     }
   ],
@@ -37,7 +37,7 @@
         }
       },
       "narration": {
-        "speaker": "robot",
+        "speaker": "steve",
         "text": "I started building a house, but I only finished one half! I want both sides to match perfectly."
       }
     },
@@ -65,10 +65,10 @@
       "id": "spot",
       "question": {
         "narration": {
-          "speaker": "robot",
+          "speaker": "steve",
           "text": "Now I built a whole house by myself. It's perfectly symmetrical. I think."
         },
-        "prompt": "Is the robot's house symmetrical?",
+        "prompt": "Is Steve's house symmetrical?",
         "choices": [
           "Yes",
           "No"

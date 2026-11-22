@@ -2,6 +2,7 @@ import gsap from 'gsap'
 import type { SceneDef, SceneProps } from '../types'
 import { dur } from '../types'
 import { useTicker } from '../useTicker'
+import { useSkinSprites } from '../voxel/skins'
 
 // The workshop. view 0 circuit (battery, bulb, gap with a test material), 1 magnets,
 // 2 shadows (lamp distance → shadow size), 3 lever (seesaw), 4 gears, 5 ice → water → steam.
@@ -89,7 +90,8 @@ function Magnets({ pull, poles, t }: { pull: number; poles: number; t: number })
 }
 
 function Shadow({ dist }: { dist: number }) {
-  // lamp at x, robot at 420, wall at 720. Closer lamp → bigger shadow.
+  const { front } = useSkinSprites('steve')
+  // lamp at x, Steve at 420, wall at 720. Closer lamp → bigger shadow.
   const lampX = 380 - dist * 260
   const scale = (720 - lampX) / (420 - lampX)
   const h = 110 * scale
@@ -102,17 +104,15 @@ function Shadow({ dist }: { dist: number }) {
         <circle r={22} fill="#ffd166" stroke="#2b2a33" strokeWidth={3} />
         <rect x={-6} y={22} width={12} height={180} fill="#5b5866" />
       </g>
-      <g transform="translate(420 285)">
-        <rect x={-24} y={-40} width={48} height={40} rx={8} fill="#e9eef4" stroke="#2b2a33" strokeWidth={3} />
-        <rect x={-22} y={0} width={44} height={50} rx={8} fill="#5fa3d9" stroke="#2b2a33" strokeWidth={3} />
-      </g>
+      <image href={front} x={392} y={230} width={56} height={112} style={{ imageRendering: 'pixelated' }} />
       <text x={400} y={530} textAnchor="middle" className="diagram-label">{dist > 0.6 ? 'Lamp far away: small shadow' : dist < 0.3 ? 'Lamp close: big shadow' : 'Move the lamp'}</text>
     </g>
   )
 }
 
 function Lever({ pivot, lift }: { pivot: number; lift: number }) {
-  // plank from 100 to 700; pivot position 0..1; pumpkin on left end, robot pushes the right end down
+  const { front } = useSkinSprites('steve')
+  // plank from 100 to 700; pivot position 0..1; pumpkin on left end, Steve pushes the right end down
   const px = 100 + pivot * 600
   const ang = lift * -14
   return (
@@ -122,10 +122,7 @@ function Lever({ pivot, lift }: { pivot: number; lift: number }) {
       <g transform={`rotate(${ang} ${px} 340)`}>
         <rect x={100} y={326} width={600} height={24} rx={8} fill="#c9945c" stroke="#2b2a33" strokeWidth={4} />
         <ellipse cx={150} cy={290} rx={52} ry={40} fill="#e8892f" stroke="#2b2a33" strokeWidth={4} />
-        <g transform="translate(660 284)">
-          <rect x={-22} y={-34} width={44} height={36} rx={8} fill="#e9eef4" stroke="#2b2a33" strokeWidth={3} />
-          <rect x={-20} y={2} width={40} height={40} rx={8} fill="#5fa3d9" stroke="#2b2a33" strokeWidth={3} />
-        </g>
+        <image href={front} x={636} y={230} width={48} height={96} style={{ imageRendering: 'pixelated' }} />
       </g>
       <text x={400} y={500} textAnchor="middle" className="diagram-label">{pivot < 0.35 ? 'Pivot close to the pumpkin: easy to lift' : pivot > 0.65 ? 'Pivot far from the pumpkin: hard to lift' : 'Pivot in the middle'}</text>
     </g>

@@ -5,8 +5,8 @@
   "cardArt": "maths",
   "status": "ready",
   "order": 9,
-  "_map": "Joining and taking away (Y1). Big idea: adding joins groups; subtracting takes away or finds the difference. Creative: invent a missing-number puzzle for the robot (? − 9 = 7).",
-  "_story": "Apples on the farm: two baskets join, sheep nibble some away, the robot compares two baskets (difference), then the robot is baffled by a mystery: some apples, 9 eaten, 7 left. How many at the start? Ismaeel works it out by putting them back.",
+  "_map": "Joining and taking away (Y1). Big idea: adding joins groups; subtracting takes away or finds the difference. Creative: invent a missing-number puzzle for Steve (? − 9 = 7).",
+  "_story": "Apples on the farm: two baskets join, sheep nibble some away, Steve compares two baskets (difference), then Steve is baffled by a mystery: some apples, 9 eaten, 7 left. How many at the start? Ismaeel works it out by putting them back.",
   "_stepChain": "adding joins two groups → taking away removes some → the difference: how many more one has → minus sign in words → a missing number: put the eaten ones back → invent a puzzle",
   "assumes": ["counting", "adding", "taking away", "equals sign"],
   "requires": ["stack-64"],
@@ -19,7 +19,7 @@
     {
       "id": "join",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "split", "item": "apple", "total": 9, "choice": 4, "robot": true } },
-      "narration": { "speaker": "robot", "text": "I picked 4 apples, and you picked 5. Let's tip them into one big basket. Adding joins two groups together. 4 add 5 is 9." },
+      "narration": { "speaker": "steve", "text": "I picked 4 apples, and you picked 5. Let's tip them into one big basket. Adding joins two groups together. 4 add 5 is 9." },
       "animation": [
         { "at": 0, "action": "arrive", "duration": 1.4 },
         { "at": 5, "action": "set", "mode": "rows", "total": 9, "choice": 1 },
@@ -52,7 +52,7 @@
     {
       "id": "mystery",
       "question": {
-        "narration": { "speaker": "robot", "text": "Now I'm stuck on a mystery! I had a basket of apples. The sheep ate 9 of them. Now there are 7 left. But how many did I have at the start?" },
+        "narration": { "speaker": "steve", "text": "Now I'm stuck on a mystery! I had a basket of apples. The sheep ate 9 of them. Now there are 7 left. But how many did I have at the start?" },
         "prompt": "How many apples were there at the start?",
         "choices": ["2", "16", "63"],
         "answer": 1,
@@ -70,14 +70,14 @@
     },
     {
       "id": "invent",
-      "narration": { "text": "Now you be the puzzle maker! Make up a mystery like that for the robot, or for a grown-up. Some apples, some eaten, some left. Can they work out the missing number?" }
+      "narration": { "text": "Now you be the puzzle maker! Make up a mystery like that for Steve, or for a grown-up. Some apples, some eaten, some left. Can they work out the missing number?" }
     },
     {
       "id": "rule",
       "kind": "rule",
       "rule": {
         "text": "Adding joins. Taking away removes or compares.",
-        "ask": "Can you say how to find a missing number like the robot's mystery? Say it out loud. Then tap the eye.",
+        "ask": "Can you say how to find a missing number like Steve's mystery? Say it out loud. Then tap the eye.",
         "spoken": "Adding joins groups. Taking away removes some, or finds the difference. And to find what you started with, put back what was taken."
       }
     }

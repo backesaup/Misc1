@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 25,
   "_map": "Filling up (Y1–2). Big idea: capacity, how much a container holds, in ml and l. Creative: which container holds most? Guess, then fill. Design a container that holds exactly 10 buckets.",
-  "_story": "Water troughs for the animals. A tall thin one and a wide flat one: which holds more? The robot guesses the tall one. He guesses, then pours buckets to find out.",
+  "_story": "Water troughs for the animals. A tall thin one and a wide flat one: which holds more? Steve guesses the tall one. He guesses, then pours buckets to find out.",
   "_stepChain": "how much a container holds → count buckets to fill it: that's capacity → tall looks big, but wide can hold more → guess then fill → litres → design a container for 10 buckets",
   "assumes": ["counting", "unit"],
   "requires": ["measure-with-anything"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "gauge", "params": { "kind": "containers", "cap0": 6, "cap1": 8, "cap2": 0 } },
-      "narration": { "speaker": "robot", "text": "My animals are thirsty! I've got a tall trough and a wide trough. I'm sure the tall one holds more water, because it's so tall!" }
+      "narration": { "speaker": "steve", "text": "My animals are thirsty! I've got a tall trough and a wide trough. I'm sure the tall one holds more water, because it's so tall!" }
     },
     {
       "id": "guess",
@@ -43,7 +43,7 @@
     {
       "id": "overflow",
       "question": {
-        "narration": { "speaker": "robot", "text": "The tall trough holds 6 buckets. I'm going to pour in 9 buckets!" },
+        "narration": { "speaker": "steve", "text": "The tall trough holds 6 buckets. I'm going to pour in 9 buckets!" },
         "prompt": "What will happen?",
         "choices": ["It fills up exactly", "Water spills over", "It gets bigger"],
         "answer": 1,

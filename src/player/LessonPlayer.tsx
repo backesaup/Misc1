@@ -16,7 +16,7 @@ import type { SceneDef } from '@/scenes/types'
 import { Stage3D } from './Stage3D'
 import { CardArt } from '@/components/CardArt'
 import { Guide } from '@/components/Guide'
-import { RobotAvatar } from '@/components/RobotAvatar'
+import { SteveAvatar } from '@/components/SteveAvatar'
 import ClickSpark, { type ClickSparkHandle } from '@/components/vendor/reactbits/ClickSpark'
 import CountUp from '@/components/vendor/reactbits/CountUp'
 import VerticalCutReveal from '@/components/vendor/fancy/vertical-cut-reveal'
@@ -87,7 +87,7 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
       if (text) setSpeaker(who ?? 'narrator')
       else setSpeaker('narrator')
       const ctrl = sceneRef.current?.ctrl
-      if (ctrl && 'robotMood' in ctrl.values) ctrl.values.robotMood = text && who === 'robot' ? 1 : ctrl.values.robotMood === 1 ? 0 : ctrl.values.robotMood
+      if (ctrl && 'robotMood' in ctrl.values) ctrl.values.robotMood = text && who === 'steve' ? 1 : ctrl.values.robotMood === 1 ? 0 : ctrl.values.robotMood
     }
     return () => {
       narrator.onLine = null
@@ -555,7 +555,7 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
               {lesson.handsOn && <p className="talk-hands">Hands-on: {lesson.handsOn}</p>}
             </div>
           )}
-          {speaker === 'robot' && caption && <RobotAvatar talking />}
+          {speaker === 'steve' && caption && <SteveAvatar talking />}
           {settings.captions && caption && (
             <p className="caption" aria-live="polite">
               {caption}

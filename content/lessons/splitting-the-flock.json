@@ -6,8 +6,8 @@
   "status": "ready",
   "order": 3,
   "_map": "Splitting the flock (Y1–2). Big idea: number bonds, 10 can be split into two parts in set ways; the pattern; then 20.",
-  "_story": "The robot built two fields but can't decide how to share 10 sheep. He finds every way, spots the pattern (one up, one down), catches the robot losing a sheep in its sums, then tries 20.",
-  "_stepChain": "counting → 10 sheep, two fields → split them any way → every split still makes 10 → named number bonds → the pattern → the robot's mistake (6 and 3) → 20 sheep",
+  "_story": "Steve built two fields but can't decide how to share 10 sheep. He finds every way, spots the pattern (one up, one down), catches Steve losing a sheep in its sums, then tries 20.",
+  "_stepChain": "counting → 10 sheep, two fields → split them any way → every split still makes 10 → named number bonds → the pattern → Steve's mistake (6 and 3) → 20 sheep",
   "assumes": ["counting", "adding"],
   "talk": [
     { "ask": "How many ways can 10 sheep go into two fields?", "goodAnswer": "11 ways, from 0 and 10 up to 10 and 0. Every way still makes 10." },
@@ -18,7 +18,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "split", "item": "sheep", "total": 10, "choice": 5, "robot": true } },
-      "narration": { "speaker": "robot", "text": "I built two fields with fresh grass! I've got 10 sheep. But I can't decide how many should go in each field. Will you help me try different ways?" },
+      "narration": { "speaker": "steve", "text": "I built two fields with fresh grass! I've got 10 sheep. But I can't decide how many should go in each field. Will you help me try different ways?" },
       "animation": [
         { "at": 0, "action": "arrive", "duration": 2 },
         { "at": 0, "action": "robot", "mood": "think" }
@@ -48,8 +48,8 @@
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "robot", "text": "I've got it! I put 6 sheep in the first field and 3 sheep in the other field. That's all 10 sheep!" },
-        "prompt": "Is the robot right?",
+        "narration": { "speaker": "steve", "text": "I've got it! I put 6 sheep in the first field and 3 sheep in the other field. That's all 10 sheep!" },
+        "prompt": "Is Steve right?",
         "choices": ["Yes", "No"],
         "answer": 1,
         "onRight": "Yes, you caught it. 6 and 3 make only 9, so one sheep is missing.",
@@ -60,7 +60,7 @@
             "say": "Count on from 6: 7, 8, 9. That's only 9 sheep. One sheep is still wandering about! With 6 in the first field, the other field needs 4."
           }
         },
-        "reveal": "6 and 4 make 10. The robot forgot one sheep!",
+        "reveal": "6 and 4 make 10. Steve forgot one sheep!",
         "revealAnimation": [
           { "at": 0, "action": "set", "choice": 6 },
           { "at": 0, "action": "robot", "mood": "sad" }
@@ -71,7 +71,7 @@
       "id": "guess-20",
       "question": {
         "open": true,
-        "narration": { "speaker": "robot", "text": "Oops, thank you! Now, I'm getting more sheep. 20 of them!" },
+        "narration": { "speaker": "steve", "text": "Oops, thank you! Now, I'm getting more sheep. 20 of them!" },
         "prompt": "How many ways can 20 sheep go into two fields? Make a guess.",
         "choices": ["11", "21", "40"],
         "answer": 1,

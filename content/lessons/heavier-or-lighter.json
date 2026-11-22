@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 24,
   "_map": "Heavier or lighter (Y1–2). Big idea: mass is measured with a balance, in g and kg. Creative: balance a pumpkin using different mixes of weights.",
-  "_story": "The robot grew a giant pumpkin and wants to know how heavy it is for the farm show. Big things aren't always heavy (a huge balloon!). Ismaeel balances the pumpkin with kilogram weights.",
+  "_story": "Steve grew a giant pumpkin and wants to know how heavy it is for the farm show. Big things aren't always heavy (a huge balloon!). Ismaeel balances the pumpkin with kilogram weights.",
   "_stepChain": "a balance (balance-the-scale) → heavier goes down → big isn't always heavy → weights measure how heavy: kilograms → balance the pumpkin with 5 kg and 1 kg weights → small things in grams",
   "assumes": ["counting", "greater than", "less than", "unit"],
   "requires": ["balance-the-scale", "measure-with-anything"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "balance", "params": { "left": 7, "fives": 0, "ones": 0, "pumpkin": true, "unit": 2 } },
-      "narration": { "speaker": "robot", "text": "Look at my giant pumpkin! I want to enter it in the farm show. But they ask: how heavy is it?" }
+      "narration": { "speaker": "steve", "text": "Look at my giant pumpkin! I want to enter it in the farm show. But they ask: how heavy is it?" }
     },
     {
       "id": "big",
@@ -45,7 +45,7 @@
     },
     {
       "id": "result",
-      "narration": { "speaker": "robot", "text": "It balances with 7 kilograms! My pumpkin is 7 kilograms. That's about 7 bags of sugar!" },
+      "narration": { "speaker": "steve", "text": "It balances with 7 kilograms! My pumpkin is 7 kilograms. That's about 7 bags of sugar!" },
       "label": "7 kg"
     },
     {

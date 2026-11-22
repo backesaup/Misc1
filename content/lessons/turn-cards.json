@@ -5,15 +5,15 @@
   "cardArt": "build",
   "status": "ready",
   "order": 37,
-  "_map": "Turn cards (Y1–2). Big idea: quarter, half and full turns; clockwise and anticlockwise; right angles. Creative: guide the robot to treasure with direction and turn cards (his first coding).",
-  "_story": "The robot can only follow cards: forward, turn left, turn right. Treasure is buried on the farm. Ismaeel plans the cards, runs them, and fixes the bugs. His first program.",
-  "_stepChain": "the robot faces a way → forward moves one square → a quarter turn → right and left → a list of instructions is a program → plan cards to the treasure → fix a bug",
+  "_map": "Turn cards (Y1–2). Big idea: quarter, half and full turns; clockwise and anticlockwise; right angles. Creative: guide Steve to treasure with direction and turn cards (his first coding).",
+  "_story": "Steve can only follow cards: forward, turn left, turn right. Treasure is buried on the farm. Ismaeel plans the cards, runs them, and fixes the bugs. His first program.",
+  "_stepChain": "Steve faces a way → forward moves one square → a quarter turn → right and left → a list of instructions is a program → plan cards to the treasure → fix a bug",
   "assumes": [
     "counting"
   ],
   "talk": [
     {
-      "ask": "What cards did you give the robot to reach the treasure?",
+      "ask": "What cards did you give Steve to reach the treasure?",
       "goodAnswer": "something like forward 3, turn right, forward 3; any program that works."
     },
     {
@@ -21,7 +21,7 @@
       "goodAnswer": "turning a quarter of the way round, like from facing forwards to facing the side. Four quarter turns make a full turn."
     }
   ],
-  "handsOn": "Be the robot! A grown-up gives you cards or calls out forward, turn left, turn right to guide you to a hidden toy. Then swap.",
+  "handsOn": "Be Steve! A grown-up gives you cards or calls out forward, turn left, turn right to guide you to a hidden toy. Then swap.",
   "steps": [
     {
       "id": "hook",
@@ -41,14 +41,14 @@
         }
       },
       "narration": {
-        "speaker": "robot",
+        "speaker": "steve",
         "text": "There's treasure buried on the farm! But I can only follow cards: forward, turn left, or turn right. Can you guide me?"
       }
     },
     {
       "id": "forward",
       "narration": {
-        "text": "Forward moves the robot one square, the way it's facing. Forward, forward, forward."
+        "text": "Forward moves Steve one square, the way he's facing. Forward, forward, forward."
       },
       "animation": [
         {
@@ -62,7 +62,7 @@
       "id": "quarter",
       "term": "quarter turn",
       "narration": {
-        "text": "Now turn right. The robot turns a quarter of the way round, on the spot, without moving square. That's called a quarter turn. Four quarter turns make a full turn, back where it started."
+        "text": "Now turn right. Steve turns a quarter of the way round, on the spot, without moving square. That's called a quarter turn. Four quarter turns make a full turn, back where he started."
       },
       "animation": [
         {
@@ -77,7 +77,7 @@
       "term": "program",
       "question": {
         "narration": {
-          "text": "A list of cards for the robot to follow is called a program. The robot is facing right, 3 squares away from the treasure."
+          "text": "A list of cards for Steve to follow is called a program. Steve is facing right, 3 squares away from the treasure."
         },
         "prompt": "Which program reaches the treasure?",
         "choices": [
@@ -89,13 +89,13 @@
         "onRight": "Yes. You planned it: 3 squares straight ahead.",
         "wrong": {
           "1": {
-            "mistake": "turned when the robot was already facing the right way",
-            "hint": "Which way is the robot facing right now? Is the treasure that way?",
-            "say": "The robot is already facing the treasure. Turning left would point it up, away from the treasure. It only needs to go forward 3."
+            "mistake": "turned when Steve was already facing the right way",
+            "hint": "Which way is Steve facing right now? Is the treasure that way?",
+            "say": "Steve is already facing the treasure. Turning left would point him up, away from the treasure. He only needs to go forward 3."
           },
           "2": {
             "mistake": "counted the squares wrong",
-            "hint": "Count the squares between the robot and the treasure.",
+            "hint": "Count the squares between Steve and the treasure.",
             "say": "Count the squares: 1, 2, 3. Forward 2 stops one square short. It needs forward 3."
           }
         },
@@ -113,10 +113,10 @@
       "id": "bug",
       "question": {
         "narration": {
-          "speaker": "robot",
+          "speaker": "steve",
           "text": "New treasure! I'm back at the start, facing up. I wrote my own program: forward 3, turn left, forward 3. Here I go!"
         },
-        "prompt": "Will the robot reach the treasure?",
+        "prompt": "Will Steve reach the treasure?",
         "choices": [
           "Yes",
           "No"
@@ -126,8 +126,8 @@
         "wrong": {
           "0": {
             "mistake": "mixed up left and right",
-            "hint": "After going up, the treasure is to the robot's right. Which turn faces it that way?",
-            "say": "After going forward 3, the treasure is to the right. Turning left points the robot the wrong way, off the edge. Change the left card to right."
+            "hint": "After going up, the treasure is to Steve's right. Which turn faces it that way?",
+            "say": "After going forward 3, the treasure is to the right. Turning left points Steve the wrong way, off the edge. Change the left card to right."
           }
         },
         "reveal": "A mistake in a program is called a bug. Swap left for right, and it works.",
@@ -162,19 +162,19 @@
       "rule": {
         "text": "A program is a list of steps. Four quarter turns make a full turn.",
         "ask": "Can you say what a program is? Say it out loud. Then tap the eye.",
-        "spoken": "A program is a list of steps for a robot to follow. A quarter turn is a quarter of the way round, and four make a full turn."
+        "spoken": "A program is a list of steps for someone to follow, like Steve. A quarter turn is a quarter of the way round, and four make a full turn."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: facing up, the robot does two quarter turns to the right. Which way is it facing now?",
+    "prompt": "Bonus: facing up, Steve does two quarter turns to the right. Which way is he facing now?",
     "choices": [
       "Right",
       "Down",
       "Up"
     ],
     "answer": 1,
-    "reveal": "Down! Two quarter turns make a half turn: the robot faces the opposite way."
+    "reveal": "Down! Two quarter turns make a half turn: Steve faces the opposite way."
   }
 }

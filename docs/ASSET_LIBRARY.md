@@ -74,7 +74,7 @@ All in `src/scenes/diagram/` unless noted; actions are listed in `src/scenes/cat
 | Scene | What it draws | Actions | Used by |
 |---|---|---|---|
 | `diagram:balance` | Balance scale that tilts to the heavier side, <, =, > between the pans, a pumpkin, kg/g labels. Make mode `balance` (fives + ones) | set, signs, addOnes | Balance the scale, Heavier or lighter |
-| `diagram:grid` | Grid of squares: hundred square (count-by highlights, two at once), coloured cells, mirror line (with auto mirror), robot that follows turn cards to treasure. Make mode `every` | every, cells, mirror, robot, cards | Hundred square, Days weeks months, Mirror world, Turn cards |
+| `diagram:grid` | Grid of squares: hundred square (count-by highlights, two at once), coloured cells, mirror line (with auto mirror), Steve following turn cards to treasure. Make mode `every` | every, cells, mirror, robot, cards | Hundred square, Days weeks months, Mirror world, Turn cards |
 | `diagram:fraction` | Square field or pie cut into equal or unfair parts, shaded parts, labels like 3/4, two shapes side by side. Make mode `cut` | cut | Halves, Sharing pies, Same amount different name |
 | `diagram:clock` | Analogue clock, tweenable time, half-past shading, minute labels in 5s, sun/moon, activity label | time, shade, labels | The farm clock, How long is a minute? |
 | `diagram:coins` | Original coin drawings (1p–£2), market stall, price tag, total. Make mode `coins` | coins | Market stall, Price it yourself |
@@ -110,13 +110,26 @@ Presets: `stack64`, `solarCube`, `disco`, `made` (chair), `build` (grass-topped 
 (doubling 1, 2, 4, 8). Add a preset as a list of voxels with a base colour. Lessons pick one with `cardArt`.
 
 ## 3. Characters
-- **Guide** (ready) — `src/components/Guide.tsx`. Blocky third-person builder in a yellow hard hat,
-  rendered with **skinview3d** from an original 64×64 skin drawn in code. Waves on the lesson
-  start and end screens. Animations available from skinview3d: idle, walk, run, fly, wave, crouch,
-  hit, swim. Swap the skin by replacing `drawSkin()` or calling `viewer.loadSkin(url)`.
-- **Robot sidekick** (ready, grey-box) — `Robot` in `src/game/Farm.tsx`. R3F voxel robot with a face
-  and moods: `idle` (bob), `talk` (head wobble), `happy` (jumping spin, squint eyes), `sad` (droopy
-  head, frown). Next: name/colour choice, victory dance, waving on return.
+- **Steve** (ready) — the sidekick, replacing the old robot. `Steve` in `src/scenes/voxel/Steve.tsx`: the
+  real Minecraft player model (skinview3d `PlayerObject` inside R3F) wearing the Steve skin. Moods:
+  `idle`, `talk` (nod + gesture), `happy` (arms up, jumping), `sad` (head down), `think` (hand to chin).
+  Used in the farm game and `voxel:arrange` (`robot` action/param still names the toggle). 2D: `useSkinSprites()`
+  gives his face and full front as pixel images (turn-card grid, shadows, lever). `SteveAvatar` shows
+  his face while a `"speaker": "steve"` line plays. Voice: `speakers.steve` in `content/voice.json`.
+- **Skins** — `src/scenes/voxel/skins.ts`, `skins` in `content/textures.json`: steve, alex (slim), kai.
+  Real skins are fetched at build; original stand-ins drawn in code otherwise. Add more default skins
+  (ari, efe, makena, noor, sunny, zuri exist at `entity/player/wide|slim/`).
+- **Guide** (ready) — `src/components/Guide.tsx`. skinview3d character on lesson start/end screens,
+  wearing the Kai skin. Animations available from skinview3d: idle, walk, run, fly, wave, crouch, hit, swim.
+- **Iron golem** — named in *Alive or not?* (built, never alive). No 3D model yet.
+
+## 3a. Minecraft items and mob faces (`diagram:board`)
+- `items` in `content/textures.json`: 16×16 item icons (apple, carrot, wheat, egg, cod, diamond, gold
+  nugget, bucket, torch, compass, clock, …). `mobs`: animal faces cut from mob textures (`face` rect)
+  — pig, cow, sheep, wolf, cat, chicken, fox, bee — or whole 1.21.5 spawn eggs (rabbit, turtle, frog,
+  parrot, horse, axolotl). The board uses one automatically when an item's icon name matches
+  (`bird` → chicken, `dog` → wolf), else the lucide icon.
+- `npm run build` now runs `fetch-textures.mjs --soft` first, so deployed builds carry the real art.
 
 ## 3b. Game pieces (`src/game/Farm.tsx`, ready, grey-box)
 - `Block` — outlined block that drops in with a bounce; optional solid colour (bed blankets).
@@ -217,12 +230,12 @@ has errors (Bedrock cake stack size says 64), so verify any fact a lesson depend
 - **Speech input** (ready): `src/lib/listen.ts` (browser speech recognition; on iPad it's Apple's)
   and `MicButton`. Used on every question (`matchChoice` turns "sixty four" into the 64 choice),
   the say-the-rule step (what he said is logged for the parent screen), Ask dictation, and naming
-  the robot and the farm. `src/lib/spoken.ts` parses spoken numbers and yes/no. Parent toggle.
-- Names he chooses (robot, farm) are shown, never spoken, so all narration can be pre-recorded.
+  the farm. `src/lib/spoken.ts` parses spoken numbers and yes/no. Parent toggle.
+- The farm name he chooses is shown, never spoken, so all narration can be pre-recorded.
 - **Voices per character** (`content/voice.json`): `engine` kokoro or fish (Fish Audio API,
-  model s2.1-pro, needs the `FISH_API_KEY` secret); `speakers.narrator`, `speakers.robot` (add
+  model s2.1-pro, needs the `FISH_API_KEY` secret); `speakers.narrator`, `speakers.steve` (add
   more); per-speaker voice, speed, pitch and device-fallback pitch/rate; `pauses` for pacing.
-  A line's `speaker` comes from `narration.speaker` in lesson JSON; game puzzle lines are the robot.
+  A line's `speaker` comes from `narration.speaker` in lesson JSON; game puzzle lines are Steve.
 - **Voice samples** workflow renders candidate Fish voices to `public/voice-samples/` (listed on
   the parent screen). **Video notes** workflow turns `requests/videos/` uploads or links into a
   transcript + frames for building lessons.
@@ -235,6 +248,7 @@ has errors (Bedrock cake stack size says 64), so verify any fact a lesson depend
   `activity.json` (replays, wrong answers chosen, where he stopped). Make lessons from these.
 
 ## Changelog
+- 2026-11-22 — Steve (real player model + skin) replaces the robot everywhere; Minecraft item icons and mob faces on boards; skins/items/mobs fetched at build.
 - 2026-11-22 — lesson-map scenes: balance, grid, fraction, clock, coins, gauge, shapes, solids, board, nature, lab; Science lab section; 70+ lessons.
 - 2026-11-21 — disco scene + lesson, speech input, music, recorded-narration workflow, Blocky name.
 - 2026-11-21 — game grey-box: robot sidekick, Block/GlowCell, number dial, bed puzzle data.

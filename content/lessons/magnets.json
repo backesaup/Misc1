@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 5,
   "_map": "Magnets (stretch, usually Y3). Big idea: magnets attract some metals; poles push and pull. Creative: find what sticks around the farm; design a magnet-powered gate.",
-  "_story": "The robot dropped a box of bits in the hay. It uses a magnet to fish them out, but not everything comes. Then two magnets push each other away, and the robot is amazed.",
+  "_story": "Steve dropped a box of bits in the hay. It uses a magnet to fish them out, but not everything comes. Then two magnets push each other away, and Steve is amazed.",
   "_stepChain": "a magnet pulls some things → paper clips and spoons: yes; wood, plastic: no → not every metal (foil, most coins) → magnets have two ends called poles → same poles push apart, opposite poles pull together → design a gate",
   "assumes": ["magnet", "metal"],
   "talk": [
@@ -18,7 +18,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "lab", "params": { "view": "magnets" } },
-      "narration": { "speaker": "robot", "text": "I dropped my bits and bobs in the hay! I'll use my magnet to fish them out." }
+      "narration": { "speaker": "steve", "text": "I dropped my bits and bobs in the hay! I'll use my magnet to fish them out." }
     },
     {
       "id": "predict",
@@ -44,7 +44,7 @@
     {
       "id": "same",
       "question": {
-        "narration": { "speaker": "robot", "text": "Now I'll turn one magnet round, so two north poles face each other. They'll pull together even harder!" },
+        "narration": { "speaker": "steve", "text": "Now I'll turn one magnet round, so two north poles face each other. They'll pull together even harder!" },
         "prompt": "What will two north poles do?",
         "choices": ["Pull together", "Push apart"],
         "answer": 1,
@@ -58,7 +58,7 @@
     },
     {
       "id": "design",
-      "narration": { "speaker": "robot", "text": "Can you design a gate that shuts itself with magnets? Maybe a magnet on the gate and a metal plate on the post. Draw it and tell a grown-up!" }
+      "narration": { "speaker": "steve", "text": "Can you design a gate that shuts itself with magnets? Maybe a magnet on the gate and a metal plate on the post. Draw it and tell a grown-up!" }
     },
     {
       "id": "rule",

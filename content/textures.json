@@ -1,35 +1,759 @@
 {
-  "_note": "Block textures for voxel scenes. `npm run textures:fetch` downloads each block's first available candidate into src/assets/textures/<key>.png (gitignored, bundled only when present). A block whose file is missing uses its built-in original look. Add a key here, then reference it from a scene. See docs/ASSET_LIBRARY.md.",
+  "_note": "Block textures for voxel scenes. `npm run textures:fetch` downloads each block's first available candidate into src/assets/textures/<key>.png (gitignored, bundled only when present). A block whose file is missing uses its built-in original look. Add a key here, then reference it from a scene. See docs/ASSET_LIBRARY.md. `skins` are 64×64 player skins (src/assets/textures/skins/), `items` are 16×16 item icons (src/assets/textures/items/), used by the Steve character and the sorting board. `npm run build` fetches them first. `mobs` are animal faces cut from Minecraft mob textures (`face` = x,y,w,h in a texture of `size`), or a whole spawn-egg icon; the sorting board uses them for animal icons.",
   "sources": {
-    "bedrock": { "repo": "Mojang/bedrock-samples", "branch": "main", "base": "resource_pack/textures/blocks", "edition": "bedrock", "licence": "Mojang sample pack, Minecraft EULA / usage guidelines", "verified": true },
-    "inventive": { "repo": "InventivetalentDev/minecraft-assets", "branch": "1.21.4", "base": "assets/minecraft/textures/block", "edition": "java", "licence": "Mojang assets, Minecraft EULA (same files as mcasset.cloud)", "verified": true },
-    "prismarine": { "repo": "PrismarineJS/minecraft-assets", "branch": "master", "base": "data/1.21.4/blocks", "edition": "java", "licence": "Mojang assets, Minecraft EULA", "verified": true },
-    "destruc7i0n": { "repo": "destruc7i0n/minecraft-textures", "branch": "master", "base": "", "edition": "java", "licence": "Mojang assets", "verified": false },
-    "owen": { "repo": "Owen1212055/mc-assets", "branch": "main", "base": "", "edition": "java", "licence": "Mojang assets", "verified": false },
-    "craft": { "repo": "fogleman/Craft", "branch": "master", "base": "textures", "edition": "original", "licence": "MIT (original art, safe to share)", "verified": true, "atlas": true },
-    "create": { "repo": "Creators-of-Create/Create", "branch": "mc1.20.1/dev", "base": "src/main/resources/assets/create/textures/block", "edition": "mod:create", "licence": "see repo (code MIT; check asset terms before sharing publicly)", "verified": true },
-    "farmersdelight": { "repo": "vectorwing/FarmersDelight", "branch": "1.20", "base": "src/main/resources/assets/farmersdelight/textures/block", "edition": "mod:farmersdelight", "licence": "see repo", "verified": true },
-    "mekanism": { "repo": "mekanism/Mekanism", "branch": "1.21.x", "base": "src/main/resources/assets/mekanism/textures/block", "edition": "mod:mekanism", "licence": "MIT (see repo)", "verified": true },
-    "securitycraft": { "repo": "Geforce132/SecurityCraft", "branch": "master", "base": "", "edition": "mod:securitycraft", "licence": "see repo", "verified": false },
-    "ic2": { "repo": "IndustrialCraftMC/IndustrialCraft2", "branch": "master", "base": "", "edition": "mod:ic2", "licence": "see repo", "verified": false },
-    "furniture": { "repo": "MrCrayfish/MrCrayfishFurnitureMod-Refurbished", "branch": "master", "base": "", "edition": "mod:refurbished_furniture", "licence": "see repo", "verified": false },
-    "littletiles": { "repo": "CreativeMD/LittleTiles", "branch": "master", "base": "", "edition": "mod:littletiles", "licence": "see repo", "verified": false },
-    "car": { "repo": "henkelmax/car", "branch": "master", "base": "", "edition": "mod:car", "licence": "see repo", "verified": false }
+    "bedrock": {
+      "repo": "Mojang/bedrock-samples",
+      "branch": "main",
+      "base": "resource_pack/textures/blocks",
+      "edition": "bedrock",
+      "licence": "Mojang sample pack, Minecraft EULA / usage guidelines",
+      "verified": true
+    },
+    "inventive": {
+      "repo": "InventivetalentDev/minecraft-assets",
+      "branch": "1.21.4",
+      "base": "assets/minecraft/textures/block",
+      "edition": "java",
+      "licence": "Mojang assets, Minecraft EULA (same files as mcasset.cloud)",
+      "verified": true
+    },
+    "prismarine": {
+      "repo": "PrismarineJS/minecraft-assets",
+      "branch": "master",
+      "base": "data/1.21.4/blocks",
+      "edition": "java",
+      "licence": "Mojang assets, Minecraft EULA",
+      "verified": true
+    },
+    "destruc7i0n": {
+      "repo": "destruc7i0n/minecraft-textures",
+      "branch": "master",
+      "base": "",
+      "edition": "java",
+      "licence": "Mojang assets",
+      "verified": false
+    },
+    "owen": {
+      "repo": "Owen1212055/mc-assets",
+      "branch": "main",
+      "base": "",
+      "edition": "java",
+      "licence": "Mojang assets",
+      "verified": false
+    },
+    "craft": {
+      "repo": "fogleman/Craft",
+      "branch": "master",
+      "base": "textures",
+      "edition": "original",
+      "licence": "MIT (original art, safe to share)",
+      "verified": true,
+      "atlas": true
+    },
+    "create": {
+      "repo": "Creators-of-Create/Create",
+      "branch": "mc1.20.1/dev",
+      "base": "src/main/resources/assets/create/textures/block",
+      "edition": "mod:create",
+      "licence": "see repo (code MIT; check asset terms before sharing publicly)",
+      "verified": true
+    },
+    "farmersdelight": {
+      "repo": "vectorwing/FarmersDelight",
+      "branch": "1.20",
+      "base": "src/main/resources/assets/farmersdelight/textures/block",
+      "edition": "mod:farmersdelight",
+      "licence": "see repo",
+      "verified": true
+    },
+    "mekanism": {
+      "repo": "mekanism/Mekanism",
+      "branch": "1.21.x",
+      "base": "src/main/resources/assets/mekanism/textures/block",
+      "edition": "mod:mekanism",
+      "licence": "MIT (see repo)",
+      "verified": true
+    },
+    "securitycraft": {
+      "repo": "Geforce132/SecurityCraft",
+      "branch": "master",
+      "base": "",
+      "edition": "mod:securitycraft",
+      "licence": "see repo",
+      "verified": false
+    },
+    "ic2": {
+      "repo": "IndustrialCraftMC/IndustrialCraft2",
+      "branch": "master",
+      "base": "",
+      "edition": "mod:ic2",
+      "licence": "see repo",
+      "verified": false
+    },
+    "furniture": {
+      "repo": "MrCrayfish/MrCrayfishFurnitureMod-Refurbished",
+      "branch": "master",
+      "base": "",
+      "edition": "mod:refurbished_furniture",
+      "licence": "see repo",
+      "verified": false
+    },
+    "littletiles": {
+      "repo": "CreativeMD/LittleTiles",
+      "branch": "master",
+      "base": "",
+      "edition": "mod:littletiles",
+      "licence": "see repo",
+      "verified": false
+    },
+    "car": {
+      "repo": "henkelmax/car",
+      "branch": "master",
+      "base": "",
+      "edition": "mod:car",
+      "licence": "see repo",
+      "verified": false
+    },
+    "inventive-entity": {
+      "repo": "InventivetalentDev/minecraft-assets",
+      "branch": "1.21.4",
+      "base": "assets/minecraft/textures/entity",
+      "edition": "java",
+      "licence": "Mojang assets, Minecraft EULA",
+      "verified": true
+    },
+    "inventive-item": {
+      "repo": "InventivetalentDev/minecraft-assets",
+      "branch": "1.21.4",
+      "base": "assets/minecraft/textures/item",
+      "edition": "java",
+      "licence": "Mojang assets, Minecraft EULA",
+      "verified": true
+    },
+    "inventive-item-new": {
+      "repo": "InventivetalentDev/minecraft-assets",
+      "branch": "1.21.5",
+      "base": "assets/minecraft/textures/item",
+      "edition": "java",
+      "licence": "Mojang assets, Minecraft EULA (1.21.5: one spawn-egg picture per mob)",
+      "verified": true
+    }
   },
   "blocks": {
-    "planks": { "file": "planks.png", "from": ["bedrock:planks_oak.png", "inventive:oak_planks.png", "prismarine:oak_planks.png"] },
-    "stone": { "file": "stone.png", "from": ["bedrock:stone.png", "inventive:stone.png"] },
-    "dirt": { "file": "dirt.png", "from": ["bedrock:dirt.png", "inventive:dirt.png"] },
-    "grass_top": { "file": "grass_top.png", "from": ["bedrock:grass_top.png", "inventive:grass_block_top.png"] },
-    "tnt_side": { "file": "tnt_side.png", "from": ["bedrock:tnt_side.png", "inventive:tnt_side.png"] },
-    "dispenser_front": { "file": "dispenser_front.png", "from": ["bedrock:dispenser_front_horizontal.png", "inventive:dispenser_front.png"] },
-    "redstone_dust": { "file": "redstone_dust.png", "from": ["bedrock:redstone_dust_cross.png", "inventive:redstone_dust_dot.png"] },
-    "repeater": { "file": "repeater.png", "from": ["bedrock:repeater_off.png", "inventive:repeater.png"] },
-    "lever": { "file": "lever.png", "from": ["bedrock:lever.png", "inventive:lever.png"] },
-    "craft_atlas": { "file": "craft_atlas.png", "from": ["craft:texture.png"] },
-    "create_cogwheel": { "file": "create_cogwheel.png", "from": ["create:cogwheel.png"] },
-    "create_andesite_casing": { "file": "create_andesite_casing.png", "from": ["create:andesite_casing.png"] },
-    "fd_cutting_board": { "file": "fd_cutting_board.png", "from": ["farmersdelight:cutting_board.png"] },
-    "mek_steel_casing": { "file": "mek_steel_casing.png", "from": ["mekanism:steel_casing.png"] }
+    "planks": {
+      "file": "planks.png",
+      "from": [
+        "bedrock:planks_oak.png",
+        "inventive:oak_planks.png",
+        "prismarine:oak_planks.png"
+      ]
+    },
+    "stone": {
+      "file": "stone.png",
+      "from": [
+        "bedrock:stone.png",
+        "inventive:stone.png"
+      ]
+    },
+    "dirt": {
+      "file": "dirt.png",
+      "from": [
+        "bedrock:dirt.png",
+        "inventive:dirt.png"
+      ]
+    },
+    "grass_top": {
+      "file": "grass_top.png",
+      "from": [
+        "bedrock:grass_top.png",
+        "inventive:grass_block_top.png"
+      ]
+    },
+    "tnt_side": {
+      "file": "tnt_side.png",
+      "from": [
+        "bedrock:tnt_side.png",
+        "inventive:tnt_side.png"
+      ]
+    },
+    "dispenser_front": {
+      "file": "dispenser_front.png",
+      "from": [
+        "bedrock:dispenser_front_horizontal.png",
+        "inventive:dispenser_front.png"
+      ]
+    },
+    "redstone_dust": {
+      "file": "redstone_dust.png",
+      "from": [
+        "bedrock:redstone_dust_cross.png",
+        "inventive:redstone_dust_dot.png"
+      ]
+    },
+    "repeater": {
+      "file": "repeater.png",
+      "from": [
+        "bedrock:repeater_off.png",
+        "inventive:repeater.png"
+      ]
+    },
+    "lever": {
+      "file": "lever.png",
+      "from": [
+        "bedrock:lever.png",
+        "inventive:lever.png"
+      ]
+    },
+    "craft_atlas": {
+      "file": "craft_atlas.png",
+      "from": [
+        "craft:texture.png"
+      ]
+    },
+    "create_cogwheel": {
+      "file": "create_cogwheel.png",
+      "from": [
+        "create:cogwheel.png"
+      ]
+    },
+    "create_andesite_casing": {
+      "file": "create_andesite_casing.png",
+      "from": [
+        "create:andesite_casing.png"
+      ]
+    },
+    "fd_cutting_board": {
+      "file": "fd_cutting_board.png",
+      "from": [
+        "farmersdelight:cutting_board.png"
+      ]
+    },
+    "mek_steel_casing": {
+      "file": "mek_steel_casing.png",
+      "from": [
+        "mekanism:steel_casing.png"
+      ]
+    }
+  },
+  "skins": {
+    "steve": {
+      "file": "skins/steve.png",
+      "from": [
+        "inventive-entity:player/wide/steve.png"
+      ],
+      "model": "default"
+    },
+    "alex": {
+      "file": "skins/alex.png",
+      "from": [
+        "inventive-entity:player/slim/alex.png"
+      ],
+      "model": "slim"
+    },
+    "kai": {
+      "file": "skins/kai.png",
+      "from": [
+        "inventive-entity:player/wide/kai.png"
+      ],
+      "model": "default"
+    }
+  },
+  "items": {
+    "apple": {
+      "file": "items/apple.png",
+      "from": [
+        "inventive-item:apple.png"
+      ]
+    },
+    "carrot": {
+      "file": "items/carrot.png",
+      "from": [
+        "inventive-item:carrot.png"
+      ]
+    },
+    "wheat": {
+      "file": "items/wheat.png",
+      "from": [
+        "inventive-item:wheat.png"
+      ]
+    },
+    "egg": {
+      "file": "items/egg.png",
+      "from": [
+        "inventive-item:egg.png"
+      ]
+    },
+    "bone": {
+      "file": "items/bone.png",
+      "from": [
+        "inventive-item:bone.png"
+      ]
+    },
+    "feather": {
+      "file": "items/feather.png",
+      "from": [
+        "inventive-item:feather.png"
+      ]
+    },
+    "fish": {
+      "file": "items/fish.png",
+      "from": [
+        "inventive-item:cod.png"
+      ]
+    },
+    "cookie": {
+      "file": "items/cookie.png",
+      "from": [
+        "inventive-item:cookie.png"
+      ]
+    },
+    "milk": {
+      "file": "items/milk.png",
+      "from": [
+        "inventive-item:milk_bucket.png"
+      ]
+    },
+    "meat": {
+      "file": "items/meat.png",
+      "from": [
+        "inventive-item:beef.png"
+      ]
+    },
+    "drumstick": {
+      "file": "items/drumstick.png",
+      "from": [
+        "inventive-item:chicken.png"
+      ]
+    },
+    "ham": {
+      "file": "items/ham.png",
+      "from": [
+        "inventive-item:porkchop.png"
+      ]
+    },
+    "book": {
+      "file": "items/book.png",
+      "from": [
+        "inventive-item:book.png"
+      ]
+    },
+    "gem": {
+      "file": "items/gem.png",
+      "from": [
+        "inventive-item:diamond.png"
+      ]
+    },
+    "coins": {
+      "file": "items/coins.png",
+      "from": [
+        "inventive-item:gold_nugget.png"
+      ]
+    },
+    "snow": {
+      "file": "items/snow.png",
+      "from": [
+        "inventive-item:snowball.png"
+      ]
+    },
+    "scissors": {
+      "file": "items/scissors.png",
+      "from": [
+        "inventive-item:shears.png"
+      ]
+    },
+    "droplet": {
+      "file": "items/droplet.png",
+      "from": [
+        "inventive-item:water_bucket.png"
+      ]
+    },
+    "cherry": {
+      "file": "items/cherry.png",
+      "from": [
+        "inventive-item:sweet_berries.png"
+      ]
+    },
+    "bean": {
+      "file": "items/bean.png",
+      "from": [
+        "inventive-item:cocoa_beans.png"
+      ]
+    },
+    "sprout": {
+      "file": "items/sprout.png",
+      "from": [
+        "inventive-item:wheat_seeds.png"
+      ]
+    },
+    "shell": {
+      "file": "items/shell.png",
+      "from": [
+        "inventive-item:nautilus_shell.png"
+      ]
+    },
+    "ship": {
+      "file": "items/ship.png",
+      "from": [
+        "inventive-item:oak_boat.png"
+      ]
+    },
+    "car": {
+      "file": "items/car.png",
+      "from": [
+        "inventive-item:minecart.png"
+      ]
+    },
+    "shirt": {
+      "file": "items/shirt.png",
+      "from": [
+        "inventive-item:leather_chestplate.png"
+      ]
+    },
+    "bread": {
+      "file": "items/bread.png",
+      "from": [
+        "inventive-item:bread.png"
+      ]
+    },
+    "pumpkin": {
+      "file": "items/pumpkin.png",
+      "from": [
+        "inventive-item:pumpkin_pie.png"
+      ]
+    },
+    "potato": {
+      "file": "items/potato.png",
+      "from": [
+        "inventive-item:potato.png"
+      ]
+    },
+    "beetroot": {
+      "file": "items/beetroot.png",
+      "from": [
+        "inventive-item:beetroot.png"
+      ]
+    },
+    "bucket": {
+      "file": "items/bucket.png",
+      "from": [
+        "inventive-item:bucket.png"
+      ]
+    },
+    "stick": {
+      "file": "items/stick.png",
+      "from": [
+        "inventive-item:stick.png"
+      ]
+    },
+    "emerald": {
+      "file": "items/emerald.png",
+      "from": [
+        "inventive-item:emerald.png"
+      ]
+    },
+    "iron": {
+      "file": "items/iron.png",
+      "from": [
+        "inventive-item:iron_ingot.png"
+      ]
+    },
+    "gold": {
+      "file": "items/gold.png",
+      "from": [
+        "inventive-item:gold_ingot.png"
+      ]
+    },
+    "redstone": {
+      "file": "items/redstone.png",
+      "from": [
+        "inventive-item:redstone.png"
+      ]
+    },
+    "torch": {
+      "file": "items/torch.png",
+      "from": [
+        "inventive:torch.png"
+      ]
+    },
+    "compass": {
+      "file": "items/compass.png",
+      "from": [
+        "inventive-item:compass_00.png"
+      ]
+    },
+    "clock": {
+      "file": "items/clock.png",
+      "from": [
+        "inventive-item:clock_00.png"
+      ]
+    },
+    "sugar": {
+      "file": "items/sugar.png",
+      "from": [
+        "inventive-item:sugar.png"
+      ]
+    },
+    "honey": {
+      "file": "items/honey.png",
+      "from": [
+        "inventive-item:honey_bottle.png"
+      ]
+    },
+    "melon": {
+      "file": "items/melon.png",
+      "from": [
+        "inventive-item:melon_slice.png"
+      ]
+    },
+    "string": {
+      "file": "items/string.png",
+      "from": [
+        "inventive-item:string.png"
+      ]
+    },
+    "leather": {
+      "file": "items/leather.png",
+      "from": [
+        "inventive-item:leather.png"
+      ]
+    },
+    "flower": {
+      "file": "items/flower.png",
+      "from": [
+        "inventive:poppy.png"
+      ]
+    },
+    "tree": {
+      "file": "items/tree.png",
+      "from": [
+        "inventive:oak_sapling.png"
+      ]
+    }
+  },
+  "mobs": {
+    "pig": {
+      "file": "mobs/pig.png",
+      "from": [
+        "inventive-entity:pig/pig.png"
+      ],
+      "face": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "size": [
+        64,
+        32
+      ]
+    },
+    "cow": {
+      "file": "mobs/cow.png",
+      "from": [
+        "inventive-entity:cow/cow.png"
+      ],
+      "face": [
+        6,
+        6,
+        8,
+        8
+      ],
+      "size": [
+        64,
+        32
+      ]
+    },
+    "sheep": {
+      "file": "mobs/sheep.png",
+      "from": [
+        "inventive-entity:sheep/sheep.png"
+      ],
+      "face": [
+        8,
+        8,
+        6,
+        6
+      ],
+      "size": [
+        64,
+        32
+      ]
+    },
+    "wolf": {
+      "file": "mobs/wolf.png",
+      "from": [
+        "inventive-entity:wolf/wolf.png"
+      ],
+      "face": [
+        4,
+        4,
+        6,
+        6
+      ],
+      "size": [
+        64,
+        32
+      ]
+    },
+    "cat": {
+      "file": "mobs/cat.png",
+      "from": [
+        "inventive-entity:cat/tabby.png"
+      ],
+      "face": [
+        5,
+        5,
+        5,
+        4
+      ],
+      "size": [
+        64,
+        32
+      ]
+    },
+    "chicken": {
+      "file": "mobs/chicken.png",
+      "from": [
+        "inventive-entity:chicken.png"
+      ],
+      "face": [
+        3,
+        3,
+        4,
+        6
+      ],
+      "size": [
+        64,
+        32
+      ]
+    },
+    "fox": {
+      "file": "mobs/fox.png",
+      "from": [
+        "inventive-entity:fox/fox.png"
+      ],
+      "face": [
+        7,
+        11,
+        8,
+        6
+      ],
+      "size": [
+        48,
+        32
+      ]
+    },
+    "bee": {
+      "file": "mobs/bee.png",
+      "from": [
+        "inventive-entity:bee/bee.png"
+      ],
+      "face": [
+        10,
+        10,
+        7,
+        7
+      ],
+      "size": [
+        64,
+        64
+      ]
+    },
+    "rabbit": {
+      "file": "mobs/rabbit.png",
+      "from": [
+        "inventive-item-new:rabbit_spawn_egg.png"
+      ],
+      "face": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "size": [
+        16,
+        16
+      ]
+    },
+    "turtle": {
+      "file": "mobs/turtle.png",
+      "from": [
+        "inventive-item-new:turtle_spawn_egg.png"
+      ],
+      "face": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "size": [
+        16,
+        16
+      ]
+    },
+    "frog": {
+      "file": "mobs/frog.png",
+      "from": [
+        "inventive-item-new:frog_spawn_egg.png"
+      ],
+      "face": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "size": [
+        16,
+        16
+      ]
+    },
+    "parrot": {
+      "file": "mobs/parrot.png",
+      "from": [
+        "inventive-item-new:parrot_spawn_egg.png"
+      ],
+      "face": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "size": [
+        16,
+        16
+      ]
+    },
+    "horse": {
+      "file": "mobs/horse.png",
+      "from": [
+        "inventive-item-new:horse_spawn_egg.png"
+      ],
+      "face": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "size": [
+        16,
+        16
+      ]
+    },
+    "axolotl": {
+      "file": "mobs/axolotl.png",
+      "from": [
+        "inventive-item-new:axolotl_spawn_egg.png"
+      ],
+      "face": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "size": [
+        16,
+        16
+      ]
+    }
   }
 }

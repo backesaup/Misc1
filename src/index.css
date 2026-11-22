@@ -708,16 +708,14 @@ code { font-size: 0.92em; background: var(--paper-3); padding: 1px 6px; border-r
 .make-found .make-more { background: var(--paper-3); color: var(--ink-2); font-family: var(--font-ui); font-size: 1rem; }
 .make-label { font-size: clamp(1.6rem, 4.5vw, 2.6rem) !important; padding: 8px 22px !important; }
 
-/* The robot, talking */
-.robot-avatar { position: absolute; right: 14px; bottom: 14px; z-index: 4; display: grid; justify-items: center; gap: 2px; animation: robot-in 260ms var(--ease-out) both; pointer-events: none; }
-.robot-avatar svg { width: clamp(78px, 11vw, 120px); height: auto; filter: drop-shadow(0 8px 10px rgb(43 42 51 / 0.25)); }
-.robot-name { padding: 2px 12px; border-radius: 999px; background: var(--ink); color: var(--paper); font-family: var(--font-display); font-weight: 800; font-size: 1rem; }
-@keyframes robot-in { from { opacity: 0; transform: translateY(14px) scale(0.92); } }
-.robot-avatar[data-talking] .robot-mouth { animation: robot-talk 0.22s ease-in-out infinite alternate; transform-origin: 60px 74px; transform-box: view-box; }
-@keyframes robot-talk { to { transform: scaleY(2.4); } }
-.robot-avatar[data-talking] .robot-antenna { animation: robot-blink 0.9s steps(2) infinite; }
-@keyframes robot-blink { 50% { fill: #ffd166; } }
-.robot-avatar + .caption, .stage-label + .robot-avatar { }
+/* Steve, talking: his Minecraft face, nodding */
+.steve-avatar { position: absolute; right: 14px; bottom: 14px; z-index: 4; display: grid; justify-items: center; gap: 4px; animation: steve-in 260ms var(--ease-out) both; pointer-events: none; }
+.steve-avatar img { width: clamp(72px, 10vw, 112px); height: auto; image-rendering: pixelated; border-radius: 6px; border: 3px solid var(--ink); background: var(--ink); filter: drop-shadow(0 8px 10px rgb(43 42 51 / 0.25)); }
+.steve-name { padding: 2px 12px; border-radius: 999px; background: var(--ink); color: var(--paper); font-family: var(--font-display); font-weight: 800; font-size: 1rem; }
+@keyframes steve-in { from { opacity: 0; transform: translateY(14px) scale(0.92); } }
+.steve-avatar[data-talking] img { animation: steve-talk 0.5s ease-in-out infinite alternate; transform-origin: 50% 90%; }
+@keyframes steve-talk { from { transform: rotate(-3deg) translateY(0); } to { transform: rotate(3deg) translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) { .steve-avatar[data-talking] img { animation: none; } }
 .diagram-num.small { font-size: 18px; fill: white; }
 .diagram-sign { font-family: var(--font-display); font-weight: 800; font-size: 40px; fill: var(--made); }
 .grid-num { font-family: var(--font-display); font-weight: 750; fill: var(--ink); }

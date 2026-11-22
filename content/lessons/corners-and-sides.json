@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 33,
   "_map": "Corners and sides (Y2). Big idea: 2D shapes are described by sides and corners (vertices). Creative: invent a shape with 5 corners. Can a straight-sided shape have only 2 sides?",
-  "_story": "The robot is building fence shapes for animal pens with straight fence pieces. Ismaeel tries different numbers of sides, finds the pattern (sides = corners), and tests whether 2 sides can make a pen.",
+  "_story": "Steve is building fence shapes for animal pens with straight fence pieces. Ismaeel tries different numbers of sides, finds the pattern (sides = corners), and tests whether 2 sides can make a pen.",
   "_stepChain": "triangle and square (shape-detective) → count sides and corners → the pattern: same number → a corner is also called a vertex → try 5, 6, 7 sides → 2 sides can't close",
   "assumes": ["triangle", "square", "counting"],
   "requires": ["shape-detective"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "shapes", "params": { "view": "shape", "sides": 3, "corners": true, "sideNums": true } },
-      "narration": { "speaker": "robot", "text": "I'm building pens for the animals out of straight fence pieces. A triangle pen uses 3 pieces. What other shapes can I build?" }
+      "narration": { "speaker": "steve", "text": "I'm building pens for the animals out of straight fence pieces. A triangle pen uses 3 pieces. What other shapes can I build?" }
     },
     {
       "id": "make-sides",
@@ -36,7 +36,7 @@
     {
       "id": "two",
       "question": {
-        "narration": { "speaker": "robot", "text": "I've only got 2 fence pieces left. I'm going to build a 2-sided pen!" },
+        "narration": { "speaker": "steve", "text": "I've only got 2 fence pieces left. I'm going to build a 2-sided pen!" },
         "prompt": "Can 2 straight fence pieces make a closed pen?",
         "choices": ["Yes", "No"],
         "answer": 1,

@@ -6,8 +6,8 @@
   "status": "ready",
   "order": 4,
   "_map": "Who eats what? (Y1). Big idea: herbivores, carnivores and omnivores. Creative: plan the farm's feeding: who gets grass, who gets meat, who gets both?",
-  "_story": "Feeding time: the robot is about to give a rabbit a bone. Ismaeel sorts the animals by what they eat and plans the menu.",
-  "_stepChain": "animals eat different things → plant eaters are herbivores → meat eaters are carnivores → both: omnivores → sort the animals → the robot's mistake → plan the menu",
+  "_story": "Feeding time: Steve is about to give a rabbit a bone. Ismaeel sorts the animals by what they eat and plans the menu.",
+  "_stepChain": "animals eat different things → plant eaters are herbivores → meat eaters are carnivores → both: omnivores → sort the animals → Steve's mistake → plan the menu",
   "assumes": ["property"],
   "requires": ["secret-sorting-rule"],
   "talk": [
@@ -18,8 +18,8 @@
   "steps": [
     {
       "id": "hook",
-      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "h:Plants only|c:Meat only|o:Both", "items": "r:rabbit:Rabbit:|s:squirrel:Squirrel:|c1:cat:Cat:|d:dog:Dog:|b:bird:Hen:|t:turtle:Tortoise:" } },
-      "narration": { "speaker": "robot", "text": "Feeding time! I've got grass, bones and a big bucket of everything. Who gets what?" }
+      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "h:Plants only|c:Meat only|o:Both", "items": "r:rabbit:Rabbit:|s:squirrel:Squirrel:|c1:cat:Cat:|d:dog:Dog:|b:chicken:Hen:|t:turtle:Tortoise:" } },
+      "narration": { "speaker": "steve", "text": "Feeding time! I've got grass, bones and a big bucket of everything. Who gets what?" }
     },
     {
       "id": "herbivore",
@@ -42,7 +42,7 @@
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "robot", "text": "The rabbit looks hungry. I'll give it a big juicy bone!" },
+        "narration": { "speaker": "steve", "text": "The rabbit looks hungry. I'll give it a big juicy bone!" },
         "prompt": "Is a bone good food for a rabbit?",
         "choices": ["Yes", "No"],
         "answer": 1,

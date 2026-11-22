@@ -4,7 +4,7 @@ Renders the same sample lines in several Fish Audio voices so a grown-up can lis
 Writes public/voice-samples/<voice-id>.mp3 and public/voice-samples/index.json, which the
 parent screen lists. Then put the chosen id into content/voice.json (speakers.<name>.fish.voice).
 
-    FISH_API_KEY=... python scripts/fish-voice-samples.py "british male narrator" "cute robot"
+    FISH_API_KEY=... python scripts/fish-voice-samples.py "british male narrator" "friendly young man"
 Each search phrase gets its top voices; or pass voice ids directly with --ids id1 id2.
 """
 import json
@@ -13,7 +13,7 @@ import sys
 
 SAMPLE = {
     "narrator": "In Minecraft, a stack of blocks stops at 64. Let's find out what is special about 64. Count this row with me: 1, 2, 3, 4, 5, 6, 7, 8.",
-    "robot": "Oh no! My bed broke! Can you build me a new one? Tap the glowing squares to put blocks down.",
+    "steve": "Oh no! My bed broke! Can you build me a new one? Tap the glowing squares to put blocks down.",
 }
 
 
@@ -31,8 +31,8 @@ def main():
     if args and args[0] == "--ids":
         picks = [(i, i, "chosen", "narrator") for i in args[1:]]
     else:
-        for q in args or ["british male narrator", "friendly robot"]:
-            role = "robot" if "robot" in q.lower() or "cute" in q.lower() else "narrator"
+        for q in args or ["british male narrator", "friendly young man"]:
+            role = "steve" if "young" in q.lower() else "narrator"
             page = client.voices.list(title=q, page_size=6, language="en")
             for v in page.items:
                 picks.append((v.id, v.title, q, role))

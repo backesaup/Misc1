@@ -6,8 +6,8 @@
   "status": "ready",
   "order": 5,
   "_map": "Your senses (Y1). Big idea: five senses and the body parts that sense them. Creative: mystery boxes: work out what's inside without looking.",
-  "_story": "The robot only has eyes and wonders how people know so much about the world. Ismaeel matches each sense to its body part, then plays the mystery box game for real.",
-  "_stepChain": "you find out about the world → seeing (eyes), hearing (ears), touching (skin, hands), smelling (nose), tasting (tongue) → each is called a sense → the robot can only see → a mystery box uses the other senses",
+  "_story": "Steve only has eyes and wonders how people know so much about the world. Ismaeel matches each sense to its body part, then plays the mystery box game for real.",
+  "_stepChain": "you find out about the world → seeing (eyes), hearing (ears), touching (skin, hands), smelling (nose), tasting (tongue) → each is called a sense → Steve can only see → a mystery box uses the other senses",
   "assumes": ["ears"],
   "talk": [
     { "ask": "What are your five senses?", "goodAnswer": "seeing, hearing, touching, smelling and tasting." },
@@ -18,7 +18,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "board", "params": { "mode": "chain", "items": "e:eye:Seeing:|a:ear:Hearing:|h:hand:Touching:" } },
-      "narration": { "speaker": "robot", "text": "I've only got camera eyes. But people know so much about the world! How do you find things out?" }
+      "narration": { "speaker": "steve", "text": "I've only got camera eyes. But people know so much about the world! How do you find things out?" }
     },
     {
       "id": "sense",
@@ -43,7 +43,7 @@
     },
     {
       "id": "mystery",
-      "narration": { "speaker": "robot", "text": "Here's a game where you can't use your eyes: the mystery box. Feel it, shake it and listen, sniff it. Can you guess what's inside? Play it with a grown-up!" }
+      "narration": { "speaker": "steve", "text": "Here's a game where you can't use your eyes: the mystery box. Feel it, shake it and listen, sniff it. Can you guess what's inside? Play it with a grown-up!" }
     },
     {
       "id": "rule",

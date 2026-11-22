@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 8,
   "_map": "Food chains (Y2). Big idea: energy passes from plants to animals. Creative: make a chain: grass → rabbit → fox. What happens if the grass disappears?",
-  "_story": "Who eats whom near the farm. The robot draws a chain from grass to rabbit to fox, then wonders: what if a drought dried up the grass?",
+  "_story": "Who eats whom near the farm. Steve draws a chain from grass to rabbit to fox, then wonders: what if a drought dried up the grass?",
   "_stepChain": "herbivores and carnivores (who-eats-what) → grass gets energy from the sun → the rabbit eats grass → the fox eats the rabbit → arrows show who is eaten by whom: a food chain → take the grass away → everything after it suffers",
   "assumes": ["herbivore", "carnivore", "sun"],
   "requires": ["who-eats-what"],
@@ -18,8 +18,8 @@
   "steps": [
     {
       "id": "hook",
-      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "chain", "items": "s:sun:Sun:|g:wheat:Grass:|r:rabbit:Rabbit:|f:dog:Fox:" } },
-      "narration": { "speaker": "robot", "text": "I've been watching the fields. The rabbits eat grass, and a fox sometimes chases the rabbits. It's like a chain!" }
+      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "chain", "items": "s:sun:Sun:|g:wheat:Grass:|r:rabbit:Rabbit:|f:fox:Fox:" } },
+      "narration": { "speaker": "steve", "text": "I've been watching the fields. The rabbits eat grass, and a fox sometimes chases the rabbits. It's like a chain!" }
     },
     {
       "id": "chain",
@@ -29,7 +29,7 @@
     {
       "id": "disappear",
       "question": {
-        "narration": { "speaker": "robot", "text": "Oh no, there's been no rain for weeks. The grass has dried up! The fox doesn't eat grass, so the fox will be fine." },
+        "narration": { "speaker": "steve", "text": "Oh no, there's been no rain for weeks. The grass has dried up! The fox doesn't eat grass, so the fox will be fine." },
         "prompt": "Will the fox be fine?",
         "choices": ["Yes", "No"],
         "answer": 1,

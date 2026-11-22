@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 2,
   "_map": "What do seeds need? (Y2). Big idea: plants need water, light and the right temperature. Creative: run a test on the farm: one seed with no water, one in the dark; predict which grows. Then do it for real.",
-  "_story": "The robot plants three seeds: one with water and light, one with no water, one in a dark cupboard. Ismaeel predicts, then watches time speed up. A fair test.",
+  "_story": "Steve plants three seeds: one with water and light, one with no water, one in a dark cupboard. Ismaeel predicts, then watches time speed up. A fair test.",
   "_stepChain": "seeds grow into plants → what do they need? → a fair test: change only one thing → predict → watch them grow → water and light both matter → do it for real",
   "assumes": ["light", "sun"],
   "requires": ["parts-of-a-plant"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "nature", "params": { "view": "pots" } },
-      "narration": { "speaker": "robot", "text": "I planted three seeds. One gets water and light. One gets no water. One gets water, but lives in a dark cupboard." }
+      "narration": { "speaker": "steve", "text": "I planted three seeds. One gets water and light. One gets no water. One gets water, but lives in a dark cupboard." }
     },
     {
       "id": "fair",
@@ -40,7 +40,7 @@
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "robot", "text": "The dark one grew a bit! So plants don't really need light." },
+        "narration": { "speaker": "steve", "text": "The dark one grew a bit! So plants don't really need light." },
         "prompt": "Does the dark seed show plants don't need light?",
         "choices": ["Yes", "No"],
         "answer": 1,

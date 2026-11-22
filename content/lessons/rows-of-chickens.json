@@ -6,8 +6,8 @@
   "status": "ready",
   "order": 2,
   "_map": "Rows of chickens (Y1–2) + Turn the farm (Y2). Big idea: multiplication is equal rows (an array); 3 × 4 = 4 × 3 because it's the same array turned round.",
-  "_story": "The robot's 12 chickens won't queue for breakfast. He helps them line up in equal rows, finds every way, then has to convince the robot (who doesn't believe it) that 3 rows of 4 and 4 rows of 3 are the same. Arrays turn up again on a Lego brick and a Minecraft wall.",
-  "_stepChain": "a row (stack-64) → equal rows → the same 12 chickens can make different equal rows → some numbers of rows leave chickens over → the shape is called an array → arrays are everywhere (Lego studs, a block wall) → turning an array round doesn't change how many → teach the robot",
+  "_story": "Steve's 12 chickens won't queue for breakfast. He helps them line up in equal rows, finds every way, then has to convince Steve (who doesn't believe it) that 3 rows of 4 and 4 rows of 3 are the same. Arrays turn up again on a Lego brick and a Minecraft wall.",
+  "_stepChain": "a row (stack-64) → equal rows → the same 12 chickens can make different equal rows → some numbers of rows leave chickens over → the shape is called an array → arrays are everywhere (Lego studs, a block wall) → turning an array round doesn't change how many → teach Steve",
   "assumes": [
     "counting",
     "times",
@@ -22,7 +22,7 @@
       "goodAnswer": "1 × 12, 2 × 6, 3 × 4, 4 × 3, 6 × 2, 12 × 1. Numbers like 5 rows leave chickens over."
     },
     {
-      "ask": "The robot thought 4 rows of 3 had more chickens than 3 rows of 4. What would you tell it?",
+      "ask": "Steve thought 4 rows of 3 had more chickens than 3 rows of 4. What would you tell him?",
       "goodAnswer": "they're the same 12 chickens; turning the array round only swaps the rows and the columns."
     }
   ],
@@ -42,7 +42,7 @@
         }
       },
       "narration": {
-        "speaker": "robot",
+        "speaker": "steve",
         "text": "Help! It's breakfast time, and my 12 chickens are all over the place! They have to line up in rows, and every row must be the same length, or they argue."
       },
       "animation": [
@@ -115,10 +115,10 @@
       "id": "robot-doubts",
       "question": {
         "narration": {
-          "speaker": "robot",
+          "speaker": "steve",
           "text": "Hmm. Here are 3 rows of 4 chickens. Now I turn the farm round, so it's 4 rows of 3. I think 4 rows of 3 must have more chickens, because 4 rows is more rows!"
         },
-        "prompt": "Is the robot right?",
+        "prompt": "Is Steve right?",
         "choices": [
           "Yes",
           "No"
@@ -170,7 +170,7 @@
     {
       "id": "thanks",
       "narration": {
-        "speaker": "robot",
+        "speaker": "steve",
         "text": "Oh! I get it now. The rows went the other way, but no chickens ran off. Thank you for teaching me!"
       },
       "animation": [

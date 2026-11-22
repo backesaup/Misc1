@@ -1,8 +1,9 @@
 import type { SceneDef, SceneProps } from '../types'
 import { useTicker } from '../useTicker'
+import { useSkinSprites } from '../voxel/skins'
 
 // A grid of squares: the hundred square (count-by patterns), symmetry (a mirror line),
-// tiling, and a robot that follows turn cards. Driven by values + cell lists in labels.
+// tiling, and Steve following turn cards. Driven by values + cell lists in labels.
 
 const COLS = ['#ffd166', '#4f8ff0', '#58b368', '#ff6b5c', '#e8789a', '#2b2a33']
 const DIRS: [number, number][] = [[0, -1], [1, 0], [0, 1], [-1, 0]] // up, right, down, left
@@ -19,6 +20,7 @@ function parseCells(s: string | undefined) {
 
 function Grid({ ctrl }: SceneProps) {
   useTicker()
+  const steve = useSkinSprites('steve')
   const v = ctrl.values
   const cols = Math.round(v.cols), rows = Math.round(v.rows)
   const size = Math.min(780 / cols, 548 / rows)
@@ -68,11 +70,10 @@ function Grid({ ctrl }: SceneProps) {
         </g>
       )}
       {v.robot > 0.5 && (
-        <g transform={`translate(${rx} ${ry}) rotate(${dir * 90})`}>
-          <rect x={-size * 0.3} y={-size * 0.3} width={size * 0.6} height={size * 0.6} rx={size * 0.12} fill="#5fa3d9" stroke="#2b2a33" strokeWidth={2.5} />
-          <path d={`M0 ${-size * 0.44} L${size * 0.14} ${-size * 0.28} L${-size * 0.14} ${-size * 0.28} Z`} fill="#e07a4f" />
-          <rect x={-size * 0.16} y={-size * 0.1} width={size * 0.08} height={size * 0.12} fill="#2b2a33" />
-          <rect x={size * 0.08} y={-size * 0.1} width={size * 0.08} height={size * 0.12} fill="#2b2a33" />
+        <g transform={`translate(${rx} ${ry})`}>
+          <path transform={`rotate(${dir * 90})`} d={`M0 ${-size * 0.62} L${size * 0.2} ${-size * 0.4} L${-size * 0.2} ${-size * 0.4} Z`} fill="#e07a4f" stroke="#2b2a33" strokeWidth={2} />
+          <rect x={-size * 0.36} y={-size * 0.36} width={size * 0.72} height={size * 0.72} rx={4} fill="#2b2a33" />
+          <image href={steve.face} x={-size * 0.33} y={-size * 0.33} width={size * 0.66} height={size * 0.66} style={{ imageRendering: 'pixelated' }} />
         </g>
       )}
     </svg>

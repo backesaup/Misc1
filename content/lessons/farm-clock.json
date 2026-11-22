@@ -5,8 +5,8 @@
   "cardArt": "maths",
   "status": "ready",
   "order": 27,
-  "_map": "The farm clock (Y1–2). Big idea: time to the hour, half hour, then 5 minutes; 60 minutes in an hour, 24 in a day. Creative: plan the robot's day on a clock: when do the animals eat?",
-  "_story": "The robot keeps feeding the animals at the wrong time because it can't read its clock. Ismaeel learns the two hands, o'clock and half past, counts minutes in 5s, then plans the robot's day.",
+  "_map": "The farm clock (Y1–2). Big idea: time to the hour, half hour, then 5 minutes; 60 minutes in an hour, 24 in a day. Creative: plan Steve's day on a clock: when do the animals eat?",
+  "_story": "Steve keeps feeding the animals at the wrong time because it can't read its clock. Ismaeel learns the two hands, o'clock and half past, counts minutes in 5s, then plans Steve's day.",
   "_stepChain": "a clock has two hands → the short hand points to the hour → long hand at 12 means o'clock → half way round is half past → the long hand counts minutes: each number is 5 more (counting in 5s) → 60 minutes in an hour → the hands go round twice a day: 24 hours → plan the day",
   "assumes": ["counting"],
   "talk": [
@@ -18,7 +18,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "clock", "params": { "hour": 9, "minute": 0, "daynight": true } },
-      "narration": { "speaker": "robot", "text": "I fed the chickens at midnight, and the cows at a silly time too. Everyone's grumpy! I need to learn to read my clock." }
+      "narration": { "speaker": "steve", "text": "I fed the chickens at midnight, and the cows at a silly time too. Everyone's grumpy! I need to learn to read my clock." }
     },
     {
       "id": "hands",
@@ -47,7 +47,7 @@
     {
       "id": "read",
       "question": {
-        "narration": { "text": "The robot feeds the sheep. Short hand on the 4, long hand on the 12." },
+        "narration": { "text": "Steve feeds the sheep. Short hand on the 4, long hand on the 12." },
         "prompt": "What time is it?",
         "choices": ["12 o'clock", "4 o'clock", "Half past 4"],
         "answer": 1,
@@ -67,7 +67,7 @@
     },
     {
       "id": "plan",
-      "narration": { "speaker": "robot", "text": "Now help me plan my day! When should the chickens have breakfast? When do the cows go to sleep? Tell a grown-up your plan, and show the times on a clock." },
+      "narration": { "speaker": "steve", "text": "Now help me plan my day! When should the chickens have breakfast? When do the cows go to sleep? Tell a grown-up your plan, and show the times on a clock." },
       "animation": [{ "at": 0, "action": "time", "hour": 7, "minute": 0, "activity": "Chickens' breakfast" }]
     },
     {

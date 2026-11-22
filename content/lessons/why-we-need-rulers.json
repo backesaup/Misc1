@@ -5,9 +5,9 @@
   "cardArt": "build",
   "status": "ready",
   "order": 23,
-  "_map": "Why we need rulers (Y2). Big idea: standard units (cm, m) mean everyone gets the same answer. Creative: robot and sheep measure with their own feet and argue; invent a fair unit to settle it.",
-  "_story": "The robot and a sheep both measure a plank with their own feet and argue. Ismaeel invents a fair unit everyone agrees on, which is what people did with centimetres and metres.",
-  "_stepChain": "units (measure-with-anything) → robot feet and sheep feet are different sizes → different answers, an argument → everyone must use the same unit → centimetres, on a ruler → 100 centimetres make a metre",
+  "_map": "Why we need rulers (Y2). Big idea: standard units (cm, m) mean everyone gets the same answer. Creative: Steve and the sheep measure with their own feet and argue; invent a fair unit to settle it.",
+  "_story": "Steve and a sheep both measure a plank with their own feet and argue. Ismaeel invents a fair unit everyone agrees on, which is what people did with centimetres and metres.",
+  "_stepChain": "units (measure-with-anything) → Steve feet and sheep feet are different sizes → different answers, an argument → everyone must use the same unit → centimetres, on a ruler → 100 centimetres make a metre",
   "assumes": ["unit", "counting"],
   "requires": ["measure-with-anything"],
   "talk": [
@@ -19,19 +19,19 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "gauge", "params": { "kind": "ruler", "length": 12 } },
-      "narration": { "speaker": "robot", "text": "I measured this plank with my feet: 3 robot feet long. But the sheep measured it with her feet, and says it's 6 sheep feet! Now we're arguing!" }
+      "narration": { "speaker": "steve", "text": "I measured this plank with my feet: 3 Steve feet long. But the sheep measured it with her feet, and says it's 6 sheep feet! Now we're arguing!" }
     },
     {
       "id": "why",
-      "narration": { "text": "The robot's feet and the sheep's feet are different sizes. So they get different numbers for the same plank. To stop the arguing, everyone needs to use the same unit." }
+      "narration": { "text": "Steve's feet and the sheep's feet are different sizes. So they get different numbers for the same plank. To stop the arguing, everyone needs to use the same unit." }
     },
     {
       "id": "invent",
       "question": {
         "open": true,
-        "narration": { "speaker": "robot", "text": "Let's invent a fair unit that everyone can use, and it's always the same size." },
+        "narration": { "speaker": "steve", "text": "Let's invent a fair unit that everyone can use, and it's always the same size." },
         "prompt": "Which unit would be fair for everyone?",
-        "choices": ["Robot feet", "A special stick", "Sheep feet"],
+        "choices": ["Steve feet", "A special stick", "Sheep feet"],
         "answer": 1,
         "reveal": "A special stick that everyone copies exactly! That's what people did. They agreed on one size, and made rulers that all match."
       }

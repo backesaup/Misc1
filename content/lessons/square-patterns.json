@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 17,
   "_map": "Square patterns (stretch). Big idea: 1, 4, 9, 16: each square is the last one plus an odd number. Creative: grow a square by adding an L-shaped layer; what does each layer add?",
-  "_story": "He already knows square numbers. The robot shows a way to grow a square floor in Minecraft blocks: wrap an L-shaped layer round it. Each layer adds the next odd number. A secret link between odds and squares.",
+  "_story": "He already knows square numbers. Steve shows a way to grow a square floor in Minecraft blocks: wrap an L-shaped layer round it. Each layer adds the next odd number. A secret link between odds and squares.",
   "_stepChain": "square numbers (known) → grow 1 → 4 by adding an L → each L is a different colour → the Ls add 3, 5, 7 → odd numbers (odd-ones-out) → so squares are made of odd numbers added up → predict the 6th layer",
   "assumes": ["square number", "odd", "adding"],
   "requires": ["odd-ones-out"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "square", "item": "grass", "total": 1, "choice": 1, "robot": true } },
-      "narration": { "speaker": "robot", "text": "You know square numbers: 1, 4, 9, 16. I'm building a square grass floor, and I want to make it bigger and bigger. Watch my trick." },
+      "narration": { "speaker": "steve", "text": "You know square numbers: 1, 4, 9, 16. I'm building a square grass floor, and I want to make it bigger and bigger. Watch my trick." },
       "animation": [{ "at": 0, "action": "arrive", "duration": 0.6 }]
     },
     {

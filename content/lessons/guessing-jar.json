@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 12,
   "_map": "The guessing jar (Y1–2). Big idea: estimating before counting. Creative: guess how many apples are in the barrel, then count in tens to check. How close was he?",
-  "_story": "A harvest heap of apples. Guess first, then sort into tens to count quickly. The robot guesses wildly and checks its own work out loud. The point is getting closer, not being exact.",
+  "_story": "A harvest heap of apples. Guess first, then sort into tens to count quickly. Steve guesses wildly and checks its own work out loud. The point is getting closer, not being exact.",
   "_stepChain": "a heap is hard to count → a guess that uses what you see is called an estimate → guess → sort into tens to count → compare → a second heap: use the first one to guess better",
   "assumes": ["counting", "tens"],
   "requires": ["bundles-of-ten"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "scatter", "item": "apple", "total": 47, "robot": true } },
-      "narration": { "speaker": "robot", "text": "Harvest day! I tipped all my apples into a big heap. How many are there? Counting them one by one would take forever!" },
+      "narration": { "speaker": "steve", "text": "Harvest day! I tipped all my apples into a big heap. How many are there? Counting them one by one would take forever!" },
       "animation": [{ "at": 0, "action": "arrive", "duration": 2.4 }]
     },
     {
@@ -31,7 +31,7 @@
       "id": "guess1",
       "question": {
         "open": true,
-        "narration": { "speaker": "robot", "text": "My estimate is 500 apples! Hmm, wait. That's a really big number. Let me check my own guess. 500 would fill the whole farm. Maybe I should guess smaller." },
+        "narration": { "speaker": "steve", "text": "My estimate is 500 apples! Hmm, wait. That's a really big number. Let me check my own guess. 500 would fill the whole farm. Maybe I should guess smaller." },
         "prompt": "What's your estimate?",
         "choices": ["About 20", "About 50", "About 100"],
         "answer": 1,
