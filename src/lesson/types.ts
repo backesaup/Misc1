@@ -6,6 +6,8 @@ export type SectionId = 'made' | 'build' | 'maths'
 /** One spoken line. Captions are always this same text, so they never drift. */
 export interface Line {
   text: string
+  /** Who says it: a key in content/voice.json speakers (default "narrator"). */
+  speaker?: string
   /** Optional override; by default the path is derived (see audioPath). */
   audio?: string
 }
@@ -46,6 +48,8 @@ export interface Mistake {
 }
 
 export interface Question {
+  /** An estimate: every answer is fine, the world shows the real one ("how close were you?"). */
+  open?: boolean
   prompt: string
   choices: string[]
   answer: number
@@ -105,7 +109,30 @@ export interface RuleStep extends StepBase {
   rule: { text: string; spoken?: string; ask?: string }
 }
 
-export type Step = NarratedStep | QuestionStep | ExploreStep | BuildStep | RuleStep
+/**
+ * An open "make it" challenge: many answers work. He picks a number, the world arranges
+ * things, leftovers show as harmless surprises, and every way he finds is collected.
+ */
+export interface MakeStep extends StepBase {
+  kind: 'make'
+  narration: Line
+  make: {
+    mode: 'rows' | 'pairs' | 'split' | 'tens' | 'share'
+    item: 'chicken' | 'sheep' | 'apple' | 'brick' | 'block'
+    total: number
+    /** share: how many friends. */
+    extra?: number
+    /** pairs mode: the range of totals he can try. */
+    min?: number
+    max?: number
+    /** How many different ways there are to find (optional: open-ended if absent). */
+    goal?: number
+    /** Only count ways with nothing left over (rows, share). */
+    exactOnly?: boolean
+  }
+}
+
+export type Step = NarratedStep | QuestionStep | ExploreStep | BuildStep | RuleStep | MakeStep
 
 export interface Lesson {
   id: string
@@ -134,10 +161,11 @@ export interface Lesson {
   steps: Step[]
 }
 
-export function stepKind(step: Step): 'narrated' | 'question' | 'explore' | 'build' | 'rule' {
+export function stepKind(step: Step): 'narrated' | 'question' | 'explore' | 'build' | 'rule' | 'make' {
   if ('question' in step) return 'question'
   if ('rule' in step) return 'rule'
   if (step.kind === 'explore') return 'explore'
   if (step.kind === 'build') return 'build'
+  if (step.kind === 'make') return 'make'
   return 'narrated'
 }

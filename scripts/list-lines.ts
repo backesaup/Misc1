@@ -4,7 +4,7 @@
 import { readdirSync, readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { allLessonLines, allPuzzleLines, commonLines, VOICE, SPEED, type PuzzleLines } from '../src/lesson/lines.ts'
+import { allLessonLines, allPuzzleLines, commonLines, hashInput, type PuzzleLines } from '../src/lesson/lines.ts'
 import type { Lesson } from '../src/lesson/types.ts'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
@@ -20,4 +20,5 @@ const puzzles: PuzzleLines[] = readdirSync(pdir)
 const lines = [...commonLines(), ...lessons.flatMap(allLessonLines), ...puzzles.flatMap(allPuzzleLines)]
 const seen = new Set<string>()
 const unique = lines.filter((l) => (seen.has(l.audio) ? false : (seen.add(l.audio), true)))
-process.stdout.write(JSON.stringify({ voice: VOICE, speed: SPEED, lines: unique }, null, 2))
+const out = unique.map((l) => ({ ...l, speaker: l.speaker ?? 'narrator', hashInput: hashInput(l.text, l.speaker) }))
+process.stdout.write(JSON.stringify({ lines: out }, null, 2))

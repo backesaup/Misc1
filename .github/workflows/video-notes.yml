@@ -1,0 +1,36 @@
+# Turns videos (links in requests/videos/sources.txt, or uploaded files) into a transcript and
+# frames under requests/videos/<name>/, so lessons can be built from them.
+name: Video notes
+
+on:
+  push:
+    paths:
+      - 'requests/videos/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  notes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install openai-whisper yt-dlp
+      - name: Make notes
+        run: python scripts/video-notes.py
+      - name: Commit notes (not the videos)
+        run: |
+          git config user.name "notes-bot"
+          git config user.email "notes-bot@users.noreply.github.com"
+          git add requests/videos/*/transcript.txt requests/videos/*/info.json requests/videos/*/frames 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "Video notes" && git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}")

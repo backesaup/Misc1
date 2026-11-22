@@ -196,7 +196,7 @@ function Room({ ctrl, activePart, reduced }: SceneProps) {
         <meshStandardMaterial color="#171b2c" />
       </mesh>
       {/* 4 × 4 light-up floor */}
-      <instancedMesh ref={floor} args={[undefined, undefined, 16]} onClick={tap('floor')} receiveShadow>
+      <instancedMesh frustumCulled={false} ref={floor} args={[undefined, undefined, 16]} onClick={tap('floor')} receiveShadow>
         <boxGeometry args={[0.92, 0.06, 0.92]} />
         <meshStandardMaterial roughness={0.4} emissive="#ffffff" emissiveIntensity={0.12} />
       </instancedMesh>
@@ -215,7 +215,7 @@ function Room({ ctrl, activePart, reduced }: SceneProps) {
           <sphereGeometry args={[R * 0.97, 32, 16]} />
           <meshStandardMaterial color="#3a3f4f" />
         </mesh>
-        <instancedMesh ref={mirrors} args={[undefined, undefined, N]}>
+        <instancedMesh frustumCulled={false} ref={mirrors} args={[undefined, undefined, N]}>
           <planeGeometry args={[0.24, 0.24]} />
           <meshStandardMaterial metalness={0.55} roughness={0.18} emissive={hot('ball') ? '#ffd166' : '#8090b0'} emissiveIntensity={hot('ball') ? 0.5 : 0.18} />
         </instancedMesh>
@@ -246,7 +246,7 @@ function Room({ ctrl, activePart, reduced }: SceneProps) {
         </mesh>
       </group>
       {/* reflected dots */}
-      <instancedMesh ref={dots} args={[undefined, undefined, N * 2]}>
+      <instancedMesh frustumCulled={false} ref={dots} args={[undefined, undefined, N * 2]}>
         <circleGeometry args={[1, 16]} />
         <meshBasicMaterial color="#fff4d6" toneMapped={false} />
       </instancedMesh>

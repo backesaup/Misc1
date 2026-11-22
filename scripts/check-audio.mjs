@@ -7,12 +7,12 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
-const { voice, speed, lines } = JSON.parse(execFileSync(process.execPath, [join(root, 'scripts/list-lines.ts')], { encoding: 'utf8' }))
+const { lines } = JSON.parse(execFileSync(process.execPath, [join(root, 'scripts/list-lines.ts')], { encoding: 'utf8' }))
 const missing = [], stale = []
 for (const l of lines) {
   const mp3 = join(root, 'public', l.audio)
   const hashFile = mp3.replace(/\.mp3$/, '.hash')
-  const want = createHash('sha256').update(`${voice}|${speed}|${l.text}`).digest('hex')
+  const want = createHash('sha256').update(l.hashInput).digest('hex')
   if (!existsSync(mp3) || !existsSync(hashFile)) missing.push(l.key)
   else if (readFileSync(hashFile, 'utf8').trim() !== want) stale.push(l.key)
 }

@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import gsap from 'gsap'
-import { ArrowLeft, Home, Pause, Play, RotateCcw, ChevronRight, Check, Eye, Star, MessagesSquare, Hand, X } from 'lucide-react'
-import type { Lesson, Step, SceneRef, QuestionStep, ExploreStep, BuildStep, Cue, Question } from '@/lesson/types'
+import { ArrowLeft, Home, Pause, Play, RotateCcw, ChevronRight, Check, Eye, Star, MessagesSquare, Hand, X, Minus, Plus, Hammer } from 'lucide-react'
+import type { Lesson, Step, SceneRef, QuestionStep, ExploreStep, BuildStep, Cue, Question, MakeStep } from '@/lesson/types'
 import { stepKind } from '@/lesson/types'
-import { bonusStep, commonLine, handsOnLine, stepLines, titleLine, type SpokenLine } from '@/lesson/lines'
+import { bonusStep, commonLine, handsOnLine, numberLine, stepLines, titleLine, type SpokenLine } from '@/lesson/lines'
 import { narrator } from '@/lib/narrator'
 import { sfx } from '@/lib/sfx'
 import { useSettings } from '@/lib/settings'
@@ -63,6 +63,7 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
   const [showHands, setShowHands] = useState(false)
   const [talkOpen, setTalkOpen] = useState(false)
   const [activePart, setActivePart] = useState<string | null>(null)
+  const [made, setMade] = useState<{ found: string[]; tried: boolean; dial: number }>({ found: [], tried: false, dial: 1 })
   const [scene, setScene] = useState<{ key: string; def: SceneDef; ctrl: SceneController } | null>(null)
   const [labelKey, setLabelKey] = useState(0)
 
@@ -173,6 +174,16 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
       }
 
       if (k === 'explore' && cur) cur.ctrl.onPart = (id) => choosePartRef.current(id)
+      if (k === 'make' && cur && 'make' in s) {
+        // set the world up for this challenge and let the things arrive
+        const m = s.make
+        cur.def.applyParams?.(cur.ctrl, { mode: m.mode, item: m.item, total: m.mode === 'pairs' ? (m.min ?? 2) : m.total, extra: m.extra ?? 3, choice: 0 })
+        cur.ctrl.values.shown = 0
+        gsap.to(cur.ctrl.values, { shown: cur.ctrl.values.total, duration: reducedMotion ? 0.001 : 1.6, ease: 'power1.inOut' })
+        setMade({ found: [], tried: false, dial: startDial(m) })
+        await narrator.say(ls.narration).done
+        return
+      }
       t?.play()
       const r = await narrator.say(ls.narration).done
       if (alive() && r === 'ended') setReady(true)
@@ -213,6 +224,38 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
   const choosePartRef = useRef(choosePart)
   choosePartRef.current = choosePart
 
+  /** Open "make it" challenge: arrange the things his way and say what happened. */
+  const tryMake = async (n: number) => {
+    if (!step || !('make' in step)) return
+    const my = token.current
+    const m = (step as MakeStep).make
+    const ctrl = sceneRef.current?.ctrl
+    if (!ctrl) return
+    sfx.tap()
+    narrator.stop()
+    const total = m.mode === 'pairs' ? n : m.total
+    Object.assign(ctrl.values, { choice: n, total, shown: total, tried: 1 })
+    const r = makeResult(m, n)
+    const isNew = r.counts && !made.found.includes(r.key)
+    const found = isNew ? [...made.found, r.key] : made.found
+    setMade({ found, tried: true, dial: n })
+    setReady(true)
+    log({ type: 'make', step: `${lesson.id}/${step.id}`, tried: r.key })
+    for (const l of r.say) {
+      if (token.current !== my) return
+      await narrator.say(l).done
+    }
+    if (token.current !== my) return
+    if (isNew && m.goal && found.length >= m.goal) {
+      sfx.correct()
+      await narrator.say(commonLine('every-way')).done
+    } else if (isNew) {
+      sfx.reveal()
+    } else if (r.counts) {
+      await narrator.say(commonLine('found-before')).done
+    }
+  }
+
   const celebrate = (choice: number) => {
     sfx.correct()
     const el = choiceRefs.current[choice]
@@ -236,6 +279,23 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
       const right = choice === qs.answer
       setQ((s) => ({ ...s, chosen: choice }))
       narrator.stop()
+
+      if (main.open && !inRetry) {
+        // An estimate: every guess is fine. The world shows the real answer.
+        log({ type: 'right', step: step.id, tries: 1, retry: false })
+        const cur = sceneRef.current
+        const reveal = cur ? buildTimeline(main.revealAnimation, cur.ctrl, cur.def) : null
+        tl.current?.progress(1)
+        tl.current = reveal
+        await say(commonLine('how-close'))
+        if (!alive()) return
+        setQ((s) => ({ ...s, revealed: true }))
+        reveal?.play()
+        sfx.reveal()
+        await say(lines.reveal)
+        if (alive()) setReady(true)
+        return
+      }
 
       if (right) {
         log({ type: 'right', step: step.id, tries: q.tried.length + 1, retry: inRetry })
@@ -498,6 +558,9 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
             ))}
           </div>
         )}
+        {kind === 'make' && step && phase !== 'end' && (
+          <MakePanel make={(step as MakeStep).make} state={made} setDial={(d) => setMade((x) => ({ ...x, dial: d }))} onTry={(n) => void tryMake(n)} />
+        )}
         {kind === 'build' && step && phase !== 'end' && (
           <ul className="build-list" aria-label="Blocks you need">
             {(step as BuildStep).blocks.map((b) => (
@@ -594,7 +657,7 @@ function Choices({
       )}
       {state.revealed && !Number.isNaN(numeric) && numeric > 9 && (
         <div className="reveal-num" aria-hidden>
-          = <CountUp to={numeric} duration={reduced ? 0 : 1.1} separator="," />
+          = <CountUp to={numeric} duration={reduced ? 0 : 1.1} separator="," trigger="load" />
         </div>
       )}
     </div>
@@ -651,6 +714,89 @@ function EndCard({
       )}
       {said && <p className="you-said">You said: “{said}”</p>}
       {children}
+    </div>
+  )
+}
+
+type Make = MakeStep['make']
+
+function dialRange(m: Make): [number, number] {
+  if (m.mode === 'rows') return [1, m.total]
+  if (m.mode === 'pairs') return [m.min ?? 2, m.max ?? 20]
+  if (m.mode === 'split') return [0, m.total]
+  if (m.mode === 'tens') return [0, Math.floor(m.total / 10)]
+  return [0, Math.floor(m.total / Math.max(1, m.extra ?? 3))]
+}
+function startDial(m: Make) {
+  if (m.mode === 'tens') return Math.floor(m.total / 10)
+  if (m.mode === 'split' || m.mode === 'share') return 1
+  return dialRange(m)[0] + (m.mode === 'rows' ? 1 : 0)
+}
+const UNIT: Record<Make['mode'], string> = { rows: 'rows', pairs: 'animals', split: 'in this field', tens: 'tens', share: 'each' }
+const w = (k: string) => commonLine(k)
+
+/** What his choice made, as a label for the "found" list and the words to say. */
+export function makeResult(m: Make, n: number): { key: string; counts: boolean; say: SpokenLine[] } {
+  const T = m.total
+  if (m.mode === 'rows') {
+    const cols = Math.floor(T / n), left = T - n * cols
+    const say = [numberLine(n), w(n === 1 ? 'w-row-of' : 'w-rows-of'), numberLine(cols)]
+    if (left) say.push(w('w-and'), numberLine(left), w('w-left-over'))
+    else say.push(w('w-none-left'))
+    return { key: `${n} × ${cols}`, counts: !m.exactOnly || left === 0, say }
+  }
+  if (m.mode === 'pairs') {
+    const say = [numberLine(Math.floor(n / 2)), w('w-pairs'), w(n % 2 ? 'w-odd' : 'w-even')]
+    return { key: `${n} ${n % 2 ? 'odd' : 'even'}`, counts: true, say }
+  }
+  if (m.mode === 'split') return { key: `${n} + ${T - n}`, counts: true, say: [numberLine(n), w('w-and'), numberLine(T - n), w('w-makes'), numberLine(T)] }
+  if (m.mode === 'tens') {
+    const ones = T - 10 * n
+    return { key: `${n} tens + ${ones} ones`, counts: true, say: [numberLine(n), w(n === 1 ? 'w-ten' : 'w-tens'), w('w-and'), numberLine(ones), w(ones === 1 ? 'w-one' : 'w-ones')] }
+  }
+  const E = Math.max(1, m.extra ?? 3), left = T - n * E
+  const say = [numberLine(n), w('w-each')]
+  if (left) say.push(w('w-and'), numberLine(left), w('w-left-over'))
+  else say.push(w('w-none-left'))
+  return { key: `${n} each`, counts: !m.exactOnly || left === 0, say }
+}
+
+function MakePanel({ make, state, setDial, onTry }: { make: Make; state: { found: string[]; tried: boolean; dial: number }; setDial: (n: number) => void; onTry: (n: number) => void }) {
+  const [lo, hi] = dialRange(make)
+  const n = Math.min(hi, Math.max(lo, state.dial))
+  const step = (d: number) => {
+    const next = Math.min(hi, Math.max(lo, n + d))
+    sfx.tap()
+    setDial(next)
+    narrator.say(numberLine(next))
+  }
+  return (
+    <div className="make">
+      <div className="make-dial">
+        <button className="dial-btn" onClick={() => step(-1)} disabled={n <= lo} aria-label="One fewer">
+          <Minus aria-hidden strokeWidth={3} />
+        </button>
+        <output className="dial-num tabular-nums">
+          {n}
+          <span className="scene-unit">{UNIT[make.mode]}</span>
+        </output>
+        <button className="dial-btn" onClick={() => step(1)} disabled={n >= hi} aria-label="One more">
+          <Plus aria-hidden strokeWidth={3} />
+        </button>
+        <button className="dial-take" onClick={() => onTry(n)} aria-label={`Try ${n}`}>
+          <Hammer aria-hidden />
+        </button>
+      </div>
+      {state.found.length > 0 && (
+        <ul className="make-found" aria-label="Ways you found">
+          {state.found.map((f) => (
+            <li key={f} data-odd={f.endsWith('odd') || undefined}>
+              {f.replace(/ (odd|even)$/, '')}
+            </li>
+          ))}
+          {make.goal && state.found.length < make.goal && <li className="make-more">{make.goal - state.found.length} more to find</li>}
+        </ul>
+      )}
     </div>
   )
 }

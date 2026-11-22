@@ -384,7 +384,7 @@ export function Farm() {
   }
 
   const need2 = P2.w * P2.h
-  const bed1Done = phase !== 'start' && phase !== 'part1'
+  const bed1Done = save.bedDone || ['done1', 'dial', 'building', 'few', 'many', 'done2', 'free'].includes(phase)
   const bed2Done = phase === 'done2' || phase === 'free'
   const extras = Math.max(0, taken - need2)
 

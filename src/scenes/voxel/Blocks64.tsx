@@ -76,11 +76,11 @@ function Blocks({ ctrl }: SceneProps) {
 
   return (
     <group ref={group}>
-      <instancedMesh ref={mesh} args={[undefined, undefined, N]} castShadow receiveShadow>
+      <instancedMesh frustumCulled={false} ref={mesh} args={[undefined, undefined, N]} castShadow receiveShadow>
         <boxGeometry args={[1, 1, 1]} />
         <meshStandardMaterial map={tex} roughness={0.85} />
       </instancedMesh>
-      <instancedMesh ref={shell} args={[undefined, undefined, N]} castShadow>
+      <instancedMesh frustumCulled={false} ref={shell} args={[undefined, undefined, N]} castShadow>
         <boxGeometry args={[1, 1, 1]} />
         <meshBasicMaterial color="#2b2a33" side={THREE.BackSide} />
       </instancedMesh>

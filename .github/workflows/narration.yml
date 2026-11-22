@@ -8,6 +8,7 @@ on:
     paths:
       - 'content/lessons/**'
       - 'content/puzzles/**'
+      - 'content/voice.json'
       - 'src/lesson/lines.ts'
       - 'src/config.ts'
       - 'scripts/generate-audio.py'
@@ -38,13 +39,22 @@ jobs:
           cache: pip
           cache-dependency-path: .github/workflows/narration.yml
 
+      - name: Which voice engine?
+        id: engine
+        run: echo "name=$(python -c "import json;print(json.load(open('content/voice.json'))['engine'])")" >> "$GITHUB_OUTPUT"
+
       - name: System packages
         run: sudo apt-get update && sudo apt-get install -y espeak-ng ffmpeg
 
       - name: Kokoro (CPU)
+        if: steps.engine.outputs.name == 'kokoro'
         run: |
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install "kokoro>=0.9" soundfile
+
+      - name: Fish Audio
+        if: steps.engine.outputs.name == 'fish'
+        run: pip install fish-audio-sdk soundfile numpy
 
       - name: Cache the voice model
         uses: actions/cache@v4
@@ -53,6 +63,8 @@ jobs:
           key: kokoro-hf-v1
 
       - name: Record new or changed lines
+        env:
+          FISH_API_KEY: ${{ secrets.FISH_API_KEY }}
         run: python scripts/generate-audio.py
 
       - name: Check every line is recorded

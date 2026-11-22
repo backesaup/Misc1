@@ -1,0 +1,68 @@
+{
+  "id": "bundles-of-ten",
+  "section": "maths",
+  "title": "Bundles of ten",
+  "cardArt": "build",
+  "status": "ready",
+  "order": 5,
+  "_map": "Lesson map: Bundles of ten (Y2) + The counter that rolls over (Y1). Big idea: 34 means 3 tens and 4 ones, and it can be made in other ways too.",
+  "_stepChain": "counting → a tower of 10 Lego bricks → 34 bricks = towers of 10 + single bricks → the 3 in 34 counts towers, the 4 counts singles → tens and ones → 34 can also be 2 tens and 14 ones (break a tower) → after 9 ones comes a new ten",
+  "assumes": ["counting", "adding"],
+  "talk": [
+    { "ask": "What does the 3 in 34 mean?", "goodAnswer": "3 tens: three towers of 10 bricks. The 4 means 4 single bricks." },
+    { "ask": "Can you make 34 a different way?", "goodAnswer": "yes, like 2 tens and 14 ones, or 1 ten and 24 ones. It's still 34 bricks." }
+  ],
+  "handsOn": "Build towers of 10 Lego bricks. Make 34 with towers and single bricks. Then break one tower and make 34 a different way.",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "tens", "item": "brick", "total": 34, "choice": 0 } },
+      "narration": { "text": "Here are 34 toy bricks, all mixed up. Counting them one by one takes ages. Builders have a better trick." },
+      "animation": [{ "at": 0, "action": "arrive", "duration": 2.4 }]
+    },
+    {
+      "id": "towers",
+      "term": "tens",
+      "narration": { "text": "Snap 10 bricks into a tower. Then another. Then another. 3 towers of 10, and 4 bricks left over. The towers are called tens, and the single bricks are called ones." },
+      "animation": [{ "at": 1, "action": "set", "mode": "tens", "total": 34, "choice": 3 }]
+    },
+    {
+      "id": "digits",
+      "narration": { "text": "Now look at the number 34. The 3 tells you how many tens: 3 towers. The 4 tells you how many ones: 4 single bricks. That's what the two digits mean." },
+      "label": "34 = 3 tens and 4 ones"
+    },
+    {
+      "id": "make-tens",
+      "kind": "make",
+      "narration": { "text": "Can you make 34 in a different way? Choose how many towers to keep, then tap the hammer. The other bricks stay as ones." },
+      "make": { "mode": "tens", "item": "brick", "total": 34, "goal": 4 }
+    },
+    {
+      "id": "rollover",
+      "question": {
+        "open": true,
+        "narration": { "text": "Here's something that happens on the farm's counter. It shows 39: 3 tens and 9 ones. Then one more chicken arrives." },
+        "prompt": "What does the counter show now? Make a guess.",
+        "choices": ["310", "40", "49"],
+        "answer": 1,
+        "reveal": "40! 9 ones and 1 more make 10 ones, and 10 ones snap together into a new tower. So it's 4 tens and 0 ones: 40."
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "34 = 3 tens and 4 ones",
+        "ask": "Can you say what the 3 in 34 means? Say it out loud. Then tap the eye.",
+        "spoken": "In 34, the 3 means 3 tens, and the 4 means 4 ones. And 10 ones always snap together into a new ten."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: the counter shows 99. One more chicken arrives. What does it show?",
+    "choices": ["910", "100", "1,000"],
+    "answer": 1,
+    "reveal": "100! 10 ones make a new ten, and then 10 tens make something new: a hundred."
+  }
+}

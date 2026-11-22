@@ -7,15 +7,29 @@ import { stepKind } from './types.ts'
  * scripts/generate-audio.py and the audio check both mirror these rules, so
  * keep the naming here and there in sync (see scripts/lines.mjs).
  */
-/** Narration voice settings. The hash of voice|speed|text marks each file as up to date. */
-export const VOICE = 'bm_lewis'
-export const SPEED = 0.9
-export const hashInput = (text: string) => `${VOICE}|${SPEED}|${text}`
+import voice from '../../content/voice.json' with { type: 'json' }
+
+/**
+ * Narration voices (content/voice.json), one per character. Each line's hash covers its
+ * speaker's engine, voice, speed, pitch and the pauses, so changing any of them re-records it.
+ */
+export type Speaker = keyof typeof voice.speakers
+const pauses = `p${voice.pauses.sentence}-${voice.pauses.count}-${voice.pauses.beforeQuestion}`
+export function voiceKey(speaker: Speaker = 'narrator') {
+  const sp = voice.speakers[speaker] ?? voice.speakers.narrator
+  return voice.engine === 'fish'
+    ? `fish:${voice.fishModel}:${sp.fish.voice}:${sp.fish.speed}:${pauses}`
+    : `kokoro:${sp.kokoro.voice}:${sp.kokoro.speed}:${sp.kokoro.pitch}:${pauses}`
+}
+export const deviceVoice = (speaker: Speaker = 'narrator') => (voice.speakers[speaker] ?? voice.speakers.narrator).device
+export const hashInput = (text: string, speaker: Speaker = 'narrator') => `${voiceKey(speaker)}|${text}`
 
 export interface SpokenLine {
   key: string
   text: string
   audio: string
+  /** Who says it (default: the narrator). */
+  speaker?: Speaker
 }
 
 export const COMMON_LINES: Record<string, string> = {
@@ -41,8 +55,29 @@ export const COMMON_LINES: Record<string, string> = {
   'well-done': `You worked through every step, ${learner.spoken}. Try explaining it to someone at home.`,
 }
 
-// Numbers 1–30, spoken by the number dial in the game.
-for (let n = 1; n <= 30; n++) COMMON_LINES[`n-${n}`] = String(n)
+// Numbers 0–100, spoken by number dials and "make it" results.
+for (let n = 0; n <= 100; n++) COMMON_LINES[`n-${n}`] = n === 0 ? 'zero' : String(n)
+Object.assign(COMMON_LINES, {
+  'w-row-of': 'row of',
+  'w-rows-of': 'rows of',
+  'w-and': 'and',
+  'w-left-over': 'left over.',
+  'w-none-left': 'None left over!',
+  'w-pairs': 'pairs',
+  'w-odd': 'and one left over. That makes it an odd number.',
+  'w-even': 'No odd one out. That makes it an even number.',
+  'w-ten': 'ten',
+  'w-tens': 'tens',
+  'w-one': 'one.',
+  'w-ones': 'ones.',
+  'w-each': 'each',
+  'w-makes': 'makes',
+  'new-way': 'A new way!',
+  'found-before': 'You found that one already. Try another number.',
+  'every-way': 'You found every way! Look at them all.',
+  'how-close': "Let's see how close you were.",
+  'make-start': 'Choose a number, then tap the hammer to try it.',
+})
 export const numberLine = (n: number): SpokenLine => commonLine(`n-${n}`)
 
 export const commonLine = (key: keyof typeof COMMON_LINES & string): SpokenLine => ({
@@ -57,10 +92,11 @@ export const titleLine = (lesson: Lesson): SpokenLine => ({
   audio: `audio/titles/${lesson.id}.mp3`,
 })
 
-const line = (lessonId: string, name: string, text: string, override?: string): SpokenLine => ({
+const line = (lessonId: string, name: string, text: string, override?: string, speaker?: string): SpokenLine => ({
   key: `${lessonId}/${name}`,
   text,
   audio: override ? `audio/${override}` : `audio/${lessonId}/${name}.mp3`,
+  ...(speaker && speaker in voice.speakers ? { speaker: speaker as Speaker } : {}),
 })
 
 function questionLines(lessonId: string, base: string, q: Question, out: Record<string, SpokenLine>) {
@@ -79,18 +115,20 @@ export function stepLines(lessonId: string, step: Step) {
   const out: Record<string, SpokenLine> = {}
   if (k === 'question' && 'question' in step) {
     const q = step.question
-    if (q.narration) out.narration = line(lessonId, step.id, q.narration.text, q.narration.audio)
+    if (q.narration) out.narration = line(lessonId, step.id, q.narration.text, q.narration.audio, q.narration.speaker)
     questionLines(lessonId, step.id, q, out)
     if (q.retry) {
       const r: Record<string, SpokenLine> = {}
       questionLines(lessonId, `${step.id}-retry`, q.retry, r)
       for (const [key, v] of Object.entries(r)) out[`retry.${key}`] = v
     }
+  } else if (k === 'make' && 'make' in step) {
+    out.narration = line(lessonId, step.id, step.narration.text, step.narration.audio, step.narration.speaker)
   } else if (k === 'rule' && 'rule' in step) {
     out.narration = line(lessonId, step.id, step.rule.spoken ?? step.rule.text)
     if (step.rule.ask) out.ask = line(lessonId, `${step.id}-ask`, step.rule.ask)
   } else if ('narration' in step) {
-    out.narration = line(lessonId, step.id, step.narration.text, step.narration.audio)
+    out.narration = line(lessonId, step.id, step.narration.text, step.narration.audio, step.narration.speaker)
     if (k === 'explore' && 'parts' in step) {
       for (const p of step.parts) out[`part:${p.id}`] = line(lessonId, `${step.id}-${p.id}`, p.narration)
     }
@@ -127,5 +165,6 @@ export const puzzleLine = (p: PuzzleLines, key: string): SpokenLine => ({
   key: `game-${p.id}/${key}`,
   text: p.lines[key] ?? '',
   audio: `audio/game-${p.id}/${key}.mp3`,
+  speaker: 'robot',
 })
 export const allPuzzleLines = (p: PuzzleLines) => Object.keys(p.lines).map((k) => puzzleLine(p, k))

@@ -1,0 +1,62 @@
+{
+  "id": "splitting-the-flock",
+  "section": "maths",
+  "title": "Splitting the flock",
+  "cardArt": "maths",
+  "status": "ready",
+  "order": 3,
+  "_map": "Lesson map: Splitting the flock (Y1–2). Big idea: number bonds, 10 can be split into two parts in set ways.",
+  "_stepChain": "counting → a flock of 10 sheep → two fields → split them any way → every split still makes 10 → the pairs that make 10 are called number bonds → the pattern: one side goes up as the other goes down",
+  "assumes": ["counting", "adding"],
+  "talk": [
+    { "ask": "How many ways can 10 sheep go into two fields?", "goodAnswer": "11 ways, from 0 and 10 up to 10 and 0. Every way still makes 10." },
+    { "ask": "When one field gets one more sheep, what happens to the other field?", "goodAnswer": "it gets one fewer, so the total stays 10." }
+  ],
+  "handsOn": "Take 10 Lego bricks and two bowls. Find every way to share them between the bowls, and line the ways up in order. What pattern do you see?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "split", "item": "sheep", "total": 10, "choice": 5 } },
+      "narration": { "text": "The farm has 10 sheep, and two fields of fresh grass. The sheep can go into either field. Some can go here, and some can go there." },
+      "animation": [{ "at": 0, "action": "arrive", "duration": 2 }]
+    },
+    {
+      "id": "make-split",
+      "kind": "make",
+      "narration": { "text": "Choose how many sheep go into the first field, then tap the hammer. The rest go into the other field. How many different ways can you find?" },
+      "make": { "mode": "split", "item": "sheep", "total": 10, "goal": 11 }
+    },
+    {
+      "id": "bonds",
+      "term": "number bonds",
+      "narration": { "text": "Every single way still makes 10 sheep. 4 and 6. 7 and 3. 0 and 10. Pairs of numbers that make 10 like this are called number bonds. Look at your list: when one field gets one more sheep, the other field gets one fewer." }
+    },
+    {
+      "id": "guess-20",
+      "question": {
+        "open": true,
+        "narration": { "text": "Now imagine a bigger flock: 20 sheep." },
+        "prompt": "How many ways can 20 sheep go into two fields? Make a guess.",
+        "choices": ["11", "21", "40"],
+        "answer": 1,
+        "reveal": "21 ways! From 0 and 20, all the way to 20 and 0. With 10 sheep there were 11 ways; with 20 sheep there are 21. Always one more than the number of sheep."
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Split 10 any way: the parts still make 10.",
+        "ask": "Can you say what stays the same, however you split the sheep? Say it out loud. Then tap the eye.",
+        "spoken": "However you split 10, the two parts still make 10. Those pairs are called number bonds."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: what if there were three fields? Guess how many ways 10 sheep could go into three fields.",
+    "choices": ["30", "66", "100"],
+    "answer": 1,
+    "reveal": "66 ways! Adding one more field makes lots more ways. That's a puzzle mathematicians love."
+  }
+}

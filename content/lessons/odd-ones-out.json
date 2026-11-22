@@ -1,0 +1,68 @@
+{
+  "id": "odd-ones-out",
+  "section": "maths",
+  "title": "Pairs and odd ones out",
+  "cardArt": "maths",
+  "status": "ready",
+  "order": 4,
+  "_map": "Lesson map: Pairs and odd ones out (Y2). Big idea: even numbers split into pairs; odd numbers always leave one over.",
+  "_stepChain": "counting → pairs of sheep → some numbers make only pairs → some leave one over → named even and odd → test odd + odd with animals → make a rule",
+  "assumes": ["counting", "adding"],
+  "talk": [
+    { "ask": "What's the difference between an even number and an odd number?", "goodAnswer": "even numbers make pairs with none left over; odd numbers always have one left over." },
+    { "ask": "Is odd + odd odd or even? Why?", "goodAnswer": "even: each odd number has one left over, and the two left-over ones make a new pair." }
+  ],
+  "handsOn": "Grab a handful of Lego bricks and pair them up. Is your number odd or even? Then grab another handful, put them together, and check again.",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "pairs", "item": "sheep", "total": 6 } },
+      "narration": { "text": "The sheep are going for a walk, and they like to walk in pairs: two together, side by side." },
+      "animation": [{ "at": 0, "action": "arrive", "duration": 1.6 }]
+    },
+    {
+      "id": "make-pairs",
+      "kind": "make",
+      "narration": { "text": "Choose how many sheep go for a walk, then tap the hammer. Do they all get a partner? Try lots of numbers." },
+      "make": { "mode": "pairs", "item": "sheep", "total": 6, "min": 1, "max": 20 }
+    },
+    {
+      "id": "even",
+      "term": "even",
+      "narration": { "text": "Some numbers make pairs with nobody left out: 2, 4, 6, 8, 10. Numbers like those are called even." }
+    },
+    {
+      "id": "odd",
+      "term": "odd",
+      "narration": { "text": "Other numbers always leave one sheep without a partner: 1, 3, 5, 7, 9. Numbers like those are called odd." }
+    },
+    {
+      "id": "test",
+      "question": {
+        "open": true,
+        "narration": { "text": "Here's an experiment. 3 sheep join 5 sheep. 3 is odd, and 5 is odd." },
+        "prompt": "Will 3 and 5 together be odd or even? Make a guess.",
+        "choices": ["Odd", "Even"],
+        "answer": 1,
+        "reveal": "Even! 3 and 5 make 8. Each odd number had one sheep left over, and the two left-over sheep became a new pair.",
+        "revealAnimation": [{ "at": 0, "action": "set", "mode": "pairs", "total": 8 }]
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Even makes pairs. Odd has one left over.",
+        "ask": "Can you say what makes a number odd? Say it out loud. Then tap the eye.",
+        "spoken": "Even numbers make pairs with none left over. Odd numbers always have one left over."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: is 101 odd or even?",
+    "choices": ["Odd", "Even"],
+    "answer": 0,
+    "reveal": "Odd. 100 makes 50 pairs, and 1 more is left over."
+  }
+}

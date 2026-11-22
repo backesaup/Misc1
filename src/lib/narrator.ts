@@ -1,4 +1,4 @@
-import type { SpokenLine } from '@/lesson/lines'
+import { deviceVoice, type SpokenLine } from '@/lesson/lines'
 
 /**
  * Plays pre-generated narration files. If a file is missing (only expected
@@ -108,7 +108,7 @@ class Narrator {
       a.onerror = () => {
         if (finished) return
         log.fallbacks.push(line.key)
-        this.speak(line.text, finish)
+        this.speak(line, finish)
       }
       a.src = (import.meta.env.BASE_URL ?? '/') + line.audio
       a.playbackRate = this.rate
@@ -124,21 +124,43 @@ class Narrator {
     return { done, cancel: () => finish('cancelled') }
   }
 
-  private speak(text: string, finish: (r: 'ended' | 'cancelled') => void) {
+  /** The best installed English voice: premium/enhanced first, British preferred. */
+  private pickVoice() {
+    const voices = window.speechSynthesis.getVoices().filter((v) => v.lang.startsWith('en'))
+    const score = (v: SpeechSynthesisVoice) =>
+      (/premium|enhanced|neural|natural|siri/i.test(v.name) ? 10 : 0) +
+      (v.lang === 'en-GB' ? 4 : 0) +
+      (/daniel|arthur|oliver|serena|kate|jamie/i.test(v.name) ? 2 : 0) +
+      (v.localService ? 1 : 0) -
+      (/compact|novelty|albert|bad news|bells|boing|bubbles|cellos|jester|organ|superstar|trinoids|whisper|wobble|zarvox/i.test(v.name) ? 20 : 0)
+    return voices.sort((a, b) => score(b) - score(a))[0] ?? null
+  }
+
+  /** Device voice, used only when a recorded file is missing: sentence by sentence, with pauses. */
+  private speak(line: SpokenLine, finish: (r: 'ended' | 'cancelled') => void) {
+    const text = line.text
     if (typeof window.speechSynthesis === 'undefined') {
       // No voice at all: give a reading-time pause so the flow still works.
       globalThis.setTimeout(() => finish('ended'), 600 + text.length * 55)
       return
     }
-    const u = new SpeechSynthesisUtterance(text)
-    const voices = window.speechSynthesis.getVoices()
-    u.voice = voices.find((v) => v.lang === 'en-GB' && /male|daniel|arthur/i.test(v.name)) ?? voices.find((v) => v.lang === 'en-GB') ?? null
-    u.lang = 'en-GB'
-    u.rate = 0.9 * this.rate
-    u.onend = () => finish('ended')
-    u.onerror = () => finish('ended')
-    this.utter = u
-    window.speechSynthesis.speak(u)
+    const d = deviceVoice(line.speaker)
+    const voice = this.pickVoice()
+    const sentences = text.match(/[^.!?…]+[.!?…]*/g)?.map((t) => t.trim()).filter(Boolean) ?? [text]
+    let i = 0
+    const nextSentence = () => {
+      if (i >= sentences.length) return finish('ended')
+      const u = new SpeechSynthesisUtterance(sentences[i++])
+      u.voice = voice
+      u.lang = voice?.lang ?? 'en-GB'
+      u.rate = d.rate * this.rate
+      u.pitch = d.pitch
+      u.onend = () => window.setTimeout(nextSentence, 320) // a breath between sentences
+      u.onerror = () => finish('ended')
+      this.utter = u
+      window.speechSynthesis.speak(u)
+    }
+    nextSentence()
   }
 }
 

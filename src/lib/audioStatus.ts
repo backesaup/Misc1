@@ -29,7 +29,7 @@ export async function audioStatus(): Promise<AudioStatus> {
   for (const l of lines) {
     const have = manifest[l.audio.replace(/^audio\//, '')]
     if (!have) missing.push(l)
-    else if (crypto?.subtle && have !== (await sha256(hashInput(l.text)))) stale.push(l)
+    else if (crypto?.subtle && have !== (await sha256(hashInput(l.text, l.speaker)))) stale.push(l)
   }
   return { total: lines.length, missing, stale }
 }

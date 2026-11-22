@@ -50,6 +50,14 @@ export function validateLesson(lesson: Lesson, catalog?: SceneCatalog): string[]
       checkCues(step.question.revealAnimation, 'revealAnimation')
     }
     if (kind === 'explore' && 'parts' in step && !step.parts.length) at(step, 'explore step needs parts')
+    if (kind === 'make' && 'make' in step) {
+      questions++ // an open challenge counts as his prediction-and-test
+      const m = step.make
+      if (!['rows', 'pairs', 'split', 'tens', 'share'].includes(m.mode)) at(step, `unknown make mode "${m.mode}"`)
+      if (!(m.total > 0 && m.total <= 100)) at(step, 'make.total must be 1–100')
+      if (m.mode === 'share' && !(m.extra && m.extra > 0)) at(step, 'share needs extra (how many friends)')
+      if (!currentScene?.startsWith('voxel:arrange')) at(step, 'make steps need the voxel:arrange scene')
+    }
     if (kind === 'build' && 'blocks' in step) {
       for (const b of step.blocks) if (!(b.count > 0)) at(step, `block "${b.block}" needs a count`)
     }
@@ -75,10 +83,11 @@ export function validateLesson(lesson: Lesson, catalog?: SceneCatalog): string[]
 export const BANNED =
   /\b(just|simply|obviously|of course|super|superstar|genius|so smart|you're smart|clever|great job|good job|well done, superstar|wow\w*|easy peasy|does that make sense)\b/i
 
-function checkQuestion(q: Pick<Question, 'choices' | 'answer' | 'wrong' | 'onWrong' | 'reveal'>, err: (m: string) => void) {
+function checkQuestion(q: Pick<Question, 'choices' | 'answer' | 'wrong' | 'onWrong' | 'reveal' | 'open'>, err: (m: string) => void) {
   if (q.choices.length < 2 || q.choices.length > 4) err('needs 2 to 4 choices')
   if (q.answer < 0 || q.answer >= q.choices.length) err('answer is not one of the choices')
   if (!q.reveal?.trim()) err('needs a reveal line')
+  if (q.open) return // an estimate: every answer is fine
   q.choices.forEach((c, i) => {
     if (i === q.answer) return
     const m = q.wrong?.[String(i)]

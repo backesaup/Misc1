@@ -207,6 +207,11 @@ export function Parent() {
         </HoldButton>
       </section>
 
+      <section className="p-card" aria-labelledby="p-samples">
+        <h2 id="p-samples">Voice samples</h2>
+        <VoiceSamples />
+      </section>
+
       <section className="p-card" aria-labelledby="p-progress">
         <h2 id="p-progress">Progress</h2>
         <p className="p-stat">
@@ -243,6 +248,44 @@ function FarmNames() {
       >
         Hold to ask for new names
       </HoldButton>
+    </>
+  )
+}
+
+function VoiceSamples() {
+  const [list, setList] = useState<{ id: string; title: string; role: string; file: string; search: string }[] | null>(null)
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}voice-samples/index.json`, { cache: 'no-cache' })
+      .then((r) => (r.ok && r.headers.get('content-type')?.includes('json') ? r.json() : []))
+      .then(setList)
+      .catch(() => setList([]))
+  }, [])
+  if (!list) return <p className="p-row-hint">Checking…</p>
+  if (!list.length)
+    return (
+      <p className="p-row-hint">
+        No samples yet. On GitHub, open Actions → <strong>Voice samples</strong> → Run workflow (it needs the <code>FISH_API_KEY</code> secret). Then come
+        back here to listen and pick.
+      </p>
+    )
+  return (
+    <>
+      <p className="p-row-hint">
+        Listen, then put the id you like into <code>content/voice.json</code> (<code>speakers.narrator.fish.voice</code> or <code>speakers.robot.fish.voice</code>),
+        set <code>engine</code> to <code>fish</code>, and push. Every line is re-recorded.
+      </p>
+      <ul className="p-list samples">
+        {list.map((v) => (
+          <li key={v.id}>
+            <span>
+              <strong>{v.title}</strong> <span className="p-count">({v.search})</span>
+              <br />
+              <code>{v.id}</code>
+            </span>
+            <audio controls preload="none" src={`${import.meta.env.BASE_URL}${v.file}`} />
+          </li>
+        ))}
+      </ul>
     </>
   )
 }

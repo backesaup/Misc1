@@ -16,6 +16,7 @@ export type ActivityEvent =
   | { type: 'bonus'; lesson: string }
   | { type: 'sandbox'; blocks: number }
   | { type: 'said'; text: string }
+  | { type: 'make'; step: string; tried: string }
 
 type Stored = ActivityEvent & { at: number }
 const KEY = 'activity'

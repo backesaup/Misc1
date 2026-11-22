@@ -58,6 +58,16 @@ bouncing off one mirror), `countMirrors`, `clearCount`, `music` (`on`, `volume`)
 Explore part ids: `ball`, `light`, `motor`, `speaker`, `floor`. Good for: reflection, light and
 colour, sound and vibration, rhythm and counting in twos, arrays (mirrors, tiles), doubling.
 
+### `voxel:arrange` — "make it" challenges (ready)
+`src/scenes/voxel/Arrange.tsx`. The world arranges up to 100 items the way he chooses, so many
+answers can be right. Modes: `rows` (equal rows, leftovers glow), `pairs` (odd/even), `split`
+(two fenced fields), `tens` (rods of 10 + ones), `share` (plates for `extra` friends + leftovers).
+Items: `chicken`, `sheep`, `apple`, `brick` (original toy brick with studs; tens rods alternate
+red/blue, ones are yellow), `block` (outlined game block). Label shows what he made ("3 rows of 4,
+2 left over"). Used by **make** steps (`kind: "make"`, see `src/lesson/types.ts`): dial + hammer,
+spoken result built from number clips, ways collected as chips, `goal`, `exactOnly`.
+Actions: `arrive`, `set` (`mode`, `item`, `total`, `choice`, `extra`).
+
 ### `diagram:wiring` — series and parallel (ready)
 `src/scenes/diagram/Wiring.tsx`. SVG: 6 rows (faces) of 9 panels, rails, battery, moving current.
 Actions: `flow` (`on`), `lightFace` (`face`), `lightRails`. Tappable: any row → part `chain` (and
@@ -190,6 +200,13 @@ has errors (Bedrock cake stack size says 64), so verify any fact a lesson depend
   the say-the-rule step (what he said is logged for the parent screen), Ask dictation, and naming
   the robot and the farm. `src/lib/spoken.ts` parses spoken numbers and yes/no. Parent toggle.
 - Names he chooses (robot, farm) are shown, never spoken, so all narration can be pre-recorded.
+- **Voices per character** (`content/voice.json`): `engine` kokoro or fish (Fish Audio API,
+  model s2.1-pro, needs the `FISH_API_KEY` secret); `speakers.narrator`, `speakers.robot` (add
+  more); per-speaker voice, speed, pitch and device-fallback pitch/rate; `pauses` for pacing.
+  A line's `speaker` comes from `narration.speaker` in lesson JSON; game puzzle lines are the robot.
+- **Voice samples** workflow renders candidate Fish voices to `public/voice-samples/` (listed on
+  the parent screen). **Video notes** workflow turns `requests/videos/` uploads or links into a
+  transcript + frames for building lessons.
 - Game sounds from the texture sources' asset packs are available but not used yet.
 
 ## 9. App data you can build on

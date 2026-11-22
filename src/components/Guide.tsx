@@ -53,8 +53,10 @@ export function Guide({ wave = false, still = false, className }: { wave?: boole
     let viewer: SkinViewer | null = null
     try {
       viewer = new SkinViewer({ canvas: el, width: el.clientWidth || 180, height: el.clientHeight || 240, skin: drawSkin(), pixelRatio: 'match-device' })
+      if (!viewer.renderer.getContext()) throw new Error('no WebGL')
     } catch {
-      return // no WebGL: the guide simply isn't shown
+      el.style.display = 'none' // no WebGL right now: the guide simply isn't shown
+      return
     }
     viewer.zoom = 0.82
     viewer.fov = 40
@@ -72,12 +74,13 @@ export function Guide({ wave = false, still = false, className }: { wave?: boole
       try {
         viewer?.dispose()
       } catch {
-        try {
-          viewer?.renderer.dispose()
-          viewer?.renderer.forceContextLoss()
-        } catch {
-          /* already gone */
-        }
+        /* see below */
+      }
+      try {
+        viewer?.renderer.dispose()
+        viewer?.renderer.forceContextLoss() // free the WebGL context now, not at garbage collection
+      } catch {
+        /* already gone */
       }
     }
   }, [wave, still])

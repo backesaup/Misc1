@@ -7,12 +7,12 @@ export default function VantaFog({ hi, mid, lo, still }: { hi: number; mid: numb
   const el = useRef<HTMLDivElement>(null)
   useEffect(() => {
     if (still || !el.current) return
-    let effect: { destroy: () => void } | null = null
+    let effect: { destroy: () => void; renderer?: { forceContextLoss?: () => void } } | null = null
     let cancelled = false
     import('vanta/dist/vanta.fog.min')
       .then((m) => {
         if (cancelled || !el.current) return
-        const FOG = (m as { default: (o: object) => { destroy: () => void } }).default
+        const FOG = (m as { default: (o: object) => { destroy: () => void; renderer?: { forceContextLoss?: () => void } } }).default
         effect = FOG({
           el: el.current,
           THREE,
@@ -32,6 +32,11 @@ export default function VantaFog({ hi, mid, lo, still }: { hi: number; mid: numb
     return () => {
       cancelled = true
       effect?.destroy()
+      try {
+        effect?.renderer?.forceContextLoss?.()
+      } catch {
+        /* ignore */
+      }
     }
   }, [hi, mid, lo, still])
   return <div ref={el} className="section-backdrop" aria-hidden />

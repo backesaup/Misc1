@@ -1,0 +1,5 @@
+# One video link per line. The "Video notes" workflow downloads each new one, transcribes it,
+# and saves frames into requests/videos/<name>/ so Claude can build lessons from it.
+# You can also upload a video file (.mp4/.mov) into this folder on GitHub instead.
+# Example (remove the #):
+# https://www.youtube.com/watch?v=XXXXXXXXXXX

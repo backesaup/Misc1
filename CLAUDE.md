@@ -9,7 +9,10 @@ in Minecraft, and maths, through narrated, animated lessons where he predicts be
 2. `docs/ASSET_LIBRARY.md`: every scene, action, texture source, library and outside source you
    can build from. **Update it in the same commit whenever assets change.** Regenerate the
    machine lists with `npm run assets:index`.
-3. `requests/`: things Ismaeel asked to learn about (voice, photos, text) + his activity log.
+3. `requests/`: things Ismaeel asked to learn about (voice, photos, text) + his activity log;
+   `requests/videos/<name>/` has transcripts and frames of source videos.
+4. `docs/LESSON_MAP.md`: the Year 1–2 lesson map and what's built. Understanding and creativity
+   over right answers: prefer `make` steps and `open` estimates.
 
 ## Layout
 - `content/lessons/*.json`: lessons are data. A new lesson needs no player code unless it adds a
