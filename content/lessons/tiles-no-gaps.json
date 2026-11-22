@@ -1,7 +1,8 @@
 {
   "id": "tiles-no-gaps",
   "section": "maths",
-  "title": "Tiles with no gaps",
+  "title": "Which shapes leave gaps?",
+  "thumb": {"text": "NO GAPS!", "color": "#11a7b8", "step": 3},
   "cardArt": "build",
   "status": "ready",
   "order": 38,

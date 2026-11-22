@@ -1,7 +1,8 @@
 {
   "id": "four-seasons",
   "section": "science",
-  "title": "The four seasons",
+  "title": "One tree, a whole year",
+  "thumb": {"text": "ONE YEAR", "color": "#11a7b8", "step": 2},
   "cardArt": "science",
   "status": "ready",
   "order": 12,

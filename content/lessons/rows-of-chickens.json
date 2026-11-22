@@ -1,12 +1,13 @@
 {
   "id": "rows-of-chickens",
   "section": "maths",
-  "title": "Rows of chickens",
+  "title": "The great chicken parade",
+  "thumb": {"text": "CHICKEN PARADE", "color": "#22b36b"},
   "cardArt": "maths",
   "status": "ready",
   "order": 2,
   "_map": "Rows of chickens (Y1–2) + Turn the farm (Y2). Big idea: multiplication is equal rows (an array); 3 × 4 = 4 × 3 because it's the same array turned round.",
-  "_story": "Steve's 12 chickens won't queue for breakfast. He helps them line up in equal rows, finds every way, then has to convince Steve (who doesn't believe it) that 3 rows of 4 and 4 rows of 3 are the same. Arrays turn up again on a Lego brick and a Minecraft wall.",
+  "_story": "Steve's 12 chickens are marching in the farm parade, and a parade must march in neat, equal rows. Ismaeel arranges them, finds every way, then has to convince Steve (who doesn't believe it) that 3 rows of 4 and 4 rows of 3 are the same. Arrays turn up again on a Lego brick and a Minecraft wall.",
   "_stepChain": "a row (stack-64) → equal rows → the same 12 chickens can make different equal rows → some numbers of rows leave chickens over → the shape is called an array → arrays are everywhere (Lego studs, a block wall) → turning an array round doesn't change how many → teach Steve",
   "assumes": [
     "counting",
@@ -43,7 +44,7 @@
       },
       "narration": {
         "speaker": "steve",
-        "text": "Help! It's breakfast time, and my 12 chickens are all over the place! They have to line up in rows, and every row must be the same length, or they argue."
+        "text": "The farm parade starts in one minute, and my 12 chickens are a jumble! In a parade, everyone marches in rows, and every row must be the same length. Can you get them ready?"
       },
       "animation": [
         {
@@ -62,7 +63,7 @@
       "id": "make-rows",
       "kind": "make",
       "narration": {
-        "text": "How many rows should the chickens make? Choose a number of rows, then tap the hammer to try it. Try lots of numbers, and see which ones work."
+        "text": "How many rows should the parade have? Choose a number of rows, then tap the hammer to try it. Try lots of numbers, and see which ones work."
       },
       "make": {
         "mode": "rows",
@@ -171,7 +172,7 @@
       "id": "thanks",
       "narration": {
         "speaker": "steve",
-        "text": "Oh! I get it now. The rows went the other way, but no chickens ran off. Thank you for teaching me!"
+        "text": "Oh! I get it now. The parade turned the corner, so the rows went the other way, but no chickens ran off. Thank you for teaching me!"
       },
       "animation": [
         {

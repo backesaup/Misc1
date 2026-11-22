@@ -1,7 +1,8 @@
 {
   "id": "mirror-world",
   "section": "maths",
-  "title": "Mirror world",
+  "title": "Finish the other half",
+  "thumb": {"text": "MIRROR!", "color": "#ff7a1a", "step": 3},
   "cardArt": "build",
   "status": "ready",
   "order": 36,

@@ -1,7 +1,8 @@
 {
   "id": "turn-cards",
   "section": "maths",
-  "title": "Turn cards",
+  "title": "Find the buried treasure",
+  "thumb": {"text": "TREASURE!", "color": "#ff5a4e", "step": 4},
   "cardArt": "build",
   "status": "ready",
   "order": 37,

@@ -1,7 +1,8 @@
 {
   "id": "shape-detective",
   "section": "maths",
-  "title": "Shape detective",
+  "title": "The cat made of shapes",
+  "thumb": {"text": "SPOT THE SHAPES", "color": "#ff7a1a", "step": 2},
   "cardArt": "made",
   "status": "ready",
   "order": 32,

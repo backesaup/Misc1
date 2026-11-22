@@ -1,7 +1,8 @@
 {
   "id": "stack-64",
   "section": "maths",
-  "title": "Why is a stack 64?",
+  "title": "Why does Minecraft stop at 64?",
+  "thumb": {"text": "WHY 64?!", "color": "#8a5cf6"},
   "cardArt": "stack64",
   "status": "ready",
   "order": 1,

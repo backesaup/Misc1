@@ -1,7 +1,8 @@
 {
   "id": "how-long-is-a-minute",
   "section": "maths",
-  "title": "How long is a minute?",
+  "title": "Can you build a barn in a minute?",
+  "thumb": {"text": "ONE MINUTE", "color": "#22b36b"},
   "cardArt": "maths",
   "status": "ready",
   "order": 28,

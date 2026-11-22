@@ -1,7 +1,8 @@
 {
   "id": "robot-8-fingers",
   "section": "maths",
-  "title": "Counting with 8 fingers",
+  "title": "What if you had 8 fingers?",
+  "thumb": {"text": "8 FINGERS?!", "color": "#ffb020"},
   "cardArt": "build",
   "status": "ready",
   "order": 8,

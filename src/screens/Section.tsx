@@ -10,6 +10,7 @@ import { go } from '@/lib/router'
 import { useSettings } from '@/lib/settings'
 import { useLenis } from '@/lib/useLenis'
 import { CardArt } from '@/components/CardArt'
+import { Thumb } from '@/components/Thumb'
 
 const VantaFog = lazy(() => import('@/components/VantaFog'))
 
@@ -98,9 +99,7 @@ export function Section({ id }: { id: SectionId }) {
           {list.map((l) => (
             <li key={l.id}>
               <button className="card" onClick={() => openLesson(l.id)} data-draft={l.status === 'draft' || undefined}>
-                <span className="card-art">
-                  <CardArt art={l.cardArt ?? l.section} />
-                </span>
+                <Thumb lesson={l} />
                 <span className="card-title">{l.title}</span>
                 {progress[l.id] && (
                   <span className="card-tick" aria-label="Finished">

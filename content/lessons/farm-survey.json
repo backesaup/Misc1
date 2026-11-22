@@ -1,7 +1,8 @@
 {
   "id": "farm-survey",
   "section": "maths",
-  "title": "The farm survey",
+  "title": "Which animal wins?",
+  "thumb": {"text": "WHO WINS?", "color": "#e8459a", "step": 3},
   "cardArt": "maths",
   "status": "ready",
   "order": 40,

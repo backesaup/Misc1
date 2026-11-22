@@ -1,7 +1,8 @@
 {
   "id": "days-weeks-months",
   "section": "maths",
-  "title": "Days, weeks and months",
+  "title": "When should Steve plant?",
+  "thumb": {"text": "PLANT WHEN?", "color": "#ff7a1a", "step": 3},
   "cardArt": "build",
   "status": "ready",
   "order": 29,

@@ -1,7 +1,8 @@
 {
   "id": "habitats",
   "section": "science",
-  "title": "Homes for animals",
+  "title": "A fish in a nest?!",
+  "thumb": {"text": "WRONG HOME!", "color": "#22b36b", "step": 3},
   "cardArt": "science",
   "status": "ready",
   "order": 7,

@@ -1,7 +1,8 @@
 {
   "id": "what-seeds-need",
   "section": "science",
-  "title": "What do seeds need?",
+  "title": "Which seed will grow?",
+  "thumb": {"text": "WILL IT GROW?", "color": "#22b36b", "step": 3},
   "cardArt": "science",
   "status": "ready",
   "order": 2,

@@ -1,7 +1,8 @@
 {
   "id": "guessing-jar",
   "section": "maths",
-  "title": "The guessing barrel",
+  "title": "How many apples in the heap?",
+  "thumb": {"text": "GUESS!", "color": "#ffb020"},
   "cardArt": "maths",
   "status": "ready",
   "order": 12,

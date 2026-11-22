@@ -1,7 +1,8 @@
 {
   "id": "faces-edges-corners",
   "section": "maths",
-  "title": "Faces, edges and corners",
+  "title": "Why do balls roll but blocks stack?",
+  "thumb": {"text": "ROLL OR STACK?", "color": "#2f7cf6"},
   "cardArt": "stack64",
   "status": "ready",
   "order": 34,

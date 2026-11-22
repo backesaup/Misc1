@@ -1,7 +1,8 @@
 {
   "id": "fair-shares",
   "section": "maths",
-  "title": "Fair shares",
+  "title": "17 apples, 3 hungry friends",
+  "thumb": {"text": "IS IT FAIR?", "color": "#ffb020"},
   "cardArt": "maths",
   "status": "ready",
   "order": 15,

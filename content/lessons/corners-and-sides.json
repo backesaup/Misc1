@@ -1,7 +1,8 @@
 {
   "id": "corners-and-sides",
   "section": "maths",
-  "title": "Corners and sides",
+  "title": "Can 2 fences make a pen?",
+  "thumb": {"text": "2 SIDES?", "color": "#8a5cf6", "step": 3},
   "cardArt": "made",
   "status": "ready",
   "order": 33,

@@ -1,7 +1,8 @@
 {
   "id": "farm-clock",
   "section": "maths",
-  "title": "The farm clock",
+  "title": "Breakfast at midnight?!",
+  "thumb": {"text": "WRONG TIME!", "color": "#22b36b", "step": 3},
   "cardArt": "maths",
   "status": "ready",
   "order": 27,

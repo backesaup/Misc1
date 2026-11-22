@@ -134,6 +134,12 @@ to k/n to stop after k parts) → `finish` (varnish, paint, screen on) → `expl
 climbs n steps, `from` to restart), `touch` (iPad ripple). `tags` shows every part label; `hot` or an
 explore part shows one. Used by the six real-world lessons (order 9–14 in the made section).
 
+## 2d. Lesson covers (`src/components/Thumb.tsx`)
+YouTube-style thumbnails on lesson cards and the lesson start screen: a real frame from the lesson's
+own scene (`npm run thumbs` → `src/assets/thumbs/<id>.jpg`, committed), zoomed in, with the lesson's
+`thumb.text` in huge outlined letters, its `thumb.color` as the frame, and Steve's face (cut from his
+skin) tilted in the corner. No captured frame yet → the card art is used.
+
 ## 3a. Real 3D Minecraft mobs (`src/scenes/voxel/mobs.ts`)
 - Built from Mojang's Bedrock geometry files + textures (bedrock-samples; the sheep uses the Java body +
   wool textures stacked). `models` in `content/textures.json`: chicken, sheep, pig, cow, iron_golem,
@@ -284,6 +290,7 @@ has errors (Bedrock cake stack size says 64), so verify any fact a lesson depend
   `activity.json` (replays, wrong answers chosen, where he stopped). Make lessons from these.
 
 ## Changelog
+- 2026-11-22 — YouTube-style lesson covers (real scene frames + captions + Steve); every lesson retitled as a mystery.
 - 2026-11-22 — voxel:made scene + six real-world lessons: chair, table, stairs, car, train, iPad (facts checked).
 - 2026-11-22 — 3D block models from Java model files: Create, Farmer's Delight, MrCrayfish furniture, vanilla.
 - 2026-11-22 — real 3D Minecraft mobs from Bedrock geometry (chickens and sheep in counting lessons); narration runs no longer clash.

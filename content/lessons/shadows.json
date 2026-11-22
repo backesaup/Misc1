@@ -1,7 +1,8 @@
 {
   "id": "shadows",
   "section": "made",
-  "title": "Shadows",
+  "title": "The giant on the barn wall",
+  "thumb": {"text": "WHO'S THAT?!", "color": "#8a5cf6", "step": 3},
   "cardArt": "made",
   "status": "ready",
   "order": 6,

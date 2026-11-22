@@ -1,7 +1,8 @@
 {
   "id": "who-eats-what",
   "section": "science",
-  "title": "Who eats what?",
+  "title": "Don't feed the rabbit a bone!",
+  "thumb": {"text": "NOT THAT!", "color": "#ff7a1a", "step": 4},
   "cardArt": "science",
   "status": "ready",
   "order": 4,

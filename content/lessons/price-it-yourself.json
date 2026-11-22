@@ -1,7 +1,8 @@
 {
   "id": "price-it-yourself",
   "section": "maths",
-  "title": "Price it yourself",
+  "title": "Is £1 less than 50p?",
+  "thumb": {"text": "£1 OR 50p?", "color": "#2f7cf6", "step": 3},
   "cardArt": "maths",
   "status": "ready",
   "order": 31,

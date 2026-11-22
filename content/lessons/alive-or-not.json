@@ -1,7 +1,8 @@
 {
   "id": "alive-or-not",
   "section": "science",
-  "title": "Alive, dead or never alive?",
+  "title": "Is the iron golem alive?",
+  "thumb": {"text": "ALIVE?!", "color": "#ff5a4e", "step": 4},
   "cardArt": "science",
   "status": "ready",
   "order": 6,

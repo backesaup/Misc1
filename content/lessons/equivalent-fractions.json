@@ -1,7 +1,8 @@
 {
   "id": "equivalent-fractions",
   "section": "maths",
-  "title": "Same amount, different name",
+  "title": "Half or two quarters: who got more?",
+  "thumb": {"text": "WHO GOT MORE?", "color": "#ff5a4e", "step": 2},
   "cardArt": "maths",
   "status": "ready",
   "order": 20,

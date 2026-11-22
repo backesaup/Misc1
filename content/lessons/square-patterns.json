@@ -1,7 +1,8 @@
 {
   "id": "square-patterns",
   "section": "maths",
-  "title": "Growing squares",
+  "title": "The secret inside square numbers",
+  "thumb": {"text": "SQUARE SECRET", "color": "#22b36b"},
   "cardArt": "stack64",
   "status": "ready",
   "order": 17,

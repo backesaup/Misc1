@@ -1,7 +1,8 @@
 {
   "id": "many-ways-to-add",
   "section": "maths",
-  "title": "Many ways to add",
+  "title": "38 + 25 without losing count",
+  "thumb": {"text": "SHORTCUTS!", "color": "#22b36b"},
   "cardArt": "build",
   "status": "ready",
   "order": 11,

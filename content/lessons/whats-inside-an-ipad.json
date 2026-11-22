@@ -2,6 +2,7 @@
   "id": "whats-inside-an-ipad",
   "section": "made",
   "title": "What's hiding inside an iPad?",
+  "thumb": {"text": "WHAT'S INSIDE?", "color": "#e8459a", "step": 6},
   "cardArt": "ipad",
   "status": "ready",
   "order": 14,

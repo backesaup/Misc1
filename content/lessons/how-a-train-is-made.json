@@ -2,6 +2,7 @@
   "id": "how-a-train-is-made",
   "section": "made",
   "title": "Why don't trains fall off the track?",
+  "thumb": {"text": "CONE WHEELS?!", "color": "#ffb020", "step": 5},
   "cardArt": "train",
   "status": "ready",
   "order": 13,

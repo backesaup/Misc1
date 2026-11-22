@@ -1,7 +1,8 @@
 {
   "id": "joining-and-taking-away",
   "section": "maths",
-  "title": "Joining and taking away",
+  "title": "The mystery of the missing apples",
+  "thumb": {"text": "WHO ATE THEM?", "color": "#ff7a1a"},
   "cardArt": "maths",
   "status": "ready",
   "order": 9,

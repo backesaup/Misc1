@@ -69,6 +69,8 @@ export function validateLesson(lesson: Lesson, catalog?: SceneCatalog): string[]
   if (questions < 1) at(undefined, 'needs at least one guess')
   if (!lesson.talk?.length) at(undefined, 'needs a "talk" card for a grown-up (questions + what a good answer includes)')
   if (!lesson.handsOn?.trim()) at(undefined, 'needs a "handsOn" real-world challenge')
+  if (!lesson.thumb?.text?.trim()) at(undefined, 'needs a "thumb" cover: a few big words (see docs/LESSON_DIRECTION.md)')
+  else if (lesson.thumb.text.split(/\s+/).length > 3) at(undefined, 'thumb text must be 3 words or fewer')
   if (lesson.bonus) checkQuestion(lesson.bonus, (m) => at(undefined, `bonus: ${m}`))
 
   // Voice rules from the lesson direction brief: no baby talk, empty praise or skipped steps.

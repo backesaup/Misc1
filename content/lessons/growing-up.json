@@ -1,7 +1,8 @@
 {
   "id": "growing-up",
   "section": "science",
-  "title": "Growing up",
+  "title": "Whose baby is this?",
+  "thumb": {"text": "WHOSE BABY?", "color": "#2f7cf6", "step": 3},
   "cardArt": "science",
   "status": "ready",
   "order": 9,

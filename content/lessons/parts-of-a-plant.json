@@ -1,7 +1,8 @@
 {
   "id": "parts-of-a-plant",
   "section": "science",
-  "title": "Parts of a plant",
+  "title": "What does each bit of a plant do?",
+  "thumb": {"text": "PLANT PARTS", "color": "#ff5a4e", "step": 2},
   "cardArt": "science",
   "status": "ready",
   "order": 1,

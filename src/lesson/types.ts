@@ -140,6 +140,8 @@ export interface Lesson {
   title: string
   /** Card art preset (drawn in code) or an image in public/cards/. */
   cardArt?: string
+  /** YouTube-style cover: a few big words, an accent colour, and which step's scene is pictured (scripts/thumbs.mjs). */
+  thumb?: { text: string; color?: string; step?: number }
   cardImage?: string
   /** "draft" lessons are hidden from the child until a parent turns drafts on. */
   status?: 'draft' | 'ready'

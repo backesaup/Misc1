@@ -1,7 +1,8 @@
 {
   "id": "solid-liquid-gas",
   "section": "made",
-  "title": "Solid, liquid, gas",
+  "title": "Where did the water go?",
+  "thumb": {"text": "IT VANISHED!", "color": "#2f7cf6", "step": 3},
   "cardArt": "made",
   "status": "ready",
   "order": 8,

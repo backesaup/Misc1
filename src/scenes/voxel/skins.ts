@@ -114,11 +114,16 @@ function sprites(name: SkinName) {
 }
 
 /** Data URLs for 2D pictures of a character, updated once the real skin has loaded. */
+const spriteCache = new Map<SkinName, ReturnType<typeof sprites>>()
 export function useSkinSprites(name: SkinName = 'steve') {
-  const [s, setS] = useState(() => sprites(name))
+  const [s, setS] = useState(() => spriteCache.get(name) ?? sprites(name))
   useEffect(() => {
     let live = true
-    void skinCanvas(name).ready.then(() => live && setS(sprites(name)))
+    void skinCanvas(name).ready.then(() => {
+      // cut once per skin, then share (many cards show Steve at once)
+      if (!spriteCache.has(name)) spriteCache.set(name, sprites(name))
+      if (live) setS(spriteCache.get(name)!)
+    })
     return () => void (live = false)
   }, [name])
   return s

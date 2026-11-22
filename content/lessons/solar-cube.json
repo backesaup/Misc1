@@ -1,7 +1,8 @@
 {
   "id": "solar-cube",
   "section": "made",
-  "title": "The solar-powered Rubik's cube",
+  "title": "A Rubik's cube that charges a phone?!",
+  "thumb": {"text": "SOLAR CUBE?!", "color": "#ff5a4e", "step": 11},
   "cardArt": "solarCube",
   "status": "ready",
   "order": 1,

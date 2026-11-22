@@ -1,7 +1,8 @@
 {
   "id": "growing-patterns",
   "section": "maths",
-  "title": "Growing staircases",
+  "title": "A staircase to the hayloft",
+  "thumb": {"text": "NEXT STEP?", "color": "#ff5a4e"},
   "cardArt": "build",
   "status": "ready",
   "order": 16,

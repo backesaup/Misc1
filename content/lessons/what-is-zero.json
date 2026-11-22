@@ -1,7 +1,8 @@
 {
   "id": "what-is-zero",
   "section": "maths",
-  "title": "What is zero?",
+  "title": "The chicken that wasn't there",
+  "thumb": {"text": "NONE AT ALL?", "color": "#ffb020"},
   "cardArt": "maths",
   "status": "ready",
   "order": 7,

@@ -1,7 +1,8 @@
 {
   "id": "make-the-bulb-light",
   "section": "made",
-  "title": "Make the bulb light",
+  "title": "Steve's workshop is pitch dark!",
+  "thumb": {"text": "LIGHTS OUT!", "color": "#ffb020", "step": 3},
   "cardArt": "made",
   "status": "ready",
   "order": 3,

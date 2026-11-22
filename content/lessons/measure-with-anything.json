@@ -1,7 +1,8 @@
 {
   "id": "measure-with-anything",
   "section": "maths",
-  "title": "Measure with anything",
+  "title": "Measure a barn with carrots",
+  "thumb": {"text": "8 OR 4?", "color": "#8a5cf6"},
   "cardArt": "build",
   "status": "ready",
   "order": 22,

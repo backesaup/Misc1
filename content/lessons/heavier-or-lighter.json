@@ -1,7 +1,8 @@
 {
   "id": "heavier-or-lighter",
   "section": "maths",
-  "title": "Heavier or lighter",
+  "title": "How heavy is the giant pumpkin?",
+  "thumb": {"text": "GIANT PUMPKIN", "color": "#ff7a1a"},
   "cardArt": "maths",
   "status": "ready",
   "order": 24,

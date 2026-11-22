@@ -1,7 +1,8 @@
 {
   "id": "whats-it-made-of",
   "section": "science",
-  "title": "What's it made of?",
+  "title": "A wooden window?!",
+  "thumb": {"text": "WRONG STUFF!", "color": "#8a5cf6", "step": 3},
   "cardArt": "science",
   "status": "ready",
   "order": 10,

@@ -1,7 +1,8 @@
 {
   "id": "half-of-the-flock",
   "section": "maths",
-  "title": "Half of the flock",
+  "title": "Half the sheep to bed",
+  "thumb": {"text": "HALF OF 12?", "color": "#e8459a"},
   "cardArt": "maths",
   "status": "ready",
   "order": 21,

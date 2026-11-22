@@ -1,7 +1,8 @@
 {
   "id": "unfolding-a-box",
   "section": "maths",
-  "title": "Unfolding a box",
+  "title": "Unfold a cube flat",
+  "thumb": {"text": "UNFOLD IT!", "color": "#2f7cf6"},
   "cardArt": "stack64",
   "status": "ready",
   "order": 35,

@@ -1,7 +1,8 @@
 {
   "id": "magnets",
   "section": "made",
-  "title": "Magnets",
+  "title": "The invisible pull",
+  "thumb": {"text": "INVISIBLE FORCE", "color": "#2f7cf6", "step": 2},
   "cardArt": "made",
   "status": "ready",
   "order": 5,

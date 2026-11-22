@@ -1,7 +1,8 @@
 {
   "id": "squash-bend-stretch",
   "section": "science",
-  "title": "Squash, bend, twist, stretch",
+  "title": "A metal trampoline?!",
+  "thumb": {"text": "OUCH!", "color": "#e8459a", "step": 2},
   "cardArt": "science",
   "status": "ready",
   "order": 11,

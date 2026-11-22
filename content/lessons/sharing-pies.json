@@ -1,7 +1,8 @@
 {
   "id": "sharing-pies",
   "section": "maths",
-  "title": "Sharing pies",
+  "title": "One pie, more and more visitors",
+  "thumb": {"text": "MORE GUESTS?!", "color": "#11a7b8", "step": 2},
   "cardArt": "maths",
   "status": "ready",
   "order": 19,

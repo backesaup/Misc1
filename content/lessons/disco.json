@@ -1,7 +1,8 @@
 {
   "id": "disco",
   "section": "made",
-  "title": "How a disco is made",
+  "title": "Build a disco that dances",
+  "thumb": {"text": "DISCO TIME!", "color": "#11a7b8"},
   "cardArt": "disco",
   "status": "ready",
   "order": 2,

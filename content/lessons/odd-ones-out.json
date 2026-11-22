@@ -1,7 +1,8 @@
 {
   "id": "odd-ones-out",
   "section": "maths",
-  "title": "Pairs and odd ones out",
+  "title": "Who's left without a partner?",
+  "thumb": {"text": "ONE LEFT OVER", "color": "#11a7b8"},
   "cardArt": "maths",
   "status": "ready",
   "order": 4,

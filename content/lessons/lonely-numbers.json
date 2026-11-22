@@ -1,7 +1,8 @@
 {
   "id": "lonely-numbers",
   "section": "maths",
-  "title": "Lonely numbers",
+  "title": "The chicks that won't line up",
+  "thumb": {"text": "LONELY NUMBERS", "color": "#ff5a4e"},
   "cardArt": "maths",
   "status": "ready",
   "order": 13,

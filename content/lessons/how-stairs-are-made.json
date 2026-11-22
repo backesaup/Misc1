@@ -2,6 +2,7 @@
   "id": "how-stairs-are-made",
   "section": "made",
   "title": "How does Steve get upstairs?",
+  "thumb": {"text": "TOO HIGH!", "color": "#e8459a", "step": 7},
   "cardArt": "stairs",
   "status": "ready",
   "order": 11,

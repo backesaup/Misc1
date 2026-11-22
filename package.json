@@ -16,6 +16,7 @@
     "textures:fetch": "node scripts/fetch-textures.mjs",
     "icons": "node scripts/make-icons.mjs",
     "assets:index": "node scripts/build-asset-index.mjs",
+    "thumbs": "node scripts/thumbs.mjs",
     "predeploy": "npm run test && npm run check:audio && npm run build"
   },
   "dependencies": {

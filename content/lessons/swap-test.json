@@ -1,7 +1,8 @@
 {
   "id": "swap-test",
   "section": "maths",
-  "title": "The swap test",
+  "title": "Does swapping change anything?",
+  "thumb": {"text": "SWAP IT!", "color": "#ff7a1a"},
   "cardArt": "maths",
   "status": "ready",
   "order": 10,

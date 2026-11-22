@@ -1,7 +1,8 @@
 {
   "id": "halves",
   "section": "maths",
-  "title": "Halves that look different",
+  "title": "The sheep who got the small half",
+  "thumb": {"text": "NOT FAIR!", "color": "#8a5cf6", "step": 2},
   "cardArt": "maths",
   "status": "ready",
   "order": 18,

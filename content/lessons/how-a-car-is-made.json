@@ -2,6 +2,7 @@
   "id": "how-a-car-is-made",
   "section": "made",
   "title": "From a roll of steel to a car",
+  "thumb": {"text": "5,000 WELDS", "color": "#ff5a4e", "step": 4},
   "cardArt": "car",
   "status": "ready",
   "order": 12,

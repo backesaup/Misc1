@@ -14,7 +14,7 @@ import { SceneController } from '@/scenes/controller'
 import { getScene, sceneKey } from '@/scenes/registry'
 import type { SceneDef } from '@/scenes/types'
 import { Stage3D } from './Stage3D'
-import { CardArt } from '@/components/CardArt'
+import { Thumb } from '@/components/Thumb'
 import { Guide } from '@/components/Guide'
 import { SteveAvatar } from '@/components/SteveAvatar'
 import ClickSpark, { type ClickSparkHandle } from '@/components/vendor/reactbits/ClickSpark'
@@ -463,8 +463,8 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
           </button>
         </header>
         <div className="intro-body">
-          <button className="intro-art" onClick={() => narrator.say(titleLine(lesson))} aria-label={`Hear the title: ${lesson.title}`}>
-            <CardArt art={lesson.cardArt ?? lesson.section} />
+          <button className="intro-art intro-thumb" onClick={() => narrator.say(titleLine(lesson))} aria-label={`Hear the title: ${lesson.title}`}>
+            <Thumb lesson={lesson} big />
           </button>
           <h1 className="intro-title">{lesson.title}</h1>
           <Guide wave still={reducedMotion} className="guide intro-guide" />

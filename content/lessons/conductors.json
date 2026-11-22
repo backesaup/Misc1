@@ -1,7 +1,8 @@
 {
   "id": "conductors",
   "section": "made",
-  "title": "What lets electricity through?",
+  "title": "Can a coin carry electricity?",
+  "thumb": {"text": "WILL IT GLOW?", "color": "#e8459a", "step": 2},
   "cardArt": "made",
   "status": "ready",
   "order": 4,

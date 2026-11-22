@@ -1,7 +1,8 @@
 {
   "id": "bundles-of-ten",
   "section": "maths",
-  "title": "Bundles of ten",
+  "title": "34 bricks, counted in seconds",
+  "thumb": {"text": "COUNT FAST!", "color": "#22b36b"},
   "cardArt": "build",
   "status": "ready",
   "order": 5,

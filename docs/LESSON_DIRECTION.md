@@ -12,6 +12,12 @@ since. **Where a brief and Esa's later instructions disagree, the instructions b
 - External links are allowed.
 - No hard 50 MB size limit (keep it reasonable: iOS can evict offline storage for unused apps).
 - The learner is **Ismaeel** (`src/config.ts`). The app is called **Blocky**.
+- **Every lesson needs a hook worth tapping.** The title is a mystery, a problem or stakes
+  ("The table that wouldn't stop rocking", "Is £1 less than 50p?"), never a topic name ("Halves").
+  Each lesson has a `thumb`: 1–3 big words (`"WOBBLE!"`), an accent colour, and the `step` whose
+  scene makes the best picture. Run `npm run thumbs` (with `npm run dev` running) to capture the
+  picture into `src/assets/thumbs/`; the cover adds the words and Steve's face. The validator
+  refuses a lesson without one.
 - The sidekick is **Steve** (Minecraft), not a robot. He names the farm himself (in the game, by speaking or typing).
 - Use Minecraft art wherever it fits: skins, items, mob faces, blocks. Real-world lessons show real-looking objects, with Steve alongside.
 - Speech input is on: he can say answers. Narration is recorded by a GitHub Action, not on a laptop.

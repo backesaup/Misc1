@@ -1,7 +1,8 @@
 {
   "id": "market-stall",
   "section": "maths",
-  "title": "The market stall",
+  "title": "Open the egg shop",
+  "thumb": {"text": "EGG SHOP", "color": "#e8459a", "step": 3},
   "cardArt": "maths",
   "status": "ready",
   "order": 30,

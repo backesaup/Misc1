@@ -29,6 +29,7 @@ describe('validator', () => {
     title: 'X',
     talk: [{ ask: 'a', goodAnswer: 'b' }],
     handsOn: 'Try it.',
+    thumb: { text: 'WHY?' },
     steps: [
       { id: 'a', scene: { type: 'voxel', preset: 'blocks64' }, narration: { text: 'Hello.' } },
       { id: 'q', question: { prompt: 'P?', choices: ['1', '2'], answer: 0, reveal: 'R.', wrong: { '1': { mistake: 'm', hint: 'h', say: 's' } } } },
@@ -36,6 +37,10 @@ describe('validator', () => {
     ],
   }
   it('accepts a minimal good lesson', () => expect(validateLesson(base, sceneCatalog)).toEqual([]))
+  it('needs a short cover caption', () => {
+    expect(validateLesson({ ...base, thumb: undefined }, sceneCatalog).join()).toMatch(/thumb/)
+    expect(validateLesson({ ...base, thumb: { text: 'one two three four' } }, sceneCatalog).join()).toMatch(/3 words/)
+  })
   it('needs a guess', () => {
     const l = { ...base, steps: [base.steps[0], base.steps[2]] }
     expect(validateLesson(l, sceneCatalog).join()).toMatch(/at least one guess/)

@@ -1,7 +1,8 @@
 {
   "id": "why-we-need-rulers",
   "section": "maths",
-  "title": "Why we need rulers",
+  "title": "Steve's feet against the sheep's feet",
+  "thumb": {"text": "WHO'S RIGHT?", "color": "#ff5a4e", "step": 4},
   "cardArt": "build",
   "status": "ready",
   "order": 23,

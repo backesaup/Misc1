@@ -1,7 +1,8 @@
 {
   "id": "food-chains",
   "section": "science",
-  "title": "Food chains",
+  "title": "Who eats who?",
+  "thumb": {"text": "WHO EATS WHO?", "color": "#ff7a1a", "step": 2},
   "cardArt": "science",
   "status": "ready",
   "order": 8,
