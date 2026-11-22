@@ -3,9 +3,9 @@
   "section": "made",
   "title": "The solar-powered Rubik's cube",
   "cardArt": "solarCube",
-  "status": "draft",
+  "status": "ready",
   "order": 1,
-  "_stepChain": "a cube has 6 faces → solar panel → 9 × 6 = 54 → milliamps (flow, like a tap) → volts (push) → series adds push → parallel adds flow → battery saves energy → booster makes exactly 5 volts → the pieces turn: contacts, springs, magnets, slip ring → predict 54 × 60 → the contradiction: it barely charged → why (sun angle, gaps) → engineers test for the real number",
+  "_stepChain": "a cube has 6 faces → solar panel → 9 × 6 = 54 → milliamps (flow, like a tap) → volts (push) → series adds push → parallel adds flow → battery saves energy → booster makes exactly 5 volts → the pieces turn: contacts, springs, magnets, slip ring → predict 6 lines × 60 = 360 (a line of 9 adds push, not flow) → the contradiction: it barely charged → why (sun angle, gaps) → engineers test for the real number",
   "assumes": [
     "counting",
     "adding",
@@ -20,18 +20,10 @@
   "requires": [
     "stack-64"
   ],
-  "verify": [
-    "Per-cell voltage. The summary said 1.5 V, but a booster up to 5 V only makes sense at about 0.5 V per panel (4.5 V per face). The lesson never says a volts number for a panel until this is checked.",
-    "About 60 milliamps per panel in full sun.",
-    "Batteries sit in the hollow core, after a charge controller.",
-    "A booster gives 5 V through a USB port under the white centre.",
-    "96 brass contacts, springy brass balls, magnets and slip rings.",
-    "Real output in sunlight: about a couple of hundred milliamps."
-  ],
   "talk": [
     {
-      "ask": "Why didn't the cube charge the phone much, when our sum said 3,240?",
-      "goodAnswer": "the sum pretended the sun shone on every panel; really only 1 to 3 faces get sun, there are gaps, so it made about 200 milliamps, less than the 1,000 a phone needs."
+      "ask": "Why didn't the cube charge the phone much?",
+      "goodAnswer": "even in perfect sun the 6 lines only make 360 milliamps, a phone wants about 1,000; and really the sun only reaches 1 to 3 faces, there are gaps, and not every contact touches, so it made about 200."
     },
     {
       "ask": "What's the difference between series and parallel?",
@@ -232,7 +224,7 @@
         "preset": "power"
       },
       "narration": {
-        "text": "The electricity goes into small batteries hidden in the middle of the cube. A battery saves electricity now, so you can use it later."
+        "text": "The electricity goes into small batteries hidden in the middle of the cube. A battery saves electricity now, so you can use it later. The maker designed their own cube on a computer and printed it with a 3D printer, so the middle could be big and hollow."
       },
       "label": "Save now, use later",
       "animation": [
@@ -253,7 +245,7 @@
       "id": "booster",
       "term": "booster",
       "narration": {
-        "text": "A phone needs a push of exactly 5 volts. A small part changes the battery's push to exactly 5 volts. That part is called a booster. The plug for the phone is hidden under the white centre."
+        "text": "A phone needs a push of exactly 5 volts. A small chip changes the battery's push to exactly 5 volts. That part is called a booster. The plug for the phone is hidden under the white centre."
       },
       "label": "5 volts",
       "animation": [
@@ -306,9 +298,9 @@
       "id": "contacts",
       "kind": "explore",
       "term": "contacts",
-      "label": "96 contacts",
+      "label": "96 springy balls",
       "narration": {
-        "text": "Look inside one edge piece. The places where metal touches metal are called contacts. The whole cube has 96 of them. Tap each part to hear what it does."
+        "text": "Look inside one edge piece. The places where metal touches metal are called contacts. The whole cube has 96 springy metal balls pressing on contacts. Tap each part to hear what it does."
       },
       "animation": [
         {
@@ -340,29 +332,29 @@
       "id": "guess-total",
       "question": {
         "narration": {
-          "text": "Now let's predict. One panel makes 60 milliamps, and there are 54 panels. Let's pretend the sun shines brightly on every single panel."
+          "text": "Now let's predict. Remember: in a line of 9, the push adds up, but the flow stays the same. So each line of 9 makes 60 milliamps. And there are 6 lines, side by side. Let's pretend the sun shines brightly on every single panel."
         },
-        "prompt": "54 panels times 60 milliamps. How much is that?",
+        "prompt": "6 lines, side by side, each making 60 milliamps. How much flow altogether?",
         "choices": [
-          "114",
-          "3,240",
-          "540"
+          "66",
+          "360",
+          "3,240"
         ],
         "answer": 1,
-        "onRight": "Yes. You worked out 54 lots of 60. That's 3,240.",
+        "onRight": "Yes. Side by side, the flow adds up: 6 lots of 60 is 360.",
         "wrong": {
           "0": {
-            "mistake": "added 54 and 60 instead of 54 lots of 60",
-            "hint": "Every one of the 54 panels makes 60. So it's 54 lots of 60, not 54 and 60.",
-            "say": "You added 54 and 60. But every panel makes 60, so we need 54 lots of 60. 50 lots of 60 is 3,000. 4 lots of 60 is 240. Together, 3,240."
+            "mistake": "added 6 and 60 instead of 6 lots of 60",
+            "hint": "Each of the 6 lines makes its own 60. How many lots of 60?",
+            "say": "You added 6 and 60. But each of the 6 lines makes 60, so it's 6 lots of 60: 60, 120, 180, 240, 300, 360."
           },
           "2": {
-            "mistake": "used 10 for each panel instead of 60",
-            "hint": "Each panel makes 60 milliamps, not 10. Try 54 lots of 60.",
-            "say": "540 is 54 lots of 10. Each panel makes 60, which is 6 lots of 10. So it's 6 times as much: 3,240."
+            "mistake": "multiplied all 54 panels by 60, as if every panel were side by side",
+            "hint": "In a line of 9, does the flow add up, or the push?",
+            "say": "3,240 is 54 lots of 60. But in a line of 9, only the push adds up. The flow of a whole line is still 60. So it's 6 lines of 60: 360."
           }
         },
-        "reveal": "3,240 milliamps. A phone needs about 1,000. So our sum says it should charge easily.",
+        "reveal": "360 milliamps, even with perfect sun on every panel. A phone wants about 1,000. So the batteries help: they save up electricity all day.",
         "revealAnimation": [
           {
             "at": 0,
@@ -410,7 +402,7 @@
     {
       "id": "real-test",
       "narration": {
-        "text": "The sun can only shine on 1, 2 or 3 faces at a time. The other faces are in shadow. And there are gaps between the panels. The real flow was only about 200 milliamps. A phone needs about 1,000. So it barely charged."
+        "text": "The sun can only shine on 1, 2 or 3 faces at a time. The other faces are in shadow. There are gaps between the pieces, and not every contact touches all the time. The real flow was only about 200 milliamps, and it kept cutting out. A phone wants about 1,000. So it barely charged."
       },
       "label": "about 200 milliamps",
       "animation": [
@@ -460,5 +452,6 @@
       }
     },
     "reveal": "3 faces of 9 is 27 panels."
-  }
+  },
+  "_source": "requests/videos/videoplayback (transcript checked 2026-11-22): 54 cells, ~1.5 V and 60 mA each in full sun; 9 per face in series, 6 faces in parallel; charge controller + batteries in a hollow 3D-printed core; a chip makes 5 V for a USB-C port under the white centre; 96 brass ball bearings on springs press on brass bolt heads; magnets; slip rings for the spinning centres; real output indoors ~160 mA, in sun 'upwards of only a couple hundred' mA and inconsistent; a phone wants over 1,000 mA."
 }

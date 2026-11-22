@@ -55,5 +55,5 @@ Status: ✅ built · 🟡 partly (an existing lesson touches it) · ⬜ to do. M
 - ✅ What's it made of? · Squash, bend, twist, stretch · The four seasons
 
 ## Engineering stretch
-- 🟡 Sunlight into power (solar cube, draft until the video facts are checked)
+- ✅ Sunlight into power (solar cube, facts checked against the source video)
 - ✅ Shadows · Make the bulb light · What lets electricity through? · Magnets · Levers and gears · Solid, liquid, gas (diagram:lab)
