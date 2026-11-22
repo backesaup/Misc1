@@ -37,11 +37,11 @@ Status: ✅ built · 🟡 partly (an existing lesson touches it) · ⬜ to do. M
 - ✅ Halves that look different · Sharing pies · Same amount, different name · Half of the flock (diagram:fraction; make: cut)
 
 ## Measurement, time, money
-- ⬜ Measure with anything / Why we need rulers [farm: measure the barn in blocks, steps, carrots]
-- ⬜ Heavier or lighter [balance scene]
-- ⬜ Filling up [farm water tank: game slice puzzle 3]
-- ⬜ Hot and cold / The farm clock / How long is a minute? / Days, weeks, months
-- ⬜ The market stall / Price it yourself [new: coins]
+- ✅ Measure with anything (make: line) · Why we need rulers (diagram:gauge ruler)
+- ✅ Heavier or lighter (balance in kg, pumpkin)
+- ✅ Filling up (diagram:gauge containers)
+- ✅ Hot and cold (gauge thermometer) · The farm clock (diagram:clock) · How long is a minute? · Days, weeks and months (grid calendar)
+- ✅ The market stall (diagram:coins; make: coins) · Price it yourself
 
 ## Shape, position, data
 - 🟡 Faces, edges, corners (solar cube counts faces; stack-64 cube)

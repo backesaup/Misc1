@@ -1,0 +1,170 @@
+{
+  "id": "market-stall",
+  "section": "maths",
+  "title": "The market stall",
+  "cardArt": "maths",
+  "status": "ready",
+  "order": 30,
+  "_map": "The market stall (Y1–2). Big idea: coins and notes; making amounts; change. Creative: run the stall: make 50p in as many ways as possible; give change to customers.",
+  "_story": "The farm opens a market stall selling eggs. Customers pay with different coins. Ismaeel learns coins have values, makes 50p lots of ways, and gives change. The robot gives too much change.",
+  "_stepChain": "coins are worth different amounts → pence: a 10p coin is worth 10 pennies → add the coins to find the total → make 50p different ways → change: pay more, get some back → the robot's wrong change",
+  "assumes": [
+    "counting",
+    "adding",
+    "taking away"
+  ],
+  "talk": [
+    {
+      "ask": "Is a big coin always worth more than a small coin?",
+      "goodAnswer": "no: the 5p is tiny but the 2p is bigger. You read the number on it."
+    },
+    {
+      "ask": "Eggs cost 30p. You pay 50p. How much change?",
+      "goodAnswer": "20p, because 30 and 20 more make 50."
+    }
+  ],
+  "handsOn": "Set up a shop at home with toys and real coins. Put prices on things. Take turns being the shopkeeper and giving change.",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": {
+        "type": "diagram",
+        "preset": "coins",
+        "params": {
+          "coins": "10,5,20,1,2",
+          "item": "Eggs",
+          "price": 30
+        }
+      },
+      "narration": {
+        "speaker": "robot",
+        "text": "My chickens laid lots of eggs, so I opened a market stall! People pay me with coins. But I don't understand coins at all!"
+      }
+    },
+    {
+      "id": "pence",
+      "term": "pence",
+      "narration": {
+        "text": "Each coin has a number that tells you what it's worth. We count money in pence. A 10p coin is worth the same as 10 one-penny coins. And size doesn't tell you: the tiny 5p is worth more than the bigger 2p!"
+      }
+    },
+    {
+      "id": "total",
+      "question": {
+        "narration": {
+          "text": "A customer pays with a 20p, a 5p and a 5p."
+        },
+        "prompt": "How much is that altogether?",
+        "choices": [
+          "3p",
+          "30p",
+          "25p"
+        ],
+        "answer": 1,
+        "onRight": "Yes. You added what the coins are worth: 20, 25, 30.",
+        "wrong": {
+          "0": {
+            "mistake": "counted the coins instead of adding their values",
+            "hint": "There are 3 coins, but each is worth a different amount. Add the numbers on them.",
+            "say": "3 is how many coins. Add what they're worth: 20, then 25, then 30. 30p."
+          },
+          "2": {
+            "mistake": "forgot one of the coins",
+            "hint": "Count again: there are two 5p coins.",
+            "say": "20 and 5 is 25, and another 5 makes 30p."
+          }
+        },
+        "reveal": "20p, 5p and 5p make 30p.",
+        "revealAnimation": [
+          {
+            "at": 0,
+            "action": "coins",
+            "coins": "20,5,5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "make-50",
+      "kind": "make",
+      "scene": {
+        "type": "diagram",
+        "preset": "coins",
+        "params": {
+          "coins": "",
+          "item": "Make 50p",
+          "price": 0
+        }
+      },
+      "narration": {
+        "text": "Now make 50p in different ways! Choose how many 20p coins to use, tap the hammer, and I'll make up the rest with smaller coins. How many ways can you find?"
+      },
+      "make": {
+        "mode": "coins",
+        "item": "block",
+        "total": 50,
+        "extra": 20,
+        "goal": 3
+      }
+    },
+    {
+      "id": "change",
+      "term": "change",
+      "question": {
+        "narration": {
+          "speaker": "robot",
+          "text": "Eggs cost 30p. A customer gave me a 50p coin. I gave her 30p back. Was that right?"
+        },
+        "prompt": "How much should the robot give back?",
+        "choices": [
+          "30p",
+          "20p",
+          "50p"
+        ],
+        "answer": 1,
+        "onRight": "Yes. 30 and 20 more makes 50. The money you give back is called change.",
+        "wrong": {
+          "0": {
+            "mistake": "gave back the price instead of the difference",
+            "hint": "The eggs cost 30p. How much more than 30 is 50?",
+            "say": "30p is the price. Count up from 30 to 50: 40, 50. That's 20p to give back."
+          },
+          "2": {
+            "mistake": "gave back everything",
+            "hint": "If she gets all 50p back, did she pay for the eggs?",
+            "say": "Then she'd get the eggs for free! Count up from 30 to 50: 20p back."
+          }
+        },
+        "reveal": "20p change. The money you get back is called change.",
+        "revealAnimation": [
+          {
+            "at": 0,
+            "action": "coins",
+            "coins": "20",
+            "item": "Change"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Add what the coins are worth. Change is what you get back.",
+        "ask": "Can you say how to work out change? Say it out loud. Then tap the eye.",
+        "spoken": "Add up what the coins are worth, not how many coins. And change is the money you get back: count up from the price to what you paid."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: how many ways can you make 10p?",
+    "choices": [
+      "About 3",
+      "About 11",
+      "About 50"
+    ],
+    "answer": 1,
+    "reveal": "11 ways, using 10p, 5p, 2p and 1p coins! Try finding them with real coins."
+  }
+}

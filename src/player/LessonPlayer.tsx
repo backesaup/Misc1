@@ -20,6 +20,7 @@ import { RobotAvatar } from '@/components/RobotAvatar'
 import ClickSpark, { type ClickSparkHandle } from '@/components/vendor/reactbits/ClickSpark'
 import CountUp from '@/components/vendor/reactbits/CountUp'
 import VerticalCutReveal from '@/components/vendor/fancy/vertical-cut-reveal'
+import { coinsFor } from '@/scenes/diagram/Coins'
 import { MicButton } from '@/components/MicButton'
 import { matchChoice } from '@/lib/spoken'
 
@@ -187,7 +188,7 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
         const m = s.make
         const d0 = startDial(m)
         const t0 = m.mode === 'pairs' ? (m.min ?? 2) : m.mode === 'stairs' ? (d0 * (d0 + 1)) / 2 : m.mode === 'square' ? d0 * d0 : m.total
-        cur.def.applyParams?.(cur.ctrl, { mode: m.mode, item: m.item, total: t0, extra: m.extra ?? 3, choice: m.mode === 'stairs' || m.mode === 'square' ? d0 : 0, ...(m.mode === 'balance' ? { fives: 0, ones: 0 } : {}), ...(m.mode === 'every' ? { every: 0 } : {}) })
+        cur.def.applyParams?.(cur.ctrl, { mode: m.mode, ...(['balance', 'every', 'cut', 'coins'].includes(m.mode) ? {} : { item: m.item }), total: t0, extra: m.extra ?? 3, choice: m.mode === 'stairs' || m.mode === 'square' ? d0 : 0, ...(m.mode === 'balance' ? { fives: 0, ones: 0 } : {}), ...(m.mode === 'every' ? { every: 0 } : {}) })
         cur.ctrl.values.shown = 0
         gsap.to(cur.ctrl.values, { shown: cur.ctrl.values.total, duration: reducedMotion ? 0.001 : 1.6, ease: 'power1.inOut' })
         setMade({ found: [], tried: false, dial: startDial(m) })
@@ -248,6 +249,7 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
     if (m.mode === 'balance') Object.assign(ctrl.values, { left: m.total, fives: n, ones: m.total - 5 * n })
     if (m.mode === 'every') Object.assign(ctrl.values, { every: n, every2: 0 })
     if (m.mode === 'cut') Object.assign(ctrl.values, { parts: n, shaded: 1, unfair: 0, compare: 0 })
+    if (m.mode === 'coins') ctrl.labels.coins = coinsFor(m.total, m.extra ?? 10, n).join(',')
     const r = makeResult(m, n)
     const isNew = r.counts && !made.found.includes(r.key)
     const found = isNew ? [...made.found, r.key] : made.found
@@ -647,7 +649,7 @@ function Choices({
             <button
               key={c}
               ref={(el) => void (refs.current[i] = el)}
-              className="choice"
+              className={cn('choice', c.length > 7 && 'long')}
               data-state={st}
               disabled={state.chosen !== null || state.tried.includes(i)}
               onClick={() => onChoose(i)}
@@ -743,6 +745,7 @@ function dialRange(m: Make): [number, number] {
   if (m.mode === 'balance') return [0, Math.floor(m.total / 5)]
   if (m.mode === 'every') return [2, m.max ?? 10]
   if (m.mode === 'cut') return [1, m.max ?? 8]
+  if (m.mode === 'coins') return [0, Math.floor(m.total / Math.max(1, m.extra ?? 10))]
   if (m.mode === 'pairs') return [m.min ?? 2, m.max ?? 20]
   if (m.mode === 'split') return [0, m.total]
   if (m.mode === 'tens') return [0, Math.floor(m.total / 10)]
@@ -755,10 +758,11 @@ function startDial(m: Make) {
   if (m.mode === 'balance') return 0
   if (m.mode === 'every') return 2
   if (m.mode === 'cut') return 2
+  if (m.mode === 'coins') return 0
   if (m.mode === 'split' || m.mode === 'share') return 1
   return dialRange(m)[0] + (m.mode === 'rows' ? 1 : 0)
 }
-const UNIT: Record<Make['mode'], string> = { rows: 'rows', pairs: 'animals', split: 'in this field', tens: 'tens', share: 'each', stairs: 'steps', square: 'long', groups: 'groups', line: 'units', balance: 'fives', every: 'count in', cut: 'parts' }
+const UNIT: Record<Make['mode'], string> = { rows: 'rows', pairs: 'animals', split: 'in this field', tens: 'tens', share: 'each', stairs: 'steps', square: 'long', groups: 'groups', line: 'units', balance: 'fives', every: 'count in', cut: 'parts', coins: 'big coins' }
 const w = (k: string) => commonLine(k)
 
 /** What his choice made, as a label for the "found" list and the words to say. */
@@ -791,6 +795,10 @@ export function makeResult(m: Make, n: number): { key: string; counts: boolean; 
   }
   if (m.mode === 'line') return { key: `${n} long`, counts: true, say: [numberLine(n), w(n === 1 ? 'w-unit-long' : 'w-units-long')] }
   if (m.mode === 'every') return { key: `in ${n}s`, counts: true, say: [w('w-counting-in'), numberLine(n), w('w-pattern')] }
+  if (m.mode === 'coins') {
+    const list = coinsFor(T, m.extra ?? 10, n)
+    return { key: list.map((c) => (c >= 100 ? `£${c / 100}` : `${c}p`)).join(' + '), counts: true, say: [numberLine(list.length), w('w-coins-make'), numberLine(T), w('w-pence')] }
+  }
   if (m.mode === 'cut') return { key: `${n} parts`, counts: true, say: [numberLine(n), w(n === 1 ? 'w-whole' : 'w-equal-parts')] }
   if (m.mode === 'balance') {
     const ones = T - 5 * n

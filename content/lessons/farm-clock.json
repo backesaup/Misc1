@@ -1,0 +1,90 @@
+{
+  "id": "farm-clock",
+  "section": "maths",
+  "title": "The farm clock",
+  "cardArt": "maths",
+  "status": "ready",
+  "order": 27,
+  "_map": "The farm clock (Y1–2). Big idea: time to the hour, half hour, then 5 minutes; 60 minutes in an hour, 24 in a day. Creative: plan the robot's day on a clock: when do the animals eat?",
+  "_story": "The robot keeps feeding the animals at the wrong time because it can't read its clock. Ismaeel learns the two hands, o'clock and half past, counts minutes in 5s, then plans the robot's day.",
+  "_stepChain": "a clock has two hands → the short hand points to the hour → long hand at 12 means o'clock → half way round is half past → the long hand counts minutes: each number is 5 more (counting in 5s) → 60 minutes in an hour → the hands go round twice a day: 24 hours → plan the day",
+  "assumes": ["counting"],
+  "talk": [
+    { "ask": "Which hand tells you the hour?", "goodAnswer": "the short hand. The long hand shows the minutes." },
+    { "ask": "Why does the 3 on a clock mean 15 minutes?", "goodAnswer": "each number is 5 minutes more as the long hand goes round: 5, 10, 15." }
+  ],
+  "handsOn": "Draw a clock and plan your own day: what time do you wake up, eat lunch and go to bed? Check them on a real clock.",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "clock", "params": { "hour": 9, "minute": 0, "daynight": true } },
+      "narration": { "speaker": "robot", "text": "I fed the chickens at midnight, and the cows at a silly time too. Everyone's grumpy! I need to learn to read my clock." }
+    },
+    {
+      "id": "hands",
+      "narration": { "text": "A clock has two hands. The short hand points to the hour. When the long hand points straight up at the 12, it's exactly that hour. Short hand on 9, long hand on 12: it's 9 o'clock." },
+      "label": "9 o'clock"
+    },
+    {
+      "id": "half-past",
+      "term": "half past",
+      "narration": { "text": "Now the long hand goes half way round the clock, down to the 6. Half an hour has passed. We call this half past 9." },
+      "label": "half past 9",
+      "animation": [
+        { "at": 0.6, "action": "shade", "to": 0.5, "duration": 2 },
+        { "at": 0.6, "action": "time", "hour": 9, "minute": 30, "duration": 2 }
+      ]
+    },
+    {
+      "id": "minutes",
+      "narration": { "text": "The long hand counts minutes. Each number is 5 minutes more than the last: 5, 10, 15, 20, all the way to 60 at the top. So there are 60 minutes in one hour. That's counting in 5s!" },
+      "animation": [
+        { "at": 0, "action": "shade", "to": 0, "duration": 0.3 },
+        { "at": 0, "action": "labels", "minutes": true },
+        { "at": 0.4, "action": "time", "hour": 10, "minute": 0, "duration": 5 }
+      ]
+    },
+    {
+      "id": "read",
+      "question": {
+        "narration": { "text": "The robot feeds the sheep. Short hand on the 4, long hand on the 12." },
+        "prompt": "What time is it?",
+        "choices": ["12 o'clock", "4 o'clock", "Half past 4"],
+        "answer": 1,
+        "onRight": "Yes. The short hand shows the hour, 4, and the long hand on 12 means o'clock.",
+        "wrong": {
+          "0": { "mistake": "read the long hand as the hour", "hint": "Which hand tells the hour, the short one or the long one?", "say": "The long hand on 12 means o'clock. The short hand tells the hour: it's on the 4. So it's 4 o'clock." },
+          "2": { "mistake": "thinks half past when the long hand is at the top", "hint": "Half past is when the long hand points down at the 6. Where is it now?", "say": "For half past, the long hand points down to the 6. Here it points up at the 12, so it's 4 o'clock." }
+        },
+        "reveal": "4 o'clock: time for the sheep's dinner.",
+        "revealAnimation": [{ "at": 0, "action": "time", "hour": 16, "minute": 0, "activity": "Feed the sheep" }]
+      }
+    },
+    {
+      "id": "day",
+      "narration": { "text": "The short hand goes all the way round twice every day: once for the daytime, and once for the night. That makes 24 hours in a day." },
+      "animation": [{ "at": 0.6, "action": "time", "hour": 16, "minute": 0, "duration": 6 }]
+    },
+    {
+      "id": "plan",
+      "narration": { "speaker": "robot", "text": "Now help me plan my day! When should the chickens have breakfast? When do the cows go to sleep? Tell a grown-up your plan, and show the times on a clock." },
+      "animation": [{ "at": 0, "action": "time", "hour": 7, "minute": 0, "activity": "Chickens' breakfast" }]
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Short hand: hours. Long hand: minutes.",
+        "ask": "Can you say which hand tells the hour, and what half past means? Say it out loud. Then tap the eye.",
+        "spoken": "The short hand shows the hour, and the long hand shows the minutes. Half past means the long hand is half way round, on the 6."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: the long hand points to the 3. How many minutes past is that?",
+    "choices": ["3", "15", "30"],
+    "answer": 1,
+    "reveal": "15 minutes: 5, 10, 15. We call it quarter past, because it's a quarter of the way round."
+  }
+}

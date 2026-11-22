@@ -10,10 +10,13 @@ import { power } from './diagram/Power'
 import { balance } from './diagram/Balance'
 import { grid } from './diagram/Grid'
 import { fraction } from './diagram/Fraction'
+import { clock } from './diagram/Clock'
+import { coins } from './diagram/Coins'
+import { gauge } from './diagram/Gauge'
 
 export const scenes: Record<string, Record<string, SceneDef>> = {
   voxel: { blocks64, solarCube, disco, arrange },
-  diagram: { wiring, power, balance, grid, fraction },
+  diagram: { wiring, power, balance, grid, fraction, clock, coins, gauge },
 }
 
 export const sceneKey = (s: SceneRef) => `${s.type}:${s.preset}`

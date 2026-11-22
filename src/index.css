@@ -722,3 +722,7 @@ code { font-size: 0.92em; background: var(--paper-3); padding: 1px 6px; border-r
 .diagram-sign { font-family: var(--font-display); font-weight: 800; font-size: 40px; fill: var(--made); }
 .grid-num { font-family: var(--font-display); font-weight: 750; fill: var(--ink); }
 .diagram-num.big { font-size: 48px; }
+.clock-num { font-family: var(--font-display); font-weight: 800; font-size: 40px; fill: var(--ink); }
+.clock-min { font-family: var(--font-display); font-weight: 700; font-size: 24px; fill: var(--ink-2); }
+.coin-label { font-family: var(--font-display); font-weight: 800; fill: #2b2a33; }
+.choice.long { font-size: clamp(1.3rem, 3.6vw, 1.9rem); line-height: 1.1; padding: 8px 10px; }

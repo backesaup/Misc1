@@ -1,0 +1,80 @@
+{
+  "id": "filling-up",
+  "section": "maths",
+  "title": "Filling up",
+  "cardArt": "build",
+  "status": "ready",
+  "order": 25,
+  "_map": "Filling up (Y1–2). Big idea: capacity, how much a container holds, in ml and l. Creative: which container holds most? Guess, then fill. Design a container that holds exactly 10 buckets.",
+  "_story": "Water troughs for the animals. A tall thin one and a wide flat one: which holds more? The robot guesses the tall one. He guesses, then pours buckets to find out.",
+  "_stepChain": "how much a container holds → count buckets to fill it: that's capacity → tall looks big, but wide can hold more → guess then fill → litres → design a container for 10 buckets",
+  "assumes": ["counting", "unit"],
+  "requires": ["measure-with-anything"],
+  "talk": [
+    { "ask": "Does the tallest container always hold the most?", "goodAnswer": "no: a wide, low one can hold more. You have to fill them to find out." },
+    { "ask": "How did you measure how much each one held?", "goodAnswer": "by counting how many buckets filled it." }
+  ],
+  "handsOn": "In the bath, find a tall cup and a wide bowl. Guess which holds more, then fill each with a small cup and count. Were you right?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "gauge", "params": { "kind": "containers", "cap0": 6, "cap1": 8, "cap2": 0 } },
+      "narration": { "speaker": "robot", "text": "My animals are thirsty! I've got a tall trough and a wide trough. I'm sure the tall one holds more water, because it's so tall!" }
+    },
+    {
+      "id": "guess",
+      "question": {
+        "open": true,
+        "prompt": "Which do you think holds more?",
+        "choices": ["The tall one", "The wide one", "The same"],
+        "answer": 1,
+        "reveal": "Let's fill them and count buckets. Tall: 6 buckets. Wide: 8 buckets! The wide one holds more, even though it's shorter.",
+        "revealAnimation": [
+          { "at": 0, "action": "fill", "which": 0, "to": 6, "duration": 2.4 },
+          { "at": 2.6, "action": "fill", "which": 1, "to": 8, "duration": 3 }
+        ]
+      }
+    },
+    {
+      "id": "capacity",
+      "term": "capacity",
+      "narration": { "text": "How much a container can hold is called its capacity. We found capacity by counting buckets. Grown-ups use units called litres. A big bottle of water is about one litre." }
+    },
+    {
+      "id": "overflow",
+      "question": {
+        "narration": { "speaker": "robot", "text": "The tall trough holds 6 buckets. I'm going to pour in 9 buckets!" },
+        "prompt": "What will happen?",
+        "choices": ["It fills up exactly", "Water spills over", "It gets bigger"],
+        "answer": 1,
+        "onRight": "Yes. It only holds 6, so 3 buckets spill over the top.",
+        "wrong": {
+          "0": { "mistake": "forgot the capacity limit", "hint": "The tall trough holds 6 buckets. 9 is more than 6.", "say": "It only holds 6 buckets. After 6, it's full, so the other 3 spill out over the top." },
+          "2": { "mistake": "thinks containers stretch", "hint": "Can a wooden trough grow?", "say": "A trough can't grow. It holds 6 buckets, so the extra 3 spill out." }
+        },
+        "reveal": "Splash! 3 buckets spilled over.",
+        "revealAnimation": [{ "at": 0, "action": "set", "fill0": 9 }]
+      }
+    },
+    {
+      "id": "design",
+      "narration": { "text": "Challenge: design a trough that holds exactly 10 buckets. It could be tall and thin, or wide and flat, or anything in between. Draw it, or build it from Lego and test it with water!" }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Capacity is how much a container holds.",
+        "ask": "Can you say why the wide trough held more than the tall one? Say it out loud. Then tap the eye.",
+        "spoken": "Capacity is how much a container holds. Tall doesn't always mean more. Fill it and count to find out."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: a 3 by 3 by 3 tank. If each bucket fills one block of space, how many buckets?",
+    "choices": ["9", "27", "33"],
+    "answer": 1,
+    "reveal": "27 buckets! One layer is 9, and 3 layers make 27. That's volume, a cube number you know."
+  }
+}

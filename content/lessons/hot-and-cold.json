@@ -1,0 +1,83 @@
+{
+  "id": "hot-and-cold",
+  "section": "maths",
+  "title": "Hot and cold",
+  "cardArt": "maths",
+  "status": "ready",
+  "order": 26,
+  "_map": "Hot and cold (Y2). Big idea: temperature in °C. Creative: find the hottest and coldest places on the farm with a thermometer tool; where is it 0 °C?",
+  "_story": "The robot takes a thermometer round the farm: freezer, frozen pond, barn, sunny field, oven. Ismaeel predicts each one, sees the red line move, and finds where it's 0 degrees.",
+  "_stepChain": "hot and cold → a thermometer measures how hot: temperature → the red line goes up when hot → degrees → 0 is where water freezes → below zero is colder still (link: zero) → predict and test",
+  "assumes": ["counting", "zero"],
+  "requires": ["what-is-zero"],
+  "talk": [
+    { "ask": "What happens to the line in a thermometer when it gets hotter?", "goodAnswer": "it goes up." },
+    { "ask": "What happens to water at 0 degrees?", "goodAnswer": "it freezes into ice." }
+  ],
+  "handsOn": "If you have a thermometer, measure the fridge, a sunny window and a bowl of warm water. Put them in order from coldest to hottest.",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "gauge", "params": { "kind": "thermometer", "temp": 12, "place": 2 } },
+      "narration": { "speaker": "robot", "text": "I've got a new tool: a thermometer! Let's take it round the farm and find the hottest and coldest places." }
+    },
+    {
+      "id": "temperature",
+      "term": "temperature",
+      "narration": { "text": "How hot or cold something is, is called its temperature. When it's hotter, the red line goes up. When it's colder, it goes down. In the barn, it says 12 degrees." }
+    },
+    {
+      "id": "field",
+      "question": {
+        "open": true,
+        "narration": { "text": "Now we carry it out into the sunny field." },
+        "prompt": "Will the line go up or down?",
+        "choices": ["Up", "Down"],
+        "answer": 0,
+        "reveal": "Up! 24 degrees. The sunny field is warmer than the barn.",
+        "revealAnimation": [{ "at": 0, "action": "place", "place": 3 }]
+      }
+    },
+    {
+      "id": "zero",
+      "narration": { "text": "Now the frozen pond. Down, down, down, to 0 degrees. Zero is where water freezes into ice." },
+      "animation": [{ "at": 1, "action": "place", "place": 1 }]
+    },
+    {
+      "id": "freezer",
+      "question": {
+        "narration": { "speaker": "robot", "text": "And now the freezer. It's colder than ice. But zero is the lowest number, so it must say zero again!" },
+        "prompt": "Can it be colder than zero?",
+        "choices": ["Yes", "No"],
+        "answer": 0,
+        "onRight": "Yes. The line can go below zero. The freezer is minus 5 degrees.",
+        "wrong": {
+          "1": { "mistake": "thinks zero is the lowest possible temperature", "hint": "Look at the thermometer. Are there marks below zero?", "say": "The thermometer has marks below zero too. The freezer is 5 degrees below zero. We say minus 5." }
+        },
+        "reveal": "Minus 5 degrees. Colder than ice!",
+        "revealAnimation": [{ "at": 0, "action": "place", "place": 0 }]
+      }
+    },
+    {
+      "id": "oven",
+      "narration": { "text": "And the hottest place on the farm: the oven! 180 degrees. That's far too hot to touch. Our thermometer can't even show it." },
+      "animation": [{ "at": 1, "action": "place", "place": 4 }]
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Temperature tells how hot. Water freezes at 0°.",
+        "ask": "Can you say what a thermometer does, and what happens at 0 degrees? Say it out loud. Then tap the eye.",
+        "spoken": "A thermometer measures temperature, how hot or cold something is. Water freezes at zero degrees, and it can get even colder than that."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: water boils, making steam, at about…",
+    "choices": ["30 degrees", "100 degrees", "1000 degrees"],
+    "answer": 1,
+    "reveal": "About 100 degrees. Freezing at 0, boiling at 100."
+  }
+}

@@ -13,5 +13,8 @@ export const sceneCatalog = {
     balance: ['set', 'signs', 'addOnes'],
     grid: ['every', 'cells', 'mirror', 'robot', 'cards'],
     fraction: ['cut'],
+    clock: ['time', 'shade', 'labels'],
+    coins: ['coins'],
+    gauge: ['place', 'fill', 'set'],
   },
 } satisfies Record<string, Record<string, string[]>>

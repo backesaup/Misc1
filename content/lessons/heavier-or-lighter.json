@@ -1,0 +1,72 @@
+{
+  "id": "heavier-or-lighter",
+  "section": "maths",
+  "title": "Heavier or lighter",
+  "cardArt": "maths",
+  "status": "ready",
+  "order": 24,
+  "_map": "Heavier or lighter (Y1–2). Big idea: mass is measured with a balance, in g and kg. Creative: balance a pumpkin using different mixes of weights.",
+  "_story": "The robot grew a giant pumpkin and wants to know how heavy it is for the farm show. Big things aren't always heavy (a huge balloon!). Ismaeel balances the pumpkin with kilogram weights.",
+  "_stepChain": "a balance (balance-the-scale) → heavier goes down → big isn't always heavy → weights measure how heavy: kilograms → balance the pumpkin with 5 kg and 1 kg weights → small things in grams",
+  "assumes": ["counting", "greater than", "less than", "unit"],
+  "requires": ["balance-the-scale", "measure-with-anything"],
+  "talk": [
+    { "ask": "How did you find out how heavy the pumpkin was?", "goodAnswer": "put it on a balance and added kilogram weights until it balanced." },
+    { "ask": "Is something big always heavy?", "goodAnswer": "no: a big balloon is very light, and a small stone can be heavy." }
+  ],
+  "handsOn": "Hold a bag of sugar (1 kilogram) in one hand and a teddy in the other. Which is heavier? Then find something at home that feels about 1 kilogram.",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "balance", "params": { "left": 7, "fives": 0, "ones": 0, "pumpkin": true, "unit": 2 } },
+      "narration": { "speaker": "robot", "text": "Look at my giant pumpkin! I want to enter it in the farm show. But they ask: how heavy is it?" }
+    },
+    {
+      "id": "big",
+      "question": {
+        "open": true,
+        "narration": { "text": "Here's a puzzle first. A big floaty balloon, and a small stone." },
+        "prompt": "Which is heavier?",
+        "choices": ["Big balloon", "Small stone"],
+        "answer": 1,
+        "reveal": "The small stone! Big things aren't always heavy. To find out how heavy something is, you need to weigh it."
+      }
+    },
+    {
+      "id": "kg",
+      "term": "kilogram",
+      "narration": { "text": "We weigh things with a balance, using weights that everyone agrees on. A bag of sugar is about one kilogram. These blocks are kilogram weights." }
+    },
+    {
+      "id": "make-balance",
+      "kind": "make",
+      "narration": { "text": "Balance the pumpkin! Use big 5-kilogram weights and small 1-kilogram weights. Choose how many big ones, tap the hammer, and see how many small ones it takes." },
+      "make": { "mode": "balance", "item": "block", "total": 7, "goal": 2 }
+    },
+    {
+      "id": "result",
+      "narration": { "speaker": "robot", "text": "It balances with 7 kilograms! My pumpkin is 7 kilograms. That's about 7 bags of sugar!" },
+      "label": "7 kg"
+    },
+    {
+      "id": "grams",
+      "narration": { "text": "Small things, like a strawberry, are much lighter than a kilogram. We weigh those in grams. 1000 grams make one kilogram." }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "A balance measures how heavy. Big isn't always heavy.",
+        "ask": "Can you say how we found out how heavy the pumpkin was? Say it out loud. Then tap the eye.",
+        "spoken": "We measure how heavy things are with a balance, in kilograms and grams. And big things aren't always heavy."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: how many kilograms do you think you weigh?",
+    "choices": ["About 5", "About 20", "About 100"],
+    "answer": 1,
+    "reveal": "Most 5-year-olds weigh about 18 to 22 kilograms. That's about 20 bags of sugar!"
+  }
+}

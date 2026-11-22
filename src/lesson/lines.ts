@@ -86,6 +86,8 @@ Object.assign(COMMON_LINES, {
   'w-pattern': 'Look at the pattern it makes.',
   'w-equal-parts': 'equal parts.',
   'w-whole': 'whole, with no cuts.',
+  'w-coins-make': 'coins make',
+  'w-pence': 'pence.',
   'w-unit-long': 'unit long.',
   'new-way': 'A new way!',
   'found-before': 'You found that one already. Try another number.',
