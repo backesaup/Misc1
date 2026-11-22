@@ -20,36 +20,36 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "nature", "params": { "view": "pots" } },
-      "narration": { "speaker": "steve", "text": "I planted three seeds. One gets water and light. One gets no water. One gets water, but lives in a dark cupboard." }
+      "narration": { "speaker": "steve", "text": "I planted three seeds! One gets water and sunshine. One gets no water at all. And one gets water, but lives in a dark cupboard!" }
     },
     {
       "id": "fair",
       "term": "fair test",
-      "narration": { "text": "Each pot is the same, except for one thing. Changing only one thing at a time is called a fair test. That way we know what made the difference." }
+      "narration": { "text": "The pots are all the same, except for one thing. Changing only one thing at a time is called a fair test. That way, we know exactly what made the difference!" }
     },
     {
       "id": "predict",
       "question": {
         "open": true,
-        "prompt": "Which seed do you think will grow best?",
+        "prompt": "Which seed will grow best?",
         "choices": ["Water + light", "No water", "Dark"],
         "answer": 0,
-        "reveal": "Let's speed up time and watch. Water and light: tall and green! No water: hardly anything. In the dark: it grew, but it's pale and floppy, stretching to find light.",
+        "reveal": "Let's speed up time and watch! Whoosh! Water and sunshine: tall and green! No water: hardly anything. In the dark: it grew, but it's pale and floppy, stretching to find the light.",
         "revealAnimation": [{ "at": 0.4, "action": "grow", "duration": 5 }]
       }
     },
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "steve", "text": "The dark one grew a bit! So plants don't really need light." },
+        "narration": { "speaker": "steve", "text": "The dark one grew a bit! So plants don't really need light! Ha!" },
         "prompt": "Does the dark seed show plants don't need light?",
         "choices": ["Yes", "No"],
         "answer": 1,
-        "onRight": "Yes, you looked closely. It's pale and weak. It used up the food in the seed, but it can't make more without light.",
+        "onRight": "Yes, you looked closely! It's pale and weak. It used up the food packed inside the seed. But it can't make more without light.",
         "wrong": {
-          "0": { "mistake": "only looked at whether it grew, not how well", "hint": "Compare the dark one with the one in the light. Is it as strong and green?", "say": "It grew a little using the food stored in the seed. But it's pale and floppy. Without light, its leaves can't make more food, so it won't last." }
+          "0": { "mistake": "only looked at whether it grew, not how well", "hint": "Compare the dark one with the one in the light. Is it as strong and green?", "say": "It grew a little, using the food packed inside the seed. But look, it's pale and floppy! Without light, its leaves can't make more food. So it won't last." }
         },
-        "reveal": "Plants need light to stay strong and green."
+        "reveal": "Plants need light to stay strong and green!"
       }
     },
     {
@@ -57,16 +57,16 @@
       "kind": "rule",
       "rule": {
         "text": "Seeds need water, light and warmth to grow well.",
-        "ask": "Can you say what a seed needs, and what a fair test is? Say it out loud. Then tap the eye.",
+        "ask": "What does a seed need? And what's a fair test? Say it out loud! Then tap the eye.",
         "spoken": "Seeds need water, light and warmth to grow well. A fair test changes only one thing at a time."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: what if we put a watered seed in the freezer?",
+    "prompt": "Bonus! What if we put a watered seed in the freezer?",
     "choices": ["Grows fast", "Doesn't grow", "Grows pale"],
     "answer": 1,
-    "reveal": "It won't grow. Seeds need the right temperature too: not too cold."
+    "reveal": "Brrr! It won't grow. Seeds need to be warm enough too."
   }
 }

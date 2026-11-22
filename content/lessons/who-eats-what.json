@@ -20,38 +20,38 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "pens", "params": { "mode": "sort", "zones": "h:Plants only|c:Meat only|o:Both", "items": "r:rabbit:Rabbit:|s:squirrel:Squirrel:|c1:cat:Cat:|d:dog:Dog:|b:chicken:Hen:|t:turtle:Tortoise:" } },
-      "narration": { "speaker": "steve", "text": "Feeding time! I've got grass, bones and a big bucket of everything. Who gets what?" }
+      "narration": { "speaker": "steve", "text": "Feeding time! Yum! I've got grass, bones, and a big bucket of everything. Who gets what?" }
     },
     {
       "id": "herbivore",
       "term": "herbivore",
-      "narration": { "text": "Rabbits and tortoises only eat plants: grass, carrots, leaves. An animal that only eats plants is called a herbivore." },
+      "narration": { "text": "Rabbits and tortoises only eat plants. Grass, carrots and leaves! Munch, munch! An animal that only eats plants is called a herbivore." },
       "animation": [{ "at": 0.6, "action": "move", "id": "r", "zone": "h" }, { "at": 1.4, "action": "move", "id": "t", "zone": "h" }]
     },
     {
       "id": "carnivore",
       "term": "carnivore",
-      "narration": { "text": "Cats are hunters, and eat meat. An animal that eats meat is called a carnivore." },
+      "narration": { "text": "Cats are hunters! They eat meat. An animal that eats meat is called a carnivore." },
       "animation": [{ "at": 0.6, "action": "move", "id": "c1", "zone": "c" }]
     },
     {
       "id": "omnivore",
       "term": "omnivore",
-      "narration": { "text": "Dogs, hens and squirrels can eat plants and meat or bugs. An animal that eats both is called an omnivore." },
+      "narration": { "text": "Dogs, hens and squirrels can eat plants, and meat or bugs too! An animal that eats both is called an omnivore." },
       "animation": [{ "at": 0.6, "action": "move", "id": "d", "zone": "o" }, { "at": 1.4, "action": "move", "id": "b", "zone": "o" }, { "at": 2.2, "action": "move", "id": "s", "zone": "o" }]
     },
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "steve", "text": "The rabbit looks hungry. I'll give it a big juicy bone!" },
+        "narration": { "speaker": "steve", "text": "The rabbit looks hungry! I'll give it a big, juicy bone!" },
         "prompt": "Is a bone good food for a rabbit?",
         "choices": ["Yes", "No"],
         "answer": 1,
-        "onRight": "Yes, you remembered. A rabbit is a herbivore: it needs plants, like grass and carrots.",
+        "onRight": "Yes, you remembered! A rabbit is a herbivore. It needs plants, like grass and carrots.",
         "wrong": {
-          "0": { "mistake": "forgot which group the rabbit was in", "hint": "Which group did the rabbit go in?", "say": "The rabbit is a herbivore. It only eats plants, so a bone is no good. Give it grass or a carrot." }
+          "0": { "mistake": "forgot which group the rabbit was in", "hint": "Which pen did the rabbit go in?", "say": "The rabbit is a herbivore! It only eats plants, so a bone is no good. Give it some grass, or a crunchy carrot." }
         },
-        "reveal": "Grass and carrots for the rabbit!",
+        "reveal": "Grass and carrots for the rabbit! Crunch!",
         "revealAnimation": [{ "at": 0, "action": "hot", "id": "r" }]
       }
     },
@@ -60,16 +60,16 @@
       "kind": "rule",
       "rule": {
         "text": "Herbivores: plants. Carnivores: meat. Omnivores: both.",
-        "ask": "Can you say what a herbivore, a carnivore and an omnivore eat? Say it out loud. Then tap the eye.",
+        "ask": "What do herbivores, carnivores and omnivores eat? Say it out loud! Then tap the eye.",
         "spoken": "Herbivores eat plants. Carnivores eat meat. Omnivores eat both."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: a cow eats grass all day. What is it?",
+    "prompt": "Bonus! A cow eats grass all day long. What is it?",
     "choices": ["Herbivore", "Carnivore", "Omnivore"],
     "answer": 0,
-    "reveal": "A herbivore! Cows only eat plants."
+    "reveal": "A herbivore! Cows only eat plants. Moo!"
   }
 }

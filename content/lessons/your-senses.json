@@ -19,48 +19,48 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "board", "params": { "mode": "chain", "items": "e:eye:Seeing:|a:ear:Hearing:|h:hand:Touching:" } },
-      "narration": { "speaker": "steve", "text": "I've only got camera eyes. But people know so much about the world! How do you find things out?" }
+      "narration": { "speaker": "steve", "text": "Ismaeel, how do you find out about the world? In my game, I mostly look around. But you can find out so much more! How?" }
     },
     {
       "id": "sense",
       "term": "sense",
-      "narration": { "text": "You see with your eyes, hear with your ears, and touch with your skin, especially your hands. Each way of finding out about the world is called a sense." }
+      "narration": { "text": "You see with your eyes. Blink blink! You hear with your ears. And you feel things with your skin, especially your fingers! Each way of finding out about the world is called a sense." }
     },
     {
       "id": "five",
       "question": {
-        "narration": { "text": "There are two more: smelling, with your nose, and tasting, with your tongue." },
+        "narration": { "text": "There are two more! Smelling, with your nose. Sniff sniff! And tasting, with your tongue. Yum!" },
         "prompt": "How many senses is that altogether?",
         "choices": ["3", "5", "10"],
         "answer": 1,
-        "onRight": "Yes. Seeing, hearing, touching, smelling and tasting: 5 senses.",
+        "onRight": "Yes! Seeing, hearing, touching, smelling and tasting. 5 senses!",
         "wrong": {
-          "0": { "mistake": "counted only the first three", "hint": "Don't forget smelling and tasting.", "say": "Seeing, hearing, touching: that's 3. Add smelling and tasting: 5 senses." },
-          "2": { "mistake": "counted fingers or body parts, not senses", "hint": "Count the ways of sensing: see, hear, touch, smell, taste.", "say": "Count each sense once: seeing, hearing, touching, smelling, tasting. That's 5." }
+          "0": { "mistake": "counted only the first three", "hint": "Don't forget smelling and tasting!", "say": "Seeing, hearing, touching: that's 3. Add smelling and tasting: 5 senses!" },
+          "2": { "mistake": "counted fingers or body parts, not senses", "hint": "Count each one on your fingers: see, hear, touch, smell, taste.", "say": "Count each sense on your fingers: seeing, hearing, touching, smelling, tasting. That's 5!" }
         },
-        "reveal": "5 senses.",
+        "reveal": "5 senses!",
         "revealAnimation": [{ "at": 0, "action": "set", "items": "e:eye:See:|a:ear:Hear:|h:hand:Touch:|s:flower:Smell:|t:cherry:Taste:" }]
       }
     },
     {
       "id": "mystery",
-      "narration": { "speaker": "steve", "text": "Here's a game where you can't use your eyes: the mystery box. Feel it, shake it and listen, sniff it. Can you guess what's inside? Play it with a grown-up!" }
+      "narration": { "speaker": "steve", "text": "Here's a game where you can't use your eyes: the mystery box! Feel it. Shake it, and listen. Sniff it! Can you guess what's inside? Play it with a grown-up!" }
     },
     {
       "id": "rule",
       "kind": "rule",
       "rule": {
         "text": "5 senses: see, hear, touch, smell, taste.",
-        "ask": "Can you say your five senses? Say them out loud. Then tap the eye.",
+        "ask": "Can you say your five senses? Say them out loud! Then tap the eye.",
         "spoken": "We have five senses: seeing with our eyes, hearing with our ears, touching with our skin, smelling with our nose, and tasting with our tongue."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: why does food taste of less when you have a blocked nose?",
+    "prompt": "Bonus! Why does food taste of less when you have a blocked nose?",
     "choices": ["Smell helps taste", "Your tongue is tired", "Food changes"],
     "answer": 0,
-    "reveal": "Smell and taste work together! A lot of what we call taste is really smell."
+    "reveal": "Smell and taste work as a team! Lots of what we call taste is really smell."
   }
 }
