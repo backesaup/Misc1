@@ -20,53 +20,53 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "shapes", "params": { "view": "tiles", "tile": 0 } },
-      "narration": { "speaker": "steve", "text": "My barn floor is muddy! I want to cover it with tiles, with no gaps for mud to squelch through. Squares work perfectly." }
+      "narration": { "speaker": "steve", "text": "Yuck! My barn floor is all muddy! Squelch! I want to cover it with tiles, with no gaps for mud to squish through. Squares work perfectly!" }
     },
     {
       "id": "triangles",
-      "narration": { "text": "Triangles work too: point up, point down, point up. No gaps!" },
+      "narration": { "text": "Triangles work too! Point up, point down, point up. No gaps!" },
       "animation": [{ "at": 0.6, "action": "set", "tile": 1 }]
     },
     {
       "id": "circles",
       "question": {
-        "narration": { "speaker": "steve", "text": "Circles are my favourite. I'll use circles!" },
-        "prompt": "Will circles cover the floor with no gaps?",
+        "narration": { "speaker": "steve", "text": "Circles are my favourite! I'll use circles!" },
+        "prompt": "Will circles cover the floor, with no gaps?",
         "choices": ["Yes", "No"],
         "answer": 1,
-        "onRight": "Yes, you predicted it. Curved edges only touch at points, so gaps are left between them.",
+        "onRight": "Yes! Curvy edges only touch at tiny points. So there are gaps between them!",
         "wrong": {
-          "0": { "mistake": "hasn't pictured how curved edges meet", "hint": "Imagine pushing coins together on a table. Do they fit with no spaces?", "say": "Circles only touch at tiny points. There are always little gaps between them, where the mud would show." }
+          "0": { "mistake": "hasn't pictured how curved edges meet", "hint": "Imagine pushing coins together on a table. Do they fit with no spaces?", "say": "Circles only touch at tiny points. There are always little gaps between them, where the mud squishes through!" }
         },
-        "reveal": "Gaps everywhere! Mud would squelch through.",
+        "reveal": "Gaps everywhere! Squelch! Mud's coming through!",
         "revealAnimation": [{ "at": 0, "action": "set", "tile": 3 }]
       }
     },
     {
       "id": "tessellate",
       "term": "tessellate",
-      "narration": { "text": "Hexagons, with 6 sides, fit perfectly too. That's why bees build honeycomb from them. When a shape covers a floor with no gaps and no overlaps, we say it tessellates." },
+      "narration": { "text": "Hexagons, with 6 sides, fit perfectly too! That's why bees build honeycomb out of them. Buzz! When a shape covers a floor with no gaps, and no overlaps, we say it tessellates." },
       "animation": [{ "at": 0, "action": "set", "tile": 2 }]
     },
     {
       "id": "invent",
-      "narration": { "text": "Can you invent a new tile that tessellates? Here's a trick: start with a square, cut a bump out of one side, and stick it on the opposite side. It still fits with no gaps!" }
+      "narration": { "text": "Can you invent a brand new tile that tessellates? Here's a trick! Start with a square. Cut a bump out of one side, and stick it on the opposite side. It still fits, with no gaps!" }
     },
     {
       "id": "rule",
       "kind": "rule",
       "rule": {
         "text": "Shapes that tessellate fit with no gaps.",
-        "ask": "Can you say which shapes tessellate, and why circles don't? Say it out loud. Then tap the eye.",
+        "ask": "Which shapes tessellate? Why don't circles? Say it out loud! Then tap the eye.",
         "spoken": "Squares, triangles and hexagons tessellate: they fit together with no gaps. Circles don't, because they're curved."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: do shapes with 5 equal sides (pentagons) tessellate?",
+    "prompt": "Bonus! Do shapes with 5 equal sides tessellate?",
     "choices": ["Yes", "No"],
     "answer": 1,
-    "reveal": "Not regular ones! They leave gaps. But some stretched pentagons do tessellate. Mathematicians are still finding new ones."
+    "reveal": "Not the regular ones! They leave gaps. But some stretched 5-sided shapes do. Mathematicians are still finding new ones!"
   }
 }

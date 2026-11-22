@@ -43,13 +43,13 @@
       },
       "narration": {
         "speaker": "steve",
-        "text": "There's treasure buried on the farm! But I can only follow cards: forward, turn left, or turn right. Can you guide me?"
+        "text": "Psst! There's treasure buried on the farm! But I can only follow cards. Forward, turn left, or turn right. Ismaeel, can you guide me?"
       }
     },
     {
       "id": "forward",
       "narration": {
-        "text": "Forward moves Steve one square, the way he's facing. Forward, forward, forward."
+        "text": "The forward card moves Steve one square, the way he's facing. Forward, forward, forward! Stomp, stomp, stomp!"
       },
       "animation": [
         {
@@ -63,7 +63,7 @@
       "id": "quarter",
       "term": "quarter turn",
       "narration": {
-        "text": "Now turn right. Steve turns a quarter of the way round, on the spot, without moving square. That's called a quarter turn. Four quarter turns make a full turn, back where he started."
+        "text": "Now the turn right card. Steve turns a quarter of the way round, on the spot. He doesn't move square! Stand up and try it with me! That's called a quarter turn. Four quarter turns make a full turn, back where you started!"
       },
       "animation": [
         {
@@ -78,29 +78,29 @@
       "term": "program",
       "question": {
         "narration": {
-          "text": "A list of cards for Steve to follow is called a program. Steve is facing right, 3 squares away from the treasure."
+          "text": "A list of cards for Steve to follow is called a program. You're the programmer! Steve is facing right, 3 squares away from the treasure."
         },
-        "prompt": "Which program reaches the treasure?",
+        "prompt": "Which program gets to the treasure?",
         "choices": [
           "Forward 3",
           "Turn left, forward 3",
           "Forward 2"
         ],
         "answer": 0,
-        "onRight": "Yes. You planned it: 3 squares straight ahead.",
+        "onRight": "Yes! 3 squares straight ahead. Treasure!",
         "wrong": {
           "1": {
             "mistake": "turned when Steve was already facing the right way",
             "hint": "Which way is Steve facing right now? Is the treasure that way?",
-            "say": "Steve is already facing the treasure. Turning left would point him up, away from the treasure. He only needs to go forward 3."
+            "say": "Steve is already facing the treasure! Turning left would point him up, away from it. He only needs to go forward 3."
           },
           "2": {
             "mistake": "counted the squares wrong",
-            "hint": "Count the squares between Steve and the treasure.",
-            "say": "Count the squares: 1, 2, 3. Forward 2 stops one square short. It needs forward 3."
+            "hint": "Count the squares between Steve and the treasure!",
+            "say": "Count the squares with me: 1, 2, 3. Forward 2 stops one square short! It needs forward 3."
           }
         },
-        "reveal": "Forward, forward, forward. Treasure!",
+        "reveal": "Forward, forward, forward. Treasure! Ding!",
         "revealAnimation": [
           {
             "at": 0,
@@ -123,15 +123,15 @@
           "No"
         ],
         "answer": 1,
-        "onRight": "Yes, you found the bug: it should turn right, not left.",
+        "onRight": "Yes, you found the mistake! He should turn right, not left!",
         "wrong": {
           "0": {
             "mistake": "mixed up left and right",
-            "hint": "After going up, the treasure is to Steve's right. Which turn faces it that way?",
-            "say": "After going forward 3, the treasure is to the right. Turning left points Steve the wrong way, off the edge. Change the left card to right."
+            "hint": "After going up, the treasure is on Steve's right. Which turn faces him that way?",
+            "say": "After forward 3, the treasure is on the right. Turning left points Steve the wrong way, off the edge! Change the left card to right."
           }
         },
-        "reveal": "A mistake in a program is called a bug. Swap left for right, and it works.",
+        "reveal": "A mistake in a program is called a bug! Swap left for right, and it works!",
         "revealAnimation": [
           {
             "at": 0,
@@ -162,20 +162,20 @@
       "kind": "rule",
       "rule": {
         "text": "A program is a list of steps. Four quarter turns make a full turn.",
-        "ask": "Can you say what a program is? Say it out loud. Then tap the eye.",
+        "ask": "What's a program? Say it out loud! Then tap the eye.",
         "spoken": "A program is a list of steps for someone to follow, like Steve. A quarter turn is a quarter of the way round, and four make a full turn."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: facing up, Steve does two quarter turns to the right. Which way is he facing now?",
+    "prompt": "Bonus! Steve faces up, then does two quarter turns to the right. Which way is he facing now?",
     "choices": [
       "Right",
       "Down",
       "Up"
     ],
     "answer": 1,
-    "reveal": "Down! Two quarter turns make a half turn: Steve faces the opposite way."
+    "reveal": "Down! Two quarter turns make a half turn. Steve faces the opposite way!"
   }
 }
