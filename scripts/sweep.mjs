@@ -7,7 +7,7 @@ const base = process.argv[2] ?? 'http://127.0.0.1:5173'
 const lessons = readdirSync('content/lessons').filter((f) => f.endsWith('.json')).map((f) => JSON.parse(readFileSync('content/lessons/' + f, 'utf8')))
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] })
 const page = await browser.newPage({ viewport: { width: 810, height: 1080 }, hasTouch: true })
-await page.addInitScript(() => localStorage.setItem('blockwise:settings', JSON.stringify({ showDrafts: true, sounds: false })))
+await page.addInitScript(() => { try { localStorage.setItem('blockwise:settings', JSON.stringify({ showDrafts: true, sounds: false })) } catch { /* about:blank */ } })
 let current = ''
 const problems = []
 page.on('pageerror', (e) => problems.push(`${current}: ${e.message}`))
