@@ -20,25 +20,25 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "pens", "params": { "mode": "chain", "items": "s:sun:Sun:|g:wheat:Grass:|r:rabbit:Rabbit:|f:fox:Fox:" } },
-      "narration": { "speaker": "steve", "text": "I've been watching the fields. The rabbits eat grass, and a fox sometimes chases the rabbits. It's like a chain!" }
+      "narration": { "speaker": "steve", "text": "I've been watching the fields. The rabbits nibble the grass. And a sneaky fox chases the rabbits! It's like a chain!" }
     },
     {
       "id": "chain",
       "term": "food chain",
-      "narration": { "text": "The grass gets its energy from the sun. The rabbit eats the grass. The fox eats the rabbit. Energy passes along, from one to the next. This is called a food chain. It always starts with a plant." }
+      "narration": { "text": "First, a word: energy. Energy is the oomph that makes things go! Like the oomph in your legs when you run. Food gives animals energy. Now watch! The grass gets its energy from the sunshine. The rabbit eats the grass. The fox eats the rabbit. The energy passes along, one to the next. That's called a food chain. And it always starts with a plant!" }
     },
     {
       "id": "disappear",
       "question": {
-        "narration": { "speaker": "steve", "text": "Oh no, there's been no rain for weeks. The grass has dried up! The fox doesn't eat grass, so the fox will be fine." },
+        "narration": { "speaker": "steve", "text": "Oh no! There's been no rain for weeks, and the grass has dried up. Well, the fox doesn't eat grass. So the fox will be fine!" },
         "prompt": "Will the fox be fine?",
         "choices": ["Yes", "No"],
         "answer": 1,
-        "onRight": "Yes, you followed the chain. No grass, so fewer rabbits, so the fox goes hungry too.",
+        "onRight": "Yes, you followed the chain! No grass, so fewer rabbits. So the fox goes hungry too!",
         "wrong": {
-          "0": { "mistake": "only looked at what the fox eats directly", "hint": "What does the rabbit need? And what does the fox need?", "say": "The fox eats rabbits, and rabbits eat grass. With no grass, the rabbits go hungry and there are fewer of them. Then the fox has less to eat too." }
+          "0": { "mistake": "only looked at what the fox eats directly", "hint": "What does the rabbit need? And what does the fox need?", "say": "The fox eats rabbits, and rabbits eat grass. With no grass, the rabbits go hungry, and there are fewer of them. Then the fox has less to eat too!" }
         },
-        "reveal": "Everything along the chain needs the grass.",
+        "reveal": "Everyone along the chain needs the grass!",
         "revealAnimation": [{ "at": 0, "action": "move", "id": "g", "zone": "gone" }, { "at": 1.2, "action": "hot", "id": "f" }]
       }
     },
@@ -47,16 +47,16 @@
       "kind": "rule",
       "rule": {
         "text": "A food chain starts with a plant.",
-        "ask": "Can you say a food chain, and what happens if the plant disappears? Say it out loud. Then tap the eye.",
+        "ask": "Say a food chain! What happens if the plant disappears? Say it out loud! Then tap the eye.",
         "spoken": "A food chain shows who eats what. It starts with a plant, which gets energy from the sun. If the plant disappears, everything along the chain goes hungry."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: what's at the start of a food chain in the sea?",
+    "prompt": "Bonus! What's at the start of a food chain in the sea?",
     "choices": ["Sharks", "Tiny plants", "Fish"],
     "answer": 1,
-    "reveal": "Tiny plants, so small you can't see them, floating in the water. Little fish eat them, and bigger fish eat those."
+    "reveal": "Tiny plants, too small to see, floating in the water! Little fish eat them, and bigger fish eat those. Gulp!"
   }
 }

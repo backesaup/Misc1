@@ -20,48 +20,48 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "pens", "params": { "mode": "chain", "items": "a:chick:Chick:|b:chicken:Hen:" } },
-      "narration": { "speaker": "steve", "text": "It's spring, and there are babies everywhere! Little chicks, woolly lambs, and wriggly things in the pond. Which baby grows into which grown-up?" }
+      "narration": { "speaker": "steve", "text": "It's spring, and there are babies everywhere! Fluffy chicks, woolly lambs, and wriggly things in the pond. Which baby grows into which grown-up?" }
     },
     {
       "id": "chick",
-      "narration": { "text": "A chick hatches from an egg, and grows into a hen. A lamb grows into a sheep. They look quite like their parents, only smaller." },
+      "narration": { "text": "A chick hatches from an egg. Crack! Then it grows into a hen. A lamb grows into a sheep. Baa! They look a lot like their parents, only smaller." },
       "animation": [{ "at": 4.4, "action": "set", "items": "a:baby:Lamb:|b:sheep:Sheep:" }]
     },
     {
       "id": "tadpole",
       "question": {
-        "narration": { "speaker": "steve", "text": "In the pond there are tiny black wriggly things with tails. They look like little fish. So they'll grow into big fish!" },
+        "narration": { "speaker": "steve", "text": "In the pond, there are tiny black wriggly things with tails. Wiggle wiggle! They look like little fish. So they'll grow into big fish!" },
         "prompt": "What do tadpoles grow into?",
         "choices": ["Big fish", "Frogs", "Ducks"],
         "answer": 1,
-        "onRight": "Yes. Tadpoles grow legs, lose their tails, and become frogs.",
+        "onRight": "Yes! Tadpoles grow legs, lose their tails, and become frogs! Ribbit!",
         "wrong": {
-          "0": { "mistake": "judged by how the baby looks now", "hint": "Some babies look very different from their parents. Which pond animal has a tail when it's young but not when it's grown?", "say": "Tadpoles look like fish at first, but they grow legs, lose their tails and hop out as frogs. They change more than any other farm baby." },
-          "2": { "mistake": "guessed another pond animal", "hint": "Ducklings hatch from eggs with feathers. Do tadpoles have feathers?", "say": "Ducks hatch as fluffy ducklings. Tadpoles grow legs and lose their tails to become frogs." }
+          "0": { "mistake": "judged by how the baby looks now", "hint": "Some babies look very different from their parents. Which pond animal has a tail when it's little, but not when it's grown up?", "say": "Tadpoles look like fish at first. But they grow legs, lose their tails, and hop out as frogs! They change more than any other baby on the farm." },
+          "2": { "mistake": "guessed another pond animal", "hint": "Ducklings hatch from eggs, with feathers. Do tadpoles have feathers?", "say": "Ducks hatch as fluffy ducklings. Tadpoles grow legs and lose their tails, and become frogs!" }
         },
-        "reveal": "Tadpole, then froglet, then frog. The biggest change of all!",
+        "reveal": "Tadpole, then froglet, then frog! The biggest change of all!",
         "revealAnimation": [{ "at": 0, "action": "set", "items": "a:frogspawn:Frogspawn:|b:tadpole:Tadpole:|c:froglet:Froglet:|d:frog:Frog:" }]
       }
     },
     {
       "id": "needs",
-      "narration": { "text": "Every baby animal needs the same things to grow: food, water, and air to breathe. And a grown-up to keep it safe." }
+      "narration": { "text": "Every baby animal needs the same things to grow: food, water, and air to breathe. And a grown-up to keep it safe. The same as you!" }
     },
     {
       "id": "rule",
       "kind": "rule",
       "rule": {
         "text": "Babies grow into adults. Some change a lot.",
-        "ask": "Can you say which baby changes the most as it grows? Say it out loud. Then tap the eye.",
+        "ask": "Which baby changes the most as it grows up? Say it out loud! Then tap the eye.",
         "spoken": "Animals have babies that grow into adults. Some look like their parents, and some, like tadpoles, change a lot. All of them need food, water and air."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: a caterpillar grows into…",
+    "prompt": "Bonus! A caterpillar grows into…",
     "choices": ["A worm", "A butterfly", "A snake"],
     "answer": 1,
-    "reveal": "A butterfly! It wraps itself up and comes out completely changed."
+    "reveal": "A butterfly! It wraps itself up tight, and comes out completely changed!"
   }
 }

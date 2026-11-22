@@ -20,12 +20,12 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "w:Window|r:Raincoat|b:Bridge", "items": "g:glasses:Glass:|p:umbrella:Plastic:|m:hammer:Metal:|wd:tree:Wood:|wl:shirt:Wool:" } },
-      "narration": { "speaker": "steve", "text": "I need three things: a raincoat for rainy days, a window for my shed, and a bridge over the stream. What should I make them from?" }
+      "narration": { "speaker": "steve", "text": "I need three things! A raincoat for rainy days, a window for my shed, and a bridge over the stream. What should I make them from?" }
     },
     {
       "id": "material",
       "term": "material",
-      "narration": { "text": "Everything is made of some stuff: wood, metal, plastic, glass, wool. The stuff something is made of is called its material. Each material has properties: it might be see-through, waterproof, strong or bendy." }
+      "narration": { "text": "Everything is made of some kind of stuff. Wood, metal, plastic, glass, wool! The stuff something is made of is called its material. And each material has its own powers. It might be see-through, or keep water out, or be strong, or bendy!" }
     },
     {
       "id": "window",
@@ -34,18 +34,18 @@
         "prompt": "What's the best material for a window?",
         "choices": ["Wood", "Glass", "Wool"],
         "answer": 1,
-        "onRight": "Yes. A window needs to be see-through, and glass is see-through.",
+        "onRight": "Yes! A window needs to be see-through, and glass is see-through!",
         "wrong": {
-          "0": { "mistake": "picked strength when the job needs see-through", "hint": "What does a window need to let in?", "say": "Wood is strong, but you can't see through it. A window lets light in, so it needs a see-through material: glass." },
-          "2": { "mistake": "picked a soft material that isn't see-through", "hint": "Can you see through wool? Does it keep rain out?", "say": "Wool isn't see-through, and rain soaks through it. Glass is see-through and keeps the rain out." }
+          "0": { "mistake": "picked strength when the job needs see-through", "hint": "What does a window need to let in?", "say": "Wood is strong, but you can't see through it! A window lets the light in. So it needs a see-through material: glass." },
+          "2": { "mistake": "picked a soft material that isn't see-through", "hint": "Can you see through wool? Does it keep the rain out?", "say": "Wool isn't see-through, and rain soaks right through it! Glass is see-through, and keeps the rain out." }
         },
-        "reveal": "Glass is see-through: perfect for a window.",
+        "reveal": "Glass is see-through. Perfect for a window!",
         "revealAnimation": [{ "at": 0, "action": "move", "id": "g", "zone": "w" }]
       }
     },
     {
       "id": "others",
-      "narration": { "text": "A raincoat needs to be waterproof and bendy, so plastic is good. A bridge needs to be strong, so metal or wood." },
+      "narration": { "text": "A raincoat needs to keep water out, and be bendy. So plastic is good! A bridge needs to be really strong. So metal, or wood!" },
       "animation": [{ "at": 0.6, "action": "move", "id": "p", "zone": "r" }, { "at": 2.6, "action": "move", "id": "m", "zone": "b" }, { "at": 3.4, "action": "move", "id": "wd", "zone": "b" }]
     },
     {
@@ -53,16 +53,16 @@
       "kind": "rule",
       "rule": {
         "text": "Choose a material for its properties.",
-        "ask": "Can you say why a window is made of glass? Say it out loud. Then tap the eye.",
+        "ask": "Why is a window made of glass? Say it out loud! Then tap the eye.",
         "spoken": "Different materials have different properties. We choose a material that suits the job: glass to see through, plastic to keep rain out, metal to be strong."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: why are saucepans made of metal, with plastic handles?",
+    "prompt": "Bonus! Why are saucepans made of metal, with plastic handles?",
     "choices": ["Looks nice", "Metal heats, plastic doesn't", "It's cheaper"],
     "answer": 1,
-    "reveal": "Metal lets the heat through to cook the food, but a plastic handle stays cool to hold."
+    "reveal": "Metal lets the heat through, to cook the food. But a plastic handle stays cool to hold!"
   }
 }

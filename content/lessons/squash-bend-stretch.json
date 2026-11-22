@@ -20,11 +20,11 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "y:Springs back|c:Stays changed|n:Won't change", "items": "sp:box:Sponge:|el:gift:Elastic band:|pd:cookie:Play dough:|st:mountain:Stone:|sp2:key:Metal spoon:" } },
-      "narration": { "speaker": "steve", "text": "I want to build a trampoline! I need a material that bounces. Let's test some." }
+      "narration": { "speaker": "steve", "text": "I want to build a trampoline! Boing, boing! I need a material that bounces. Let's test some!" }
     },
     {
       "id": "test",
-      "narration": { "text": "Try squashing a sponge: it springs back. Stretch an elastic band: it springs back too. Squash play dough: it stays squashed. A stone won't change shape at all." },
+      "narration": { "text": "Squash a sponge: it springs back! Stretch an elastic band: it springs back too! Squash play dough: squish! It stays squashed. And a stone? It won't change shape at all!" },
       "animation": [
         { "at": 1.4, "action": "move", "id": "sp", "zone": "y" },
         { "at": 3.2, "action": "move", "id": "el", "zone": "y" },
@@ -36,7 +36,7 @@
     {
       "id": "elastic",
       "term": "elastic",
-      "narration": { "text": "A material that stretches or squashes, then springs back to its shape, is called elastic." }
+      "narration": { "text": "A material that stretches or squashes, then springs back to its shape, is called elastic. Boing!" }
     },
     {
       "id": "robot-mistake",
@@ -45,11 +45,11 @@
         "prompt": "Is metal good for a trampoline?",
         "choices": ["Yes", "No"],
         "answer": 1,
-        "onRight": "Yes, you thought about the job. A trampoline needs to stretch and spring back. Metal doesn't stretch: ouch!",
+        "onRight": "Yes! A trampoline needs to stretch and spring back. Metal doesn't stretch. Ouch!",
         "wrong": {
-          "0": { "mistake": "picked strength when the job needs stretch", "hint": "Does metal stretch and spring back when you jump?", "say": "Metal is strong, but it doesn't stretch. You'd land with a bump! A trampoline needs an elastic material that stretches and springs back." }
+          "0": { "mistake": "picked strength when the job needs stretch", "hint": "Does metal stretch and spring back when you jump on it?", "say": "Metal is strong, but it doesn't stretch. You'd land with a bump! Ouch! A trampoline needs an elastic material, that stretches and springs back." }
         },
-        "reveal": "An elastic material makes a bouncy trampoline."
+        "reveal": "An elastic material makes a bouncy trampoline! Boing!"
       }
     },
     {
@@ -57,16 +57,16 @@
       "kind": "rule",
       "rule": {
         "text": "Elastic materials spring back.",
-        "ask": "Can you say what elastic means? Say it out loud. Then tap the eye.",
+        "ask": "What does elastic mean? Say it out loud! Then tap the eye.",
         "spoken": "Some materials change shape when you squash, bend, twist or stretch them. Elastic ones spring back to their shape."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: why do bike tyres have air inside?",
+    "prompt": "Bonus! Why do bike tyres have air inside?",
     "choices": ["To make a bouncy, squashy ride", "To be heavy", "To look round"],
     "answer": 0,
-    "reveal": "The air squashes and springs back, so bumps don't hurt as much."
+    "reveal": "The air squashes and springs back, so bumps don't hurt as much!"
   }
 }

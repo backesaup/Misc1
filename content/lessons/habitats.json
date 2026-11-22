@@ -20,12 +20,12 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "pens", "params": { "mode": "sort", "zones": "p:Pond|b:Burrow|n:Nest", "items": "f:fish:Fish:n|r:rabbit:Rabbit:|bd:bird:Bird:|w:worm:Worm:|t:turtle:Turtle:" } },
-      "narration": { "speaker": "steve", "text": "New animals! I put the fish in a nest up a tree. It looks very uncomfortable. Hmm." }
+      "narration": { "speaker": "steve", "text": "More new animals! I put the fish in a nest, up a tree. Hmm. It doesn't look very happy. Flip flop!" }
     },
     {
       "id": "habitat",
       "term": "habitat",
-      "narration": { "text": "Every animal needs food, water and a safe place to shelter. The place an animal lives, where it gets what it needs, is called its habitat." }
+      "narration": { "text": "Every animal needs three things: food, water, and a safe place to hide and sleep. The place where an animal lives, and gets everything it needs, is called its habitat." }
     },
     {
       "id": "fish",
@@ -33,18 +33,18 @@
         "prompt": "Where should the fish live?",
         "choices": ["Pond", "Burrow", "Nest"],
         "answer": 0,
-        "onRight": "Yes. A fish needs water to breathe and swim.",
+        "onRight": "Yes! A fish needs water to breathe and swim. Splash!",
         "wrong": {
-          "1": { "mistake": "didn't think about what a fish needs", "hint": "What does a fish need to breathe and swim?", "say": "A burrow is dry soil. A fish needs water to breathe and swim. It belongs in the pond." },
-          "2": { "mistake": "didn't think about what a fish needs", "hint": "Can a fish breathe in a tree?", "say": "A nest has no water. A fish breathes in water, so it belongs in the pond." }
+          "1": { "mistake": "didn't think about what a fish needs", "hint": "What does a fish need, to breathe and swim?", "say": "A burrow is a dry hole in the soil. A fish needs water to breathe and swim! It belongs in the pond." },
+          "2": { "mistake": "didn't think about what a fish needs", "hint": "Can a fish breathe up a tree?", "say": "A nest has no water! A fish breathes in water, so it belongs in the pond." }
         },
-        "reveal": "Splash! The fish is happy in the pond.",
+        "reveal": "Splash! The fish is happy in the pond!",
         "revealAnimation": [{ "at": 0, "action": "move", "id": "f", "zone": "p" }]
       }
     },
     {
       "id": "others",
-      "narration": { "text": "The rabbit digs a burrow underground to hide from foxes. The bird builds a nest up high, safe for its eggs. The worm lives in the soil too. And the turtle likes the pond, with a rock to sunbathe on." },
+      "narration": { "text": "The rabbit digs a burrow underground, to hide from foxes. The bird builds a nest up high, to keep its eggs safe. The worm wriggles in the soil. And the turtle loves the pond, with a rock to sunbathe on. Ahh!" },
       "animation": [
         { "at": 0.6, "action": "move", "id": "r", "zone": "b" },
         { "at": 3, "action": "move", "id": "bd", "zone": "n" },
@@ -57,16 +57,16 @@
       "kind": "rule",
       "rule": {
         "text": "A habitat gives an animal what it needs.",
-        "ask": "Can you say what a habitat is? Say it out loud. Then tap the eye.",
+        "ask": "What's a habitat? Say it out loud! Then tap the eye.",
         "spoken": "A habitat is where an animal lives. It gives the animal food, water and shelter."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: a polar bear lives where it's icy. What helps it stay warm there?",
+    "prompt": "Bonus! A polar bear lives where it's icy. What helps it stay warm?",
     "choices": ["Thick fur", "Big ears", "Long tail"],
     "answer": 0,
-    "reveal": "Thick fur, and a layer of fat. Animals have features that suit their habitat."
+    "reveal": "Thick, fluffy fur, and a layer of fat! Animals have bodies that suit their habitat."
   }
 }
