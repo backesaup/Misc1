@@ -20,53 +20,53 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "balance", "params": { "left": 8, "fives": 0, "ones": 5 } },
-      "narration": { "speaker": "steve", "text": "This is my balance scale. I put 8 blocks on this side, and 5 blocks on that side. Whoa! It tipped right over!" }
+      "narration": { "speaker": "steve", "text": "This is my balance scale, for weighing things at the market. I put 8 blocks on this side, and 5 blocks on that side. Whoa! It tipped right over! Clunk!" }
     },
     {
       "id": "heavier",
-      "narration": { "text": "The side with more blocks is heavier, so it goes down. The side with fewer blocks goes up. Let's add blocks to the light side, one at a time, and watch." },
+      "narration": { "text": "The side with more blocks is heavier, so down it goes. The side with fewer blocks pops up. Let's add blocks to the light side, one at a time. Watch it move!" },
       "animation": [{ "at": 3.6, "action": "addOnes", "to": 8, "duration": 2.4 }]
     },
     {
       "id": "equal",
-      "narration": { "text": "8 and 8. Now it balances, perfectly flat. When both sides are the same, we use the equals sign: 8 equals 8." },
+      "narration": { "text": "8 and 8. Look! Now it's perfectly flat. That's called balancing. When both sides are the same, we use the equals sign. 8 equals 8." },
       "animation": [{ "at": 0.4, "action": "signs", "on": true }]
     },
     {
       "id": "greater",
       "term": "greater than",
-      "narration": { "text": "Now take some away from this side. 8 on the left, 5 on the right. The sign's wide open side faces the bigger amount, and its point faces the smaller one. This one means greater than: 8 is greater than 5." },
+      "narration": { "text": "Now let's take some away. 8 on this side, 5 on that side. Here's a new sign. It looks like a hungry crocodile's mouth! The mouth always opens towards the bigger number, because the crocodile wants to eat the most. Chomp! This sign means greater than. 8 is greater than 5." },
       "animation": [{ "at": 0.4, "action": "set", "ones": 5 }]
     },
     {
       "id": "less",
       "term": "less than",
-      "narration": { "text": "And the other way: 3 on the left, 6 on the right. The open side faces the 6. This one means less than: 3 is less than 6." },
+      "narration": { "text": "Now the other way round. 3 on this side, 6 on that side. The crocodile's mouth opens towards the 6! Chomp! When the mouth faces away, the sign means less than. 3 is less than 6." },
       "animation": [{ "at": 0.4, "action": "set", "left": 3, "ones": 6 }]
     },
     {
       "id": "make-balance",
       "kind": "make",
-      "narration": { "text": "Now a challenge. 15 blocks on the left. On the right you can use big blue 5-blocks and small yellow 1-blocks. Choose how many 5-blocks to use, tap the hammer, and I'll fill up the rest with 1-blocks. How many different ways can you balance it?" },
+      "narration": { "text": "Challenge time! 15 blocks on this side. On the other side, you can use big blue 5-blocks and little yellow 1-blocks. Pick how many 5-blocks, tap the hammer, and I'll fill up the rest with 1-blocks. How many ways can you balance it?" },
       "scene": { "type": "diagram", "preset": "balance", "params": { "left": 15, "fives": 0, "ones": 0, "signs": true } },
       "make": { "mode": "balance", "item": "block", "total": 15, "goal": 4 }
     },
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "steve", "text": "I wrote 8, then the sign, then 5. The point is next to the 8, so I'm saying 8 is less than 5!" },
+        "narration": { "speaker": "steve", "text": "I wrote 8, then the crocodile sign, then 5. The pointy end is next to the 8. So I'm saying 8 is less than 5! Right?" },
         "prompt": "Is Steve right that 8 is less than 5?",
         "choices": ["Yes", "No"],
         "answer": 1,
-        "onRight": "Yes, you caught it. 8 is more than 5, so the open side should face the 8.",
+        "onRight": "Yes, you caught him! 8 is more than 5, so the crocodile's mouth should open towards the 8!",
         "wrong": {
           "0": {
             "mistake": "reads the sign the wrong way round",
             "hint": "Which side would go down on the scale: 8 blocks or 5 blocks?",
-            "say": "8 blocks are heavier than 5, so the 8 side goes down. The open side of the sign faces the bigger number, 8. So 8 is greater than 5."
+            "say": "8 blocks are heavier than 5, so the 8 side goes down. The hungry crocodile wants the 8! So its mouth opens towards the 8. 8 is greater than 5."
           }
         },
-        "reveal": "8 is greater than 5. The open side faces the 8.",
+        "reveal": "8 is greater than 5. The crocodile's mouth opens towards the 8!",
         "revealAnimation": [{ "at": 0, "action": "set", "left": 8, "fives": 1, "ones": 0 }]
       }
     },
@@ -75,16 +75,16 @@
       "kind": "rule",
       "rule": {
         "text": "The open side faces the bigger amount.",
-        "ask": "Can you say how to tell which way round the sign goes? Say it out loud. Then tap the eye.",
-        "spoken": "Heavier goes down. The same balances, and that's equals. The open side of the sign faces the bigger amount."
+        "ask": "How do you know which way round the crocodile sign goes? Say it out loud! Then tap the eye.",
+        "spoken": "Heavier goes down. The same balances, and that's equals. The crocodile's mouth opens towards the bigger number."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: with 10-blocks, 5-blocks and 1-blocks, how many ways could you balance 20? Guess!",
+    "prompt": "Bonus! With 10-blocks, 5-blocks and 1-blocks, how many ways could you balance 20? Guess!",
     "choices": ["5", "9", "20"],
     "answer": 1,
-    "reveal": "9 ways! Adding a new size of block makes lots more mixes."
+    "reveal": "9 ways! A new size of block makes loads more mixes."
   }
 }

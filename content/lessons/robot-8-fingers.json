@@ -20,44 +20,44 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "groups", "item": "carrot", "total": 23, "extra": 10, "choice": 0, "robot": true } },
-      "narration": { "text": "Hold up your hands. How many fingers? 10! That's why people count in tens: 10 fingers, then start again with a new ten." },
+      "narration": { "text": "Ismaeel, hold up your hands! Wiggle your fingers! How many? 10! That's why people count in tens. 10 fingers, then we start again with a new ten." },
       "animation": [{ "at": 0, "action": "arrive", "duration": 2 }]
     },
     {
       "id": "tens",
-      "narration": { "text": "Here are 23 carrots. Bundled our way, that's 2 tens and 3 left over." },
+      "narration": { "text": "Here are 23 carrots. Let's bundle them in tens. 2 bundles of ten, and 3 left over!" },
       "label": "2 tens and 3",
       "animation": [{ "at": 1, "action": "set", "mode": "groups", "extra": 10, "choice": 2 }]
     },
     {
       "id": "robot-hands",
-      "narration": { "speaker": "steve", "text": "Let's pretend. In my blocky world, I've got 4 fingers on each hand, like lots of cartoon characters. That's 8 fingers. So I count in eights. 8 fingers, then I start again with a new bundle of 8." },
+      "narration": { "speaker": "steve", "text": "Now let's pretend. In my blocky world, I've only got 4 fingers on each hand, like lots of cartoon characters! Count them: 8 fingers. So I count in eights! 8 fingers, then I start again with a new bundle of 8." },
       "animation": [{ "at": 0, "action": "robot", "mood": "talk" }]
     },
     {
       "id": "make-eights",
       "kind": "make",
-      "narration": { "text": "Help Steve bundle the 23 carrots in eights. Choose how many bundles of 8, then tap the hammer." },
+      "narration": { "text": "Can you help Steve bundle the 23 carrots in eights? Pick how many bundles of 8, then tap the hammer." },
       "make": { "mode": "groups", "item": "carrot", "total": 23, "extra": 8, "goal": 3 }
     },
     {
       "id": "same",
       "question": {
-        "narration": { "speaker": "steve", "text": "I made 2 eights and 7. You made 2 tens and 3. We got different answers, so one of us has more carrots!" },
+        "narration": { "speaker": "steve", "text": "I made 2 eights and 7. You made 2 tens and 3. We got different answers! So one of us has more carrots. Is it me?" },
         "prompt": "Who has more carrots?",
         "choices": ["Me", "Same", "Steve"],
         "answer": 1,
-        "onRight": "Yes. They’re the same 23 carrots, bundled in different groups.",
+        "onRight": "Yes! It's the same 23 carrots, bundled in different groups.",
         "wrong": {
-          "0": { "mistake": "thinks bigger bundles mean more carrots", "hint": "Did any carrots get added or eaten? Or were they only bundled differently?", "say": "Nobody added or ate a carrot. Tens or eights, it's the same 23 carrots, bundled in a different way." },
-          "2": { "mistake": "thinks more bundles or a bigger left-over number means more", "hint": "Steve's 7 is bigger than our 3. But are his bundles the same size as ours?", "say": "Steve's bundles are smaller, eights not tens, so he has more left over. But it's still the same 23 carrots." }
+          "0": { "mistake": "thinks bigger bundles mean more carrots", "hint": "Did any carrots get added, or munched? Or were they only bundled differently?", "say": "Nobody added a carrot, and nobody munched one! Tens or eights, it's still the same 23 carrots." },
+          "2": { "mistake": "thinks more bundles or a bigger left-over number means more", "hint": "Steve's 7 is bigger than our 3. But are his bundles as big as ours?", "say": "Steve's bundles are smaller: eights, not tens. So he has more left over. But it's still the same 23 carrots!" }
         },
-        "reveal": "23 carrots either way. Counting in eights or tens are both good ways to count."
+        "reveal": "23 carrots either way! Counting in eights works, and counting in tens works too."
       }
     },
     {
       "id": "invent",
-      "narration": { "text": "Now it's your turn to invent. Imagine a creature with a different number of fingers. Maybe 3. Maybe 6. How would it bundle its carrots? Tell a grown-up about your creature." },
+      "narration": { "text": "Now you be the inventor! Imagine a funny creature with a different number of fingers. Maybe 3. Maybe 6! How would it bundle its carrots? Tell a grown-up all about your creature!" },
       "animation": [{ "at": 0, "action": "robot", "mood": "happy" }]
     },
     {
@@ -65,16 +65,16 @@
       "kind": "rule",
       "rule": {
         "text": "We count in tens because we have 10 fingers.",
-        "ask": "Can you say why we count in tens, and how Steve counts? Say it out loud. Then tap the eye.",
+        "ask": "Why do we count in tens? And how does Steve count? Say it out loud! Then tap the eye.",
         "spoken": "We count in tens because we have 10 fingers. Steve has 8 fingers, so he counts in eights. Both ways work."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: a creature with 5 fingers bundles in fives. How would it bundle 23 carrots?",
+    "prompt": "Bonus! A creature with 5 fingers bundles in fives. How would it bundle 23 carrots?",
     "choices": ["2 fives and 3", "4 fives and 3", "5 fives"],
     "answer": 1,
-    "reveal": "4 fives and 3. Five, ten, fifteen, twenty, and 3 more."
+    "reveal": "4 fives and 3! Five, ten, fifteen, twenty, and 3 more."
   }
 }

@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "split", "item": "sheep", "total": 10, "choice": 5, "robot": true } },
-      "narration": { "speaker": "steve", "text": "I built two fields with fresh grass! I've got 10 sheep. But I can't decide how many should go in each field. Will you help me try different ways?" },
+      "narration": { "speaker": "steve", "text": "Look, Ismaeel! I built two fields, full of yummy grass. And I've got 10 sheep. Baa! But how many should go in each field? I can't decide! Will you help me try different ways?" },
       "animation": [
         { "at": 0, "action": "arrive", "duration": 2 },
         { "at": 0, "action": "robot", "mood": "think" }
@@ -28,18 +28,18 @@
     {
       "id": "make-split",
       "kind": "make",
-      "narration": { "text": "Choose how many sheep go into the first field, then tap the hammer. The rest go into the other field. How many different ways can you find?" },
+      "narration": { "text": "Pick how many sheep go into the first field, then tap the hammer. The rest trot into the other field. How many different ways can you find?" },
       "make": { "mode": "split", "item": "sheep", "total": 10, "goal": 11 }
     },
     {
       "id": "bonds",
       "term": "number bonds",
-      "narration": { "text": "Every single way still makes 10 sheep. 4 and 6. 7 and 3. Even 0 and 10. Pairs of numbers that make 10 like this are called number bonds." },
+      "narration": { "text": "Here's something cool. Every way still makes 10 sheep! 4 and 6. 7 and 3. Even 0 and 10! Two numbers that make 10 together have a name. They're called number bonds." },
       "animation": [{ "at": 0, "action": "robot", "mood": "happy" }]
     },
     {
       "id": "pattern",
-      "narration": { "text": "Here's a pattern. Move one sheep from this field to that one. One field goes up by one, and the other goes down by one. So the total never changes." },
+      "narration": { "text": "Watch this pattern. One sheep hops from this field to that one. Hop! One field gets one more. The other gets one fewer. So altogether? Still 10!" },
       "animation": [
         { "at": 0.4, "action": "set", "choice": 6 },
         { "at": 2.2, "action": "set", "choice": 7 },
@@ -49,19 +49,19 @@
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "steve", "text": "I've got it! I put 6 sheep in the first field and 3 sheep in the other field. That's all 10 sheep!" },
+        "narration": { "speaker": "steve", "text": "I've got it! I put 6 sheep in the first field, and 3 sheep in the other field. That's all 10 sheep! Easy!" },
         "prompt": "Is Steve right?",
         "choices": ["Yes", "No"],
         "answer": 1,
-        "onRight": "Yes, you caught it. 6 and 3 make only 9, so one sheep is missing.",
+        "onRight": "Yes, you caught him! 6 and 3 only make 9. One sheep is missing!",
         "wrong": {
           "0": {
             "mistake": "didn't check that the two parts add back up to 10",
             "hint": "Count them up: 6, then 3 more. Do you get to 10?",
-            "say": "Count on from 6: 7, 8, 9. That's only 9 sheep. One sheep is still wandering about! With 6 in the first field, the other field needs 4."
+            "say": "Let's count on from 6 together: 7, 8, 9. Only 9! One sheep is still wandering off somewhere! With 6 in the first field, the other field needs 4."
           }
         },
-        "reveal": "6 and 4 make 10. Steve forgot one sheep!",
+        "reveal": "6 and 4 make 10. Steve forgot a sheep! Baa!",
         "revealAnimation": [
           { "at": 0, "action": "set", "choice": 6 },
           { "at": 0, "action": "robot", "mood": "sad" }
@@ -72,11 +72,11 @@
       "id": "guess-20",
       "question": {
         "open": true,
-        "narration": { "speaker": "steve", "text": "Oops, thank you! Now, I'm getting more sheep. 20 of them!" },
-        "prompt": "How many ways can 20 sheep go into two fields? Make a guess.",
+        "narration": { "speaker": "steve", "text": "Oops! Thanks, Ismaeel. Guess what? More sheep are coming. 20 of them!" },
+        "prompt": "How many ways can 20 sheep go into two fields? Make a guess!",
         "choices": ["11", "21", "40"],
         "answer": 1,
-        "reveal": "21 ways, from 0 and 20 all the way to 20 and 0. With 10 sheep there were 11 ways. With 20 sheep there are 21. Always one more than the number of sheep.",
+        "reveal": "21 ways! From 0 and 20, all the way to 20 and 0. 10 sheep had 11 ways. 20 sheep have 21 ways. Always one more than the number of sheep!",
         "revealAnimation": [
           { "at": 0, "action": "set", "mode": "split", "total": 20, "choice": 12 },
           { "at": 0, "action": "robot", "mood": "happy" }
@@ -88,16 +88,16 @@
       "kind": "rule",
       "rule": {
         "text": "Split 10 any way: the parts still make 10.",
-        "ask": "Can you say what stays the same, however you split the sheep? Say it out loud. Then tap the eye.",
+        "ask": "However you split the sheep, what stays the same? Say it out loud! Then tap the eye.",
         "spoken": "However you split 10, the two parts still make 10. Those pairs are called number bonds."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: what if there were three fields? Guess how many ways 10 sheep could go into three fields.",
+    "prompt": "Bonus! What if there were three fields? Guess how many ways 10 sheep could go!",
     "choices": ["30", "66", "100"],
     "answer": 1,
-    "reveal": "66 ways! One more field makes lots more ways. That's a puzzle mathematicians love."
+    "reveal": "66 ways! One more field makes loads more ways. Mathematicians love puzzles like this!"
   }
 }

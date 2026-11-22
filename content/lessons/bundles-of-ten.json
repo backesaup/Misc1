@@ -20,7 +20,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "tens", "item": "brick", "total": 34, "choice": 0, "robot": true } },
-      "narration": { "speaker": "steve", "text": "Oh dear. I dropped my bucket of bricks! There are 34 of them, all mixed up. Counting them one at a time takes me ages. Is there a faster way?" },
+      "narration": { "speaker": "steve", "text": "Oh no! Crash! I dropped my bucket of bricks! There are 34 of them, all over the floor. Counting them one by one takes forever! Is there a faster way?" },
       "animation": [
         { "at": 0, "action": "arrive", "duration": 2.4 },
         { "at": 0, "action": "robot", "mood": "sad" }
@@ -29,7 +29,7 @@
     {
       "id": "rods",
       "term": "tens",
-      "narration": { "text": "Here's a builder's trick. Snap 10 bricks into a rod. Then another. Then another. 3 rods of 10, and 4 bricks left. The rods are called tens, and the single bricks are called ones." },
+      "narration": { "text": "Here's a builder's trick! Snap 10 bricks together into a long rod. Click, click, click! Then another rod. And another! 3 rods of 10, and 4 bricks left over. A rod of 10 is called a ten. A single brick is called a one." },
       "animation": [
         { "at": 1.2, "action": "set", "mode": "tens", "total": 34, "choice": 3 },
         { "at": 1.2, "action": "robot", "mood": "happy" }
@@ -37,31 +37,31 @@
     },
     {
       "id": "digits",
-      "narration": { "text": "Now look at the number 34. The 3 tells you how many tens: 3 rods. The 4 tells you how many ones: 4 single bricks. Each digit has its own job." },
+      "narration": { "text": "Now look at the number 34. Each digit has its own job! The 3 says: 3 tens, 3 rods. The 4 says: 4 ones, 4 single bricks. 3 rods, 4 bricks. 34!" },
       "label": "34 = 3 tens and 4 ones"
     },
     {
       "id": "make-tens",
       "kind": "make",
-      "narration": { "text": "Can you make 34 in a different way? Choose how many rods to keep, then tap the hammer. The other bricks stay as ones. Find all the ways." },
+      "narration": { "text": "Can you make 34 a different way? Pick how many rods to keep, then tap the hammer. The other bricks stay as ones. Find all the ways!" },
       "make": { "mode": "tens", "item": "brick", "total": 34, "goal": 4 }
     },
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "steve", "text": "Wait. 2 tens and 14 ones. That's a different number from 34, isn't it? It looks completely different!" },
+        "narration": { "speaker": "steve", "text": "Wait a minute! 2 tens and 14 ones. That looks totally different from 34! That must be a different number. Right?" },
         "prompt": "Is 2 tens and 14 ones the same as 34?",
         "choices": ["Yes", "No"],
         "answer": 0,
-        "onRight": "Yes. You saw that breaking a rod doesn't lose any bricks. 20 and 14 is still 34.",
+        "onRight": "Yes! Breaking a rod doesn't make any bricks disappear. 20 and 14 is still 34!",
         "wrong": {
           "1": {
             "mistake": "thinks changing how it's grouped changes the amount",
-            "hint": "Did any bricks go away when the rod was broken? Count the ones in tens: 10 and 4.",
-            "say": "We only broke one rod into single bricks. No bricks went anywhere. 2 tens is 20, and 14 more makes 34."
+            "hint": "When the rod broke, did any bricks go away? Count the ones: 10 and 4.",
+            "say": "We only broke one rod into single bricks. No bricks ran away! 2 tens is 20, and 14 more makes 34."
           }
         },
-        "reveal": "2 tens and 14 ones is 34. Same bricks, grouped differently.",
+        "reveal": "2 tens and 14 ones is 34! Same bricks, grouped a different way.",
         "revealAnimation": [
           { "at": 0, "action": "set", "mode": "tens", "total": 34, "choice": 2 },
           { "at": 0, "action": "robot", "mood": "think" }
@@ -72,11 +72,11 @@
       "id": "rollover",
       "question": {
         "open": true,
-        "narration": { "speaker": "steve", "text": "My farm counter counts my chickens. It says 39: 3 tens and 9 ones. Oh look, one more chicken has arrived!" },
-        "prompt": "What will the counter show now? Make a guess.",
+        "narration": { "speaker": "steve", "text": "My farm counter counts my chickens. It says 39. That's 3 tens and 9 ones. Ooh, look! One more chicken is coming! Bawk!" },
+        "prompt": "What will the counter say now? Make a guess!",
         "choices": ["310", "40", "49"],
         "answer": 1,
-        "reveal": "40! 9 ones and 1 more make 10 ones, and 10 ones snap together into a new ten. So it's 4 tens and 0 ones: 40. The ones go back to zero, and the tens go up.",
+        "reveal": "40! 9 ones and 1 more make 10 ones. And 10 ones snap together into a new ten! Click! So it's 4 tens and 0 ones: 40. The ones go back to zero, and the tens go up!",
         "revealAnimation": [
           { "at": 0, "action": "set", "mode": "tens", "total": 40, "choice": 4 },
           { "at": 0, "action": "robot", "mood": "happy" }
@@ -85,23 +85,23 @@
     },
     {
       "id": "invent",
-      "narration": { "text": "Here's a challenge for later. Invent your own counter! It could count in tens like ours, or something different, like groups of 5. What happens when your counter fills up?" }
+      "narration": { "text": "Here's a challenge for later. Invent your very own counter! It could count in tens, like ours. Or in fives! What happens when your counter fills up?" }
     },
     {
       "id": "rule",
       "kind": "rule",
       "rule": {
         "text": "34 = 3 tens and 4 ones",
-        "ask": "Can you say what the 3 in 34 means? Say it out loud. Then tap the eye.",
+        "ask": "What does the 3 in 34 mean? Say it out loud! Then tap the eye.",
         "spoken": "In 34, the 3 means 3 tens, and the 4 means 4 ones. And 10 ones always snap together into a new ten."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: the counter shows 99. One more chicken arrives. What does it show?",
+    "prompt": "Bonus! The counter says 99. One more chicken arrives. What does it say now?",
     "choices": ["910", "100", "1,000"],
     "answer": 1,
-    "reveal": "100! 10 ones make a new ten, and then 10 tens snap together into something new: a hundred."
+    "reveal": "100! 10 ones make a new ten. Then 10 tens snap together into something brand new: a hundred!"
   }
 }

@@ -44,7 +44,7 @@
       },
       "narration": {
         "speaker": "steve",
-        "text": "The farm parade starts in one minute, and my 12 chickens are a jumble! In a parade, everyone marches in rows, and every row must be the same length. Can you get them ready?"
+        "text": "Help! Help! The farm parade starts in one minute, and my 12 chickens are a jumble! Bawk bawk! In a parade, everyone marches in rows. And every row must be the same length. Ismaeel, can you get them ready?"
       },
       "animation": [
         {
@@ -63,7 +63,7 @@
       "id": "make-rows",
       "kind": "make",
       "narration": {
-        "text": "How many rows should the parade have? Choose a number of rows, then tap the hammer to try it. Try lots of numbers, and see which ones work."
+        "text": "How many rows should the parade have? Pick a number of rows, then tap the hammer to try it. Try lots of numbers! Which ones work?"
       },
       "make": {
         "mode": "rows",
@@ -77,7 +77,7 @@
       "id": "array",
       "term": "array",
       "narration": {
-        "text": "Look at all the ways you found. Things standing in equal rows make a shape called an array. And some numbers of rows, like 5, left chickens over. They couldn't make a full row."
+        "text": "Look at all the ways you found! When things stand in equal rows, they make a shape called an array. But some numbers, like 5 rows, left chickens over. Poor lonely chickens! They couldn't make a full row."
       },
       "animation": [
         {
@@ -90,7 +90,7 @@
     {
       "id": "everywhere",
       "narration": {
-        "text": "Arrays are everywhere once you look. Here are 4 toy bricks in 2 rows of 2: an array. Look at the top of each brick too: its studs are an array as well. And a wall in Minecraft is an array of blocks."
+        "text": "Once you know about arrays, you see them everywhere! Here are 4 toy bricks, in 2 rows of 2. That's an array! Look at the bumps on top of a brick. Another array! And a Minecraft wall? A giant array of blocks!"
       },
       "label": "an array",
       "animation": [
@@ -117,7 +117,7 @@
       "question": {
         "narration": {
           "speaker": "steve",
-          "text": "Hmm. Here are 3 rows of 4 chickens. Now I turn the farm round, so it's 4 rows of 3. I think 4 rows of 3 must have more chickens, because 4 rows is more rows!"
+          "text": "Hmm. Here are 3 rows of 4 chickens. Now I turn the farm round, so it's 4 rows of 3. I think 4 rows of 3 must have more chickens. Because 4 rows is more rows! Ha!"
         },
         "prompt": "Is Steve right?",
         "choices": [
@@ -125,15 +125,15 @@
           "No"
         ],
         "answer": 1,
-        "onRight": "Yes, you spotted it. Turning the array round doesn't add or take away any chickens.",
+        "onRight": "Yes, you caught him! Turning the array round doesn't add any chickens, or take any away.",
         "wrong": {
           "0": {
             "mistake": "thinks more rows means more things, ignoring that each row got shorter",
-            "hint": "There are more rows now. But look: are the rows the same length as before?",
-            "say": "There are more rows, but each row got shorter. Count them: 3, 6, 9, 12. Still 12 chickens. We only turned the array round."
+            "hint": "There are more rows now. But are the rows as long as before?",
+            "say": "There are more rows, but each row got shorter! Count them: 3, 6, 9, 12. Still 12 chickens. We only turned them round."
           }
         },
-        "reveal": "3 rows of 4 is 12. 4 rows of 3 is 12. Same chickens, turned round. 3 times 4 equals 4 times 3.",
+        "reveal": "3 rows of 4 is 12. 4 rows of 3 is 12. Same chickens, turned round! 3 times 4 equals 4 times 3.",
         "revealAnimation": [
           {
             "at": 0,
@@ -172,7 +172,7 @@
       "id": "thanks",
       "narration": {
         "speaker": "steve",
-        "text": "Oh! I get it now. The parade turned the corner, so the rows went the other way, but no chickens ran off. Thank you for teaching me!"
+        "text": "Oh! Now I get it! The parade turned the corner, so the rows went the other way. But no chickens ran off! Thanks, Ismaeel!"
       },
       "animation": [
         {
@@ -187,20 +187,20 @@
       "kind": "rule",
       "rule": {
         "text": "Equal rows make an array. 3 × 4 = 4 × 3",
-        "ask": "Can you say why 3 rows of 4 is the same as 4 rows of 3? Say it out loud. Then tap the eye to check.",
+        "ask": "Why is 3 rows of 4 the same as 4 rows of 3? Say it out loud! Then tap the eye.",
         "spoken": "Equal rows make an array. And turning an array round doesn't change how many: 3 times 4 equals 4 times 3."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus challenge: how many ways can 24 chickens make equal rows? Make a guess.",
+    "prompt": "Bonus! How many different parades can 24 chickens make, with equal rows? Make a guess!",
     "choices": [
       "4",
       "8",
       "12"
     ],
     "answer": 1,
-    "reveal": "There are 8 ways: 1, 2, 3, 4, 6, 8, 12 or 24 rows. 24 can make more arrays than 12 can."
+    "reveal": "8 different parades! 1, 2, 3, 4, 6, 8, 12 or 24 rows. 24 makes more arrays than 12!"
   }
 }

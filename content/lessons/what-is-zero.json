@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "split", "item": "chicken", "total": 3, "choice": 3, "robot": true } },
-      "narration": { "speaker": "steve", "text": "I've got 3 chickens in this field. One goes for a wander. Then another. Then the last one! How many chickens are in the field now?" },
+      "narration": { "speaker": "steve", "text": "I've got 3 chickens in this field. Bawk! One wanders off. Then another one. Then the last one! Hmm. How many chickens are in the field now?" },
       "animation": [
         { "at": 0, "action": "arrive", "duration": 1 },
         { "at": 4.2, "action": "set", "choice": 2 },
@@ -31,27 +31,27 @@
     {
       "id": "zero",
       "term": "zero",
-      "narration": { "text": "None! The field is empty. We have a number for none: it's called zero, and we write it like a circle. 3, 2, 1, zero. Zero is a real number. It means none of something." },
+      "narration": { "text": "None! The field is empty! And guess what? We have a number for none. It's called zero, and we write it like a circle. Count down with me: 3, 2, 1, zero! Zero means none of something." },
       "label": "0"
     },
     {
       "id": "sheep",
-      "narration": { "text": "Remember splitting the flock? 10 sheep in one field, and zero in the other. Zero is how we say: this field has none." },
+      "narration": { "text": "Remember splitting the flock? 10 sheep in one field, and zero in the other. Zero is how we say: this field has none. Not even one!" },
       "animation": [{ "at": 0, "action": "set", "mode": "split", "item": "sheep", "total": 10, "choice": 10 }]
     },
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "steve", "text": "I have 7 chickens. I add zero more chickens. So now I've got 8, because adding always makes more!" },
+        "narration": { "speaker": "steve", "text": "I've got 7 chickens. I add zero more chickens. So now I've got 8! Because adding always makes more! Ha!" },
         "prompt": "What is 7 add zero?",
         "choices": ["8", "7", "0"],
         "answer": 1,
-        "onRight": "Yes. Adding zero means adding none, so 7 stays 7.",
+        "onRight": "Yes! Adding zero means adding none. So 7 stays 7!",
         "wrong": {
-          "0": { "mistake": "thinks adding always makes a number bigger", "hint": "Zero means none. How many chickens did we add?", "say": "Adding zero means adding no chickens at all. Nobody new arrived, so there are still 7." },
-          "2": { "mistake": "thinks zero wipes everything out", "hint": "The 7 chickens are still there. Did any go away?", "say": "Zero doesn't make the chickens disappear. We added none, so the 7 chickens are all still here: 7." }
+          "0": { "mistake": "thinks adding always makes a number bigger", "hint": "Zero means none. How many chickens did we add?", "say": "Adding zero means adding no chickens at all! Nobody new arrived. So there are still 7." },
+          "2": { "mistake": "thinks zero wipes everything out", "hint": "The 7 chickens are still there. Did any go away?", "say": "Zero doesn't make chickens vanish! We added none, so all 7 chickens are still here." }
         },
-        "reveal": "7 add zero is 7. Adding zero changes nothing.",
+        "reveal": "7 add zero is 7. Adding zero changes nothing!",
         "revealAnimation": [
           { "at": 0, "action": "set", "mode": "split", "item": "chicken", "total": 7, "choice": 7 },
           { "at": 0, "action": "robot", "mood": "happy" }
@@ -60,26 +60,26 @@
     },
     {
       "id": "history",
-      "narration": { "text": "Here's something surprising. A long, long time ago, people had no number for zero. It was invented. Imagine writing 10 or 100 without a zero! Without zero, it would be hard to tell 1, 10 and 100 apart." }
+      "narration": { "text": "Here's an amazing fact. Long, long ago, people had no number for zero! Someone had to invent it. Imagine writing 10 or 100 without a zero. You couldn't tell 1, 10 and 100 apart! Zero is a hero!" }
     },
     {
       "id": "rule",
       "kind": "rule",
       "rule": {
         "text": "Zero means none. Adding zero changes nothing.",
-        "ask": "Can you say what zero means? Say it out loud. Then tap the eye.",
+        "ask": "What does zero mean? Say it out loud! Then tap the eye.",
         "spoken": "Zero means none. And adding zero changes nothing."
       }
     }
   ],
   "bonus": {
-    "prompt": "Bonus: what is 7 take away 7?",
+    "prompt": "Bonus! What is 7 take away 7?",
     "choices": ["7", "0", "14"],
     "answer": 1,
-    "onRight": "Yes. Take all 7 away and none are left: zero.",
+    "onRight": "Yes! All 7 go away, and none are left. Zero!",
     "wrong": {
-      "0": { "mistake": "confused take away with keeping", "hint": "We take away all 7. How many are left?", "say": "If all 7 chickens wander off, none are left in the field. That's zero." },
-      "2": { "mistake": "added instead of taking away", "hint": "Take away means some leave. Did more arrive?", "say": "14 would be 7 more arriving. Take away means 7 leave, so none are left: zero." }
+      "0": { "mistake": "confused take away with keeping", "hint": "We take away all 7. How many are left?", "say": "If all 7 chickens wander off, none are left in the field. That's zero!" },
+      "2": { "mistake": "added instead of taking away", "hint": "Take away means some leave. Did more arrive?", "say": "14 would be 7 more chickens arriving. But take away means 7 leave. None are left: zero!" }
     },
     "reveal": "7 take away 7 is zero."
   }

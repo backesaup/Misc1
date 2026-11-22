@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "pairs", "item": "sheep", "total": 6, "robot": true } },
-      "narration": { "speaker": "steve", "text": "My sheep love going for walks, two by two, side by side. But sometimes one sheep has nobody to walk with, and it looks so sad!" },
+      "narration": { "speaker": "steve", "text": "My sheep love going for walks, two by two, side by side. Clip clop! But sometimes one sheep has nobody to walk with. Look how sad it is!" },
       "animation": [
         { "at": 0, "action": "arrive", "duration": 1.6 },
         { "at": 0, "action": "robot", "mood": "sad" }
@@ -28,30 +28,30 @@
     {
       "id": "make-pairs",
       "kind": "make",
-      "narration": { "text": "Be a scientist. Choose how many sheep go for a walk, then tap the hammer. Does everyone get a partner? Try lots of numbers." },
+      "narration": { "text": "Let's be scientists! Pick how many sheep go for a walk, then tap the hammer. Does everyone get a partner? Try lots of numbers!" },
       "make": { "mode": "pairs", "item": "sheep", "total": 6, "min": 1, "max": 20 }
     },
     {
       "id": "even",
       "term": "even",
-      "narration": { "text": "Some numbers make pairs with nobody left out: 2, 4, 6, 8, 10. Numbers like those are called even." },
+      "narration": { "text": "Some numbers make pairs with nobody left out. 2, 4, 6, 8, 10. Everyone has a friend! Numbers like those are called even." },
       "animation": [{ "at": 0, "action": "set", "mode": "pairs", "total": 8 }]
     },
     {
       "id": "odd",
       "term": "odd",
-      "narration": { "text": "Other numbers always leave one sheep on its own: 1, 3, 5, 7, 9. Numbers like those are called odd." },
+      "narration": { "text": "Other numbers always leave one sheep on its own. 1, 3, 5, 7, 9. Poor lonely sheep! Numbers like those are called odd." },
       "animation": [{ "at": 0, "action": "set", "mode": "pairs", "total": 7 }]
     },
     {
       "id": "test",
       "question": {
         "open": true,
-        "narration": { "speaker": "steve", "text": "Experiment time! 3 sheep meet 5 sheep. 3 is odd, and 5 is odd. I think two odd groups must make an even bigger odd group!" },
-        "prompt": "What do you think? Will they be odd or even together?",
+        "narration": { "speaker": "steve", "text": "Experiment time! 3 sheep meet 5 sheep. 3 is odd. 5 is odd. So I think together they'll make an even bigger odd group! Right?" },
+        "prompt": "What do you think? Odd or even together?",
         "choices": ["Odd", "Even"],
         "answer": 1,
-        "reveal": "Even! 3 and 5 make 8. Each odd group had one sheep on its own, and those two lonely sheep became a new pair.",
+        "reveal": "Even! 3 and 5 make 8. Each group had one lonely sheep. And the two lonely sheep became best friends! A new pair!",
         "revealAnimation": [
           { "at": 0, "action": "set", "mode": "pairs", "total": 8 },
           { "at": 0, "action": "robot", "mood": "think" }
@@ -61,19 +61,19 @@
     {
       "id": "again",
       "question": {
-        "narration": { "speaker": "steve", "text": "Was that a lucky accident? Let's test again. 7 sheep meet 9 sheep." },
+        "narration": { "speaker": "steve", "text": "Was that a lucky accident? Let's test it again! 7 sheep meet 9 sheep." },
         "prompt": "Odd or even?",
         "choices": ["Odd", "Even"],
         "answer": 1,
-        "onRight": "Yes. You used the rule: the two lonely sheep make a pair, so it's even again.",
+        "onRight": "Yes! The two lonely sheep make a pair, so it's even again!",
         "wrong": {
           "0": {
             "mistake": "hasn't yet connected the two left-over sheep pairing up",
-            "hint": "7 has one sheep left over. 9 has one sheep left over. What can those two do?",
-            "say": "7 has one sheep without a partner, and so does 9. Those two walk together as a new pair. 7 and 9 make 16, and 16 is even."
+            "hint": "7 has one sheep left over. 9 has one sheep left over. What can those two do together?",
+            "say": "7 has one lonely sheep. So does 9! Those two can walk together as a new pair. 7 and 9 make 16, and 16 is even!"
           }
         },
-        "reveal": "16 sheep: all in pairs. Odd and odd always make even.",
+        "reveal": "16 sheep, all in pairs! Odd and odd always make even.",
         "revealAnimation": [
           { "at": 0, "action": "set", "mode": "pairs", "total": 16 },
           { "at": 0, "action": "robot", "mood": "happy" }
@@ -85,16 +85,16 @@
       "kind": "rule",
       "rule": {
         "text": "Even makes pairs. Odd has one left over.",
-        "ask": "Can you say what makes a number odd, and what odd plus odd makes? Say it out loud. Then tap the eye.",
+        "ask": "What makes a number odd? And what does odd plus odd make? Say it out loud! Then tap the eye.",
         "spoken": "Even numbers make pairs with none left over. Odd numbers always have one left over. And odd plus odd is always even."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: is odd + even odd or even? Guess, then test it with Lego.",
+    "prompt": "Bonus! What about odd plus even? Guess, then test it with Lego!",
     "choices": ["Odd", "Even"],
     "answer": 0,
-    "reveal": "Odd. The even group is all pairs, and the odd group still has its one left over."
+    "reveal": "Odd! The even group is all pairs. But the odd group still has its one lonely sheep."
   }
 }
