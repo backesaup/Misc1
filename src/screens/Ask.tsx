@@ -3,6 +3,7 @@ import { ArrowLeft, Camera, Keyboard, Mic, Square, Play, Trash2, Send } from 'lu
 import { go } from '@/lib/router'
 import { sfx } from '@/lib/sfx'
 import { narrator } from '@/lib/narrator'
+import { micStarting, micStopped } from '@/lib/audioSession'
 import { commonLine } from '@/lesson/lines'
 import { addItem, listItems, newId, removeItem, type InboxItem } from '@/lib/inbox'
 import { MicButton } from '@/components/MicButton'
@@ -55,6 +56,7 @@ export function Ask() {
   const startRec = async () => {
     narrator.stop()
     try {
+      micStarting()
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
       const mime = ['audio/mp4', 'audio/webm;codecs=opus', 'audio/webm'].find((m) => MediaRecorder.isTypeSupported?.(m)) ?? ''
       const r = new MediaRecorder(stream, mime ? { mimeType: mime } : undefined)
@@ -62,6 +64,7 @@ export function Ask() {
       r.ondataavailable = (e) => e.data.size && chunks.push(e.data)
       r.onstop = async () => {
         stream.getTracks().forEach((t) => t.stop())
+        micStopped()
         const type = r.mimeType || mime || 'audio/mp4'
         const seconds = (Date.now() - (rec.current?.started ?? Date.now())) / 1000
         if (chunks.length) await addItem({ id: newId(), at: Date.now(), kind: 'voice', blob: new Blob(chunks, { type }), mime: type, seconds })
@@ -74,6 +77,7 @@ export function Ask() {
       setMicError(false)
       sfx.tap()
     } catch {
+      micStopped() // no microphone (or not allowed): put the speakers back anyway
       setMicError(true)
     }
   }

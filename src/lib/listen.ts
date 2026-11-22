@@ -1,5 +1,7 @@
 // Speech input. Uses the browser's speech recognition (on iPad: Apple's speech service,
 // which may send audio to Apple to transcribe; a grown-up can turn it off in settings).
+// The microphone changes how the iPad plays audio, so audioSession.ts switches it back after.
+import { micStarting, micStopped } from './audioSession'
 
 interface Recognition {
   lang: string
@@ -50,6 +52,7 @@ export function listen(onPartial?: (text: string) => void, lang = 'en-GB'): List
   }
   r.onerror = () => settle(text)
   r.onend = () => settle(text)
+  micStarting()
   try {
     r.start()
   } catch {
@@ -57,6 +60,15 @@ export function listen(onPartial?: (text: string) => void, lang = 'en-GB'): List
   }
   // never listen forever
   const t = window.setTimeout(() => r.stop(), 9000)
-  void done.then(() => window.clearTimeout(t))
+  void done.then(() => {
+    window.clearTimeout(t)
+    // make sure the microphone is really released, then give the speakers back
+    try {
+      r.abort()
+    } catch {
+      /* already ended */
+    }
+    micStopped()
+  })
   return { done, stop: () => r.stop() }
 }

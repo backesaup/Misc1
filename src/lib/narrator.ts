@@ -47,6 +47,15 @@ class Narrator {
     }
   }
 
+  /**
+   * Forget the earlier unlock, so the next tap unlocks audio again (needed after the microphone
+   * was on: iOS may have cut the audio element off). Never interrupts a line that's playing.
+   */
+  relock() {
+    if (this.settle) return
+    this.unlocked = false
+  }
+
   stop() {
     const s = this.settle
     this.settle = null

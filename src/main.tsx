@@ -6,6 +6,9 @@ import '@fontsource/andika/700.css'
 import './index.css'
 import App from './App'
 import { SettingsProvider } from '@/lib/settings'
+import { initAudioSession } from '@/lib/audioSession'
+
+initAudioSession()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

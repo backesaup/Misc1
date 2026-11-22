@@ -8,9 +8,33 @@ export const setSoundsEnabled = (on: boolean) => {
   enabled = on
 }
 
+/**
+ * Wake the sound engine after iOS paused it (e.g. while the microphone was on). A context iOS
+ * marks "interrupted" can't always be resumed, so it is thrown away and a fresh one is made on
+ * the next sound.
+ */
+export function recoverSounds() {
+  if (!ctx) return
+  const state = ctx.state as string
+  if (state === 'running') return
+  if (state === 'interrupted' || state === 'closed') {
+    try {
+      void ctx.close()
+    } catch {
+      /* already closed */
+    }
+    ctx = null
+    return
+  }
+  void ctx.resume().catch(() => {
+    ctx = null
+  })
+}
+
 function ac() {
   if (!enabled) return null
   try {
+    if (ctx && (ctx.state as string) === 'interrupted') recoverSounds()
     ctx ??= new AudioContext()
     if (ctx.state === 'suspended') void ctx.resume()
     return ctx

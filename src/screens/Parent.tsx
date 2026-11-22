@@ -10,6 +10,9 @@ import { learner, appName } from '@/config'
 import { readActivity, summarise, clearActivity } from '@/lib/activity'
 import { readJSON, writeJSON } from '@/lib/storage'
 import { exportZip, listItems, clearItems } from '@/lib/inbox'
+import { recoverAudio } from '@/lib/audioSession'
+import { narrator } from '@/lib/narrator'
+import { sfx } from '@/lib/sfx'
 
 function Row({ id, title, hint, checked, onChange }: { id: string; title: string; hint: string; checked: boolean; onChange: (v: boolean) => void }) {
   return (
@@ -71,6 +74,22 @@ export function Parent() {
         <h2 id="p-play">Playing</h2>
         <Row id="captions" title="Captions" hint="Show the narration as text under the picture." checked={settings.captions} onChange={(v) => update({ captions: v })} />
         <Row id="sounds" title="Sound effects" hint="Soft taps and a chime for a right answer." checked={settings.sounds} onChange={(v) => update({ sounds: v })} />
+        <div className="p-row">
+          <div>
+            <strong>Sound gone quiet?</strong>
+            <p className="p-row-hint">If narration stops after using the microphone, tap this. Check the volume and that headphones aren't connected too.</p>
+          </div>
+          <button
+            className="p-btn"
+            onClick={() => {
+              recoverAudio()
+              narrator.unlock()
+              sfx.correct()
+            }}
+          >
+            Fix the sound
+          </button>
+        </div>
         <Row
           id="motion"
           title="Simpler motion"
