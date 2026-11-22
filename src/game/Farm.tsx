@@ -15,6 +15,7 @@ import { readJSON, writeJSON } from '@/lib/storage'
 import { useSettings } from '@/lib/settings'
 import { log } from '@/lib/activity'
 import { blockTexture } from '@/scenes/voxel/textures'
+import { Robot, type Mood } from '@/scenes/voxel/Robot'
 import { HtmlRoot, SceneHtml } from '@/scenes/SceneHtml'
 
 // Game section, milestone 1 (grey-box): the robot's bed. The idea is the mechanic:
@@ -22,7 +23,6 @@ import { HtmlRoot, SceneHtml } from '@/scenes/SceneHtml'
 // to take for a 5 × 3 bed BEFORE building. The world gives the feedback (a gap, or a pile).
 
 type Phase = 'start' | 'name-robot' | 'colour' | 'name-farm' | 'part1' | 'done1' | 'dial' | 'building' | 'few' | 'many' | 'done2' | 'free'
-type Mood = 'idle' | 'happy' | 'sad' | 'talk'
 interface Save { bedDone: boolean; floorTool: boolean; robotName?: string; robotColor?: string; farmName?: string }
 
 const ROBOT_COLOURS = ['#5fa3d9', '#e07a4f', '#5fa04e', '#f2b84b', '#e8789a']
@@ -38,65 +38,6 @@ function cellPos(o: THREE.Vector3, i: number, w: number) {
   return new THREE.Vector3(o.x + (i % w) + 0.5, 0.5, o.z + Math.floor(i / w) + 0.5)
 }
 
-function Robot({ mood, pos, color = '#5fa3d9', name }: { mood: Mood; pos: [number, number, number]; color?: string; name?: string }) {
-  const g = useRef<THREE.Group>(null)
-  const head = useRef<THREE.Group>(null)
-  useFrame(({ clock }) => {
-    const t = clock.elapsedTime
-    if (!g.current || !head.current) return
-    g.current.position.y = mood === 'happy' ? Math.abs(Math.sin(t * 7)) * 0.7 : Math.sin(t * 2) * 0.05
-    g.current.rotation.y = mood === 'happy' ? t * 4 : -0.5 + Math.sin(t * 0.8) * 0.15
-    head.current.rotation.z = mood === 'sad' ? 0.35 : mood === 'talk' ? Math.sin(t * 9) * 0.06 : 0
-    head.current.position.y = mood === 'sad' ? 1.45 : 1.6
-  })
-  return (
-    <group position={pos}>
-      <SceneHtml position={[0, 2.75, 0]} center zIndexRange={[10, 0]}>
-        <div className="scene-tag small" style={{ display: name ? undefined : 'none' }}>{name}</div>
-      </SceneHtml>
-      <group ref={g}>
-        <mesh position={[0, 0.65, 0]} castShadow>
-          <boxGeometry args={[0.9, 0.9, 0.7]} />
-          <meshStandardMaterial color={color} roughness={0.5} />
-        </mesh>
-        <mesh position={[0, 0.7, 0.36]}>
-          <boxGeometry args={[0.4, 0.3, 0.02]} />
-          <meshStandardMaterial color="#ffd166" emissive="#ffd166" emissiveIntensity={0.4} />
-        </mesh>
-        <group ref={head} position={[0, 1.6, 0]}>
-          <mesh castShadow>
-            <boxGeometry args={[0.8, 0.65, 0.65]} />
-            <meshStandardMaterial color="#e9eef4" roughness={0.4} />
-          </mesh>
-          {[-0.18, 0.18].map((x) => (
-            <mesh key={x} position={[x, mood === 'happy' ? 0.06 : 0.03, 0.33]}>
-              <boxGeometry args={[0.13, mood === 'happy' ? 0.06 : 0.16, 0.02]} />
-              <meshBasicMaterial color="#2b2a33" />
-            </mesh>
-          ))}
-          <mesh position={[0, -0.15, 0.33]} rotation={[0, 0, mood === 'sad' ? Math.PI : 0]}>
-            <torusGeometry args={[0.1, 0.025, 6, 12, Math.PI]} />
-            <meshBasicMaterial color="#2b2a33" />
-          </mesh>
-          <mesh position={[0, 0.45, 0]}>
-            <cylinderGeometry args={[0.03, 0.03, 0.3]} />
-            <meshStandardMaterial color="#9aa3ad" />
-          </mesh>
-          <mesh position={[0, 0.65, 0]}>
-            <sphereGeometry args={[0.09, 12, 8]} />
-            <meshStandardMaterial color="#e07a4f" emissive="#e07a4f" emissiveIntensity={0.5} />
-          </mesh>
-        </group>
-        {[-0.25, 0.25].map((x) => (
-          <mesh key={x} position={[x, 0.12, 0]} castShadow>
-            <boxGeometry args={[0.25, 0.25, 0.4]} />
-            <meshStandardMaterial color="#3d6f99" />
-          </mesh>
-        ))}
-      </group>
-    </group>
-  )
-}
 
 /** A block that drops into place with a little bounce. */
 function Block({ pos, tex, color, onTap }: { pos: THREE.Vector3; tex: THREE.Texture; color?: string; onTap?: (e: ThreeEvent<MouseEvent>) => void }) {

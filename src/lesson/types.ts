@@ -117,10 +117,10 @@ export interface MakeStep extends StepBase {
   kind: 'make'
   narration: Line
   make: {
-    mode: 'rows' | 'pairs' | 'split' | 'tens' | 'share'
-    item: 'chicken' | 'sheep' | 'apple' | 'brick' | 'block'
+    mode: 'rows' | 'pairs' | 'split' | 'tens' | 'share' | 'stairs' | 'square' | 'groups' | 'line'
+    item: 'chicken' | 'sheep' | 'apple' | 'brick' | 'block' | 'pumpkin' | 'egg' | 'carrot' | 'stone' | 'grass'
     total: number
-    /** share: how many friends. */
+    /** share: how many friends; groups: the group size; line: how long the thing is. */
     extra?: number
     /** pairs mode: the range of totals he can try. */
     min?: number

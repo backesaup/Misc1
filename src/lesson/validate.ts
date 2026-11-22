@@ -53,8 +53,8 @@ export function validateLesson(lesson: Lesson, catalog?: SceneCatalog): string[]
     if (kind === 'make' && 'make' in step) {
       questions++ // an open challenge counts as his prediction-and-test
       const m = step.make
-      if (!['rows', 'pairs', 'split', 'tens', 'share'].includes(m.mode)) at(step, `unknown make mode "${m.mode}"`)
-      if (!(m.total > 0 && m.total <= 100)) at(step, 'make.total must be 1–100')
+      if (!['rows', 'pairs', 'split', 'tens', 'share', 'stairs', 'square', 'groups', 'line'].includes(m.mode)) at(step, `unknown make mode "${m.mode}"`)
+      if (!(m.total > 0 && m.total <= 100)) at(step, 'make.total must be 1–100 (stairs/square: the most blocks needed)')
       if (m.mode === 'share' && !(m.extra && m.extra > 0)) at(step, 'share needs extra (how many friends)')
       if (!currentScene?.startsWith('voxel:arrange')) at(step, 'make steps need the voxel:arrange scene')
     }

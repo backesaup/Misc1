@@ -5,20 +5,24 @@
   "cardArt": "maths",
   "status": "ready",
   "order": 3,
-  "_map": "Lesson map: Splitting the flock (Y1–2). Big idea: number bonds, 10 can be split into two parts in set ways.",
-  "_stepChain": "counting → a flock of 10 sheep → two fields → split them any way → every split still makes 10 → the pairs that make 10 are called number bonds → the pattern: one side goes up as the other goes down",
+  "_map": "Splitting the flock (Y1–2). Big idea: number bonds, 10 can be split into two parts in set ways; the pattern; then 20.",
+  "_story": "The robot built two fields but can't decide how to share 10 sheep. He finds every way, spots the pattern (one up, one down), catches the robot losing a sheep in its sums, then tries 20.",
+  "_stepChain": "counting → 10 sheep, two fields → split them any way → every split still makes 10 → named number bonds → the pattern → the robot's mistake (6 and 3) → 20 sheep",
   "assumes": ["counting", "adding"],
   "talk": [
     { "ask": "How many ways can 10 sheep go into two fields?", "goodAnswer": "11 ways, from 0 and 10 up to 10 and 0. Every way still makes 10." },
-    { "ask": "When one field gets one more sheep, what happens to the other field?", "goodAnswer": "it gets one fewer, so the total stays 10." }
+    { "ask": "When one field gets one more sheep, what happens to the other one?", "goodAnswer": "it gets one fewer, so the total stays 10." }
   ],
-  "handsOn": "Take 10 Lego bricks and two bowls. Find every way to share them between the bowls, and line the ways up in order. What pattern do you see?",
+  "handsOn": "Take 10 Lego bricks and two bowls. Find every way to share them, and line the ways up in order: 0 and 10, 1 and 9 … What pattern do you see?",
   "steps": [
     {
       "id": "hook",
-      "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "split", "item": "sheep", "total": 10, "choice": 5 } },
-      "narration": { "text": "The farm has 10 sheep, and two fields of fresh grass. The sheep can go into either field. Some can go here, and some can go there." },
-      "animation": [{ "at": 0, "action": "arrive", "duration": 2 }]
+      "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "split", "item": "sheep", "total": 10, "choice": 5, "robot": true } },
+      "narration": { "speaker": "robot", "text": "I built two fields with fresh grass! I've got 10 sheep. But I can't decide how many should go in each field. Will you help me try different ways?" },
+      "animation": [
+        { "at": 0, "action": "arrive", "duration": 2 },
+        { "at": 0, "action": "robot", "mood": "think" }
+      ]
     },
     {
       "id": "make-split",
@@ -29,17 +33,53 @@
     {
       "id": "bonds",
       "term": "number bonds",
-      "narration": { "text": "Every single way still makes 10 sheep. 4 and 6. 7 and 3. 0 and 10. Pairs of numbers that make 10 like this are called number bonds. Look at your list: when one field gets one more sheep, the other field gets one fewer." }
+      "narration": { "text": "Every single way still makes 10 sheep. 4 and 6. 7 and 3. Even 0 and 10. Pairs of numbers that make 10 like this are called number bonds." },
+      "animation": [{ "at": 0, "action": "robot", "mood": "happy" }]
+    },
+    {
+      "id": "pattern",
+      "narration": { "text": "Here's a pattern. Move one sheep from this field to that one. One field goes up by one, and the other goes down by one. So the total never changes." },
+      "animation": [
+        { "at": 0.4, "action": "set", "choice": 6 },
+        { "at": 2.2, "action": "set", "choice": 7 },
+        { "at": 4, "action": "set", "choice": 8 }
+      ]
+    },
+    {
+      "id": "robot-mistake",
+      "question": {
+        "narration": { "speaker": "robot", "text": "I've got it! I put 6 sheep in the first field and 3 sheep in the other field. That's all 10 sheep!" },
+        "prompt": "Is the robot right?",
+        "choices": ["Yes", "No"],
+        "answer": 1,
+        "onRight": "Yes, you caught it. 6 and 3 make only 9, so one sheep is missing.",
+        "wrong": {
+          "0": {
+            "mistake": "didn't check that the two parts add back up to 10",
+            "hint": "Count them up: 6, then 3 more. Do you get to 10?",
+            "say": "Count on from 6: 7, 8, 9. That's only 9 sheep. One sheep is still wandering about! With 6 in the first field, the other field needs 4."
+          }
+        },
+        "reveal": "6 and 4 make 10. The robot forgot one sheep!",
+        "revealAnimation": [
+          { "at": 0, "action": "set", "choice": 6 },
+          { "at": 0, "action": "robot", "mood": "sad" }
+        ]
+      }
     },
     {
       "id": "guess-20",
       "question": {
         "open": true,
-        "narration": { "text": "Now imagine a bigger flock: 20 sheep." },
+        "narration": { "speaker": "robot", "text": "Oops, thank you! Now, I'm getting more sheep. 20 of them!" },
         "prompt": "How many ways can 20 sheep go into two fields? Make a guess.",
         "choices": ["11", "21", "40"],
         "answer": 1,
-        "reveal": "21 ways! From 0 and 20, all the way to 20 and 0. With 10 sheep there were 11 ways; with 20 sheep there are 21. Always one more than the number of sheep."
+        "reveal": "21 ways, from 0 and 20 all the way to 20 and 0. With 10 sheep there were 11 ways. With 20 sheep there are 21. Always one more than the number of sheep.",
+        "revealAnimation": [
+          { "at": 0, "action": "set", "mode": "split", "total": 20, "choice": 12 },
+          { "at": 0, "action": "robot", "mood": "happy" }
+        ]
       }
     },
     {
@@ -57,6 +97,6 @@
     "prompt": "Bonus: what if there were three fields? Guess how many ways 10 sheep could go into three fields.",
     "choices": ["30", "66", "100"],
     "answer": 1,
-    "reveal": "66 ways! Adding one more field makes lots more ways. That's a puzzle mathematicians love."
+    "reveal": "66 ways! One more field makes lots more ways. That's a puzzle mathematicians love."
   }
 }

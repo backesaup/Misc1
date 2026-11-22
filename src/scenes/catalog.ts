@@ -4,7 +4,7 @@ export const sceneCatalog = {
   voxel: {
     blocks64: ['fillStack', 'morph', 'showSides', 'hideSides', 'lightRows', 'countRows', 'countLayers', 'doubleTo', 'spin'],
     solarCube: ['spin', 'countPanels', 'panelsOff', 'sunrise', 'pulsePanels', 'twist', 'explode', 'focusEdge', 'sunAngle', 'tag'],
-    arrange: ['arrive', 'set'],
+    arrange: ['arrive', 'set', 'robot'],
     disco: ['lights', 'spin', 'dots', 'secondLight', 'oneMirror', 'countMirrors', 'clearCount', 'music', 'colour', 'floorDance', 'countFloor', 'tag', 'untag'],
   },
   diagram: {

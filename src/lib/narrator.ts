@@ -23,7 +23,7 @@ class Narrator {
   private settle: ((r: 'ended' | 'cancelled') => void) | null = null
   private unlocked = false
   rate = 1
-  onLine: ((text: string | null) => void) | null = null
+  onLine: ((text: string | null, speaker?: string) => void) | null = null
 
   private el() {
     if (!this.audio) {
@@ -99,7 +99,7 @@ class Narrator {
 
     const start = () => {
       if (finished) return
-      this.onLine?.(line.text)
+      this.onLine?.(line.text, line.speaker ?? 'narrator')
       const a = this.el()
       a.onended = () => {
         log.played.push(line.key)

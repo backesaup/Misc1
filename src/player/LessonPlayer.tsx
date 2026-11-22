@@ -16,6 +16,7 @@ import type { SceneDef } from '@/scenes/types'
 import { Stage3D } from './Stage3D'
 import { CardArt } from '@/components/CardArt'
 import { Guide } from '@/components/Guide'
+import { RobotAvatar } from '@/components/RobotAvatar'
 import ClickSpark, { type ClickSparkHandle } from '@/components/vendor/reactbits/ClickSpark'
 import CountUp from '@/components/vendor/reactbits/CountUp'
 import VerticalCutReveal from '@/components/vendor/fancy/vertical-cut-reveal'
@@ -57,6 +58,7 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
   const [paused, setPaused] = useState(false)
   const [ready, setReady] = useState(false)
   const [caption, setCaption] = useState<string | null>(null)
+  const [speaker, setSpeaker] = useState<string>('narrator')
   const [q, setQ] = useState<QState>(FRESH)
   const [ruleShown, setRuleShown] = useState(false)
   const [bonusDone, setBonusDone] = useState(false)
@@ -79,7 +81,13 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
     narrator.rate = settings.speed
   }, [settings.speed])
   useEffect(() => {
-    narrator.onLine = setCaption
+    narrator.onLine = (text, who) => {
+      setCaption(text)
+      if (text) setSpeaker(who ?? 'narrator')
+      else setSpeaker('narrator')
+      const ctrl = sceneRef.current?.ctrl
+      if (ctrl && 'robotMood' in ctrl.values) ctrl.values.robotMood = text && who === 'robot' ? 1 : ctrl.values.robotMood === 1 ? 0 : ctrl.values.robotMood
+    }
     return () => {
       narrator.onLine = null
       narrator.stop()
@@ -177,7 +185,9 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
       if (k === 'make' && cur && 'make' in s) {
         // set the world up for this challenge and let the things arrive
         const m = s.make
-        cur.def.applyParams?.(cur.ctrl, { mode: m.mode, item: m.item, total: m.mode === 'pairs' ? (m.min ?? 2) : m.total, extra: m.extra ?? 3, choice: 0 })
+        const d0 = startDial(m)
+        const t0 = m.mode === 'pairs' ? (m.min ?? 2) : m.mode === 'stairs' ? (d0 * (d0 + 1)) / 2 : m.mode === 'square' ? d0 * d0 : m.total
+        cur.def.applyParams?.(cur.ctrl, { mode: m.mode, item: m.item, total: t0, extra: m.extra ?? 3, choice: m.mode === 'stairs' || m.mode === 'square' ? d0 : 0 })
         cur.ctrl.values.shown = 0
         gsap.to(cur.ctrl.values, { shown: cur.ctrl.values.total, duration: reducedMotion ? 0.001 : 1.6, ease: 'power1.inOut' })
         setMade({ found: [], tried: false, dial: startDial(m) })
@@ -233,7 +243,7 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
     if (!ctrl) return
     sfx.tap()
     narrator.stop()
-    const total = m.mode === 'pairs' ? n : m.total
+    const total = m.mode === 'pairs' ? n : m.mode === 'stairs' ? (n * (n + 1)) / 2 : m.mode === 'square' ? n * n : m.total
     Object.assign(ctrl.values, { choice: n, total, shown: total, tried: 1 })
     const r = makeResult(m, n)
     const isNew = r.counts && !made.found.includes(r.key)
@@ -539,6 +549,7 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
               {lesson.handsOn && <p className="talk-hands">Hands-on: {lesson.handsOn}</p>}
             </div>
           )}
+          {speaker === 'robot' && caption && <RobotAvatar talking />}
           {settings.captions && caption && (
             <p className="caption" aria-live="polite">
               {caption}
@@ -722,6 +733,10 @@ type Make = MakeStep['make']
 
 function dialRange(m: Make): [number, number] {
   if (m.mode === 'rows') return [1, m.total]
+  if (m.mode === 'stairs') return [1, m.max ?? 8]
+  if (m.mode === 'square') return [1, m.max ?? 8]
+  if (m.mode === 'groups') return [0, Math.floor(m.total / Math.max(1, m.extra ?? 10))]
+  if (m.mode === 'line') return [1, m.max ?? 12]
   if (m.mode === 'pairs') return [m.min ?? 2, m.max ?? 20]
   if (m.mode === 'split') return [0, m.total]
   if (m.mode === 'tens') return [0, Math.floor(m.total / 10)]
@@ -729,10 +744,12 @@ function dialRange(m: Make): [number, number] {
 }
 function startDial(m: Make) {
   if (m.mode === 'tens') return Math.floor(m.total / 10)
+  if (m.mode === 'groups') return Math.floor(m.total / Math.max(1, m.extra ?? 10))
+  if (m.mode === 'stairs' || m.mode === 'square' || m.mode === 'line') return 1
   if (m.mode === 'split' || m.mode === 'share') return 1
   return dialRange(m)[0] + (m.mode === 'rows' ? 1 : 0)
 }
-const UNIT: Record<Make['mode'], string> = { rows: 'rows', pairs: 'animals', split: 'in this field', tens: 'tens', share: 'each' }
+const UNIT: Record<Make['mode'], string> = { rows: 'rows', pairs: 'animals', split: 'in this field', tens: 'tens', share: 'each', stairs: 'steps', square: 'long', groups: 'groups', line: 'units' }
 const w = (k: string) => commonLine(k)
 
 /** What his choice made, as a label for the "found" list and the words to say. */
@@ -754,6 +771,16 @@ export function makeResult(m: Make, n: number): { key: string; counts: boolean; 
     const ones = T - 10 * n
     return { key: `${n} tens + ${ones} ones`, counts: true, say: [numberLine(n), w(n === 1 ? 'w-ten' : 'w-tens'), w('w-and'), numberLine(ones), w(ones === 1 ? 'w-one' : 'w-ones')] }
   }
+  if (m.mode === 'stairs') {
+    const blocks = (n * (n + 1)) / 2
+    return { key: `${n} steps: ${blocks}`, counts: true, say: [numberLine(n), w('w-steps-uses'), numberLine(blocks), w('w-blocks')] }
+  }
+  if (m.mode === 'square') return { key: `${n} × ${n} = ${n * n}`, counts: true, say: [numberLine(n), w('w-by'), numberLine(n), w('w-square-uses'), numberLine(n * n), w('w-blocks')] }
+  if (m.mode === 'groups') {
+    const size = Math.max(1, m.extra ?? 10), ones = T - n * size
+    return { key: `${n} × ${size} + ${ones}`, counts: true, say: [numberLine(n), w(n === 1 ? 'w-group-of' : 'w-groups-of'), numberLine(size), w('w-and'), numberLine(ones), w('w-left-over')] }
+  }
+  if (m.mode === 'line') return { key: `${n} long`, counts: true, say: [numberLine(n), w(n === 1 ? 'w-unit-long' : 'w-units-long')] }
   const E = Math.max(1, m.extra ?? 3), left = T - n * E
   const say = [numberLine(n), w('w-each')]
   if (left) say.push(w('w-and'), numberLine(left), w('w-left-over'))

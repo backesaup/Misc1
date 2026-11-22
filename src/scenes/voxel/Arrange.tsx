@@ -6,20 +6,34 @@ import type { SceneDef, SceneProps } from '../types'
 import { dur } from '../types'
 import { useTicker } from '../useTicker'
 import { blockTexture } from './textures'
+import { Robot, MOODS } from './Robot'
+import { readJSON } from '@/lib/storage'
 
 // "Make it": the world arranges things the way he chooses, so many answers can be right.
 // Modes: rows (equal rows + leftovers), pairs (odd/even), split (two fields),
 // tens (towers of ten + ones), share (equal shares + leftovers).
 // Items: chicken, sheep, apple, brick (an original toy brick with studs), block (game block).
 
-export const MODES = ['rows', 'pairs', 'split', 'tens', 'share'] as const
-export const ITEMS = ['chicken', 'sheep', 'apple', 'brick', 'block'] as const
+export const MODES = ['rows', 'pairs', 'split', 'tens', 'share', 'stairs', 'square', 'groups', 'line'] as const
+export const ITEMS = ['chicken', 'sheep', 'apple', 'brick', 'block', 'pumpkin', 'egg', 'carrot', 'stone', 'grass'] as const
 export type Mode = (typeof MODES)[number]
 export type Item = (typeof ITEMS)[number]
 const MAX = 100
 
 interface Part { size: [number, number, number]; at: [number, number, number]; color: string; cyl?: boolean }
-const PARTS: Record<Exclude<Item, 'block'>, Part[]> = {
+const PARTS: Record<Exclude<Item, 'block' | 'stone' | 'grass'>, Part[]> = {
+  pumpkin: [
+    { size: [0.62, 0.48, 0.62], at: [0, 0.24, 0], color: '#e8892f' },
+    { size: [0.08, 0.16, 0.08], at: [0, 0.55, 0], color: '#5c7a2e' },
+  ],
+  egg: [
+    { size: [0.3, 0.4, 0.3], at: [0, 0.2, 0], color: '#f7ecd8' },
+    { size: [0.22, 0.12, 0.22], at: [0, 0.43, 0], color: '#f7ecd8' },
+  ],
+  carrot: [
+    { size: [0.18, 0.18, 0.62], at: [0, 0.09, 0], color: '#f08a24' },
+    { size: [0.14, 0.2, 0.12], at: [0, 0.2, -0.36], color: '#58b368' },
+  ],
   chicken: [
     { size: [0.5, 0.42, 0.62], at: [0, 0.3, 0], color: '#fbfaf5' },
     { size: [0.28, 0.28, 0.28], at: [0, 0.6, 0.24], color: '#fbfaf5' },
@@ -82,6 +96,41 @@ export function layout(mode: Mode, total: number, choice: number, extra: number)
         pos.push({ x: ((k % 10) - 4.5) * 0.95, y: 0, z: -2.4 + tens * 1.05 + 0.6 + Math.floor(k / 10) * 0.95, left: false, group: -2 })
       }
     }
+  } else if (mode === 'stairs') {
+    // a staircase of `choice` steps: step k is k blocks tall
+    const steps = Math.max(1, choice)
+    let i = 0
+    for (let k = 1; k <= steps; k++)
+      for (let h = 0; h < k; h++) pos.push({ x: (k - 1 - (steps - 1) / 2) * gap, y: h * 0.98, z: 0, left: false, group: k - 1 }), i++
+    for (; i < total; i++) pos.push({ x: 0, y: 0, z: 0, left: false, group: -9 })
+  } else if (mode === 'square') {
+    // a square of side `choice`, coloured in L-shaped layers: 1, 3, 5, 7 …
+    const n = Math.max(1, choice)
+    let i = 0
+    for (let layer = 0; layer < n; layer++) {
+      for (let x = 0; x <= layer; x++) pos.push({ x: (x - (n - 1) / 2) * gap, y: 0, z: (layer - (n - 1) / 2) * gap, left: false, group: layer }), i++
+      for (let z = 0; z < layer; z++) pos.push({ x: (layer - (n - 1) / 2) * gap, y: 0, z: (z - (n - 1) / 2) * gap, left: false, group: layer }), i++
+    }
+    for (; i < total; i++) pos.push({ x: 0, y: 0, z: 0, left: false, group: -9 })
+  } else if (mode === 'groups') {
+    // groups of `extra` (like tens, but any size): `choice` full groups, the rest single
+    const size = Math.max(1, extra)
+    const groups = Math.max(0, Math.min(Math.floor(total / size), choice))
+    for (let i = 0; i < total; i++) {
+      if (i < groups * size) {
+        const g = Math.floor(i / size)
+        pos.push({ x: ((i % size) - (size - 1) / 2) * 0.8, y: 0, z: -2.2 + g * 1.05, left: false, group: g })
+      } else {
+        const k = i - groups * size
+        pos.push({ x: ((k % 8) - 3.5) * 0.95, y: 0, z: -2.2 + groups * 1.05 + 0.6 + Math.floor(k / 8) * 0.95, left: false, group: -2 })
+      }
+    }
+  } else if (mode === 'line') {
+    // measuring: `choice` units laid end to end along something `extra` long (unit length = total/choice)
+    const n = Math.max(1, choice)
+    const len = Math.max(1, extra)
+    const unit = len / n
+    for (let i = 0; i < total; i++) pos.push({ x: i < n ? -len / 2 + unit * (i + 0.5) : 0, y: 0, z: 1.2, left: false, group: i < n ? i : -9 })
   } else {
     // share: `extra` friends, each gets `choice`; the rest stay in the middle basket
     const friends = Math.max(1, extra)
@@ -105,14 +154,15 @@ function Items({ ctrl }: SceneProps) {
   const v = ctrl.values
   const item = ITEMS[Math.round(v.item)] ?? 'block'
   const mode = MODES[Math.round(v.mode)] ?? 'rows'
-  const parts = item === 'block' ? null : PARTS[item]
+  const isBlock = item === 'block' || item === 'stone' || item === 'grass'
+  const parts = isBlock ? null : PARTS[item as keyof typeof PARTS]
   const meshes = useRef<(THREE.InstancedMesh | null)[]>([])
   const shell = useRef<THREE.InstancedMesh>(null)
   const blockMesh = useRef<THREE.InstancedMesh>(null)
   const rings = useRef<THREE.InstancedMesh>(null)
   const group = useRef<THREE.Group>(null)
   const cur = useRef<THREE.Vector3[]>(Array.from({ length: MAX }, () => new THREE.Vector3(0, 6, 0)))
-  const tex = useMemo(() => blockTexture('planks', 4), [])
+  const tex = useMemo(() => blockTexture(item === 'stone' ? 'stone' : item === 'grass' ? 'grass_top' : 'planks', 4), [item])
   const tmp = useMemo(() => ({ m: new THREE.Matrix4(), p: new THREE.Vector3(), q: new THREE.Quaternion(), s: new THREE.Vector3(), c: new THREE.Color() }), [])
 
   useFrame((_, dt) => {
@@ -127,7 +177,7 @@ function Items({ ctrl }: SceneProps) {
     if (group.current) group.current.scale.setScalar(THREE.MathUtils.lerp(group.current.scale.x, Math.min(1.3, 4.8 / ext), k))
     for (let i = 0; i < MAX; i++) {
       const t = target[i]
-      const on = i < total && v.shown > i
+      const on = i < total && v.shown > i && t?.group !== -9
       const c = cur.current[i]
       if (t) c.lerp(tmp.p.set(t.x, t.y + (on ? 0 : 6), t.z), k)
       tmp.s.setScalar(on ? 1 : 0.0001)
@@ -187,6 +237,38 @@ function Items({ ctrl }: SceneProps) {
   )
 }
 
+function SceneRobot({ ctrl }: SceneProps) {
+  useTicker()
+  const v = ctrl.values
+  const g = useRef(readJSON<{ robotName?: string; robotColor?: string }>('game', {})).current
+  if (v.robot < 0.5) return null
+  return <Robot mood={MOODS[Math.round(v.robotMood)] ?? 'idle'} pos={[2.7, 0, -3.3]} color={g.robotColor} name={g.robotName} />
+}
+
+function Scene(props: SceneProps) {
+  return (
+    <>
+      <Items {...props} />
+      <SceneRobot {...props} />
+      <MeasureBar ctrl={props.ctrl} />
+    </>
+  )
+}
+
+/** The thing being measured in line mode (a barn wall), with the units along it. */
+function MeasureBar({ ctrl }: { ctrl: SceneProps['ctrl'] }) {
+  useTicker()
+  const v = ctrl.values
+  if (MODES[Math.round(v.mode)] !== 'line') return null
+  const len = Math.max(1, v.extra)
+  return (
+    <mesh position={[0, 0.6, 0]} castShadow>
+      <boxGeometry args={[len, 1.2, 0.5]} />
+      <meshStandardMaterial color="#c4553e" />
+    </mesh>
+  )
+}
+
 /** Fences for split mode, plates for share mode, a basket for leftovers. */
 function Fields({ ctrl, mode }: { ctrl: SceneProps['ctrl']; mode: Mode }) {
   const friends = Math.max(1, Math.round(ctrl.values.extra))
@@ -240,6 +322,12 @@ function Labels({ ctrl }: SceneProps) {
   } else if (mode === 'pairs') text = `${Math.floor(total / 2)} pairs` + (total % 2 ? ', 1 left over' : '')
   else if (mode === 'split') text = `${choice} and ${total - choice}`
   else if (mode === 'tens') text = `${choice} ${choice === 1 ? 'ten' : 'tens'} and ${total - choice * 10} ${total - choice * 10 === 1 ? 'one' : 'ones'}`
+  else if (mode === 'stairs') text = `${choice} steps: ${(choice * (choice + 1)) / 2} blocks`
+  else if (mode === 'square') text = `${choice} by ${choice}: ${choice * choice} blocks`
+  else if (mode === 'groups') {
+    const size = Math.round(v.extra)
+    text = `${choice} ${choice === 1 ? 'group' : 'groups'} of ${size} and ${total - choice * size}`
+  } else if (mode === 'line') text = `${choice} ${choice === 1 ? 'unit' : 'units'} long`
   else {
     const friends = Math.max(1, Math.round(v.extra)), left = total - choice * friends
     text = `${choice} each` + (left ? `, ${left} left over` : '')
@@ -254,13 +342,14 @@ function Labels({ ctrl }: SceneProps) {
 export const arrange: SceneDef = {
   kind: '3d',
   camera: { position: [0, 6.8, 8.6], target: [0, 0.6, 0.2], fov: 42 },
-  defaults: { total: 12, choice: 1, extra: 3, mode: 0, item: 0, shown: 0, tried: 0 },
-  Component: Items,
+  defaults: { total: 12, choice: 1, extra: 3, mode: 0, item: 0, shown: 0, tried: 0, robot: 0, robotMood: 0 },
+  Component: Scene,
   Overlay: Labels,
   applyParams(ctrl, p) {
     if (typeof p.item === 'string') ctrl.values.item = Math.max(0, ITEMS.indexOf(p.item as Item))
     if (typeof p.mode === 'string') ctrl.values.mode = Math.max(0, MODES.indexOf(p.mode as Mode))
     for (const k of ['total', 'choice', 'extra'] as const) if (typeof p[k] === 'number') ctrl.values[k] = p[k] as number
+    if (typeof p.robot === 'boolean') ctrl.values.robot = p.robot ? 1 : 0
     ctrl.values.tried = 0
   },
   actions: {
@@ -271,6 +360,10 @@ export const arrange: SceneDef = {
       if (typeof cue.item === 'string') ctrl.values.item = Math.max(0, ITEMS.indexOf(cue.item as Item))
       ctrl.values.shown = ctrl.values.total
       ctrl.values.tried = 1
+    },
+    robot: (ctrl, cue) => () => {
+      if (cue.on !== undefined) ctrl.values.robot = cue.on === false ? 0 : 1
+      if (typeof cue.mood === 'string') ctrl.values.robotMood = Math.max(0, MOODS.indexOf(cue.mood as (typeof MOODS)[number]))
     },
   },
 }

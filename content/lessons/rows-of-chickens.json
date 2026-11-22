@@ -5,47 +5,181 @@
   "cardArt": "maths",
   "status": "ready",
   "order": 2,
-  "_map": "Lesson map: Rows of chickens (Y1–2) + Turn the farm (Y2). Big idea: multiplication is equal rows (an array); 3 × 4 is the same array turned round.",
-  "_stepChain": "a row (from stack-64) → equal rows → the same 12 chickens can make different equal rows → some numbers of rows leave chickens over → the shape of equal rows is called an array → 3 rows of 4 and 4 rows of 3 are the same array turned round",
-  "assumes": ["counting", "times", "row"],
-  "requires": ["stack-64"],
-  "talk": [
-    { "ask": "How many different ways did you find to put 12 chickens in equal rows?", "goodAnswer": "1 × 12, 2 × 6, 3 × 4, 4 × 3, 6 × 2, 12 × 1. Some numbers of rows, like 5, leave chickens over." },
-    { "ask": "Is 3 rows of 4 the same as 4 rows of 3? How do you know?", "goodAnswer": "yes, both are 12. It's the same array turned round: the rows become the columns." }
+  "_map": "Rows of chickens (Y1–2) + Turn the farm (Y2). Big idea: multiplication is equal rows (an array); 3 × 4 = 4 × 3 because it's the same array turned round.",
+  "_story": "The robot's 12 chickens won't queue for breakfast. He helps them line up in equal rows, finds every way, then has to convince the robot (who doesn't believe it) that 3 rows of 4 and 4 rows of 3 are the same. Arrays turn up again on a Lego brick and a Minecraft wall.",
+  "_stepChain": "a row (stack-64) → equal rows → the same 12 chickens can make different equal rows → some numbers of rows leave chickens over → the shape is called an array → arrays are everywhere (Lego studs, a block wall) → turning an array round doesn't change how many → teach the robot",
+  "assumes": [
+    "counting",
+    "times",
+    "row"
   ],
-  "handsOn": "Get 12 Lego bricks, or 12 spoons. Lay them in equal rows in as many ways as you can. Then turn your array round and count again.",
+  "requires": [
+    "stack-64"
+  ],
+  "talk": [
+    {
+      "ask": "How many ways did you find to put 12 chickens in equal rows?",
+      "goodAnswer": "1 × 12, 2 × 6, 3 × 4, 4 × 3, 6 × 2, 12 × 1. Numbers like 5 rows leave chickens over."
+    },
+    {
+      "ask": "The robot thought 4 rows of 3 had more chickens than 3 rows of 4. What would you tell it?",
+      "goodAnswer": "they're the same 12 chickens; turning the array round only swaps the rows and the columns."
+    }
+  ],
+  "handsOn": "Get 12 Lego bricks or 12 spoons. Lay them in equal rows in as many ways as you can. Then look at the top of a Lego brick: how many rows of studs does it have?",
   "steps": [
     {
       "id": "hook",
-      "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "rows", "item": "chicken", "total": 12, "choice": 1 } },
-      "narration": { "text": "The farm has 12 chickens, and they want to line up for breakfast. They like standing in rows, and every row must have the same number of chickens." },
-      "animation": [{ "at": 0, "action": "arrive", "duration": 2 }]
+      "scene": {
+        "type": "voxel",
+        "preset": "arrange",
+        "params": {
+          "mode": "rows",
+          "item": "chicken",
+          "total": 12,
+          "choice": 1,
+          "robot": true
+        }
+      },
+      "narration": {
+        "speaker": "robot",
+        "text": "Help! It's breakfast time, and my 12 chickens are all over the place! They have to line up in rows, and every row must be the same length, or they argue."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "arrive",
+          "duration": 2
+        },
+        {
+          "at": 0,
+          "action": "robot",
+          "mood": "sad"
+        }
+      ]
     },
     {
       "id": "make-rows",
       "kind": "make",
-      "narration": { "text": "How many rows should they make? Choose a number of rows, then tap the hammer. See what happens. Try lots of different numbers." },
-      "make": { "mode": "rows", "item": "chicken", "total": 12, "goal": 6, "exactOnly": true }
+      "narration": {
+        "text": "How many rows should the chickens make? Choose a number of rows, then tap the hammer to try it. Try lots of numbers, and see which ones work."
+      },
+      "make": {
+        "mode": "rows",
+        "item": "chicken",
+        "total": 12,
+        "goal": 6,
+        "exactOnly": true
+      }
     },
     {
       "id": "array",
       "term": "array",
-      "narration": { "text": "Look at all the ways you found. When things stand in equal rows, the shape they make is called an array. Some numbers of rows left chickens over. Those chickens couldn't make a full row." }
+      "narration": {
+        "text": "Look at all the ways you found. Things standing in equal rows make a shape called an array. And some numbers of rows, like 5, left chickens over. They couldn't make a full row."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "robot",
+          "mood": "happy"
+        }
+      ]
     },
     {
-      "id": "turn",
+      "id": "everywhere",
+      "narration": {
+        "text": "Arrays are everywhere once you look. Here are 4 toy bricks in 2 rows of 2: an array. Look at the top of each brick too: its studs are an array as well. And a wall in Minecraft is an array of blocks."
+      },
+      "label": "an array",
+      "animation": [
+        {
+          "at": 0,
+          "action": "set",
+          "mode": "rows",
+          "item": "brick",
+          "total": 4,
+          "choice": 2
+        },
+        {
+          "at": 5.2,
+          "action": "set",
+          "mode": "rows",
+          "item": "block",
+          "total": 15,
+          "choice": 3
+        }
+      ]
+    },
+    {
+      "id": "robot-doubts",
       "question": {
-        "open": true,
-        "narration": { "text": "Here's a puzzle. 3 rows of 4 chickens. Now turn the whole farm round, so the rows go the other way. It's 4 rows of 3." },
-        "prompt": "Which has more chickens? Make your best guess.",
-        "choices": ["3 rows of 4", "Same", "4 rows of 3"],
+        "narration": {
+          "speaker": "robot",
+          "text": "Hmm. Here are 3 rows of 4 chickens. Now I turn the farm round, so it's 4 rows of 3. I think 4 rows of 3 must have more chickens, because 4 rows is more rows!"
+        },
+        "prompt": "Is the robot right?",
+        "choices": [
+          "Yes",
+          "No"
+        ],
         "answer": 1,
-        "reveal": "They're the same! Turning the array round doesn't add or take away any chickens. 3 times 4 and 4 times 3 are both 12.",
+        "onRight": "Yes, you spotted it. Turning the array round doesn't add or take away any chickens.",
+        "wrong": {
+          "0": {
+            "mistake": "thinks more rows means more things, ignoring that each row got shorter",
+            "hint": "There are more rows now. But look: are the rows the same length as before?",
+            "say": "There are more rows, but each row got shorter. Count them: 3, 6, 9, 12. Still 12 chickens. We only turned the array round."
+          }
+        },
+        "reveal": "3 rows of 4 is 12. 4 rows of 3 is 12. Same chickens, turned round. 3 times 4 equals 4 times 3.",
         "revealAnimation": [
-          { "at": 0, "action": "set", "choice": 3 },
-          { "at": 2, "action": "set", "choice": 4 }
+          {
+            "at": 0,
+            "action": "set",
+            "choice": 4
+          },
+          {
+            "at": 2.4,
+            "action": "set",
+            "choice": 3
+          },
+          {
+            "at": 4.8,
+            "action": "set",
+            "choice": 4
+          }
         ]
-      }
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "set",
+          "mode": "rows",
+          "item": "chicken",
+          "total": 12,
+          "choice": 3
+        },
+        {
+          "at": 0,
+          "action": "robot",
+          "mood": "think"
+        }
+      ]
+    },
+    {
+      "id": "thanks",
+      "narration": {
+        "speaker": "robot",
+        "text": "Oh! I get it now. The rows went the other way, but no chickens ran off. Thank you for teaching me!"
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "robot",
+          "mood": "happy"
+        }
+      ]
     },
     {
       "id": "rule",
@@ -60,7 +194,11 @@
   "bonus": {
     "open": true,
     "prompt": "Bonus challenge: how many ways can 24 chickens make equal rows? Make a guess.",
-    "choices": ["4", "8", "12"],
+    "choices": [
+      "4",
+      "8",
+      "12"
+    ],
     "answer": 1,
     "reveal": "There are 8 ways: 1, 2, 3, 4, 6, 8, 12 or 24 rows. 24 can make more arrays than 12 can."
   }

@@ -5,48 +5,86 @@
   "cardArt": "build",
   "status": "ready",
   "order": 5,
-  "_map": "Lesson map: Bundles of ten (Y2) + The counter that rolls over (Y1). Big idea: 34 means 3 tens and 4 ones, and it can be made in other ways too.",
-  "_stepChain": "counting → a tower of 10 Lego bricks → 34 bricks = towers of 10 + single bricks → the 3 in 34 counts towers, the 4 counts singles → tens and ones → 34 can also be 2 tens and 14 ones (break a tower) → after 9 ones comes a new ten",
+  "_map": "Bundles of ten (Y2) + The counter that rolls over (Y1). Big idea: 34 = 3 tens and 4 ones, and other ways too; after 9 ones comes a new ten.",
+  "_story": "The robot dropped a bucket of 34 bricks and wants to count them fast. Snapping rods of ten is the trick (like Minecraft stacks of 64, but tens). He makes 34 different ways, then the farm counter rolls past 39 and 99.",
+  "_stepChain": "counting one by one is slow → snap 10 into a rod → 34 = rods + singles → the digits mean tens and ones → 34 made other ways (break a rod) → the robot thinks 2 tens and 14 ones is a different number → 39 + 1 rolls over → 99 + 1",
   "assumes": ["counting", "adding"],
   "talk": [
-    { "ask": "What does the 3 in 34 mean?", "goodAnswer": "3 tens: three towers of 10 bricks. The 4 means 4 single bricks." },
-    { "ask": "Can you make 34 a different way?", "goodAnswer": "yes, like 2 tens and 14 ones, or 1 ten and 24 ones. It's still 34 bricks." }
+    { "ask": "What does the 3 in 34 mean?", "goodAnswer": "3 tens: three rods of 10 bricks. The 4 means 4 single bricks." },
+    { "ask": "Can you make 34 in a different way?", "goodAnswer": "yes, like 2 tens and 14 ones, or 1 ten and 24 ones. It's still 34 bricks." },
+    { "ask": "Why does 39 + 1 make 40, not 310?", "goodAnswer": "the 10 ones snap together into a new ten, so it's 4 tens and 0 ones." }
   ],
-  "handsOn": "Build towers of 10 Lego bricks. Make 34 with towers and single bricks. Then break one tower and make 34 a different way.",
+  "handsOn": "Build rods of 10 Lego bricks. Make 34 with rods and single bricks. Then break one rod and make 34 a different way. Can you make 34 with no rods at all?",
   "steps": [
     {
       "id": "hook",
-      "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "tens", "item": "brick", "total": 34, "choice": 0 } },
-      "narration": { "text": "Here are 34 toy bricks, all mixed up. Counting them one by one takes ages. Builders have a better trick." },
-      "animation": [{ "at": 0, "action": "arrive", "duration": 2.4 }]
+      "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "tens", "item": "brick", "total": 34, "choice": 0, "robot": true } },
+      "narration": { "speaker": "robot", "text": "Oh dear. I dropped my bucket of bricks! There are 34 of them, all mixed up. Counting them one at a time takes me ages. Is there a faster way?" },
+      "animation": [
+        { "at": 0, "action": "arrive", "duration": 2.4 },
+        { "at": 0, "action": "robot", "mood": "sad" }
+      ]
     },
     {
-      "id": "towers",
+      "id": "rods",
       "term": "tens",
-      "narration": { "text": "Snap 10 bricks into a tower. Then another. Then another. 3 towers of 10, and 4 bricks left over. The towers are called tens, and the single bricks are called ones." },
-      "animation": [{ "at": 1, "action": "set", "mode": "tens", "total": 34, "choice": 3 }]
+      "narration": { "text": "Here's a builder's trick. Snap 10 bricks into a rod. Then another. Then another. 3 rods of 10, and 4 bricks left. The rods are called tens, and the single bricks are called ones." },
+      "animation": [
+        { "at": 1.2, "action": "set", "mode": "tens", "total": 34, "choice": 3 },
+        { "at": 1.2, "action": "robot", "mood": "happy" }
+      ]
     },
     {
       "id": "digits",
-      "narration": { "text": "Now look at the number 34. The 3 tells you how many tens: 3 towers. The 4 tells you how many ones: 4 single bricks. That's what the two digits mean." },
+      "narration": { "text": "Now look at the number 34. The 3 tells you how many tens: 3 rods. The 4 tells you how many ones: 4 single bricks. Each digit has its own job." },
       "label": "34 = 3 tens and 4 ones"
     },
     {
       "id": "make-tens",
       "kind": "make",
-      "narration": { "text": "Can you make 34 in a different way? Choose how many towers to keep, then tap the hammer. The other bricks stay as ones." },
+      "narration": { "text": "Can you make 34 in a different way? Choose how many rods to keep, then tap the hammer. The other bricks stay as ones. Find all the ways." },
       "make": { "mode": "tens", "item": "brick", "total": 34, "goal": 4 }
+    },
+    {
+      "id": "robot-mistake",
+      "question": {
+        "narration": { "speaker": "robot", "text": "Wait. 2 tens and 14 ones. That's a different number from 34, isn't it? It looks completely different!" },
+        "prompt": "Is 2 tens and 14 ones the same as 34?",
+        "choices": ["Yes", "No"],
+        "answer": 0,
+        "onRight": "Yes. You saw that breaking a rod doesn't lose any bricks. 20 and 14 is still 34.",
+        "wrong": {
+          "1": {
+            "mistake": "thinks changing how it's grouped changes the amount",
+            "hint": "Did any bricks go away when the rod was broken? Count the ones in tens: 10 and 4.",
+            "say": "We only broke one rod into single bricks. No bricks went anywhere. 2 tens is 20, and 14 more makes 34."
+          }
+        },
+        "reveal": "2 tens and 14 ones is 34. Same bricks, grouped differently.",
+        "revealAnimation": [
+          { "at": 0, "action": "set", "mode": "tens", "total": 34, "choice": 2 },
+          { "at": 0, "action": "robot", "mood": "think" }
+        ]
+      }
     },
     {
       "id": "rollover",
       "question": {
         "open": true,
-        "narration": { "text": "Here's something that happens on the farm's counter. It shows 39: 3 tens and 9 ones. Then one more chicken arrives." },
-        "prompt": "What does the counter show now? Make a guess.",
+        "narration": { "speaker": "robot", "text": "My farm counter counts my chickens. It says 39: 3 tens and 9 ones. Oh look, one more chicken has arrived!" },
+        "prompt": "What will the counter show now? Make a guess.",
         "choices": ["310", "40", "49"],
         "answer": 1,
-        "reveal": "40! 9 ones and 1 more make 10 ones, and 10 ones snap together into a new tower. So it's 4 tens and 0 ones: 40."
+        "reveal": "40! 9 ones and 1 more make 10 ones, and 10 ones snap together into a new ten. So it's 4 tens and 0 ones: 40. The ones go back to zero, and the tens go up.",
+        "revealAnimation": [
+          { "at": 0, "action": "set", "mode": "tens", "total": 40, "choice": 4 },
+          { "at": 0, "action": "robot", "mood": "happy" }
+        ]
       }
+    },
+    {
+      "id": "invent",
+      "narration": { "text": "Here's a challenge for later. Invent your own counter! It could count in tens like ours, or something different, like groups of 5. What happens when your counter fills up?" }
     },
     {
       "id": "rule",
@@ -63,6 +101,6 @@
     "prompt": "Bonus: the counter shows 99. One more chicken arrives. What does it show?",
     "choices": ["910", "100", "1,000"],
     "answer": 1,
-    "reveal": "100! 10 ones make a new ten, and then 10 tens make something new: a hundred."
+    "reveal": "100! 10 ones make a new ten, and then 10 tens snap together into something new: a hundred."
   }
 }
