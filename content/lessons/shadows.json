@@ -1,0 +1,73 @@
+{
+  "id": "shadows",
+  "section": "made",
+  "title": "Shadows",
+  "cardArt": "made",
+  "status": "ready",
+  "order": 6,
+  "_map": "Shadows (stretch, usually Y3). Big idea: light travels in straight lines; shadows form where it's blocked. Creative: make the biggest and smallest shadow of the robot by moving the lamp.",
+  "_story": "The robot sees a giant robot on the barn wall and gets scared. It's only its shadow. Ismaeel moves the lamp to make the shadow huge and tiny.",
+  "_stepChain": "light travels in straight lines (disco: reflect) → the robot blocks some light → the dark shape behind it is a shadow → move the lamp closer: bigger shadow → further: smaller → the robot thinks moving further makes it bigger",
+  "assumes": ["light", "reflect"],
+  "requires": ["disco"],
+  "talk": [
+    { "ask": "How is a shadow made?", "goodAnswer": "something blocks the light, and light can't bend round it, so there's a dark shape behind." },
+    { "ask": "How do you make a shadow bigger?", "goodAnswer": "move the light closer to the object." }
+  ],
+  "handsOn": "In a dark room, shine a torch at your hand in front of a wall. Move the torch closer, then further. Make a shadow puppet of an animal!",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "lab", "params": { "view": "shadow", "dist": 0.5 } },
+      "narration": { "speaker": "robot", "text": "Aaah! There's a giant dark robot on the barn wall! Oh. It moves when I move. Is that me?" }
+    },
+    {
+      "id": "shadow",
+      "term": "shadow",
+      "narration": { "text": "Light travels in straight lines. The robot blocks some of the lamp's light, and light can't bend round it. So behind the robot there's a dark patch, the same shape as the robot. That dark patch is called a shadow." }
+    },
+    {
+      "id": "closer",
+      "question": {
+        "open": true,
+        "narration": { "text": "Now we move the lamp closer to the robot." },
+        "prompt": "What will happen to the shadow?",
+        "choices": ["Bigger", "Smaller", "Same"],
+        "answer": 0,
+        "reveal": "Bigger! The lamp is close, so the robot blocks a wide fan of light.",
+        "revealAnimation": [{ "at": 0, "action": "lamp", "to": 0.1, "duration": 1.6 }]
+      }
+    },
+    {
+      "id": "further",
+      "question": {
+        "narration": { "speaker": "robot", "text": "I want a tiny shadow. So I'll move the lamp closer still!" },
+        "prompt": "How do you make the shadow smaller?",
+        "choices": ["Lamp closer", "Lamp further away"],
+        "answer": 1,
+        "onRight": "Yes. Move the lamp further away, and the shadow shrinks.",
+        "wrong": {
+          "0": { "mistake": "mixed up which way makes the shadow smaller", "hint": "When the lamp came closer, did the shadow grow or shrink?", "say": "Moving the lamp closer made the shadow bigger. To shrink it, move the lamp further away." }
+        },
+        "reveal": "Far lamp, small shadow.",
+        "revealAnimation": [{ "at": 0, "action": "lamp", "to": 0.95, "duration": 1.6 }]
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Blocked light makes a shadow. Closer light, bigger shadow.",
+        "ask": "Can you say how a shadow is made, and how to make it bigger? Say it out loud. Then tap the eye.",
+        "spoken": "Light travels in straight lines. When something blocks it, there's a shadow behind. Move the light closer, and the shadow gets bigger."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: when is your shadow longest outside?",
+    "choices": ["Midday", "Early morning or evening"],
+    "answer": 1,
+    "reveal": "Early morning or evening, when the sun is low in the sky. At midday it's short."
+  }
+}

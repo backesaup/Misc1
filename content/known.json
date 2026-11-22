@@ -1,4 +1,28 @@
 {
   "_note": "What Ismaeel already knows before any lesson. A lesson may assume these words; anything else must be taught (a step's \"term\") in that lesson or a lesson it requires. Add a word here only when he really knows it.",
-  "terms": ["counting", "adding", "taking away", "times", "square number", "cube number", "block", "stack", "Minecraft", "sun", "electricity", "phone", "battery", "magnet", "Rubik's cube", "light", "mirror", "music", "colour", "torch", "dancing", "ears"]
+  "terms": [
+    "counting",
+    "adding",
+    "taking away",
+    "times",
+    "square number",
+    "cube number",
+    "block",
+    "stack",
+    "Minecraft",
+    "sun",
+    "electricity",
+    "phone",
+    "battery",
+    "magnet",
+    "Rubik's cube",
+    "light",
+    "mirror",
+    "music",
+    "colour",
+    "torch",
+    "dancing",
+    "ears",
+    "metal"
+  ]
 }

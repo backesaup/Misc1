@@ -1,0 +1,80 @@
+{
+  "id": "magnets",
+  "section": "made",
+  "title": "Magnets",
+  "cardArt": "made",
+  "status": "ready",
+  "order": 5,
+  "_map": "Magnets (stretch, usually Y3). Big idea: magnets attract some metals; poles push and pull. Creative: find what sticks around the farm; design a magnet-powered gate.",
+  "_story": "The robot dropped a box of bits in the hay. It uses a magnet to fish them out, but not everything comes. Then two magnets push each other away, and the robot is amazed.",
+  "_stepChain": "a magnet pulls some things → paper clips and spoons: yes; wood, plastic: no → not every metal (foil, most coins) → magnets have two ends called poles → same poles push apart, opposite poles pull together → design a gate",
+  "assumes": ["magnet", "metal"],
+  "talk": [
+    { "ask": "Does a magnet pick up every metal?", "goodAnswer": "no: iron and steel things like paper clips, but not foil or most coins." },
+    { "ask": "What happens when you put two magnets' same ends together?", "goodAnswer": "they push each other apart. Opposite ends pull together." }
+  ],
+  "handsOn": "Take a fridge magnet on a hunt round the house. What sticks? What doesn't? If you have two magnets, feel them push and pull.",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "lab", "params": { "view": "magnets" } },
+      "narration": { "speaker": "robot", "text": "I dropped my bits and bobs in the hay! I'll use my magnet to fish them out." }
+    },
+    {
+      "id": "predict",
+      "question": {
+        "open": true,
+        "prompt": "Which things do you think the magnet will pull?",
+        "choices": ["Everything", "Only metal things", "Some metal things"],
+        "answer": 2,
+        "reveal": "Only some metal things! The paper clip and the spoon zoom over. The wood and plastic stay put. And so does the foil, even though it's metal.",
+        "revealAnimation": [{ "at": 0.4, "action": "attract", "duration": 1.4 }]
+      }
+    },
+    {
+      "id": "iron",
+      "narration": { "text": "Magnets pull things that contain iron or steel, like paper clips, spoons and nails. Other metals, like the foil, aren't pulled at all." }
+    },
+    {
+      "id": "poles",
+      "term": "poles",
+      "narration": { "text": "Every magnet has two ends, called poles: a north pole and a south pole. Put a north pole next to a south pole, and they pull together, click!" },
+      "animation": [{ "at": 0, "action": "poles", "on": true }]
+    },
+    {
+      "id": "same",
+      "question": {
+        "narration": { "speaker": "robot", "text": "Now I'll turn one magnet round, so two north poles face each other. They'll pull together even harder!" },
+        "prompt": "What will two north poles do?",
+        "choices": ["Pull together", "Push apart"],
+        "answer": 1,
+        "onRight": "Yes. The same poles push each other away. You can feel it, like an invisible cushion.",
+        "wrong": {
+          "0": { "mistake": "thinks magnets always pull", "hint": "Opposite poles pull. What about poles that are the same?", "say": "Opposite poles pull together, but the same poles push apart. Two norths push each other away." }
+        },
+        "reveal": "Same poles push apart. Opposite poles pull together.",
+        "revealAnimation": [{ "at": 0, "action": "poles", "same": true }]
+      }
+    },
+    {
+      "id": "design",
+      "narration": { "speaker": "robot", "text": "Can you design a gate that shuts itself with magnets? Maybe a magnet on the gate and a metal plate on the post. Draw it and tell a grown-up!" }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Magnets pull iron. Same poles push, opposite poles pull.",
+        "ask": "Can you say what happens when two magnets meet? Say it out loud. Then tap the eye.",
+        "spoken": "Magnets pull things made of iron or steel. Opposite poles pull together, and the same poles push apart."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: a compass needle is a tiny magnet. Why does it always point the same way?",
+    "choices": ["The Earth is like a giant magnet", "It's heavy at one end", "Wind"],
+    "answer": 0,
+    "reveal": "The Earth is like a giant magnet, and the needle lines up with it, pointing north."
+  }
+}

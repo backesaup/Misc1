@@ -1,0 +1,71 @@
+{
+  "id": "make-the-bulb-light",
+  "section": "made",
+  "title": "Make the bulb light",
+  "cardArt": "made",
+  "status": "ready",
+  "order": 3,
+  "_map": "Make the bulb light (stretch, usually Y4). Big idea: electricity needs a complete loop (circuit). Creative: wire a battery and bulb in the workshop; find every way to break the circuit.",
+  "_story": "The robot's workshop is dark. It has a battery, wires and a bulb, but there's a gap. Ismaeel closes the loop, names it a circuit, then hunts for ways to break it.",
+  "_stepChain": "a battery pushes electricity (solar cube: volts) → it must travel all the way round and back → a gap stops it → a complete loop is called a circuit → close the gap: light → ways to break it: a gap, a loose wire, a flat battery → a switch makes a gap on purpose",
+  "assumes": ["electricity", "battery"],
+  "talk": [
+    { "ask": "Why didn't the bulb light when there was a gap?", "goodAnswer": "electricity needs a complete loop to flow; the gap broke the loop." },
+    { "ask": "How does a light switch work?", "goodAnswer": "it makes a gap in the circuit (off) or closes it (on)." }
+  ],
+  "handsOn": "With a grown-up, find a torch and open it up. Find the battery, the bulb and the switch. Can you see how the switch closes the loop?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "lab", "params": { "view": "circuit", "closed": false, "material": "nothing" } },
+      "narration": { "speaker": "robot", "text": "It's too dark in my workshop! I've got a battery, some wires and a bulb. But the bulb won't light up. Why not?" }
+    },
+    {
+      "id": "loop",
+      "narration": { "text": "Electricity flows out of the battery, along the wire, through the bulb, and all the way back to the battery. Look: there's a gap. Electricity can't jump across the gap, so it stops." }
+    },
+    {
+      "id": "close",
+      "term": "circuit",
+      "narration": { "text": "Close the gap with a metal spoon. Now electricity can flow all the way round, and the bulb lights up! A complete loop like this is called a circuit." },
+      "animation": [{ "at": 2.4, "action": "circuit", "closed": true, "material": "metal spoon" }]
+    },
+    {
+      "id": "break",
+      "question": {
+        "narration": { "speaker": "robot", "text": "Now let's break it! I'll take the spoon away again." },
+        "prompt": "What will happen to the bulb?",
+        "choices": ["Stays on", "Goes off", "Gets brighter"],
+        "answer": 1,
+        "onRight": "Yes. A gap breaks the loop, so the electricity stops and the bulb goes off.",
+        "wrong": {
+          "0": { "mistake": "thinks the electricity keeps going once started", "hint": "Is the loop still complete without the spoon?", "say": "Without the spoon, there's a gap again. Electricity can't get round, so the bulb goes off straight away." },
+          "2": { "mistake": "thinks a gap makes more electricity reach the bulb", "hint": "Can electricity get round the loop with a gap?", "say": "A gap stops the electricity altogether, so the bulb goes dark, not brighter." }
+        },
+        "reveal": "Gap: no light. Loop: light.",
+        "revealAnimation": [{ "at": 0, "action": "circuit", "closed": false, "material": "nothing" }]
+      }
+    },
+    {
+      "id": "switch",
+      "narration": { "text": "That's exactly what a light switch does. Switch off: it opens a gap. Switch on: it closes the loop. You've been opening and closing circuits every day!" },
+      "animation": [{ "at": 2, "action": "circuit", "closed": true, "material": "metal spoon" }, { "at": 3.6, "action": "circuit", "closed": false, "material": "nothing" }, { "at": 5, "action": "circuit", "closed": true, "material": "metal spoon" }]
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Electricity needs a complete loop.",
+        "ask": "Can you say why the bulb only lights when the loop is closed? Say it out loud. Then tap the eye.",
+        "spoken": "Electricity needs a complete loop, called a circuit, to flow. A gap stops it. A switch opens and closes the gap."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: what if the battery is flat, with no push left?",
+    "choices": ["Bulb lights", "Bulb stays dark"],
+    "answer": 1,
+    "reveal": "It stays dark. The loop is complete, but nothing pushes the electricity round."
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "id": "conductors",
+  "section": "made",
+  "title": "What lets electricity through?",
+  "cardArt": "made",
+  "status": "ready",
+  "order": 4,
+  "_map": "What lets electricity through? (stretch, usually Y4). Big idea: conductors and insulators. Creative: test farm objects in the circuit and sort them; build a switch from what conducts.",
+  "_story": "The robot lost its spoon and tries closing the gap with other things: wood, a coin, wool, plastic, foil. Ismaeel predicts and tests each, and discovers metals let electricity through.",
+  "_stepChain": "a circuit needs a complete loop (make-the-bulb-light) → put different things in the gap → some light the bulb, some don't → things that let electricity through are conductors → the rest are insulators → metals conduct → wires are metal inside plastic: why?",
+  "assumes": ["circuit", "electricity"],
+  "requires": ["make-the-bulb-light"],
+  "talk": [
+    { "ask": "Which things let electricity through?", "goodAnswer": "metal things: the coin, the spoon, the foil. They're conductors." },
+    { "ask": "Why are wires covered in plastic?", "goodAnswer": "plastic is an insulator, so the electricity stays inside the wire and doesn't get to your fingers." }
+  ],
+  "handsOn": "Look at a cable at home (unplugged!). Can you see the plastic outside? Ask a grown-up to show you a cut cable with metal inside. Why both?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "lab", "params": { "view": "circuit", "closed": true, "material": "wood" } },
+      "narration": { "speaker": "robot", "text": "I lost my spoon! I put a piece of wood in the gap instead. But my bulb won't light. Let's test other things!" }
+    },
+    {
+      "id": "coin",
+      "question": {
+        "open": true,
+        "prompt": "Will a coin make the bulb light?",
+        "choices": ["Yes", "No"],
+        "answer": 0,
+        "reveal": "Yes! The coin is metal, and electricity can flow through it.",
+        "revealAnimation": [{ "at": 0, "action": "circuit", "material": "coin" }]
+      }
+    },
+    {
+      "id": "more",
+      "narration": { "text": "Let's test more. Plastic: dark. Wool: dark. Foil: light! Foil is a thin sheet of metal." },
+      "animation": [
+        { "at": 1.2, "action": "circuit", "material": "plastic" },
+        { "at": 2.6, "action": "circuit", "material": "wool" },
+        { "at": 4, "action": "circuit", "material": "foil" }
+      ]
+    },
+    {
+      "id": "conductor",
+      "term": "conductor",
+      "narration": { "text": "Things that let electricity flow through them are called conductors. The spoon, the coin and the foil are all metal, and metals are good conductors." }
+    },
+    {
+      "id": "insulator",
+      "term": "insulator",
+      "question": {
+        "narration": { "text": "Things that stop electricity, like wood, plastic and wool, are called insulators. Now, a wire is metal inside, with plastic all round the outside." },
+        "prompt": "Why is there plastic round the outside of a wire?",
+        "choices": ["To look nice", "To keep electricity in", "To make it heavy"],
+        "answer": 1,
+        "onRight": "Yes. Plastic is an insulator, so the electricity stays inside the metal and can't get to your fingers.",
+        "wrong": {
+          "0": { "mistake": "missed the safety job of the insulator", "hint": "Plastic is an insulator. What does an insulator do to electricity?", "say": "Plastic is an insulator: it stops electricity. Wrapping it round the metal keeps the electricity inside the wire, away from your fingers." },
+          "2": { "mistake": "missed the job of the insulator", "hint": "Think about what plastic does to electricity.", "say": "Plastic stops electricity. It's wrapped round the metal to keep the electricity inside, so it's safe to touch." }
+        },
+        "reveal": "Metal inside to carry it. Plastic outside to keep it safe."
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Conductors let electricity through. Insulators stop it.",
+        "ask": "Can you say what a conductor is, and give an example? Say it out loud. Then tap the eye.",
+        "spoken": "Conductors, like metals, let electricity through. Insulators, like plastic, wood and wool, stop it."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: could you make a switch from a paper clip?",
+    "choices": ["Yes", "No"],
+    "answer": 0,
+    "reveal": "Yes! A metal paper clip conducts. Push it across the gap to switch on, and lift it off to switch off."
+  }
+}

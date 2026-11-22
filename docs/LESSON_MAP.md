@@ -49,12 +49,11 @@ Status: ✅ built · 🟡 partly (an existing lesson touches it) · ⬜ to do. M
 - ✅ Mirror world · Turn cards (diagram:grid mirror and robot cards)
 - ✅ Secret sorting rule · The farm survey + What does the chart say? (diagram:board sort, pictogram, bar chart)
 
-## Science (every lesson is an experiment he runs)
-- ⬜ Parts of a plant / What do seeds need? / Animal groups / Who eats what? / Your senses
-- ⬜ Alive, dead or never alive? / Habitats / Food chains / Growing up
-- ⬜ What's it made of? / Squash, bend, twist, stretch / The four seasons
+## Science (every lesson is an experiment he runs) — the Science lab section
+- ✅ Parts of a plant · What do seeds need? · Animal groups · Who eats what? · Your senses
+- ✅ Alive, dead or never alive? · Homes for animals · Food chains · Growing up
+- ✅ What's it made of? · Squash, bend, twist, stretch · The four seasons
 
 ## Engineering stretch
 - 🟡 Sunlight into power (solar cube, draft until the video facts are checked)
-- 🟡 Shadows / light in straight lines (disco lesson: reflection)
-- ⬜ Make the bulb light / Conductors and insulators / Magnets / Levers and gears / Solid, liquid, gas
+- ✅ Shadows · Make the bulb light · What lets electricity through? · Magnets · Levers and gears · Solid, liquid, gas (diagram:lab)

@@ -68,6 +68,25 @@ red/blue, ones are yellow), `block` (outlined game block). Label shows what he m
 spoken result built from number clips, ways collected as chips, `goal`, `exactOnly`.
 Actions: `arrive`, `set` (`mode`, `item`, `total`, `choice`, `extra`).
 
+### Diagram and solid scenes added for the lesson map (ready)
+All in `src/scenes/diagram/` unless noted; actions are listed in `src/scenes/catalog.ts`.
+
+| Scene | What it draws | Actions | Used by |
+|---|---|---|---|
+| `diagram:balance` | Balance scale that tilts to the heavier side, <, =, > between the pans, a pumpkin, kg/g labels. Make mode `balance` (fives + ones) | set, signs, addOnes | Balance the scale, Heavier or lighter |
+| `diagram:grid` | Grid of squares: hundred square (count-by highlights, two at once), coloured cells, mirror line (with auto mirror), robot that follows turn cards to treasure. Make mode `every` | every, cells, mirror, robot, cards | Hundred square, Days weeks months, Mirror world, Turn cards |
+| `diagram:fraction` | Square field or pie cut into equal or unfair parts, shaded parts, labels like 3/4, two shapes side by side. Make mode `cut` | cut | Halves, Sharing pies, Same amount different name |
+| `diagram:clock` | Analogue clock, tweenable time, half-past shading, minute labels in 5s, sun/moon, activity label | time, shade, labels | The farm clock, How long is a minute? |
+| `diagram:coins` | Original coin drawings (1p–£2), market stall, price tag, total. Make mode `coins` | coins | Market stall, Price it yourself |
+| `diagram:gauge` | Thermometer with farm places (freezer, pond, barn, field, oven), containers filling with buckets (overflow), ruler in cm | place, fill, set | Why we need rulers, Filling up, Hot and cold |
+| `diagram:shapes` | Polygon with numbered sides and corner dots (2 sides can't close, circle), a shape-built cat, tessellation (squares, triangles, hexagons, circles with gaps). Make mode `sides` | set | Shape detective, Corners and sides, Tiles with no gaps |
+| `voxel:solids` (`src/scenes/voxel/Solids.tsx`) | Cube, cuboid, cylinder, sphere, cone, pyramid; faces in colours, thick edges, corner dots, rolling, a cube net that folds and unfolds | show, roll, spin, fold | Faces edges and corners, Unfolding a box |
+| `diagram:board` | Lucide icons: sorting hoops, pictograms, bar charts, chains with arrows (cross one out) | move, set, hot | Sorting, Survey, Animal groups, Who eats what, Senses, Alive or not, Habitats, Food chains, Growing up, Materials, Squash and stretch |
+| `diagram:nature` | Plant with tappable parts, three-pot seed test growing, a tree through the seasons with daylight bar | view, hot, grow, season | Parts of a plant, Seeds, Four seasons |
+| `diagram:lab` | Circuit with bulb and a gap testing materials, magnets attracting / poles pushing and pulling, lamp and shadow size, seesaw lever with pivot, meshing gears, ice → water → steam | view, circuit, attract, poles, lamp, pivot, lift, gears, heat | Bulb, Conductors, Magnets, Shadows, Levers and gears, Solid liquid gas |
+
+`voxel:arrange` also gained modes `stairs`, `square` (L-layers), `groups` (any size), `line` (measuring), `scatter` (estimating), items pumpkin, egg, carrot, stone, grass, and an optional 3D robot (`robot` action, moods). The robot's talking avatar shows on any scene when a `speaker: "robot"` line plays.
+
 ### `diagram:wiring` — series and parallel (ready)
 `src/scenes/diagram/Wiring.tsx`. SVG: 6 rows (faces) of 9 panels, rails, battery, moving current.
 Actions: `flow` (`on`), `lightFace` (`face`), `lightRails`. Tappable: any row → part `chain` (and
@@ -216,6 +235,7 @@ has errors (Bedrock cake stack size says 64), so verify any fact a lesson depend
   `activity.json` (replays, wrong answers chosen, where he stopped). Make lessons from these.
 
 ## Changelog
+- 2026-11-22 — lesson-map scenes: balance, grid, fraction, clock, coins, gauge, shapes, solids, board, nature, lab; Science lab section; 70+ lessons.
 - 2026-11-21 — disco scene + lesson, speech input, music, recorded-narration workflow, Blocky name.
 - 2026-11-21 — game grey-box: robot sidekick, Block/GlowCell, number dial, bed puzzle data.
 - 2026-11-21 — first version: scenes blocks64/solarCube/wiring/power, card art, guide, textures

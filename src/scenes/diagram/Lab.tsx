@@ -72,9 +72,11 @@ function Magnets({ pull, poles, t }: { pull: number; poles: number; t: number })
       <rect x={330} y={110} width={40} height={30} fill="#c0c6d0" /><rect x={430} y={110} width={40} height={30} fill="#c0c6d0" />
       {MAG_ITEMS.map((m, i) => {
         const sticks = MAGNETIC[m]
+        const k = MAG_ITEMS.filter((o) => MAGNETIC[o]).indexOf(m)
         const x0 = 110 + i * 145
-        const x = sticks ? x0 + (400 - x0) * pull * 0.85 : x0
-        const y = sticks ? 470 - (470 - 330) * pull : 470
+        const tx = 300 + k * 200 // each stuck item gets its own spot under the magnet
+        const x = sticks ? x0 + (tx - x0) * pull : x0
+        const y = sticks ? 470 - (470 - 345) * pull : 470
         return (
           <g key={m} transform={`translate(${x} ${y})`}>
             <rect x={-44} y={-16} width={88} height={32} rx={14} fill={m === 'wood' ? '#c9945c' : m === 'plastic' ? '#7cc6fe' : '#c0c6d0'} stroke="#2b2a33" strokeWidth={3} />
