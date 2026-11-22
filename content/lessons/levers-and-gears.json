@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 7,
   "_map": "Levers and gears (stretch, usually Y5). Big idea: simple machines make jobs easier. Creative: lift a heavy pumpkin with a lever; connect gears to make the mill turn fast or slow.",
-  "_story": "The giant pumpkin is too heavy for the robot to lift. A plank and a log make a lever. Then the mill turns too slowly, and gears fix it. Like Create mod machines, but real.",
+  "_story": "The giant pumpkin is too heavy for Steve to lift. A plank and a log make a lever. Then the mill turns too slowly, and gears fix it. Like Create mod machines, but real.",
   "_stepChain": "heavy things are hard to lift → a plank on a log is a lever → the log is the pivot → pivot close to the pumpkin: easy → gears: teeth push each other round → a small gear turns a big gear slowly, a big gear turns a small gear fast → machines make jobs easier",
   "assumes": ["counting", "kilogram"],
   "requires": ["heavier-or-lighter"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "lab", "params": { "view": "lever", "pivot": 0.5 } },
-      "narration": { "speaker": "robot", "text": "My giant pumpkin is too heavy to lift onto the cart! I tried and tried. Do you have an idea?" }
+      "narration": { "speaker": "steve", "text": "My giant pumpkin is too heavy to lift onto the cart! I tried and tried. Do you have an idea?" }
     },
     {
       "id": "lever",
@@ -32,10 +32,10 @@
       "question": {
         "open": true,
         "narration": { "text": "Where should the log go, to make lifting easiest?" },
-        "prompt": "Pivot close to the pumpkin, or close to the robot?",
-        "choices": ["Close to the pumpkin", "Close to the robot"],
+        "prompt": "Pivot close to the pumpkin, or close to Steve?",
+        "choices": ["Close to the pumpkin", "Close to Steve"],
         "answer": 0,
-        "reveal": "Close to the pumpkin! Then the robot pushes down on a long end, and even a small push lifts the heavy pumpkin.",
+        "reveal": "Close to the pumpkin! Then Steve pushes down on a long end, and even a small push lifts the heavy pumpkin.",
         "revealAnimation": [{ "at": 0, "action": "lift", "to": 0, "duration": 0.4 }, { "at": 0.4, "action": "pivot", "to": 0.2 }, { "at": 1.8, "action": "lift", "to": 1, "duration": 1.6 }]
       }
     },
@@ -49,7 +49,7 @@
     {
       "id": "speed",
       "question": {
-        "narration": { "speaker": "robot", "text": "The big gear has twice as many teeth. So it must turn twice as fast!" },
+        "narration": { "speaker": "steve", "text": "The big gear has twice as many teeth. So it must turn twice as fast!" },
         "prompt": "Does the big gear turn faster or slower than the small one?",
         "choices": ["Faster", "Slower"],
         "answer": 1,

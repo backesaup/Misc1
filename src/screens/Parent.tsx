@@ -229,24 +229,23 @@ export function Parent() {
 }
 
 function FarmNames() {
-  const [g, setG] = useState(() => readJSON<{ robotName?: string; farmName?: string }>('game', {}))
+  const [g, setG] = useState(() => readJSON<{ farmName?: string }>('game', {}))
   return (
     <>
       <p className="p-row-hint">
-        Robot: <strong>{g.robotName ?? 'not named yet'}</strong> · Farm: <strong>{g.farmName ?? 'not named yet'}</strong>. He chooses these himself the
-        first time he opens the farm.
+        Farm: <strong>{g.farmName ?? 'not named yet'}</strong>. He chooses it himself the first time he opens the farm, where Steve says hello.
       </p>
       <HoldButton
         ms={1200}
-        label="Hold to ask him for new names"
+        label="Hold to ask him for a new farm name"
         className="p-danger"
         onDone={() => {
-          const next = { ...readJSON<Record<string, unknown>>('game', {}), robotName: undefined, robotColor: undefined, farmName: undefined }
+          const next = { ...readJSON<Record<string, unknown>>('game', {}), farmName: undefined }
           writeJSON('game', next)
           setG({})
         }}
       >
-        Hold to ask for new names
+        Hold to ask for a new farm name
       </HoldButton>
     </>
   )
@@ -271,7 +270,7 @@ function VoiceSamples() {
   return (
     <>
       <p className="p-row-hint">
-        Listen, then put the id you like into <code>content/voice.json</code> (<code>speakers.narrator.fish.voice</code> or <code>speakers.robot.fish.voice</code>),
+        Listen, then put the id you like into <code>content/voice.json</code> (<code>speakers.narrator.fish.voice</code> or <code>speakers.steve.fish.voice</code>),
         set <code>engine</code> to <code>fish</code>, and push. Every line is re-recorded.
       </p>
       <ul className="p-list samples">

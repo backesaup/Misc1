@@ -6,8 +6,8 @@
   "status": "ready",
   "order": 6,
   "_map": "Balance the scale (Y2). Big idea: <, > and = compare amounts. Creative: balance with different mixes of blocks; how many ways?",
-  "_story": "The robot's market scale is wonky. Heavier side goes down; he learns the signs by watching, then balances 15 blocks every way he can with 5-blocks and 1-blocks, and catches the robot reading the sign backwards.",
-  "_stepChain": "a balance scale: heavier goes down → same amount balances → = means the same → the sign's open side faces the bigger amount: > and < → many mixes can balance the same amount → the robot reads 8 < 5",
+  "_story": "Steve's market scale is wonky. Heavier side goes down; he learns the signs by watching, then balances 15 blocks every way he can with 5-blocks and 1-blocks, and catches Steve reading the sign backwards.",
+  "_stepChain": "a balance scale: heavier goes down → same amount balances → = means the same → the sign's open side faces the bigger amount: > and < → many mixes can balance the same amount → Steve reads 8 < 5",
   "assumes": ["counting", "adding", "equals sign"],
   "requires": ["stack-64"],
   "talk": [
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "balance", "params": { "left": 8, "fives": 0, "ones": 5 } },
-      "narration": { "speaker": "robot", "text": "This is my balance scale. I put 8 blocks on this side, and 5 blocks on that side. Whoa! It tipped right over!" }
+      "narration": { "speaker": "steve", "text": "This is my balance scale. I put 8 blocks on this side, and 5 blocks on that side. Whoa! It tipped right over!" }
     },
     {
       "id": "heavier",
@@ -53,8 +53,8 @@
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "robot", "text": "I wrote 8, then the sign, then 5. The point is next to the 8, so I'm saying 8 is less than 5!" },
-        "prompt": "Is the robot right that 8 is less than 5?",
+        "narration": { "speaker": "steve", "text": "I wrote 8, then the sign, then 5. The point is next to the 8, so I'm saying 8 is less than 5!" },
+        "prompt": "Is Steve right that 8 is less than 5?",
         "choices": ["Yes", "No"],
         "answer": 1,
         "onRight": "Yes, you caught it. 8 is more than 5, so the open side should face the 8.",

@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 34,
   "_map": "Faces, edges, corners (Y2). Big idea: a cube has 6 faces, 12 edges and 8 corners. Creative: which 3D shapes stack and which roll? Build the tallest stable tower; count a Rubik's cube's faces.",
-  "_story": "Building with solid shapes. Every Minecraft block is a cube. The robot counts faces, edges and corners with Ismaeel, then tests which shapes roll away and which stack.",
+  "_story": "Building with solid shapes. Every Minecraft block is a cube. Steve counts faces, edges and corners with Ismaeel, then tests which shapes roll away and which stack.",
   "_stepChain": "3D shapes are solid → a cube (every Minecraft block) → flat sides are faces: 6 → where two faces meet is an edge: 12 → corners: 8 → flat faces stack, curved ones roll → test",
   "assumes": ["square", "counting", "Minecraft", "Rubik's cube"],
   "requires": ["shape-detective"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "solids", "params": { "shape": "cube", "highlight": "plain" } },
-      "narration": { "speaker": "robot", "text": "Every block in Minecraft is this shape: a cube. Let's take a really close look at one." },
+      "narration": { "speaker": "steve", "text": "Every block in Minecraft is this shape: a cube. Let's take a really close look at one." },
       "animation": [{ "at": 0, "action": "spin", "turns": 1, "duration": 5 }]
     },
     {
@@ -54,7 +54,7 @@
       "id": "roll",
       "question": {
         "open": true,
-        "narration": { "speaker": "robot", "text": "Experiment time! I'll give each shape a push." },
+        "narration": { "speaker": "steve", "text": "Experiment time! I'll give each shape a push." },
         "prompt": "Which do you think will roll away?",
         "choices": ["The cube", "The ball", "Both"],
         "answer": 1,

@@ -5,8 +5,8 @@
   "cardArt": "maths",
   "status": "ready",
   "order": 14,
-  "_map": "Patterns on the hundred square (Y1–2). Big idea: counting in 2s, 3s, 5s and 10s makes patterns. Creative: light up every 3rd square; invent a pattern for the robot to guess.",
-  "_story": "The robot built a light-up floor of 100 squares (like the disco floor) and wants patterns. Counting in 2s makes stripes, 10s makes a column, 3s makes diagonals. He predicts, lights, compares, and the robot guesses his pattern.",
+  "_map": "Patterns on the hundred square (Y1–2). Big idea: counting in 2s, 3s, 5s and 10s makes patterns. Creative: light up every 3rd square; invent a pattern for Steve to guess.",
+  "_story": "Steve built a light-up floor of 100 squares (like the disco floor) and wants patterns. Counting in 2s makes stripes, 10s makes a column, 3s makes diagonals. He predicts, lights, compares, and Steve guesses his pattern.",
   "_stepChain": "1 to 100 in rows of 10 → counting in 10s lights a column → in 5s: two columns → in 2s: stripes (even numbers) → predict 3s → diagonals → two patterns together: where both light up",
   "assumes": ["counting", "tens", "even"],
   "requires": ["bundles-of-ten", "odd-ones-out"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "grid", "params": { "cols": 10, "rows": 10, "numbers": true } },
-      "narration": { "speaker": "robot", "text": "I made a floor of 100 squares that light up, with the numbers 1 to 100 in rows of 10. Let's make patterns!" }
+      "narration": { "speaker": "steve", "text": "I made a floor of 100 squares that light up, with the numbers 1 to 100 in rows of 10. Let's make patterns!" }
     },
     {
       "id": "tens",
@@ -51,7 +51,7 @@
     },
     {
       "id": "invent",
-      "narration": { "speaker": "robot", "text": "Your turn to trick me! Think of a counting pattern, light it up on paper, and see if I, or a grown-up, can guess your rule." }
+      "narration": { "speaker": "steve", "text": "Your turn to trick me! Think of a counting pattern, light it up on paper, and see if I, or a grown-up, can guess your rule." }
     },
     {
       "id": "rule",

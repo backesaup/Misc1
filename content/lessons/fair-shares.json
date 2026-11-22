@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 15,
   "_map": "Fair shares (Y1–2). Big idea: division means sharing equally or making equal groups. Creative: share 17 apples between 3 friends; what to do with the leftovers? Any fair idea counts.",
-  "_story": "The robot has 17 apples and three animal friends coming for lunch. Everyone must get the same. Leftovers spark ideas: cut them, save them, plant them, give them to the horse. Any fair idea counts.",
+  "_story": "Steve has 17 apples and three animal friends coming for lunch. Everyone must get the same. Leftovers spark ideas: cut them, save them, plant them, give them to the horse. Any fair idea counts.",
   "_stepChain": "fair means everyone gets the same → share 12 apples between 3: 4 each → share 17 between 3: 5 each, 2 left over → the left-over amount is called the remainder → ideas for the remainder → sharing is the opposite of rows",
   "assumes": ["counting", "times", "row"],
   "requires": ["rows-of-chickens"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "share", "item": "apple", "total": 12, "extra": 3, "choice": 0, "robot": true } },
-      "narration": { "speaker": "robot", "text": "My three friends are coming for lunch: a sheep, a pig and a hen. I've got 12 apples. And everyone must get the same, or someone will be grumpy!" },
+      "narration": { "speaker": "steve", "text": "My three friends are coming for lunch: a sheep, a pig and a hen. I've got 12 apples. And everyone must get the same, or someone will be grumpy!" },
       "animation": [{ "at": 0, "action": "arrive", "duration": 1.6 }]
     },
     {
@@ -31,7 +31,7 @@
     {
       "id": "seventeen",
       "kind": "make",
-      "narration": { "speaker": "robot", "text": "Uh oh. The apple tree dropped some more. Now I've got 17 apples! Can you share them fairly now?" },
+      "narration": { "speaker": "steve", "text": "Uh oh. The apple tree dropped some more. Now I've got 17 apples! Can you share them fairly now?" },
       "make": { "mode": "share", "item": "apple", "total": 17, "extra": 3 }
     },
     {
@@ -44,7 +44,7 @@
       "id": "ideas",
       "question": {
         "open": true,
-        "narration": { "speaker": "robot", "text": "What should we do with the 2 left-over apples? I've got some ideas, but I want to hear yours." },
+        "narration": { "speaker": "steve", "text": "What should we do with the 2 left-over apples? I've got some ideas, but I want to hear yours." },
         "prompt": "Which idea do you like? Any fair idea counts.",
         "choices": ["Cut them up", "Save them", "Give them away"],
         "answer": 0,

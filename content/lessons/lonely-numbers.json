@@ -6,8 +6,8 @@
   "status": "ready",
   "order": 13,
   "_map": "Lonely numbers (stretch). Big idea: some numbers (7, 11, 13) only make one row: prime numbers. Creative: find all the lonely numbers up to 30 using chickens.",
-  "_story": "New chickens hatch: 7 of them. They try to line up in equal rows like the 12 did, but it never works. Ismaeel discovers 'lonely' numbers, names them primes, and the robot claims 9 is lonely.",
-  "_stepChain": "arrays (rows-of-chickens) → 12 makes many arrays → 7 only makes one long row → numbers like that are called prime → test 11 → the robot thinks 9 is prime → hunt up to 30",
+  "_story": "New chickens hatch: 7 of them. They try to line up in equal rows like the 12 did, but it never works. Ismaeel discovers 'lonely' numbers, names them primes, and Steve claims 9 is lonely.",
+  "_stepChain": "arrays (rows-of-chickens) → 12 makes many arrays → 7 only makes one long row → numbers like that are called prime → test 11 → Steve thinks 9 is prime → hunt up to 30",
   "assumes": ["counting", "times", "row", "array"],
   "requires": ["rows-of-chickens"],
   "talk": [
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "rows", "item": "chicken", "total": 7, "choice": 1, "robot": true } },
-      "narration": { "speaker": "robot", "text": "Seven new chicks hatched! They want to line up in equal rows like the big chickens. But they keep getting into a muddle." },
+      "narration": { "speaker": "steve", "text": "Seven new chicks hatched! They want to line up in equal rows like the big chickens. But they keep getting into a muddle." },
       "animation": [{ "at": 0, "action": "arrive", "duration": 1.6 }, { "at": 0, "action": "robot", "mood": "think" }]
     },
     {
@@ -43,7 +43,7 @@
     {
       "id": "robot-9",
       "question": {
-        "narration": { "speaker": "robot", "text": "I think 9 is a lonely number too! It's odd, and it feels lonely." },
+        "narration": { "speaker": "steve", "text": "I think 9 is a lonely number too! It's odd, and it feels lonely." },
         "prompt": "Is 9 a lonely number?",
         "choices": ["Yes", "No"],
         "answer": 1,

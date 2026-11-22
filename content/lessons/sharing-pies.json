@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 19,
   "_map": "Sharing pies (Y1–2). Big idea: quarters and thirds are equal parts; 3/4 is 3 of 4 parts. Creative: cut pies fairly for 3 or 4 villagers; what if a new visitor arrives?",
-  "_story": "The robot baked a pie for the farm animals. 2 friends, then 4, then 3 arrive. Ismaeel cuts it into equal parts each time, names quarters and thirds, then a surprise visitor arrives.",
+  "_story": "Steve baked a pie for the farm animals. 2 friends, then 4, then 3 arrive. Ismaeel cuts it into equal parts each time, names quarters and thirds, then a surprise visitor arrives.",
   "_stepChain": "halves (halves) → 4 friends: 4 equal parts → quarter → 3 friends: thirds → the fraction number: bottom is how many parts, top is how many we have → 3 of 4 is three quarters → more friends, smaller slices",
   "assumes": ["half", "counting"],
   "requires": ["halves"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "fraction", "params": { "shape": "pie", "parts": 2, "shaded": 1 } },
-      "narration": { "speaker": "robot", "text": "I baked an apple pie! Two friends came round, so I cut it in half. One half each." }
+      "narration": { "speaker": "steve", "text": "I baked an apple pie! Two friends came round, so I cut it in half. One half each." }
     },
     {
       "id": "quarter",
@@ -50,7 +50,7 @@
     {
       "id": "visitor",
       "question": {
-        "narration": { "speaker": "robot", "text": "The pie was cut into thirds for 3 friends. But surprise! A fourth friend has arrived. I'll keep the same 3 slices and squeeze them up!" },
+        "narration": { "speaker": "steve", "text": "The pie was cut into thirds for 3 friends. But surprise! A fourth friend has arrived. I'll keep the same 3 slices and squeeze them up!" },
         "prompt": "What's a fair thing to do?",
         "choices": ["Keep 3 slices", "Cut it into 4"],
         "answer": 1,

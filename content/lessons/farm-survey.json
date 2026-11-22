@@ -5,9 +5,9 @@
   "cardArt": "maths",
   "status": "ready",
   "order": 40,
-  "_map": "Farm survey (Y2) + What does the chart say? (Y2). Big idea: tally charts and pictograms record data; charts answer questions. Creative: count the animals and make a pictogram; make up questions the chart can answer for the robot.",
-  "_story": "The robot wants to know how many of each animal live on the farm. Ismaeel counts them into a pictogram, turns it into a bar chart, answers the robot's questions, and invents his own.",
-  "_stepChain": "counting groups → a pictogram: one picture per animal in rows → easy to compare → a bar chart: the bar's length shows how many → the robot's questions → make up questions → survey the family",
+  "_map": "Farm survey (Y2) + What does the chart say? (Y2). Big idea: tally charts and pictograms record data; charts answer questions. Creative: count the animals and make a pictogram; make up questions the chart can answer for Steve.",
+  "_story": "Steve wants to know how many of each animal live on the farm. Ismaeel counts them into a pictogram, turns it into a bar chart, answers Steve's questions, and invents his own.",
+  "_stepChain": "counting groups → a pictogram: one picture per animal in rows → easy to compare → a bar chart: the bar's length shows how many → Steve's questions → make up questions → survey the family",
   "assumes": ["counting", "taking away"],
   "talk": [
     { "ask": "Which animal is there most of? How can you tell from the chart?", "goodAnswer": "the one with the longest row or tallest bar." },
@@ -17,8 +17,8 @@
   "steps": [
     {
       "id": "hook",
-      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "pictogram", "zones": "c:Chickens|s:Sheep|f:Fish|r:Rabbits", "items": "c1:bird::c|c2:bird::c|c3:bird::c|c4:bird::c|c5:bird::c|s1:paw::s|s2:paw::s|s3:paw::s|f1:fish::f|f2:fish::f|f3:fish::f|f4:fish::f|f5:fish::f|f6:fish::f|r1:rabbit::r|r2:rabbit::r" } },
-      "narration": { "speaker": "robot", "text": "I counted all my animals, and put one picture for each animal in a row. Rows of chickens, sheep, fish and rabbits." }
+      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "pictogram", "zones": "c:Chickens|s:Sheep|f:Fish|r:Rabbits", "items": "c1:bird::c|c2:bird::c|c3:bird::c|c4:bird::c|c5:bird::c|s1:sheep::s|s2:sheep::s|s3:sheep::s|f1:fish::f|f2:fish::f|f3:fish::f|f4:fish::f|f5:fish::f|f6:fish::f|r1:rabbit::r|r2:rabbit::r" } },
+      "narration": { "speaker": "steve", "text": "I counted all my animals, and put one picture for each animal in a row. Rows of chickens, sheep, fish and rabbits." }
     },
     {
       "id": "pictogram",
@@ -49,7 +49,7 @@
     {
       "id": "more",
       "question": {
-        "narration": { "speaker": "robot", "text": "Here's my question. How many more chickens are there than rabbits?" },
+        "narration": { "speaker": "steve", "text": "Here's my question. How many more chickens are there than rabbits?" },
         "prompt": "How many more chickens than rabbits?",
         "choices": ["7", "3", "5"],
         "answer": 1,
@@ -63,7 +63,7 @@
     },
     {
       "id": "invent",
-      "narration": { "speaker": "robot", "text": "Now you ask the questions! Make up three questions this chart can answer, and ask a grown-up. Then do your own survey at home." }
+      "narration": { "speaker": "steve", "text": "Now you ask the questions! Make up three questions this chart can answer, and ask a grown-up. Then do your own survey at home." }
     },
     {
       "id": "rule",

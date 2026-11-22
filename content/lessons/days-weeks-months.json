@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 29,
   "_map": "Days, weeks, months (Y1). Big idea: ordering time. Creative: build a calendar for the farm's crops: what grows in which month?",
-  "_story": "The robot wants to plant crops but doesn't know the order of days and months. A calendar of squares, 7 in a row for a week. Ismaeel finds patterns and plans when to plant.",
+  "_story": "Steve wants to plant crops but doesn't know the order of days and months. A calendar of squares, 7 in a row for a week. Ismaeel finds patterns and plans when to plant.",
   "_stepChain": "days have names in order → 7 days make a week → a calendar shows weeks as rows of 7 → about 4 weeks make a month → 12 months make a year → plan the farm",
   "assumes": ["counting", "row"],
   "requires": ["stack-64"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "grid", "params": { "cols": 7, "rows": 5, "numbers": true } },
-      "narration": { "speaker": "robot", "text": "I want to plant carrots! But when? I don't even know what comes after Tuesday!" }
+      "narration": { "speaker": "steve", "text": "I want to plant carrots! But when? I don't even know what comes after Tuesday!" }
     },
     {
       "id": "week",
@@ -39,7 +39,7 @@
     {
       "id": "count",
       "question": {
-        "narration": { "speaker": "robot", "text": "The carrots take 3 weeks to grow. How many days is that?" },
+        "narration": { "speaker": "steve", "text": "The carrots take 3 weeks to grow. How many days is that?" },
         "prompt": "How many days in 3 weeks?",
         "choices": ["10", "21", "37"],
         "answer": 1,
@@ -54,7 +54,7 @@
     },
     {
       "id": "plan",
-      "narration": { "speaker": "robot", "text": "Now help me plan! Seeds go in the ground in spring, around March or April. Carrots are ready in summer. Pumpkins in autumn. Make your own farm calendar with a grown-up!" }
+      "narration": { "speaker": "steve", "text": "Now help me plan! Seeds go in the ground in spring, around March or April. Carrots are ready in summer. Pumpkins in autumn. Make your own farm calendar with a grown-up!" }
     },
     {
       "id": "rule",

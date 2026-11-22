@@ -51,7 +51,7 @@ export const COMMON_LINES: Record<string, string> = {
   'section-ask': 'What do you want to learn about?',
   'didnt-catch': "I didn't catch that. Try saying it again, or tap your answer.",
   'game-more': 'More of the farm is on the way. Come back soon.',
-  'section-game': 'The farm. The robot needs your help.',
+  'section-game': 'The farm. Steve needs your help.',
   hello: `Hi ${learner.spoken}! Pick something to learn.`,
   'well-done': `You worked through every step, ${learner.spoken}. Try explaining it to someone at home.`,
 }
@@ -186,6 +186,6 @@ export const puzzleLine = (p: PuzzleLines, key: string): SpokenLine => ({
   key: `game-${p.id}/${key}`,
   text: p.lines[key] ?? '',
   audio: `audio/game-${p.id}/${key}.mp3`,
-  speaker: 'robot',
+  speaker: 'steve',
 })
 export const allPuzzleLines = (p: PuzzleLines) => Object.keys(p.lines).map((k) => puzzleLine(p, k))

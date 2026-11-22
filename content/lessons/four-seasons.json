@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 12,
   "_map": "The four seasons (Y1). Big idea: weather and day length change across the year. Creative: watch the farm through a year in one minute; what changes? Plan what to plant when.",
-  "_story": "The robot watches one apple tree for a whole year, sped up. Blossom, green leaves, orange leaves, bare branches. Days get longer then shorter. When should we plant?",
+  "_story": "Steve watches one apple tree for a whole year, sped up. Blossom, green leaves, orange leaves, bare branches. Days get longer then shorter. When should we plant?",
   "_stepChain": "a year (days-weeks-months) → the year has four parts called seasons → spring, summer, autumn, winter → the tree changes → days are long in summer, short in winter → plan planting",
   "assumes": ["month", "sun"],
   "requires": ["days-weeks-months"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "nature", "params": { "view": "seasons", "season": 0 } },
-      "narration": { "speaker": "robot", "text": "I'm going to watch my apple tree for a whole year! Sped up, very fast." }
+      "narration": { "speaker": "steve", "text": "I'm going to watch my apple tree for a whole year! Sped up, very fast." }
     },
     {
       "id": "seasons",
@@ -48,7 +48,7 @@
     },
     {
       "id": "plan",
-      "narration": { "speaker": "robot", "text": "When should I plant my seeds? Spring is warm and getting lighter, perfect for seeds. Then they grow all summer, and I pick pumpkins in autumn!" },
+      "narration": { "speaker": "steve", "text": "When should I plant my seeds? Spring is warm and getting lighter, perfect for seeds. Then they grow all summer, and I pick pumpkins in autumn!" },
       "animation": [{ "at": 0, "action": "season", "to": 0 }]
     },
     {

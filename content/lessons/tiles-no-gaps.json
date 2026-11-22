@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 38,
   "_map": "Tiles with no gaps (stretch). Big idea: some shapes fit together with no gaps (tessellation). Creative: which tiles can cover the barn floor perfectly? Invent a new tile that works.",
-  "_story": "The robot wants to tile the barn floor so no mud shows through. It tries squares, triangles, hexagons and circles. Circles leave gaps everywhere.",
+  "_story": "Steve wants to tile the barn floor so no mud shows through. It tries squares, triangles, hexagons and circles. Circles leave gaps everywhere.",
   "_stepChain": "shapes (corners-and-sides) → cover a floor with no gaps → squares work → triangles work → hexagons work (like honeycomb) → circles leave gaps → shapes that fit with no gaps tessellate",
   "assumes": ["square", "triangle", "circle"],
   "requires": ["corners-and-sides"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "shapes", "params": { "view": "tiles", "tile": 0 } },
-      "narration": { "speaker": "robot", "text": "My barn floor is muddy! I want to cover it with tiles, with no gaps for mud to squelch through. Squares work perfectly." }
+      "narration": { "speaker": "steve", "text": "My barn floor is muddy! I want to cover it with tiles, with no gaps for mud to squelch through. Squares work perfectly." }
     },
     {
       "id": "triangles",
@@ -29,7 +29,7 @@
     {
       "id": "circles",
       "question": {
-        "narration": { "speaker": "robot", "text": "Circles are my favourite. I'll use circles!" },
+        "narration": { "speaker": "steve", "text": "Circles are my favourite. I'll use circles!" },
         "prompt": "Will circles cover the floor with no gaps?",
         "choices": ["Yes", "No"],
         "answer": 1,

@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 10,
   "_map": "Swap test (Y2). Big idea: 3 + 5 = 5 + 3, but 5 − 3 isn't 3 − 5; adding and subtracting undo each other. Creative: hunt for a subtraction where swapping still works (only when the numbers match).",
-  "_story": "The robot swaps its two fields of sheep around and wonders if anything changed. Then it tries swapping a take-away and gets into trouble. Ismaeel hunts for the one kind of take-away that survives a swap.",
+  "_story": "Steve swaps its two fields of sheep around and wonders if anything changed. Then it tries swapping a take-away and gets into trouble. Ismaeel hunts for the one kind of take-away that survives a swap.",
   "_stepChain": "3 + 5 shown with sheep in two fields → swap the fields: 5 + 3, same 8 → adding order doesn't matter → 5 − 3 = 2, but 3 − 5: can't take 5 from 3 → swapping a take-away changes it → except 4 − 4 = 4 − 4 → adding and taking away undo each other",
   "assumes": ["counting", "adding", "taking away", "minus sign"],
   "requires": ["joining-and-taking-away"],
@@ -26,7 +26,7 @@
     {
       "id": "swap",
       "question": {
-        "narration": { "speaker": "robot", "text": "Let's swap the fields round! Now it's 5 add 3. I bet that's a different number now." },
+        "narration": { "speaker": "steve", "text": "Let's swap the fields round! Now it's 5 add 3. I bet that's a different number now." },
         "prompt": "What is 5 add 3?",
         "choices": ["8", "2", "53"],
         "answer": 0,
@@ -41,7 +41,7 @@
     },
     {
       "id": "takeaway",
-      "narration": { "speaker": "robot", "text": "So swapping always works! Let's try it with take away. I have 5 sheep, and 3 go home. 5 minus 3 is 2. Now swap it: I have 3 sheep, and 5 go home…" },
+      "narration": { "speaker": "steve", "text": "So swapping always works! Let's try it with take away. I have 5 sheep, and 3 go home. 5 minus 3 is 2. Now swap it: I have 3 sheep, and 5 go home…" },
       "animation": [
         { "at": 0, "action": "set", "mode": "split", "total": 5, "choice": 2 },
         { "at": 0, "action": "robot", "mood": "think" }

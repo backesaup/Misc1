@@ -12,7 +12,8 @@ since. **Where a brief and Esa's later instructions disagree, the instructions b
 - External links are allowed.
 - No hard 50 MB size limit (keep it reasonable: iOS can evict offline storage for unused apps).
 - The learner is **Ismaeel** (`src/config.ts`). The app is called **Blocky**.
-- He names the robot and the farm himself (in the game, by speaking or typing).
+- The sidekick is **Steve** (Minecraft), not a robot. He names the farm himself (in the game, by speaking or typing).
+- Use Minecraft art wherever it fits: skins, items, mob faces, blocks. Real-world lessons show real-looking objects, with Steve alongside.
 - Speech input is on: he can say answers. Narration is recorded by a GitHub Action, not on a laptop.
 
 ## The learner

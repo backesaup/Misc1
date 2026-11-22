@@ -6,8 +6,7 @@ import type { SceneDef, SceneProps } from '../types'
 import { dur } from '../types'
 import { useTicker } from '../useTicker'
 import { blockTexture } from './textures'
-import { Robot, MOODS } from './Robot'
-import { readJSON } from '@/lib/storage'
+import { Steve, MOODS } from './Steve'
 
 // "Make it": the world arranges things the way he chooses, so many answers can be right.
 // Modes: rows (equal rows + leftovers), pairs (odd/even), split (two fields),
@@ -248,9 +247,8 @@ function Items({ ctrl }: SceneProps) {
 function SceneRobot({ ctrl }: SceneProps) {
   useTicker()
   const v = ctrl.values
-  const g = useRef(readJSON<{ robotName?: string; robotColor?: string }>('game', {})).current
   if (v.robot < 0.5) return null
-  return <Robot mood={MOODS[Math.round(v.robotMood)] ?? 'idle'} pos={[2.7, 0, -3.3]} color={g.robotColor} name={g.robotName} />
+  return <Steve mood={MOODS[Math.round(v.robotMood)] ?? 'idle'} pos={[2.7, 0, -3.3]} />
 }
 
 function Scene(props: SceneProps) {

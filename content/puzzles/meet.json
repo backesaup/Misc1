@@ -1,12 +1,9 @@
 {
   "id": "meet",
-  "_design": "First visit to the farm: he names the robot, picks its colour, and names the farm. The names are shown on screen; narration never says them, so every line can be pre-recorded.",
+  "_design": "First visit to the farm: Steve says hello and he names the farm. The farm name is shown on screen; narration never says it, so every line can be pre-recorded.",
   "lines": {
-    "askRobotName": "Hello! I'm a little robot, and I live on this farm. I don't have a name yet. What do you want to call me? Tap the microphone and say it, or type it.",
-    "likeName": "I love it! That's my name now.",
-    "askColour": "What colour should I be? Tap one.",
-    "colourDone": "Ooh, I look great!",
-    "askFarmName": "And what shall we call this farm?",
+    "hello": "Hello! I'm Steve. I live on this farm, and I'm going to need your help.",
+    "askFarmName": "Our farm doesn't have a name yet. What shall we call it? Tap the microphone and say it, or type it.",
     "farmNamed": "What a good name for a farm. Now, I need your help…",
     "tryAgain": "Say it again, or type it."
   }

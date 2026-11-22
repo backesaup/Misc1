@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 4,
   "_map": "What lets electricity through? (stretch, usually Y4). Big idea: conductors and insulators. Creative: test farm objects in the circuit and sort them; build a switch from what conducts.",
-  "_story": "The robot lost its spoon and tries closing the gap with other things: wood, a coin, wool, plastic, foil. Ismaeel predicts and tests each, and discovers metals let electricity through.",
+  "_story": "Steve lost its spoon and tries closing the gap with other things: wood, a coin, wool, plastic, foil. Ismaeel predicts and tests each, and discovers metals let electricity through.",
   "_stepChain": "a circuit needs a complete loop (make-the-bulb-light) → put different things in the gap → some light the bulb, some don't → things that let electricity through are conductors → the rest are insulators → metals conduct → wires are metal inside plastic: why?",
   "assumes": ["circuit", "electricity"],
   "requires": ["make-the-bulb-light"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "lab", "params": { "view": "circuit", "closed": true, "material": "wood" } },
-      "narration": { "speaker": "robot", "text": "I lost my spoon! I put a piece of wood in the gap instead. But my bulb won't light. Let's test other things!" }
+      "narration": { "speaker": "steve", "text": "I lost my spoon! I put a piece of wood in the gap instead. But my bulb won't light. Let's test other things!" }
     },
     {
       "id": "coin",

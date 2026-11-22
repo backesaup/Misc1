@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 26,
   "_map": "Hot and cold (Y2). Big idea: temperature in °C. Creative: find the hottest and coldest places on the farm with a thermometer tool; where is it 0 °C?",
-  "_story": "The robot takes a thermometer round the farm: freezer, frozen pond, barn, sunny field, oven. Ismaeel predicts each one, sees the red line move, and finds where it's 0 degrees.",
+  "_story": "Steve takes a thermometer round the farm: freezer, frozen pond, barn, sunny field, oven. Ismaeel predicts each one, sees the red line move, and finds where it's 0 degrees.",
   "_stepChain": "hot and cold → a thermometer measures how hot: temperature → the red line goes up when hot → degrees → 0 is where water freezes → below zero is colder still (link: zero) → predict and test",
   "assumes": ["counting", "zero"],
   "requires": ["what-is-zero"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "gauge", "params": { "kind": "thermometer", "temp": 12, "place": 2 } },
-      "narration": { "speaker": "robot", "text": "I've got a new tool: a thermometer! Let's take it round the farm and find the hottest and coldest places." }
+      "narration": { "speaker": "steve", "text": "I've got a new tool: a thermometer! Let's take it round the farm and find the hottest and coldest places." }
     },
     {
       "id": "temperature",
@@ -46,7 +46,7 @@
     {
       "id": "freezer",
       "question": {
-        "narration": { "speaker": "robot", "text": "And now the freezer. It's colder than ice. But zero is the lowest number, so it must say zero again!" },
+        "narration": { "speaker": "steve", "text": "And now the freezer. It's colder than ice. But zero is the lowest number, so it must say zero again!" },
         "prompt": "Can it be colder than zero?",
         "choices": ["Yes", "No"],
         "answer": 0,

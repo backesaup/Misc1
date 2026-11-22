@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 3,
   "_map": "Make the bulb light (stretch, usually Y4). Big idea: electricity needs a complete loop (circuit). Creative: wire a battery and bulb in the workshop; find every way to break the circuit.",
-  "_story": "The robot's workshop is dark. It has a battery, wires and a bulb, but there's a gap. Ismaeel closes the loop, names it a circuit, then hunts for ways to break it.",
+  "_story": "Steve's workshop is dark. It has a battery, wires and a bulb, but there's a gap. Ismaeel closes the loop, names it a circuit, then hunts for ways to break it.",
   "_stepChain": "a battery pushes electricity (solar cube: volts) → it must travel all the way round and back → a gap stops it → a complete loop is called a circuit → close the gap: light → ways to break it: a gap, a loose wire, a flat battery → a switch makes a gap on purpose",
   "assumes": ["electricity", "battery"],
   "talk": [
@@ -18,7 +18,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "lab", "params": { "view": "circuit", "closed": false, "material": "nothing" } },
-      "narration": { "speaker": "robot", "text": "It's too dark in my workshop! I've got a battery, some wires and a bulb. But the bulb won't light up. Why not?" }
+      "narration": { "speaker": "steve", "text": "It's too dark in my workshop! I've got a battery, some wires and a bulb. But the bulb won't light up. Why not?" }
     },
     {
       "id": "loop",
@@ -33,7 +33,7 @@
     {
       "id": "break",
       "question": {
-        "narration": { "speaker": "robot", "text": "Now let's break it! I'll take the spoon away again." },
+        "narration": { "speaker": "steve", "text": "Now let's break it! I'll take the spoon away again." },
         "prompt": "What will happen to the bulb?",
         "choices": ["Stays on", "Goes off", "Gets brighter"],
         "answer": 1,

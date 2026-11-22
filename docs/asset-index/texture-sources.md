@@ -85,3 +85,21 @@ Could not list (HTTP 401). Run this script on a machine with internet access (se
 Edition: mod:car. Licence: see repo. Base path: `(unknown)`.
 
 Could not list (HTTP 401). Run this script on a machine with internet access (set GITHUB_TOKEN if rate-limited).
+
+## inventive-entity: InventivetalentDev/minecraft-assets@1.21.4
+
+Edition: java. Licence: Mojang assets, Minecraft EULA. Base path: `assets/minecraft/textures/entity`.
+
+Could not list (HTTP 401). Run this script on a machine with internet access (set GITHUB_TOKEN if rate-limited).
+
+## inventive-item: InventivetalentDev/minecraft-assets@1.21.4
+
+Edition: java. Licence: Mojang assets, Minecraft EULA. Base path: `assets/minecraft/textures/item`.
+
+Could not list (HTTP 401). Run this script on a machine with internet access (set GITHUB_TOKEN if rate-limited).
+
+## inventive-item-new: InventivetalentDev/minecraft-assets@1.21.5
+
+Edition: java. Licence: Mojang assets, Minecraft EULA (1.21.5: one spawn-egg picture per mob). Base path: `assets/minecraft/textures/item`.
+
+Could not list (HTTP 401). Run this script on a machine with internet access (set GITHUB_TOKEN if rate-limited).

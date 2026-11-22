@@ -6,8 +6,8 @@
   "status": "ready",
   "order": 30,
   "_map": "The market stall (Y1–2). Big idea: coins and notes; making amounts; change. Creative: run the stall: make 50p in as many ways as possible; give change to customers.",
-  "_story": "The farm opens a market stall selling eggs. Customers pay with different coins. Ismaeel learns coins have values, makes 50p lots of ways, and gives change. The robot gives too much change.",
-  "_stepChain": "coins are worth different amounts → pence: a 10p coin is worth 10 pennies → add the coins to find the total → make 50p different ways → change: pay more, get some back → the robot's wrong change",
+  "_story": "The farm opens a market stall selling eggs. Customers pay with different coins. Ismaeel learns coins have values, makes 50p lots of ways, and gives change. Steve gives too much change.",
+  "_stepChain": "coins are worth different amounts → pence: a 10p coin is worth 10 pennies → add the coins to find the total → make 50p different ways → change: pay more, get some back → Steve's wrong change",
   "assumes": [
     "counting",
     "adding",
@@ -37,7 +37,7 @@
         }
       },
       "narration": {
-        "speaker": "robot",
+        "speaker": "steve",
         "text": "My chickens laid lots of eggs, so I opened a market stall! People pay me with coins. But I don't understand coins at all!"
       }
     },
@@ -112,10 +112,10 @@
       "term": "change",
       "question": {
         "narration": {
-          "speaker": "robot",
+          "speaker": "steve",
           "text": "Eggs cost 30p. A customer gave me a 50p coin. I gave her 30p back. Was that right?"
         },
-        "prompt": "How much should the robot give back?",
+        "prompt": "How much should Steve give back?",
         "choices": [
           "30p",
           "20p",

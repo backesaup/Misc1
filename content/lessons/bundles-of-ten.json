@@ -6,8 +6,8 @@
   "status": "ready",
   "order": 5,
   "_map": "Bundles of ten (Y2) + The counter that rolls over (Y1). Big idea: 34 = 3 tens and 4 ones, and other ways too; after 9 ones comes a new ten.",
-  "_story": "The robot dropped a bucket of 34 bricks and wants to count them fast. Snapping rods of ten is the trick (like Minecraft stacks of 64, but tens). He makes 34 different ways, then the farm counter rolls past 39 and 99.",
-  "_stepChain": "counting one by one is slow → snap 10 into a rod → 34 = rods + singles → the digits mean tens and ones → 34 made other ways (break a rod) → the robot thinks 2 tens and 14 ones is a different number → 39 + 1 rolls over → 99 + 1",
+  "_story": "Steve dropped a bucket of 34 bricks and wants to count them fast. Snapping rods of ten is the trick (like Minecraft stacks of 64, but tens). He makes 34 different ways, then the farm counter rolls past 39 and 99.",
+  "_stepChain": "counting one by one is slow → snap 10 into a rod → 34 = rods + singles → the digits mean tens and ones → 34 made other ways (break a rod) → Steve thinks 2 tens and 14 ones is a different number → 39 + 1 rolls over → 99 + 1",
   "assumes": ["counting", "adding"],
   "talk": [
     { "ask": "What does the 3 in 34 mean?", "goodAnswer": "3 tens: three rods of 10 bricks. The 4 means 4 single bricks." },
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "tens", "item": "brick", "total": 34, "choice": 0, "robot": true } },
-      "narration": { "speaker": "robot", "text": "Oh dear. I dropped my bucket of bricks! There are 34 of them, all mixed up. Counting them one at a time takes me ages. Is there a faster way?" },
+      "narration": { "speaker": "steve", "text": "Oh dear. I dropped my bucket of bricks! There are 34 of them, all mixed up. Counting them one at a time takes me ages. Is there a faster way?" },
       "animation": [
         { "at": 0, "action": "arrive", "duration": 2.4 },
         { "at": 0, "action": "robot", "mood": "sad" }
@@ -48,7 +48,7 @@
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "robot", "text": "Wait. 2 tens and 14 ones. That's a different number from 34, isn't it? It looks completely different!" },
+        "narration": { "speaker": "steve", "text": "Wait. 2 tens and 14 ones. That's a different number from 34, isn't it? It looks completely different!" },
         "prompt": "Is 2 tens and 14 ones the same as 34?",
         "choices": ["Yes", "No"],
         "answer": 0,
@@ -71,7 +71,7 @@
       "id": "rollover",
       "question": {
         "open": true,
-        "narration": { "speaker": "robot", "text": "My farm counter counts my chickens. It says 39: 3 tens and 9 ones. Oh look, one more chicken has arrived!" },
+        "narration": { "speaker": "steve", "text": "My farm counter counts my chickens. It says 39: 3 tens and 9 ones. Oh look, one more chicken has arrived!" },
         "prompt": "What will the counter show now? Make a guess.",
         "choices": ["310", "40", "49"],
         "answer": 1,

@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 9,
   "_map": "Growing up (Y2). Big idea: animals have young that grow into adults; they need food, water and air. Creative: match babies to adults (lamb, chick, tadpole); which change the most?",
-  "_story": "Spring on the farm: babies everywhere. The robot can't tell which baby belongs to which grown-up. Ismaeel matches them and finds the one that changes most: the tadpole becomes a frog.",
+  "_story": "Spring on the farm: babies everywhere. Steve can't tell which baby belongs to which grown-up. Ismaeel matches them and finds the one that changes most: the tadpole becomes a frog.",
   "_stepChain": "living things make new living things (alive-or-not) → babies grow into adults → lamb to sheep, chick to hen → some look like their parents, some don't → tadpole to frog changes most → all need food, water and air",
   "assumes": ["living thing"],
   "requires": ["alive-or-not"],
@@ -18,18 +18,18 @@
   "steps": [
     {
       "id": "hook",
-      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "chain", "items": "a:egg:Chick:|b:bird:Hen:" } },
-      "narration": { "speaker": "robot", "text": "It's spring, and there are babies everywhere! Little chicks, woolly lambs, and wriggly things in the pond. Which baby grows into which grown-up?" }
+      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "chain", "items": "a:egg:Chick:|b:chicken:Hen:" } },
+      "narration": { "speaker": "steve", "text": "It's spring, and there are babies everywhere! Little chicks, woolly lambs, and wriggly things in the pond. Which baby grows into which grown-up?" }
     },
     {
       "id": "chick",
       "narration": { "text": "A chick hatches from an egg, and grows into a hen. A lamb grows into a sheep. They look quite like their parents, only smaller." },
-      "animation": [{ "at": 4.4, "action": "set", "items": "a:baby:Lamb:|b:paw:Sheep:" }]
+      "animation": [{ "at": 4.4, "action": "set", "items": "a:baby:Lamb:|b:sheep:Sheep:" }]
     },
     {
       "id": "tadpole",
       "question": {
-        "narration": { "speaker": "robot", "text": "In the pond there are tiny black wriggly things with tails. They look like little fish. So they'll grow into big fish!" },
+        "narration": { "speaker": "steve", "text": "In the pond there are tiny black wriggly things with tails. They look like little fish. So they'll grow into big fish!" },
         "prompt": "What do tadpoles grow into?",
         "choices": ["Big fish", "Frogs", "Ducks"],
         "answer": 1,
@@ -39,7 +39,7 @@
           "2": { "mistake": "guessed another pond animal", "hint": "Ducklings hatch from eggs with feathers. Do tadpoles have feathers?", "say": "Ducks hatch as fluffy ducklings. Tadpoles grow legs and lose their tails to become frogs." }
         },
         "reveal": "Tadpole, then froglet, then frog. The biggest change of all!",
-        "revealAnimation": [{ "at": 0, "action": "set", "items": "a:egg:Frogspawn:|b:fish:Tadpole:|c:footprints:Froglet:|d:turtle:Frog:" }]
+        "revealAnimation": [{ "at": 0, "action": "set", "items": "a:egg:Frogspawn:|b:fish:Tadpole:|c:footprints:Froglet:|d:frog:Frog:" }]
       }
     },
     {

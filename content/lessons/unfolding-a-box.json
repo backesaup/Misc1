@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 35,
   "_map": "Unfolding a box (stretch). Big idea: a flat net folds into a 3D shape. Creative: find different flat shapes that fold into a cube (there are 11).",
-  "_story": "The robot wants a box for its eggs. It unfolds a cube into a flat cross of 6 squares, then folds it back. There are 11 different nets; Ismaeel hunts for some with paper.",
+  "_story": "Steve wants a box for its eggs. It unfolds a cube into a flat cross of 6 squares, then folds it back. There are 11 different nets; Ismaeel hunts for some with paper.",
   "_stepChain": "a cube has 6 square faces (faces-edges-corners) → cut along some edges and lay it flat → a flat shape that folds into a solid is called a net → fold it back → not every 6-square shape works → there are 11 cube nets",
   "assumes": ["face", "edge", "square"],
   "requires": ["faces-edges-corners"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "solids", "params": { "net": true, "fold": 1 } },
-      "narration": { "speaker": "robot", "text": "I need a box for my eggs. Look, here's a cube box. I wonder what it looks like if I unfold it?" }
+      "narration": { "speaker": "steve", "text": "I need a box for my eggs. Look, here's a cube box. I wonder what it looks like if I unfold it?" }
     },
     {
       "id": "unfold",
@@ -36,7 +36,7 @@
       "id": "guess",
       "question": {
         "open": true,
-        "narration": { "speaker": "robot", "text": "Is the cross the only net for a cube? I think there must be hundreds!" },
+        "narration": { "speaker": "steve", "text": "Is the cross the only net for a cube? I think there must be hundreds!" },
         "prompt": "How many different nets do you think fold into a cube?",
         "choices": ["Just 1", "11", "Hundreds"],
         "answer": 1,

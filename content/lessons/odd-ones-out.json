@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 4,
   "_map": "Pairs and odd ones out (Y2). Big idea: even numbers split into pairs; odd numbers always leave one over. Is odd + odd odd or even? Test it and make a rule.",
-  "_story": "The robot's sheep go on a walk in pairs, holding hooves. Some walks leave one sheep sad and alone. He tests numbers like a scientist, names even and odd, then runs an experiment: what happens when two odd groups meet?",
+  "_story": "Steve's sheep go on a walk in pairs, holding hooves. Some walks leave one sheep sad and alone. He tests numbers like a scientist, names even and odd, then runs an experiment: what happens when two odd groups meet?",
   "_stepChain": "counting → pairs → some numbers make only pairs → some leave one over → even → odd → predict odd + odd → test with sheep → rule",
   "assumes": ["counting", "adding"],
   "talk": [
@@ -18,7 +18,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "pairs", "item": "sheep", "total": 6, "robot": true } },
-      "narration": { "speaker": "robot", "text": "My sheep love going for walks, two by two, side by side. But sometimes one sheep has nobody to walk with, and it looks so sad!" },
+      "narration": { "speaker": "steve", "text": "My sheep love going for walks, two by two, side by side. But sometimes one sheep has nobody to walk with, and it looks so sad!" },
       "animation": [
         { "at": 0, "action": "arrive", "duration": 1.6 },
         { "at": 0, "action": "robot", "mood": "sad" }
@@ -46,7 +46,7 @@
       "id": "test",
       "question": {
         "open": true,
-        "narration": { "speaker": "robot", "text": "Experiment time! 3 sheep meet 5 sheep. 3 is odd, and 5 is odd. I think two odd groups must make an even bigger odd group!" },
+        "narration": { "speaker": "steve", "text": "Experiment time! 3 sheep meet 5 sheep. 3 is odd, and 5 is odd. I think two odd groups must make an even bigger odd group!" },
         "prompt": "What do you think? Will they be odd or even together?",
         "choices": ["Odd", "Even"],
         "answer": 1,
@@ -60,7 +60,7 @@
     {
       "id": "again",
       "question": {
-        "narration": { "speaker": "robot", "text": "Was that a lucky accident? Let's test again. 7 sheep meet 9 sheep." },
+        "narration": { "speaker": "steve", "text": "Was that a lucky accident? Let's test again. 7 sheep meet 9 sheep." },
         "prompt": "Odd or even?",
         "choices": ["Odd", "Even"],
         "answer": 1,

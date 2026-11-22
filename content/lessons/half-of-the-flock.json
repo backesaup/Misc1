@@ -7,7 +7,7 @@
   "order": 21,
   "_map": "Half of the flock (Y1–2). Big idea: finding a fraction of a number. Creative: half the sheep go to the barn: how many? A quarter? Make up his own.",
   "_story": "Bedtime on the farm. Half of the 12 sheep go into the barn. Then a quarter of them go to the top field. Ismaeel shares them out, then invents his own fraction puzzle.",
-  "_stepChain": "halves of shapes (halves) → half of a group: share into 2 equal groups → half of 12 is 6 → a quarter: share into 4 → a quarter of 12 is 3 → the robot halves 12 into 5 and 7 → invent one",
+  "_stepChain": "halves of shapes (halves) → half of a group: share into 2 equal groups → half of 12 is 6 → a quarter: share into 4 → a quarter of 12 is 3 → Steve halves 12 into 5 and 7 → invent one",
   "assumes": ["half", "quarter", "counting"],
   "requires": ["sharing-pies"],
   "talk": [
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "share", "item": "sheep", "total": 12, "extra": 2, "choice": 0, "robot": true } },
-      "narration": { "speaker": "robot", "text": "It's bedtime! Half of my 12 sheep sleep in the barn, and the other half sleep in the field. How many go in the barn?" },
+      "narration": { "speaker": "steve", "text": "It's bedtime! Half of my 12 sheep sleep in the barn, and the other half sleep in the field. How many go in the barn?" },
       "animation": [{ "at": 0, "action": "arrive", "duration": 1.6 }]
     },
     {
@@ -37,7 +37,7 @@
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "robot", "text": "I put 5 sheep in the barn and 7 in the field. That's half and half!" },
+        "narration": { "speaker": "steve", "text": "I put 5 sheep in the barn and 7 in the field. That's half and half!" },
         "prompt": "Is that half and half?",
         "choices": ["Yes", "No"],
         "answer": 1,

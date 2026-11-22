@@ -5,12 +5,12 @@
   "cardArt": "build",
   "status": "ready",
   "order": 22,
-  "_map": "Measure with anything (Y1). Big idea: measuring means counting how many units fit. Creative: measure the barn in blocks, robot-steps and carrots. Why do the answers differ?",
-  "_story": "The robot needs to know how long the barn wall is, for a new fence. It measures in robot steps, Ismaeel in blocks, and they get different numbers. Which is right? Both: the unit is different.",
-  "_stepChain": "how long is the wall? → count blocks laid end to end: that's measuring → the thing you count with is called a unit → robot steps (bigger unit) give a smaller number → carrots (smaller unit) give a bigger number → always say the unit",
+  "_map": "Measure with anything (Y1). Big idea: measuring means counting how many units fit. Creative: measure the barn in blocks, Steve-steps and carrots. Why do the answers differ?",
+  "_story": "Steve needs to know how long the barn wall is, for a new fence. He measures in Steve steps, Ismaeel in blocks, and they get different numbers. Which is right? Both: the unit is different.",
+  "_stepChain": "how long is the wall? → count blocks laid end to end: that's measuring → the thing you count with is called a unit → Steve steps (bigger unit) give a smaller number → carrots (smaller unit) give a bigger number → always say the unit",
   "assumes": ["counting", "block"],
   "talk": [
-    { "ask": "Why did the robot get a different number from you when measuring the same wall?", "goodAnswer": "it used a different unit: bigger units mean fewer of them fit, smaller units mean more." },
+    { "ask": "Why did Steve get a different number from you when measuring the same wall?", "goodAnswer": "he used a different unit: bigger units mean fewer of them fit, smaller units mean more." },
     { "ask": "What must you always say when you tell someone a measurement?", "goodAnswer": "the unit: 8 blocks, not just 8." }
   ],
   "handsOn": "Measure your bed with your hands, your feet, and Lego bricks. Write down each number with its unit. Which unit gave the biggest number? Why?",
@@ -18,7 +18,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "line", "item": "block", "total": 8, "extra": 8, "choice": 8, "robot": true } },
-      "narration": { "speaker": "robot", "text": "I need a fence along this barn wall. But how long is the wall? I need to measure it!" },
+      "narration": { "speaker": "steve", "text": "I need a fence along this barn wall. But how long is the wall? I need to measure it!" },
       "animation": [{ "at": 0, "action": "arrive", "duration": 2 }]
     },
     {
@@ -30,16 +30,16 @@
     {
       "id": "steps",
       "question": {
-        "narration": { "speaker": "robot", "text": "I measured it with my big robot steps. I got 4! So the wall is 4 long, not 8. You must be wrong!" },
+        "narration": { "speaker": "steve", "text": "I measured it with my big steps. I got 4! So the wall is 4 long, not 8. You must be wrong!" },
         "prompt": "Who measured the wall right?",
-        "choices": ["Me", "The robot", "Both of us"],
+        "choices": ["Me", "Steve", "Both of us"],
         "answer": 2,
         "onRight": "Yes. You both measured right, with different units.",
         "wrong": {
-          "0": { "mistake": "thinks only one unit can be right", "hint": "The robot's steps are bigger than blocks. Do bigger units fit more times, or fewer?", "say": "You measured in blocks: 8 blocks. The robot measured in steps, which are twice as long: 4 steps. Both are right, because the units are different." },
-          "1": { "mistake": "thinks the smaller number is the true one", "hint": "The robot used steps. You used blocks. Are they the same size?", "say": "The robot's steps are twice as long as a block, so only 4 fit. 8 blocks and 4 steps are both right. The units are different." }
+          "0": { "mistake": "thinks only one unit can be right", "hint": "Steve's steps are bigger than blocks. Do bigger units fit more times, or fewer?", "say": "You measured in blocks: 8 blocks. Steve measured in steps, which are twice as long: 4 steps. Both are right, because the units are different." },
+          "1": { "mistake": "thinks the smaller number is the true one", "hint": "Steve used steps. You used blocks. Are they the same size?", "say": "Steve's steps are twice as long as a block, so only 4 fit. 8 blocks and 4 steps are both right. The units are different." }
         },
-        "reveal": "8 blocks, or 4 robot steps. Same wall, different units.",
+        "reveal": "8 blocks, or 4 Steve steps. Same wall, different units.",
         "revealAnimation": [{ "at": 0, "action": "set", "mode": "line", "item": "sheep", "total": 4, "extra": 8, "choice": 4 }]
       }
     },
@@ -51,14 +51,14 @@
     },
     {
       "id": "pattern",
-      "narration": { "text": "12 carrots, 8 blocks, 4 robot steps. The smaller the unit, the more of them fit. That's why you always say the unit: not 8, but 8 blocks." }
+      "narration": { "text": "12 carrots, 8 blocks, 4 Steve steps. The smaller the unit, the more of them fit. That's why you always say the unit: not 8, but 8 blocks." }
     },
     {
       "id": "rule",
       "kind": "rule",
       "rule": {
         "text": "Measuring means counting how many units fit.",
-        "ask": "Can you say why the robot got a different number? Say it out loud. Then tap the eye.",
+        "ask": "Can you say why Steve got a different number? Say it out loud. Then tap the eye.",
         "spoken": "Measuring means counting how many units fit. Smaller units, bigger number. And always say the unit."
       }
     }

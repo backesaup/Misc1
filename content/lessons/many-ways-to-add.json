@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 11,
   "_map": "Many ways to add (Y2). Big idea: two-digit numbers can be added by tens and ones, or by making a ten first. Creative: find three ways to work out 38 + 25 and pick a favourite.",
-  "_story": "Two buckets of toy bricks, 38 and 25. The robot counts them one by one and keeps losing its place. Ismaeel tries three builder's shortcuts with rods of ten, then picks his favourite.",
+  "_story": "Two buckets of toy bricks, 38 and 25. Steve counts them one by one and keeps losing its place. Ismaeel tries three builder's shortcuts with rods of ten, then picks his favourite.",
   "_stepChain": "38 and 25 as tens and ones (bundles-of-ten) → way 1: tens with tens, ones with ones; 13 ones snap into a new ten → way 2: make a ten first (38 + 2 = 40, then 23 more) → way 3: count on in tens then ones → all make 63 → pick a favourite",
   "assumes": ["counting", "adding", "tens"],
   "requires": ["bundles-of-ten"],
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "tens", "item": "brick", "total": 63, "choice": 5, "robot": true } },
-      "narration": { "speaker": "robot", "text": "I've got 38 bricks in one bucket and 25 in the other. I tried counting them all, one by one. I got lost at 41! There must be a faster way." },
+      "narration": { "speaker": "steve", "text": "I've got 38 bricks in one bucket and 25 in the other. I tried counting them all, one by one. I got lost at 41! There must be a faster way." },
       "animation": [
         { "at": 0, "action": "arrive", "duration": 2.2 },
         { "at": 0, "action": "robot", "mood": "sad" }
@@ -49,7 +49,7 @@
       "id": "favourite",
       "question": {
         "open": true,
-        "narration": { "speaker": "robot", "text": "Three different ways, and they all made 63! Every way is a good way if you can explain it." },
+        "narration": { "speaker": "steve", "text": "Three different ways, and they all made 63! Every way is a good way if you can explain it." },
         "prompt": "Which way do you like best?",
         "choices": ["Tens and ones", "Make a ten", "Count on"],
         "answer": 1,

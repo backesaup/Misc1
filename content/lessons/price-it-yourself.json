@@ -6,8 +6,8 @@
   "status": "ready",
   "order": 31,
   "_map": "Price it yourself (Y2). Big idea: adding and comparing money. Creative: set prices for his own produce; can a customer buy 3 things with £1?",
-  "_story": "Ismaeel becomes the shopkeeper and sets prices. A customer has £1 (100p) and wants three things. Can they afford it? The robot thinks £1 is less than 50p because 1 is smaller than 50.",
-  "_stepChain": "pence (market-stall) → a pound is 100 pence → the robot's 1 < 50 mistake → set prices → add three prices → compare with £1",
+  "_story": "Ismaeel becomes the shopkeeper and sets prices. A customer has £1 (100p) and wants three things. Can they afford it? Steve thinks £1 is less than 50p because 1 is smaller than 50.",
+  "_stepChain": "pence (market-stall) → a pound is 100 pence → Steve's 1 < 50 mistake → set prices → add three prices → compare with £1",
   "assumes": ["pence", "change", "adding", "greater than"],
   "requires": ["market-stall", "balance-the-scale"],
   "talk": [
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "coins", "params": { "coins": "100", "item": "A customer has £1" } },
-      "narration": { "speaker": "robot", "text": "Today you're the shopkeeper! A customer has come with a one-pound coin." }
+      "narration": { "speaker": "steve", "text": "Today you're the shopkeeper! A customer has come with a one-pound coin." }
     },
     {
       "id": "pound",
@@ -30,7 +30,7 @@
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "robot", "text": "Hmm. 1 is smaller than 50. So a one-pound coin is worth less than 50p!" },
+        "narration": { "speaker": "steve", "text": "Hmm. 1 is smaller than 50. So a one-pound coin is worth less than 50p!" },
         "prompt": "Is £1 worth less than 50p?",
         "choices": ["Yes", "No"],
         "answer": 1,

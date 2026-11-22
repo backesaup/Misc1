@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 32,
   "_map": "Shape detective (Y1). Big idea: naming 2D and 3D shapes. Creative: build an animal using only squares, circles and triangles.",
-  "_story": "The robot made a picture of the farm cat out of shapes. Ismaeel finds each shape, names it, then makes his own animal.",
+  "_story": "Steve made a picture of the farm cat out of shapes. Ismaeel finds each shape, names it, then makes his own animal.",
   "_stepChain": "shapes have names → triangle (3 sides), square (4 equal sides), circle (no corners) → find them in the cat → 3D shapes are solid: cube, sphere → make your own animal",
   "assumes": ["counting"],
   "talk": [
@@ -18,7 +18,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "shapes", "params": { "view": "animal" } },
-      "narration": { "speaker": "robot", "text": "Look! I made a picture of the farm cat, using only shapes. Can you be a shape detective and find them?" }
+      "narration": { "speaker": "steve", "text": "Look! I made a picture of the farm cat, using only shapes. Can you be a shape detective and find them?" }
     },
     {
       "id": "triangle",
@@ -51,7 +51,7 @@
     },
     {
       "id": "animal",
-      "narration": { "speaker": "robot", "text": "Now it's your turn. Make an animal using only squares, circles and triangles! A triangle beak? Circle eyes? Square wings? Show a grown-up your creature." },
+      "narration": { "speaker": "steve", "text": "Now it's your turn. Make an animal using only squares, circles and triangles! A triangle beak? Circle eyes? Square wings? Show a grown-up your creature." },
       "animation": [{ "at": 0, "action": "set", "view": "animal" }]
     },
     {

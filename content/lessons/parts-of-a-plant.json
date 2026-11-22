@@ -6,8 +6,8 @@
   "status": "ready",
   "order": 1,
   "_map": "Parts of a plant (Y1). Big idea: roots, stem, leaves and flowers each have a job. Creative: design a plant for a strange place (a cave, the desert).",
-  "_story": "The robot planted a flower and wants to know what each bit is for. Ismaeel taps each part to find its job, then designs a plant for a desert.",
-  "_stepChain": "a plant has parts → each part has a job: roots drink and hold, stem carries and holds up, leaves make food from sunlight, flowers make seeds → the robot thinks leaves are only decoration → design a plant for a strange place",
+  "_story": "Steve planted a flower and wants to know what each bit is for. Ismaeel taps each part to find its job, then designs a plant for a desert.",
+  "_stepChain": "a plant has parts → each part has a job: roots drink and hold, stem carries and holds up, leaves make food from sunlight, flowers make seeds → Steve thinks leaves are only decoration → design a plant for a strange place",
   "assumes": ["sun", "light"],
   "talk": [
     { "ask": "What do roots do?", "goodAnswer": "they hold the plant in the ground and drink water from the soil." },
@@ -19,7 +19,7 @@
       "id": "hook",
       "kind": "explore",
       "scene": { "type": "diagram", "preset": "nature", "params": { "view": "plant" } },
-      "narration": { "speaker": "robot", "text": "I grew a flower! But I don't know what all these bits are for. Tap each part to find out its job." },
+      "narration": { "speaker": "steve", "text": "I grew a flower! But I don't know what all these bits are for. Tap each part to find out its job." },
       "parts": [
         { "id": "roots", "label": "Roots", "narration": "Roots grow down into the soil. They hold the plant tight, and drink up water, like straws." },
         { "id": "stem", "label": "Stem", "narration": "The stem holds the plant up tall, and carries water from the roots up to the leaves." },
@@ -30,7 +30,7 @@
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "robot", "text": "I'm going to cut off all the leaves. They're only there to look pretty!" },
+        "narration": { "speaker": "steve", "text": "I'm going to cut off all the leaves. They're only there to look pretty!" },
         "prompt": "Will the plant be OK without its leaves?",
         "choices": ["Yes", "No"],
         "answer": 1,

@@ -15,17 +15,16 @@ import { readJSON, writeJSON } from '@/lib/storage'
 import { useSettings } from '@/lib/settings'
 import { log } from '@/lib/activity'
 import { blockTexture } from '@/scenes/voxel/textures'
-import { Robot, type Mood } from '@/scenes/voxel/Robot'
+import { Steve, type Mood } from '@/scenes/voxel/Steve'
 import { HtmlRoot, SceneHtml } from '@/scenes/SceneHtml'
 
-// Game section, milestone 1 (grey-box): the robot's bed. The idea is the mechanic:
+// Game section, milestone 1 (grey-box): Steve's bed. The idea is the mechanic:
 // part 1 he fills a 3 × 4 outline block by block; part 2 he must dial how many blocks
 // to take for a 5 × 3 bed BEFORE building. The world gives the feedback (a gap, or a pile).
 
-type Phase = 'start' | 'name-robot' | 'colour' | 'name-farm' | 'part1' | 'done1' | 'dial' | 'building' | 'few' | 'many' | 'done2' | 'free'
-interface Save { bedDone: boolean; floorTool: boolean; robotName?: string; robotColor?: string; farmName?: string }
+type Phase = 'start' | 'name-farm' | 'part1' | 'done1' | 'dial' | 'building' | 'few' | 'many' | 'done2' | 'free'
+interface Save { bedDone: boolean; floorTool: boolean; farmName?: string }
 
-const ROBOT_COLOURS = ['#5fa3d9', '#e07a4f', '#5fa04e', '#f2b84b', '#e8789a']
 const sayMeet = (k: keyof typeof meet.lines) => narrator.say(puzzleLine(meet, k)).done
 
 const P1 = bed.part1
@@ -134,7 +133,7 @@ function Scenery() {
 export function Farm() {
   const { reducedMotion } = useSettings()
   const [save, setSave] = useState<Save>(() => readJSON<Save>('game', { bedDone: false, floorTool: false }))
-  const [phase, setPhase] = useState<Phase>(save.bedDone && save.robotName ? 'free' : 'start')
+  const [phase, setPhase] = useState<Phase>(save.bedDone && save.farmName ? 'free' : 'start')
   const [mood, setMood] = useState<Mood>('idle')
   const [placed1, setPlaced1] = useState<Set<number>>(new Set())
   const [dial, setDial] = useState(10)
@@ -181,34 +180,15 @@ export function Farm() {
   const begin = async () => {
     narrator.unlock()
     sfx.tap()
-    if (!save.robotName) {
-      setPhase('name-robot')
+    if (!save.farmName) {
       setMood('talk')
-      await sayMeet('askRobotName')
+      await sayMeet('hello')
+      setPhase('name-farm')
+      await sayMeet('askFarmName')
       setMood('idle')
       return
     }
     await startBed()
-  }
-  const nameRobot = async (name: string) => {
-    persist({ ...save, robotName: name })
-    sfx.correct()
-    setMood('happy')
-    await sayMeet('likeName')
-    setPhase('colour')
-    setMood('talk')
-    await sayMeet('askColour')
-    setMood('idle')
-  }
-  const pickColour = async (c: string) => {
-    persist({ ...save, robotColor: c })
-    sfx.tap()
-    setMood('happy')
-    await sayMeet('colourDone')
-    setPhase('name-farm')
-    setMood('talk')
-    await sayMeet('askFarmName')
-    setMood('idle')
   }
   const nameFarm = async (name: string) => {
     persist({ ...save, farmName: name })
@@ -350,7 +330,7 @@ export function Farm() {
           <directionalLight position={[6, 12, 8]} intensity={1.6} castShadow shadow-mapSize={[1024, 1024]} shadow-camera-left={-10} shadow-camera-right={10} shadow-camera-top={10} shadow-camera-bottom={-10} />
           <HtmlRoot.Provider value={htmlRoot}>
             <Scenery />
-            <Robot mood={mood} pos={[2.6, 0, -1.2]} color={save.robotColor} name={save.robotName} />
+            <Steve mood={mood} pos={[2.6, 0, -1.2]} />
             {/* bed 1: 3 × 4 */}
             {Array.from({ length: P1.w * P1.h }, (_, i) => {
               const p = cellPos(O1, i, P1.w)
@@ -381,18 +361,7 @@ export function Farm() {
           <OrbitControls enablePan={false} minDistance={8} maxDistance={20} maxPolarAngle={Math.PI / 2.3} target={[-0.6, 0, -0.4]} enableDamping={!reducedMotion} />
         </Canvas>
         <div className="stage-html" ref={htmlRoot} />
-        {(phase === 'name-robot' || phase === 'name-farm') && (
-          <NameCard key={phase} onDone={(n) => void (phase === 'name-robot' ? nameRobot(n) : nameFarm(n))} placeholder={phase === 'name-robot' ? 'Robot name' : 'Farm name'} />
-        )}
-        {phase === 'colour' && (
-          <div className="name-card" role="radiogroup" aria-label="Robot colour">
-            <div className="palette">
-              {ROBOT_COLOURS.map((c) => (
-                <button key={c} role="radio" aria-checked={save.robotColor === c} aria-label="Colour" className="swatch" style={{ background: c }} onClick={() => void pickColour(c)} />
-              ))}
-            </div>
-          </div>
-        )}
+        {phase === 'name-farm' && <NameCard key={phase} onDone={(n) => void nameFarm(n)} placeholder="Farm name" />}
         {phase === 'start' && (
           <div className="farm-start">
             <button className="play-big" onClick={() => void begin()} aria-label="Play">

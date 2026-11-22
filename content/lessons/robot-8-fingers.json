@@ -1,18 +1,18 @@
 {
   "id": "robot-8-fingers",
   "section": "maths",
-  "title": "A robot with 8 fingers",
+  "title": "Counting with 8 fingers",
   "cardArt": "build",
   "status": "ready",
   "order": 8,
-  "_map": "A robot with 8 fingers (stretch). Big idea: we count in tens because we have ten fingers; other counting systems work too. Creative: invent a creature with a different number of fingers.",
-  "_story": "The robot has only 8 fingers (4 on each hand), so it bundles carrots in groups of 8, not 10. Same carrots, different groups. Ismaeel tries bundling 23 carrots both ways and invents his own creature.",
-  "_stepChain": "we have 10 fingers → so we bundle in tens (bundles-of-ten) → the robot has 8 fingers → it bundles in eights → 23 carrots = 2 tens and 3, or 2 eights and 7 → same carrots, different groups → invent a creature",
+  "_map": "Counting with 8 fingers (stretch). Big idea: we count in tens because we have ten fingers; other counting systems work too. Creative: invent a creature with a different number of fingers.",
+  "_story": "Steve has only 8 fingers (4 on each hand), so it bundles carrots in groups of 8, not 10. Same carrots, different groups. Ismaeel tries bundling 23 carrots both ways and invents his own creature.",
+  "_stepChain": "we have 10 fingers → so we bundle in tens (bundles-of-ten) → Steve has 8 fingers → it bundles in eights → 23 carrots = 2 tens and 3, or 2 eights and 7 → same carrots, different groups → invent a creature",
   "assumes": ["counting", "tens"],
   "requires": ["bundles-of-ten"],
   "talk": [
     { "ask": "Why do people count in tens?", "goodAnswer": "because we have ten fingers, so bundling in tens was natural." },
-    { "ask": "How would the robot write 23 carrots?", "goodAnswer": "as 2 eights and 7: it bundles in eights because it has 8 fingers. Same carrots, different groups." }
+    { "ask": "How would Steve write 23 carrots?", "goodAnswer": "as 2 eights and 7: he bundles in eights because he has 8 fingers. Same carrots, different groups." }
   ],
   "handsOn": "Invent a creature with a different number of fingers, like 3 or 6. Draw it! Then grab some Lego bricks and bundle them the way your creature would count.",
   "steps": [
@@ -30,26 +30,26 @@
     },
     {
       "id": "robot-hands",
-      "narration": { "speaker": "robot", "text": "But look at my hands! I've got 4 fingers on each one. That's 8 fingers. So I count in eights. 8 fingers, then I start again with a new bundle of 8." },
+      "narration": { "speaker": "steve", "text": "Let's pretend. In my blocky world, I've got 4 fingers on each hand, like lots of cartoon characters. That's 8 fingers. So I count in eights. 8 fingers, then I start again with a new bundle of 8." },
       "animation": [{ "at": 0, "action": "robot", "mood": "talk" }]
     },
     {
       "id": "make-eights",
       "kind": "make",
-      "narration": { "text": "Help the robot bundle the 23 carrots in eights. Choose how many bundles of 8, then tap the hammer." },
+      "narration": { "text": "Help Steve bundle the 23 carrots in eights. Choose how many bundles of 8, then tap the hammer." },
       "make": { "mode": "groups", "item": "carrot", "total": 23, "extra": 8, "goal": 3 }
     },
     {
       "id": "same",
       "question": {
-        "narration": { "speaker": "robot", "text": "I made 2 eights and 7. You made 2 tens and 3. We got different answers, so one of us has more carrots!" },
+        "narration": { "speaker": "steve", "text": "I made 2 eights and 7. You made 2 tens and 3. We got different answers, so one of us has more carrots!" },
         "prompt": "Who has more carrots?",
-        "choices": ["Me", "Same", "The robot"],
+        "choices": ["Me", "Same", "Steve"],
         "answer": 1,
         "onRight": "Yes. They’re the same 23 carrots, bundled in different groups.",
         "wrong": {
           "0": { "mistake": "thinks bigger bundles mean more carrots", "hint": "Did any carrots get added or eaten? Or were they only bundled differently?", "say": "Nobody added or ate a carrot. Tens or eights, it's the same 23 carrots, bundled in a different way." },
-          "2": { "mistake": "thinks more bundles or a bigger left-over number means more", "hint": "The robot's 7 is bigger than our 3. But are its bundles the same size as ours?", "say": "The robot's bundles are smaller, eights not tens, so it has more left over. But it's still the same 23 carrots." }
+          "2": { "mistake": "thinks more bundles or a bigger left-over number means more", "hint": "Steve's 7 is bigger than our 3. But are his bundles the same size as ours?", "say": "Steve's bundles are smaller, eights not tens, so he has more left over. But it's still the same 23 carrots." }
         },
         "reveal": "23 carrots either way. Counting in eights or tens are both good ways to count."
       }
@@ -64,8 +64,8 @@
       "kind": "rule",
       "rule": {
         "text": "We count in tens because we have 10 fingers.",
-        "ask": "Can you say why we count in tens, and how the robot counts? Say it out loud. Then tap the eye.",
-        "spoken": "We count in tens because we have 10 fingers. The robot has 8 fingers, so it counts in eights. Both ways work."
+        "ask": "Can you say why we count in tens, and how Steve counts? Say it out loud. Then tap the eye.",
+        "spoken": "We count in tens because we have 10 fingers. Steve has 8 fingers, so he counts in eights. Both ways work."
       }
     }
   ],

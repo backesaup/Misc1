@@ -6,7 +6,7 @@
   "status": "ready",
   "order": 18,
   "_map": "Halves that look different (Y1). Big idea: a half is 1 of 2 equal parts, whatever it looks like. Creative: cut a square field in half as many different ways as he can.",
-  "_story": "The robot wants to share a square field between two sheep. It cuts it unfairly first (a sheep complains). Ismaeel finds halves that look completely different but are still fair.",
+  "_story": "Steve wants to share a square field between two sheep. It cuts it unfairly first (a sheep complains). Ismaeel finds halves that look completely different but are still fair.",
   "_stepChain": "sharing fairly (fair-shares) → cut a field into 2 → an unfair cut: one part bigger → 2 equal parts are called halves → halves can look different: strips, triangles → test: is it 2 equal parts?",
   "assumes": ["counting", "remainder"],
   "requires": ["fair-shares"],
@@ -19,11 +19,11 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "fraction", "params": { "shape": "square", "parts": 1, "shaded": 0, "labels": false } },
-      "narration": { "speaker": "robot", "text": "Two sheep need to share this square field. I'll cut it into two parts!" }
+      "narration": { "speaker": "steve", "text": "Two sheep need to share this square field. I'll cut it into two parts!" }
     },
     {
       "id": "unfair",
-      "narration": { "speaker": "robot", "text": "There! Oh. One sheep says, that's not fair, your part is bigger! Hmm, it is bigger." },
+      "narration": { "speaker": "steve", "text": "There! Oh. One sheep says, that's not fair, your part is bigger! Hmm, it is bigger." },
       "animation": [{ "at": 0.6, "action": "cut", "parts": 2, "style": 0, "unfair": true, "shaded": 1 }]
     },
     {
@@ -44,8 +44,8 @@
     {
       "id": "test",
       "question": {
-        "narration": { "speaker": "robot", "text": "Is this a half? I cut it into 2 parts, so it must be a half!" },
-        "prompt": "Is the robot's shaded part a half?",
+        "narration": { "speaker": "steve", "text": "Is this a half? I cut it into 2 parts, so it must be a half!" },
+        "prompt": "Is Steve's shaded part a half?",
         "choices": ["Yes", "No"],
         "answer": 1,
         "onRight": "Yes, you spotted it. 2 parts isn't enough: they must be 2 equal parts.",

@@ -6,8 +6,8 @@
   "status": "ready",
   "order": 8,
   "_map": "Solid, liquid, gas (stretch, usually Y4). Big idea: materials change state when heated or cooled. Creative: melt ice blocks into water, then into steam; what happens when it cools?",
-  "_story": "The robot's ice block in the drinking trough is melting. It heats some in a pan and it disappears into steam. Where did the water go? Ismaeel follows it through three states.",
-  "_stepChain": "temperature (hot-and-cold) → ice is solid: keeps its shape → warm it: it melts into water, a liquid: flows → heat more: it boils into steam, a gas: spreads out → these are called states → cool steam: water drops again (lid) → the robot thinks the water vanished",
+  "_story": "Steve's ice block in the drinking trough is melting. It heats some in a pan and it disappears into steam. Where did the water go? Ismaeel follows it through three states.",
+  "_stepChain": "temperature (hot-and-cold) → ice is solid: keeps its shape → warm it: it melts into water, a liquid: flows → heat more: it boils into steam, a gas: spreads out → these are called states → cool steam: water drops again (lid) → Steve thinks the water vanished",
   "assumes": ["temperature", "zero"],
   "requires": ["hot-and-cold"],
   "talk": [
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "lab", "params": { "view": "states", "heat": 0 } },
-      "narration": { "speaker": "robot", "text": "I've got a block of ice from the frozen pond. It's hard and keeps its shape. What happens if I warm it up?" }
+      "narration": { "speaker": "steve", "text": "I've got a block of ice from the frozen pond. It's hard and keeps its shape. What happens if I warm it up?" }
     },
     {
       "id": "solid",
@@ -36,7 +36,7 @@
       "id": "boil",
       "term": "gas",
       "question": {
-        "narration": { "speaker": "robot", "text": "Now I'll heat it much more. Oh! The water is disappearing. It's gone forever!" },
+        "narration": { "speaker": "steve", "text": "Now I'll heat it much more. Oh! The water is disappearing. It's gone forever!" },
         "prompt": "Where is the water going?",
         "choices": ["Gone forever", "Into the air as steam", "Into the pan"],
         "answer": 1,
