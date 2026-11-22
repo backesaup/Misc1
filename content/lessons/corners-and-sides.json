@@ -20,32 +20,32 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "shapes", "params": { "view": "shape", "sides": 3, "corners": true, "sideNums": true } },
-      "narration": { "speaker": "steve", "text": "I'm building pens for the animals out of straight fence pieces. A triangle pen uses 3 pieces. What other shapes can I build?" }
+      "narration": { "speaker": "steve", "text": "I'm building pens for the animals, out of straight fence pieces! A triangle pen needs 3 pieces. What other shapes can I build?" }
     },
     {
       "id": "make-sides",
       "kind": "make",
-      "narration": { "text": "Choose how many straight sides, then tap the hammer to build the pen. Count the corners too. What do you notice?" },
+      "narration": { "text": "Pick how many straight sides, then tap the hammer to build the pen. Count the corners too! What do you notice?" },
       "make": { "mode": "sides", "item": "block", "total": 8, "min": 2, "max": 8, "goal": 5 }
     },
     {
       "id": "vertex",
       "term": "vertex",
-      "narration": { "text": "Every straight-sided shape has the same number of corners as sides. A pointy corner where two sides meet has a special name: a vertex. Lots of corners are called vertices." },
+      "narration": { "text": "Look! Every straight-sided shape has the same number of corners as sides! A corner where two sides meet has a fancy name. It's called a vertex. Lots of them are called vertices!" },
       "animation": [{ "at": 0, "action": "set", "view": "shape", "sides": 5, "corners": true, "sideNums": true }]
     },
     {
       "id": "two",
       "question": {
-        "narration": { "speaker": "steve", "text": "I've only got 2 fence pieces left. I'm going to build a 2-sided pen!" },
+        "narration": { "speaker": "steve", "text": "I've only got 2 fence pieces left. I'll build a 2-sided pen!" },
         "prompt": "Can 2 straight fence pieces make a closed pen?",
         "choices": ["Yes", "No"],
         "answer": 1,
-        "onRight": "Yes, you worked it out. Two straight lines can't close up. The sheep would walk straight out!",
+        "onRight": "Yes! Two straight lines can't close up. The sheep would walk straight out! Baa, bye!",
         "wrong": {
-          "0": { "mistake": "hasn't tried closing a two-sided shape", "hint": "Picture two straight lines joined at one end. Can the other ends meet?", "say": "Join 2 straight pieces at one corner. The other two ends point away from each other and never meet. You need at least 3 sides to close a shape." }
+          "0": { "mistake": "hasn't tried closing a two-sided shape", "hint": "Picture two straight lines joined at one end. Can the other ends ever meet?", "say": "Join 2 straight pieces at one corner. The other two ends point away from each other, and never meet! You need at least 3 sides to close a shape." }
         },
-        "reveal": "2 straight sides can't close. A triangle, with 3, is the fewest.",
+        "reveal": "2 straight sides can't close. A triangle, with 3, is the fewest!",
         "revealAnimation": [{ "at": 0, "action": "set", "view": "shape", "sides": 2 }]
       }
     },
@@ -54,14 +54,14 @@
       "kind": "rule",
       "rule": {
         "text": "Straight sides = corners. At least 3 sides to close.",
-        "ask": "Can you say the pattern between sides and corners? Say it out loud. Then tap the eye.",
+        "ask": "What's the pattern between sides and corners? Say it out loud! Then tap the eye.",
         "spoken": "A straight-sided shape has the same number of corners, or vertices, as sides. And it needs at least 3 sides to close."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: a shape with 100 straight sides. What would it look like?",
+    "prompt": "Bonus! A shape with 100 straight sides. What would it look like?",
     "choices": ["A star", "Almost a circle", "A square"],
     "answer": 1,
     "reveal": "Almost a circle! The more sides, the rounder it looks."

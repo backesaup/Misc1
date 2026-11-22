@@ -39,14 +39,14 @@
       },
       "narration": {
         "speaker": "steve",
-        "text": "I started building a house, but I only finished one half! I want both sides to match perfectly."
+        "text": "Oops! I started building a house, but I only finished one half! I want both sides to match perfectly."
       }
     },
     {
       "id": "line",
       "term": "line of symmetry",
       "narration": {
-        "text": "Imagine a mirror standing right down the middle. Each block on this side has a twin on the other side, the same distance from the mirror. A line where both halves match like that is called a line of symmetry."
+        "text": "Imagine a mirror, standing right down the middle. Every block on this side has a twin on the other side, the same distance from the mirror. A line where both halves match like that is called a line of symmetry."
       },
       "animation": [
         {
@@ -67,7 +67,7 @@
       "question": {
         "narration": {
           "speaker": "steve",
-          "text": "Now I built a whole house by myself. It's perfectly symmetrical. I think."
+          "text": "Now I built a whole house, all by myself. It's perfectly symmetrical! I think."
         },
         "prompt": "Is Steve's house symmetrical?",
         "choices": [
@@ -75,15 +75,15 @@
           "No"
         ],
         "answer": 1,
-        "onRight": "Yes, you spotted it. The window on the right is one block too far out.",
+        "onRight": "Yes, you spotted it! The window on the right is one block too far out!",
         "wrong": {
           "0": {
             "mistake": "looked at the whole shape but didn't compare each pair of twins",
-            "hint": "Look at the windows. Is each one the same distance from the line?",
-            "say": "Compare the windows. The left window is one block from the edge of the wall. The right window is right at the edge. They don't match, so it isn't symmetrical."
+            "hint": "Look at the windows. Is each one the same distance from the middle?",
+            "say": "Look at the windows. The left one is one block from the edge. The right one is right at the edge! They don't match. So it isn't symmetrical."
           }
         },
-        "reveal": "Moving the window one block in makes both sides match.",
+        "reveal": "Move the window one block in, and both sides match!",
         "revealAnimation": [
           {
             "at": 0,
@@ -115,13 +115,13 @@
     {
       "id": "nature",
       "narration": {
-        "text": "Symmetry is everywhere. A butterfly's wings. Your face. A leaf. A Minecraft creeper face too! Look around and find something symmetrical."
+        "text": "Symmetry is everywhere! A butterfly's wings. A leaf. Your face! Even a Minecraft creeper's face! Look around. Can you find something symmetrical?"
       }
     },
     {
       "id": "design",
       "narration": {
-        "text": "Now design your own symmetrical house, or a butterfly. Build one half, then copy each block to the other side of the line, the same distance away."
+        "text": "Now design your own symmetrical house, or a butterfly! Build one half. Then copy each block to the other side, the same distance from the line."
       }
     },
     {
@@ -129,20 +129,20 @@
       "kind": "rule",
       "rule": {
         "text": "Symmetrical: both halves match across the line.",
-        "ask": "Can you say what a line of symmetry is? Say it out loud. Then tap the eye.",
+        "ask": "What's a line of symmetry? Say it out loud! Then tap the eye.",
         "spoken": "A line of symmetry splits a shape into two halves that match exactly, like a reflection in a mirror."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: how many lines of symmetry does a square have?",
+    "prompt": "Bonus! How many lines of symmetry does a square have?",
     "choices": [
       "1",
       "2",
       "4"
     ],
     "answer": 2,
-    "reveal": "4! Up and down, side to side, and both diagonals."
+    "reveal": "4! Up and down, side to side, and corner to corner both ways."
   }
 }

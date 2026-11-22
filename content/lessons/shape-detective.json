@@ -19,18 +19,18 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "shapes", "params": { "view": "animal" } },
-      "narration": { "speaker": "steve", "text": "Look! I made a picture of the farm cat, using only shapes. Can you be a shape detective and find them?" }
+      "narration": { "speaker": "steve", "text": "Look, Ismaeel! I made a picture of the farm cat, out of shapes! Meow! Can you be a shape detective, and find them all?" }
     },
     {
       "id": "triangle",
       "term": "triangle",
-      "narration": { "text": "The ears have 3 straight sides and 3 corners. A shape like that is called a triangle." },
+      "narration": { "text": "Look at the ears! 3 straight sides, and 3 pointy corners. A shape like that is called a triangle." },
       "animation": [{ "at": 0, "action": "set", "view": "shape", "sides": 3, "corners": true, "sideNums": true }]
     },
     {
       "id": "square",
       "term": "square",
-      "narration": { "text": "The body has 4 straight sides, all the same length, and 4 corners. That's a square." },
+      "narration": { "text": "Now the body! 4 straight sides, all the same length, and 4 corners. That's a square!" },
       "animation": [{ "at": 0, "action": "set", "view": "shape", "sides": 4, "corners": true, "sideNums": true }]
     },
     {
@@ -41,18 +41,18 @@
         "prompt": "How many corners does a circle have?",
         "choices": ["1", "0", "4"],
         "answer": 1,
-        "onRight": "Yes. A circle is one curved line, with no corners at all.",
+        "onRight": "Yes, detective! A circle is one curvy line, with no corners at all!",
         "wrong": {
-          "0": { "mistake": "thinks the place where you start drawing is a corner", "hint": "Run your finger round a circle. Do you ever hit a pointy bit?", "say": "A circle is one smooth curve, with no pointy bits. So it has zero corners." },
-          "2": { "mistake": "confused with a square", "hint": "Is a circle pointy anywhere?", "say": "4 corners is a square. A circle is round all the way, so it has zero corners." }
+          "0": { "mistake": "thinks the place where you start drawing is a corner", "hint": "Draw a circle in the air with your finger. Do you ever hit a pointy bit?", "say": "A circle is one smooth curve, with no pointy bits. So it has zero corners!" },
+          "2": { "mistake": "confused with a square", "hint": "Is a circle pointy anywhere?", "say": "4 corners is a square. A circle is round all the way, so it has zero corners!" }
         },
-        "reveal": "A circle has no corners and no straight sides.",
+        "reveal": "A circle has no corners, and no straight sides!",
         "revealAnimation": [{ "at": 0, "action": "set", "view": "shape", "sides": 0 }]
       }
     },
     {
       "id": "animal",
-      "narration": { "speaker": "steve", "text": "Now it's your turn. Make an animal using only squares, circles and triangles! A triangle beak? Circle eyes? Square wings? Show a grown-up your creature." },
+      "narration": { "speaker": "steve", "text": "Your turn! Make an animal using only squares, circles and triangles! A triangle beak? Circle eyes? Square wings? Show a grown-up your creature!" },
       "animation": [{ "at": 0, "action": "set", "view": "animal" }]
     },
     {
@@ -60,16 +60,16 @@
       "kind": "rule",
       "rule": {
         "text": "Triangle: 3 sides. Square: 4 sides. Circle: no corners.",
-        "ask": "Can you say how many sides a triangle has, and a square? Say it out loud. Then tap the eye.",
+        "ask": "How many sides does a triangle have? And a square? Say it out loud! Then tap the eye.",
         "spoken": "A triangle has 3 sides and 3 corners. A square has 4 equal sides and 4 corners. A circle has no corners at all."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: a shape with 6 sides is called a hexagon. Where might you see one?",
+    "prompt": "Bonus! A shape with 6 sides is called a hexagon. Where might you see one?",
     "choices": ["A honeycomb", "A football", "A pencil"],
     "answer": 0,
-    "reveal": "Bees build honeycomb out of hexagons! Footballs and pencils can have hexagons too."
+    "reveal": "Bees build their honeycomb out of hexagons! Buzz! You can find them on footballs and pencils too."
   }
 }
