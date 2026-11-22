@@ -19,17 +19,17 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "clock", "params": { "hour": 9, "minute": 0, "daynight": true } },
-      "narration": { "speaker": "steve", "text": "I fed the chickens at midnight, and the cows at a silly time too. Everyone's grumpy! I need to learn to read my clock." }
+      "narration": { "speaker": "steve", "text": "Oops! I gave the chickens breakfast at midnight! Bawk! And the cows got dinner at a silly time too. Moo! Everyone's grumpy! I need to learn to read my clock!" }
     },
     {
       "id": "hands",
-      "narration": { "text": "A clock has two hands. The short hand points to the hour. When the long hand points straight up at the 12, it's exactly that hour. Short hand on 9, long hand on 12: it's 9 o'clock." },
+      "narration": { "text": "A clock has two pointers, called hands. A short hand, and a long hand. The short hand points to the hour. When the long hand points straight up at the 12, it's exactly that hour. Short hand on 9, long hand on 12. It's 9 o'clock!" },
       "label": "9 o'clock"
     },
     {
       "id": "half-past",
       "term": "half past",
-      "narration": { "text": "Now the long hand goes half way round the clock, down to the 6. Half an hour has passed. We call this half past 9." },
+      "narration": { "text": "Now watch the long hand. It goes half way round the clock, down to the 6. Tick, tick, tick! Half an hour has gone by. We call this half past 9." },
       "label": "half past 9",
       "animation": [
         { "at": 0.6, "action": "shade", "to": 0.5, "duration": 2 },
@@ -38,7 +38,7 @@
     },
     {
       "id": "minutes",
-      "narration": { "text": "The long hand counts minutes. Each number is 5 minutes more than the last: 5, 10, 15, 20, all the way to 60 at the top. So there are 60 minutes in one hour. That's counting in 5s!" },
+      "narration": { "text": "The long hand counts minutes. A minute is about as long as counting slowly to 60! Each number on the clock is 5 more minutes. Count in fives with me: 5, 10, 15, 20, all the way to 60 at the top! So an hour has 60 minutes." },
       "animation": [
         { "at": 0, "action": "shade", "to": 0, "duration": 0.3 },
         { "at": 0, "action": "labels", "minutes": true },
@@ -48,27 +48,27 @@
     {
       "id": "read",
       "question": {
-        "narration": { "text": "Steve feeds the sheep. Short hand on the 4, long hand on the 12." },
+        "narration": { "text": "Sheep dinner time! Baa! The short hand is on the 4. The long hand is on the 12." },
         "prompt": "What time is it?",
         "choices": ["12 o'clock", "4 o'clock", "Half past 4"],
         "answer": 1,
-        "onRight": "Yes. The short hand shows the hour, 4, and the long hand on 12 means o'clock.",
+        "onRight": "Yes! The short hand says 4, and the long hand on 12 means o'clock. 4 o'clock!",
         "wrong": {
-          "0": { "mistake": "read the long hand as the hour", "hint": "Which hand tells the hour, the short one or the long one?", "say": "The long hand on 12 means o'clock. The short hand tells the hour: it's on the 4. So it's 4 o'clock." },
-          "2": { "mistake": "thinks half past when the long hand is at the top", "hint": "Half past is when the long hand points down at the 6. Where is it now?", "say": "For half past, the long hand points down to the 6. Here it points up at the 12, so it's 4 o'clock." }
+          "0": { "mistake": "read the long hand as the hour", "hint": "Which hand tells the hour: the short one, or the long one?", "say": "The long hand on 12 means o'clock. The short hand tells the hour, and it's on the 4! So it's 4 o'clock." },
+          "2": { "mistake": "thinks half past when the long hand is at the top", "hint": "Half past is when the long hand points down at the 6. Where is it now?", "say": "For half past, the long hand points down to the 6. Here it points up at the 12. So it's 4 o'clock!" }
         },
-        "reveal": "4 o'clock: time for the sheep's dinner.",
+        "reveal": "4 o'clock! Dinner time for the sheep. Munch, munch!",
         "revealAnimation": [{ "at": 0, "action": "time", "hour": 16, "minute": 0, "activity": "Feed the sheep" }]
       }
     },
     {
       "id": "day",
-      "narration": { "text": "The short hand goes all the way round twice every day: once for the daytime, and once for the night. That makes 24 hours in a day." },
+      "narration": { "text": "The short hand goes all the way round twice every day. Once in the daytime, and once in the night, while you're asleep! That makes 24 hours in a day." },
       "animation": [{ "at": 0.6, "action": "time", "hour": 16, "minute": 0, "duration": 6 }]
     },
     {
       "id": "plan",
-      "narration": { "speaker": "steve", "text": "Now help me plan my day! When should the chickens have breakfast? When do the cows go to sleep? Tell a grown-up your plan, and show the times on a clock." },
+      "narration": { "speaker": "steve", "text": "Now help me plan my day! When should the chickens have breakfast? When do the cows go to sleep? Tell a grown-up your plan, and show the times on a clock!" },
       "animation": [{ "at": 0, "action": "time", "hour": 7, "minute": 0, "activity": "Chickens' breakfast" }]
     },
     {
@@ -76,16 +76,16 @@
       "kind": "rule",
       "rule": {
         "text": "Short hand: hours. Long hand: minutes.",
-        "ask": "Can you say which hand tells the hour, and what half past means? Say it out loud. Then tap the eye.",
+        "ask": "Which hand tells the hour? What does half past mean? Say it out loud! Then tap the eye.",
         "spoken": "The short hand shows the hour, and the long hand shows the minutes. Half past means the long hand is half way round, on the 6."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: the long hand points to the 3. How many minutes past is that?",
+    "prompt": "Bonus! The long hand points to the 3. How many minutes past is that?",
     "choices": ["3", "15", "30"],
     "answer": 1,
-    "reveal": "15 minutes: 5, 10, 15. We call it quarter past, because it's a quarter of the way round."
+    "reveal": "15 minutes! 5, 10, 15. We call it quarter past, because it's a quarter of the way round."
   }
 }

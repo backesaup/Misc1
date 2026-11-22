@@ -20,64 +20,64 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "gauge", "params": { "kind": "ruler", "length": 12 } },
-      "narration": { "speaker": "steve", "text": "I measured this plank with my feet: 3 Steve feet long. But the sheep measured it with her feet, and says it's 6 sheep feet! Now we're arguing!" }
+      "narration": { "speaker": "steve", "text": "I measured this plank with my feet. Step, step, step! 3 Steve feet long. But the sheep measured it with her little hooves, and she says it's 6 sheep feet! Baa! Now we're arguing!" }
     },
     {
       "id": "why",
-      "narration": { "text": "Steve's feet and the sheep's feet are different sizes. So they get different numbers for the same plank. To stop the arguing, everyone needs to use the same unit." }
+      "narration": { "text": "Here's the problem. Steve's feet and the sheep's feet are different sizes! So they get different numbers for the same plank. To stop the arguing, everyone needs to use the same unit." }
     },
     {
       "id": "invent",
       "question": {
         "open": true,
-        "narration": { "speaker": "steve", "text": "Let's invent a fair unit that everyone can use, and it's always the same size." },
+        "narration": { "speaker": "steve", "text": "Let's invent a fair unit! One that everyone can use, and it's always the same size." },
         "prompt": "Which unit would be fair for everyone?",
         "choices": ["Steve feet", "A special stick", "Sheep feet"],
         "answer": 1,
-        "reveal": "A special stick that everyone copies exactly! That's what people did. They agreed on one size, and made rulers that all match."
+        "reveal": "A special stick that everyone copies exactly! That's what people really did. They agreed on one size, and made rulers that all match."
       }
     },
     {
       "id": "cm",
       "term": "centimetre",
-      "narration": { "text": "This is a ruler. The little marks are all the same distance apart. Each gap is called a centimetre. Line the plank up with zero, and read the number at the end: 12 centimetres. Anyone with a ruler gets 12." },
+      "narration": { "text": "This is a ruler! See the little lines? They're all the same distance apart. Each gap is called a centimetre. It's about as wide as your fingernail! Put the plank at zero, and read the number at the end. 12 centimetres! Anyone with a ruler gets 12. No more arguing!" },
       "animation": [{ "at": 5, "action": "set", "unitShown": 1 }]
     },
     {
       "id": "check",
       "question": {
-        "narration": { "text": "Here's a shorter plank." },
+        "narration": { "text": "Here's a shorter plank. Your turn to measure!" },
         "prompt": "How long is it?",
         "choices": ["7 cm", "8 cm", "9 cm"],
         "answer": 1,
-        "onRight": "Yes. You started from zero and read the end.",
+        "onRight": "Yes! You started at zero, and read the end. 8 centimetres!",
         "wrong": {
-          "0": { "mistake": "counted marks instead of gaps, or started at 1", "hint": "Start at zero, then count the gaps up to the end of the plank.", "say": "Line it up with zero, then count the gaps to the end: 8 centimetres." },
-          "2": { "mistake": "read past the end of the plank", "hint": "Look exactly where the plank stops.", "say": "The plank stops at the 8 mark. So it's 8 centimetres." }
+          "0": { "mistake": "counted marks instead of gaps, or started at 1", "hint": "Start at zero, then count the gaps up to the end of the plank.", "say": "Line it up with zero, then count the gaps to the end. 8 centimetres!" },
+          "2": { "mistake": "read past the end of the plank", "hint": "Look exactly where the plank stops.", "say": "Look where the plank stops: at the 8. So it's 8 centimetres." }
         },
-        "reveal": "8 centimetres.",
+        "reveal": "8 centimetres!",
         "revealAnimation": [{ "at": 0, "action": "set", "length": 8, "unitShown": 1 }]
       }
     },
     {
       "id": "metre",
-      "narration": { "text": "For long things like the barn, centimetres are tiny. 100 centimetres make a bigger unit called a metre. A big step for a grown-up is about a metre." }
+      "narration": { "text": "For long things, like the barn, centimetres are tiny! So 100 centimetres make a bigger unit, called a metre. One big step for a grown-up is about a metre!" }
     },
     {
       "id": "rule",
       "kind": "rule",
       "rule": {
         "text": "Rulers mean everyone gets the same answer.",
-        "ask": "Can you say why we need rulers? Say it out loud. Then tap the eye.",
+        "ask": "Why do we need rulers? Say it out loud! Then tap the eye.",
         "spoken": "Feet and hands are different sizes. Rulers use the same units, centimetres, so everyone gets the same answer."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: how many centimetres tall do you think you are?",
+    "prompt": "Bonus! How many centimetres tall do you think you are?",
     "choices": ["About 50", "About 110", "About 200"],
     "answer": 1,
-    "reveal": "Most 5-year-olds are about 110 centimetres tall. Measure yourself and see!"
+    "reveal": "Lots of 5-year-olds are about 110 centimetres tall. Measure yourself and find out!"
   }
 }

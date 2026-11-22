@@ -20,48 +20,48 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "gauge", "params": { "kind": "thermometer", "temp": 12, "place": 2 } },
-      "narration": { "speaker": "steve", "text": "I've got a new tool: a thermometer! Let's take it round the farm and find the hottest and coldest places." }
+      "narration": { "speaker": "steve", "text": "Look at my new tool! It's a thermometer! Let's take it all round the farm, and find the hottest and coldest places!" }
     },
     {
       "id": "temperature",
       "term": "temperature",
-      "narration": { "text": "How hot or cold something is, is called its temperature. When it's hotter, the red line goes up. When it's colder, it goes down. In the barn, it says 12 degrees." }
+      "narration": { "text": "How hot or cold something is, is called its temperature. When it's hotter, the red line climbs up. When it's colder, it slides down. Here in the barn, it says 12 degrees." }
     },
     {
       "id": "field",
       "question": {
         "open": true,
-        "narration": { "text": "Now we carry it out into the sunny field." },
-        "prompt": "Will the line go up or down?",
+        "narration": { "text": "Now let's carry it out into the sunny field!" },
+        "prompt": "Will the red line go up, or down?",
         "choices": ["Up", "Down"],
         "answer": 0,
-        "reveal": "Up! 24 degrees. The sunny field is warmer than the barn.",
+        "reveal": "Up! 24 degrees. The sunny field is warmer than the barn!",
         "revealAnimation": [{ "at": 0, "action": "place", "place": 3 }]
       }
     },
     {
       "id": "zero",
-      "narration": { "text": "Now the frozen pond. Down, down, down, to 0 degrees. Zero is where water freezes into ice." },
+      "narration": { "text": "Now the frozen pond! Brrr! Down, down, down it goes, to 0 degrees. Zero degrees is how cold it gets when water freezes into ice!" },
       "animation": [{ "at": 1, "action": "place", "place": 1 }]
     },
     {
       "id": "freezer",
       "question": {
-        "narration": { "speaker": "steve", "text": "And now the freezer. It's colder than ice. But zero is the lowest number, so it must say zero again!" },
+        "narration": { "speaker": "steve", "text": "And now the freezer. It's even colder than ice! But zero is the lowest number. So it must say zero again!" },
         "prompt": "Can it be colder than zero?",
         "choices": ["Yes", "No"],
         "answer": 0,
-        "onRight": "Yes. The line can go below zero. The freezer is minus 5 degrees.",
+        "onRight": "Yes! The line can go below zero! The freezer is minus 5 degrees. Brrr!",
         "wrong": {
-          "1": { "mistake": "thinks zero is the lowest possible temperature", "hint": "Look at the thermometer. Are there marks below zero?", "say": "The thermometer has marks below zero too. The freezer is 5 degrees below zero. We say minus 5." }
+          "1": { "mistake": "thinks zero is the lowest possible temperature", "hint": "Look at the thermometer. Are there marks below zero?", "say": "Look, the thermometer has marks below zero! The freezer is 5 degrees below zero. We say minus 5." }
         },
-        "reveal": "Minus 5 degrees. Colder than ice!",
+        "reveal": "Minus 5 degrees. Colder than ice! Brrr!",
         "revealAnimation": [{ "at": 0, "action": "place", "place": 0 }]
       }
     },
     {
       "id": "oven",
-      "narration": { "text": "And the hottest place on the farm: the oven! 180 degrees. That's far too hot to touch. Our thermometer can't even show it." },
+      "narration": { "text": "And the hottest place on the farm? The oven! 180 degrees! Far too hot to touch. Our thermometer can't even reach that high!" },
       "animation": [{ "at": 1, "action": "place", "place": 4 }]
     },
     {
@@ -69,16 +69,16 @@
       "kind": "rule",
       "rule": {
         "text": "Temperature tells how hot. Water freezes at 0°.",
-        "ask": "Can you say what a thermometer does, and what happens at 0 degrees? Say it out loud. Then tap the eye.",
+        "ask": "What does a thermometer do? What happens at 0 degrees? Say it out loud! Then tap the eye.",
         "spoken": "A thermometer measures temperature, how hot or cold something is. Water freezes at zero degrees, and it can get even colder than that."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: water boils, making steam, at about…",
+    "prompt": "Bonus! Water bubbles and boils into steam at about…",
     "choices": ["30 degrees", "100 degrees", "1000 degrees"],
     "answer": 1,
-    "reveal": "About 100 degrees. Freezing at 0, boiling at 100."
+    "reveal": "About 100 degrees! Freezing at 0, boiling at 100."
   }
 }

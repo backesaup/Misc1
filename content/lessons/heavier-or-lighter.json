@@ -20,54 +20,54 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "balance", "params": { "left": 7, "fives": 0, "ones": 0, "pumpkin": true, "unit": 2 } },
-      "narration": { "speaker": "steve", "text": "Look at my giant pumpkin! I want to enter it in the farm show. But they ask: how heavy is it?" }
+      "narration": { "speaker": "steve", "text": "Ta-da! Look at my giant pumpkin! I want to win the farm show! But they asked me a tricky question: how heavy is it?" }
     },
     {
       "id": "big",
       "question": {
         "open": true,
-        "narration": { "text": "Here's a puzzle first. A big floaty balloon, and a small stone." },
+        "narration": { "text": "First, a puzzle! A big floaty balloon, and a small stone." },
         "prompt": "Which is heavier?",
         "choices": ["Big balloon", "Small stone"],
         "answer": 1,
-        "reveal": "The small stone! Big things aren't always heavy. To find out how heavy something is, you need to weigh it."
+        "reveal": "The little stone! Big things aren't always heavy. To find out how heavy something is, you have to weigh it."
       }
     },
     {
       "id": "kg",
       "term": "kilogram",
-      "narration": { "text": "We weigh things with a balance, using weights that everyone agrees on. A bag of sugar is about one kilogram. These blocks are kilogram weights." }
+      "narration": { "text": "We weigh things on a balance, with weights everyone agrees on. Hold a bag of sugar, and that's about one kilogram! These blocks are kilogram weights." }
     },
     {
       "id": "make-balance",
       "kind": "make",
-      "narration": { "text": "Balance the pumpkin! Use big 5-kilogram weights and small 1-kilogram weights. Choose how many big ones, tap the hammer, and see how many small ones it takes." },
+      "narration": { "text": "Let's balance the pumpkin! Use big 5-kilogram weights, and little 1-kilogram weights. Pick how many big ones, tap the hammer, and see how many little ones it needs." },
       "make": { "mode": "balance", "item": "block", "total": 7, "goal": 2 }
     },
     {
       "id": "result",
-      "narration": { "speaker": "steve", "text": "It balances with 7 kilograms! My pumpkin is 7 kilograms. That's about 7 bags of sugar!" },
+      "narration": { "speaker": "steve", "text": "It balances with 7 kilograms! My pumpkin weighs 7 kilograms. That's like 7 bags of sugar! Oof!" },
       "label": "7 kg"
     },
     {
       "id": "grams",
-      "narration": { "text": "Small things, like a strawberry, are much lighter than a kilogram. We weigh those in grams. 1000 grams make one kilogram." }
+      "narration": { "text": "Tiny things, like a strawberry, are much lighter than a kilogram. We weigh those in grams. 1,000 grams make one kilogram!" }
     },
     {
       "id": "rule",
       "kind": "rule",
       "rule": {
         "text": "A balance measures how heavy. Big isn't always heavy.",
-        "ask": "Can you say how we found out how heavy the pumpkin was? Say it out loud. Then tap the eye.",
+        "ask": "How did we find out how heavy the pumpkin was? Say it out loud! Then tap the eye.",
         "spoken": "We measure how heavy things are with a balance, in kilograms and grams. And big things aren't always heavy."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: how many kilograms do you think you weigh?",
+    "prompt": "Bonus! How many kilograms do you think you weigh?",
     "choices": ["About 5", "About 20", "About 100"],
     "answer": 1,
-    "reveal": "Most 5-year-olds weigh about 18 to 22 kilograms. That's about 20 bags of sugar!"
+    "reveal": "Lots of 5-year-olds weigh about 18 to 22 kilograms. That's about 20 bags of sugar!"
   }
 }

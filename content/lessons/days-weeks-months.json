@@ -20,58 +20,58 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "grid", "params": { "cols": 7, "rows": 5, "numbers": true } },
-      "narration": { "speaker": "steve", "text": "I want to plant carrots! But when? I don't even know what comes after Tuesday!" }
+      "narration": { "speaker": "steve", "text": "I want to plant carrots! But when? I don't even know what comes after Tuesday! Help!" }
     },
     {
       "id": "week",
       "term": "week",
-      "narration": { "text": "The days go round in order: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday. Then Monday again. 7 days together are called a week." }
+      "narration": { "text": "The days go round and round, in order. Say them with me! Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday. Then Monday again! 7 days together are called a week." }
     },
     {
       "id": "calendar",
-      "narration": { "text": "A calendar puts each week in a row of 7 squares. Look: the Sundays all line up, down the last column. Every 7 days, it's Sunday again." },
+      "narration": { "text": "A calendar puts each week in a row of 7 squares. Look! All the Sundays line up, in the last column. Every 7 days, it's Sunday again!" },
       "animation": [{ "at": 2.6, "action": "every", "n": 7 }]
     },
     {
       "id": "month",
       "term": "month",
-      "narration": { "text": "About 4 weeks make a longer time called a month. There are 12 months in a year: January, February, March, all the way to December." }
+      "narration": { "text": "About 4 weeks make a longer time, called a month. And there are 12 months in a year. January, February, March, all the way to December!" }
     },
     {
       "id": "count",
       "question": {
-        "narration": { "speaker": "steve", "text": "The carrots take 3 weeks to grow. How many days is that?" },
-        "prompt": "How many days in 3 weeks?",
+        "narration": { "speaker": "steve", "text": "Carrots take 3 weeks to grow." },
+        "prompt": "How many days is 3 weeks?",
         "choices": ["10", "21", "37"],
         "answer": 1,
-        "onRight": "Yes. 3 rows of 7: 7, 14, 21.",
+        "onRight": "Yes! 3 rows of 7: 7, 14, 21!",
         "wrong": {
-          "0": { "mistake": "added 3 and 7", "hint": "Each week is a whole row of 7 days. How many rows?", "say": "Each week is 7 days. 3 weeks is 3 rows of 7: 7, 14, 21." },
-          "2": { "mistake": "wrote 3 and 7 side by side", "hint": "37 is the 3 and the 7 side by side. Count 3 rows of 7 instead.", "say": "Count 3 rows of 7 on the calendar: 7, 14, 21 days." }
+          "0": { "mistake": "added 3 and 7", "hint": "Each week is a whole row of 7 days. How many rows?", "say": "Each week is a whole row of 7 days. 3 weeks is 3 rows of 7: 7, 14, 21." },
+          "2": { "mistake": "wrote 3 and 7 side by side", "hint": "37 is the 3 and the 7 squashed together. Count 3 rows of 7 instead!", "say": "Let's count 3 rows of 7 on the calendar: 7, 14, 21 days." }
         },
-        "reveal": "21 days: 3 weeks.",
+        "reveal": "21 days. 3 whole weeks!",
         "revealAnimation": [{ "at": 0, "action": "every", "n": 1, "n2": 0 }]
       }
     },
     {
       "id": "plan",
-      "narration": { "speaker": "steve", "text": "Now help me plan! Seeds go in the ground in spring, around March or April. Carrots are ready in summer. Pumpkins in autumn. Make your own farm calendar with a grown-up!" }
+      "narration": { "speaker": "steve", "text": "Now help me plan! Seeds go in the ground in spring, around March or April. Carrots are ready in summer. Pumpkins in autumn! Make your own farm calendar with a grown-up!" }
     },
     {
       "id": "rule",
       "kind": "rule",
       "rule": {
         "text": "7 days make a week. 12 months make a year.",
-        "ask": "Can you say the days of the week in order? Say them out loud. Then tap the eye.",
+        "ask": "Can you say the days of the week in order? Say them out loud! Then tap the eye.",
         "spoken": "7 days make a week, about 4 weeks make a month, and 12 months make a year."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: about how many days are in a whole year?",
+    "prompt": "Bonus! About how many days are in a whole year?",
     "choices": ["About 50", "About 365", "About 1000"],
     "answer": 1,
-    "reveal": "365 days! And every 4 years there's an extra one: 366."
+    "reveal": "365 days! And every 4 years, there's an extra one: 366."
   }
 }

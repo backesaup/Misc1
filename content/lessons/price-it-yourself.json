@@ -20,46 +20,46 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "coins", "params": { "coins": "100", "item": "A customer has £1" } },
-      "narration": { "speaker": "steve", "text": "Today you're the shopkeeper! A customer has come with a one-pound coin." }
+      "narration": { "speaker": "steve", "text": "Ismaeel, today you're the shopkeeper! Ding ding! A customer has come in, with a one-pound coin." }
     },
     {
       "id": "pound",
       "term": "pound",
-      "narration": { "text": "This gold coin is one pound. One pound is worth 100 pence. That's the same as ten 10p coins!" },
+      "narration": { "text": "This gold coin is one pound. One pound is worth 100 pence! That's the same as ten 10p coins!" },
       "animation": [{ "at": 3.4, "action": "coins", "coins": "10,10,10,10,10,10,10,10,10,10" }]
     },
     {
       "id": "robot-mistake",
       "question": {
-        "narration": { "speaker": "steve", "text": "Hmm. 1 is smaller than 50. So a one-pound coin is worth less than 50p!" },
-        "prompt": "Is £1 worth less than 50p?",
+        "narration": { "speaker": "steve", "text": "Hmm. 1 is smaller than 50. So a one-pound coin must be worth less than 50p!" },
+        "prompt": "Is one pound worth less than 50p?",
         "choices": ["Yes", "No"],
         "answer": 1,
-        "onRight": "Yes, you caught it. £1 is 100 pence, so it's worth more than 50p.",
+        "onRight": "Yes, you caught him! One pound is 100 pence. That's more than 50p!",
         "wrong": {
-          "0": { "mistake": "compared the numbers without the units", "hint": "£1 is how many pence?", "say": "The 1 is in pounds, not pence. £1 is 100 pence, and 100 is greater than 50." }
+          "0": { "mistake": "compared the numbers without the units", "hint": "One pound is how many pence?", "say": "That 1 means one pound, not one penny! One pound is 100 pence, and 100 is more than 50." }
         },
-        "reveal": "£1 is 100p, more than 50p.",
+        "reveal": "One pound is 100p. More than 50p!",
         "revealAnimation": [{ "at": 0, "action": "coins", "coins": "100" }]
       }
     },
     {
       "id": "prices",
-      "narration": { "text": "Here are the prices you set. Eggs 30p. Carrots 20p. An apple 10p. A pumpkin 60p." },
+      "narration": { "text": "Here are your prices, shopkeeper! Eggs, 30p. Carrots, 20p. An apple, 10p. A pumpkin, 60p." },
       "animation": [{ "at": 0, "action": "coins", "coins": "", "item": "Eggs 30p · Carrots 20p · Apple 10p · Pumpkin 60p" }]
     },
     {
       "id": "three",
       "question": {
-        "narration": { "text": "The customer wants eggs, carrots and a pumpkin." },
-        "prompt": "Can they buy all three with £1?",
+        "narration": { "text": "The customer wants eggs, carrots, and a pumpkin." },
+        "prompt": "Can they buy all three with one pound?",
         "choices": ["Yes", "No"],
         "answer": 1,
-        "onRight": "Yes, you worked it out: 30 and 20 and 60 is 110p, more than 100p.",
+        "onRight": "Yes, you worked it out! 30 and 20 and 60 is 110p. More than 100p!",
         "wrong": {
-          "0": { "mistake": "didn't add all three prices before comparing", "hint": "Add all three: 30, then 20 more, then 60 more. Is it more than 100?", "say": "30 and 20 make 50. Then 60 more makes 110 pence. That's more than £1, so they can't buy all three." }
+          "0": { "mistake": "didn't add all three prices before comparing", "hint": "Add all three: 30, then 20 more, then 60 more. Is it more than 100?", "say": "30 and 20 make 50. Then 60 more makes 110 pence. That's more than one pound! So they can't buy all three." }
         },
-        "reveal": "110p is too much. Swap the pumpkin for an apple: 30 + 20 + 10 = 60p, with 40p change."
+        "reveal": "110p is too much! Swap the pumpkin for an apple: 30, 20 and 10 make 60p, with 40p change."
       }
     },
     {
@@ -67,16 +67,16 @@
       "kind": "rule",
       "rule": {
         "text": "£1 = 100p. Add the prices, then compare.",
-        "ask": "Can you say how to check if someone has enough money? Say it out loud. Then tap the eye.",
+        "ask": "How do you check if someone has enough money? Say it out loud! Then tap the eye.",
         "spoken": "One pound is 100 pence. Add up the prices, then compare the total with the money you have."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: with £1, what's the most apples (10p each) you could buy?",
+    "prompt": "Bonus! With one pound, how many 10p apples could you buy?",
     "choices": ["1", "10", "100"],
     "answer": 1,
-    "reveal": "10 apples. 10 lots of 10p is 100p, one pound."
+    "reveal": "10 apples! 10 lots of 10p is 100p, one pound."
   }
 }

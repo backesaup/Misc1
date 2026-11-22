@@ -20,22 +20,22 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "clock", "params": { "hour": 3, "minute": 0 } },
-      "narration": { "speaker": "steve", "text": "I bet I can build a whole barn in one minute! Easy." }
+      "narration": { "speaker": "steve", "text": "I bet I can build a whole barn in one minute! No problem!" }
     },
     {
       "id": "seconds",
       "term": "second",
-      "narration": { "text": "A minute is made of 60 tiny bits of time called seconds. One second is about as long as saying: one farm-yard. Say it with me: one farm-yard, two farm-yard, three farm-yard." }
+      "narration": { "text": "A minute is made of 60 tiny bits of time, called seconds. One second is about as long as saying: one farmyard. Say it with me! One farmyard, two farmyard, three farmyard!" }
     },
     {
       "id": "which",
       "question": {
         "open": true,
-        "narration": { "text": "Some things take seconds, some take minutes, and some take hours." },
+        "narration": { "text": "Some things take seconds. Some take minutes. Some take hours!" },
         "prompt": "How long does building a real barn take?",
         "choices": ["A second", "A minute", "Many hours"],
         "answer": 2,
-        "reveal": "Many hours, even days! A minute is enough to stack a few blocks, not to build a barn.",
+        "reveal": "Hours and hours, even days! In a minute, you can only stack a few blocks.",
         "revealAnimation": [{ "at": 0, "action": "time", "hour": 9, "minute": 0, "duration": 3 }]
       }
     },
@@ -43,11 +43,11 @@
       "id": "guess",
       "question": {
         "open": true,
-        "narration": { "text": "Now guess about you." },
+        "narration": { "text": "Now guess about you, Ismaeel!" },
         "prompt": "How many jumps can you do in one minute?",
         "choices": ["About 10", "About 50", "About 500"],
         "answer": 1,
-        "reveal": "Let's find out! Ask a grown-up to time one minute while you jump and count. Many people can do about 50 to 80. A minute is longer than it sounds!"
+        "reveal": "Let's find out! Ask a grown-up to time one minute, while you jump and count. Boing, boing! Lots of people can do about 50 to 80. A minute is longer than it sounds!"
       }
     },
     {
@@ -59,16 +59,16 @@
       "kind": "rule",
       "rule": {
         "text": "60 seconds make a minute.",
-        "ask": "Can you say how many seconds are in a minute? Say it out loud. Then tap the eye.",
+        "ask": "How many seconds are in a minute? Say it out loud! Then tap the eye.",
         "spoken": "60 seconds make one minute. Guess how long something takes, then test it to find out."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: how many minutes in an hour?",
+    "prompt": "Bonus! How many minutes in an hour?",
     "choices": ["24", "60", "100"],
     "answer": 1,
-    "reveal": "60 minutes, and 60 seconds in each minute."
+    "reveal": "60 minutes! And 60 seconds in every minute."
   }
 }
