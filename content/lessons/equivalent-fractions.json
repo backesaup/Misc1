@@ -20,7 +20,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "fraction", "params": { "shape": "square", "compare": true, "parts": 2, "shaded": 1, "parts2": 4, "shaded2": 2, "style": 0, "style2": 0 } },
-      "narration": { "speaker": "steve", "text": "We each got part of a field. I got half of this one. You got 2 quarters of that one. I got 1 part and you got 2 parts. That's not fair!" }
+      "narration": { "speaker": "steve", "text": "We each got part of a field. I got one half of this one. You got two quarters of that one. You got 2 pieces, and I only got 1! That's not fair!" }
     },
     {
       "id": "compare",
@@ -28,38 +28,38 @@
         "prompt": "Who has more of the field?",
         "choices": ["Steve", "Same", "Me"],
         "answer": 1,
-        "onRight": "Yes. You compared the shaded parts, not the number of pieces.",
+        "onRight": "Yes! You looked at how much field is green, not how many pieces there are.",
         "wrong": {
-          "0": { "mistake": "thinks bigger pieces means more in total", "hint": "Look at how much green there is in each field, not how many pieces.", "say": "Steve's piece is bigger, but you have two pieces. Together your 2 quarters cover exactly the same as one half." },
-          "2": { "mistake": "thinks more pieces means more in total", "hint": "You have 2 pieces, but they're smaller. Compare how much green there is.", "say": "You have 2 pieces, but each is a quarter, half the size of a half. 2 quarters cover exactly the same as 1 half." }
+          "0": { "mistake": "thinks bigger pieces means more in total", "hint": "Look at how much green there is in each field, not how many pieces.", "say": "Steve's piece is bigger, but you have two pieces! Put your 2 quarters together. They cover exactly the same as one half." },
+          "2": { "mistake": "thinks more pieces means more in total", "hint": "You have 2 pieces, but they're smaller. Compare how much green there is.", "say": "You have 2 pieces, but each one is smaller. A quarter is half the size of a half! 2 quarters cover exactly the same as 1 half." }
         },
-        "reveal": "1/2 and 2/4 cover the same amount.",
+        "reveal": "One half and two quarters cover the same amount!",
         "revealAnimation": [{ "at": 0, "action": "cut", "same": true }]
       }
     },
     {
       "id": "equivalent",
       "term": "equivalent",
-      "narration": { "text": "Different names for the same amount are called equivalent fractions. One half is equivalent to two quarters." },
+      "narration": { "text": "When different names mean the same amount, they're called equivalent fractions. One half is equivalent to two quarters. Same field, different names!" },
       "label": "1/2 = 2/4"
     },
     {
       "id": "hunt",
-      "narration": { "text": "Let's hunt for more. Cut a field into 8 equal strips and shade 4. Still half! Shade half of the parts, and it's always one half." },
+      "narration": { "text": "Let's hunt for more! Cut a field into 8 equal strips, and colour in 4. Still half! Colour half of the parts, and it's always one half." },
       "animation": [{ "at": 1.4, "action": "cut", "parts2": 8, "shaded2": 4 }]
     },
     {
       "id": "robot-try",
       "question": {
         "narration": { "speaker": "steve", "text": "I found one! 3 out of 4 is the same as a half!" },
-        "prompt": "Is 3/4 the same as 1/2?",
+        "prompt": "Is three quarters the same as one half?",
         "choices": ["Yes", "No"],
         "answer": 1,
-        "onRight": "Yes, you caught it. 3 of 4 is more than half. Half of 4 parts is 2 parts.",
+        "onRight": "Yes, you caught him! 3 out of 4 is more than half. Half of 4 parts is 2 parts!",
         "wrong": {
-          "0": { "mistake": "doesn't check that exactly half the parts are shaded", "hint": "Half of 4 parts is how many parts?", "say": "Half of 4 parts is 2 parts. 3 parts is more than half: it's three quarters." }
+          "0": { "mistake": "doesn't check that exactly half the parts are shaded", "hint": "Half of 4 parts is how many parts?", "say": "Half of 4 parts is 2 parts. 3 parts is more than half. That's three quarters!" }
         },
-        "reveal": "3/4 is more than 1/2. 2/4 is the half.",
+        "reveal": "Three quarters is more than one half. Two quarters is the half!",
         "revealAnimation": [{ "at": 0, "action": "cut", "parts2": 4, "shaded2": 3, "same": false }]
       }
     },
@@ -68,16 +68,16 @@
       "kind": "rule",
       "rule": {
         "text": "1/2 = 2/4 = 4/8",
-        "ask": "Can you say what equivalent fractions are? Say it out loud. Then tap the eye.",
+        "ask": "What are equivalent fractions? Say it out loud! Then tap the eye.",
         "spoken": "Equivalent fractions are different names for the same amount. One half equals two quarters equals four eighths."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: which is the same as one half: 5/10, 5/8 or 2/5?",
+    "prompt": "Bonus! Which is the same as one half: 5 out of 10, 5 out of 8, or 2 out of 5?",
     "choices": ["5/10", "5/8", "2/5"],
     "answer": 0,
-    "reveal": "5/10! 5 is half of 10."
+    "reveal": "5 out of 10! 5 is half of 10."
   }
 }

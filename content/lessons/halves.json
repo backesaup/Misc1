@@ -20,23 +20,23 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "fraction", "params": { "shape": "square", "parts": 1, "shaded": 0, "labels": false } },
-      "narration": { "speaker": "steve", "text": "Two sheep need to share this square field. I'll cut it into two parts!" }
+      "narration": { "speaker": "steve", "text": "Two sheep want to share this square field. Baa! I'll cut it into two parts. Snip!" }
     },
     {
       "id": "unfair",
-      "narration": { "speaker": "steve", "text": "There! Oh. One sheep says, that's not fair, your part is bigger! Hmm, it is bigger." },
+      "narration": { "speaker": "steve", "text": "There! Oh. One sheep is cross. Baa! That's not fair! Your part is bigger! Hmm. It is bigger." },
       "animation": [{ "at": 0.6, "action": "cut", "parts": 2, "style": 0, "unfair": true, "shaded": 1 }]
     },
     {
       "id": "half",
       "term": "half",
-      "narration": { "text": "To be fair, both parts must be the same size. When something is cut into 2 equal parts, each part is called a half." },
+      "narration": { "text": "To be fair, both parts must be exactly the same size. When something is cut into 2 equal parts, each part is called a half. Half for you, half for me!" },
       "label": "1/2",
       "animation": [{ "at": 0, "action": "cut", "parts": 2, "style": 0, "unfair": false, "shaded": 1 }]
     },
     {
       "id": "different",
-      "narration": { "text": "Halves can look different! Cut across the other way. Or corner to corner, making two triangles. They look different, but every time it's 2 equal parts." },
+      "narration": { "text": "Here's something surprising. Halves can look different! Cut across the other way. Or corner to corner, making two triangles! They look different, but every time, it's 2 equal parts." },
       "animation": [
         { "at": 1.2, "action": "cut", "style": 1 },
         { "at": 3.6, "action": "cut", "style": 2 }
@@ -49,11 +49,11 @@
         "prompt": "Is Steve's shaded part a half?",
         "choices": ["Yes", "No"],
         "answer": 1,
-        "onRight": "Yes, you spotted it. 2 parts isn't enough: they must be 2 equal parts.",
+        "onRight": "Yes, you spotted it! 2 parts isn't enough. They must be 2 equal parts!",
         "wrong": {
-          "0": { "mistake": "thinks any 2 parts are halves", "hint": "Look at the sizes. Are the two parts the same?", "say": "There are 2 parts, but one is much bigger. Halves must be 2 equal parts, so this isn't a half." }
+          "0": { "mistake": "thinks any 2 parts are halves", "hint": "Look at the sizes. Are the two parts the same?", "say": "There are 2 parts. But look, one is much bigger! Halves must be equal. So this isn't a half." }
         },
-        "reveal": "Not a half. The parts aren't equal.",
+        "reveal": "Not a half! The parts aren't equal.",
         "revealAnimation": [{ "at": 0, "action": "cut", "parts": 2, "style": 0, "unfair": true, "shaded": 1 }]
       }
     },
@@ -62,16 +62,16 @@
       "kind": "rule",
       "rule": {
         "text": "A half is 1 of 2 equal parts.",
-        "ask": "Can you say what makes something a half? Say it out loud. Then tap the eye.",
+        "ask": "What makes something a half? Say it out loud! Then tap the eye.",
         "spoken": "A half is one of two equal parts. Halves can look different, as long as both parts are the same size."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: can you cut a square into halves with a wiggly line?",
+    "prompt": "Bonus! Can you cut a square in half with a wiggly line?",
     "choices": ["Yes", "No"],
     "answer": 0,
-    "reveal": "Yes! If the wiggle is the same on both sides, through the middle, both parts are equal. Halves can be any shape."
+    "reveal": "Yes! If the wiggle goes through the middle, the same on both sides, both parts are equal. Halves can be any shape!"
   }
 }

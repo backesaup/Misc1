@@ -19,54 +19,54 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "line", "item": "block", "total": 8, "extra": 8, "choice": 8, "robot": true } },
-      "narration": { "speaker": "steve", "text": "I need a fence along this barn wall. But how long is the wall? I need to measure it!" },
+      "narration": { "speaker": "steve", "text": "I need a fence along this barn wall, to keep the pigs in! But how long is the wall? I need to measure it!" },
       "animation": [{ "at": 0, "action": "arrive", "duration": 2 }]
     },
     {
       "id": "unit",
       "term": "unit",
-      "narration": { "text": "Lay blocks end to end along the wall and count them: 8 blocks long. Measuring is counting how many of something fit. The thing you count with is called a unit. Here the unit is a block." },
+      "narration": { "text": "Let's lay blocks along the wall, end to end, and count them. 1, 2, 3, 4, 5, 6, 7, 8! 8 blocks long. Measuring means counting how many of something fit. The thing you count with is called a unit. Here, the unit is a block." },
       "label": "8 blocks long"
     },
     {
       "id": "steps",
       "question": {
-        "narration": { "speaker": "steve", "text": "I measured it with my big steps. I got 4! So the wall is 4 long, not 8. You must be wrong!" },
+        "narration": { "speaker": "steve", "text": "I measured it with my big steps! Stomp, stomp, stomp, stomp. I got 4! So the wall is 4 long, not 8. You must be wrong!" },
         "prompt": "Who measured the wall right?",
         "choices": ["Me", "Steve", "Both of us"],
         "answer": 2,
-        "onRight": "Yes. You both measured right, with different units.",
+        "onRight": "Yes! You were both right, with different units!",
         "wrong": {
-          "0": { "mistake": "thinks only one unit can be right", "hint": "Steve's steps are bigger than blocks. Do bigger units fit more times, or fewer?", "say": "You measured in blocks: 8 blocks. Steve measured in steps, which are twice as long: 4 steps. Both are right, because the units are different." },
-          "1": { "mistake": "thinks the smaller number is the true one", "hint": "Steve used steps. You used blocks. Are they the same size?", "say": "Steve's steps are twice as long as a block, so only 4 fit. 8 blocks and 4 steps are both right. The units are different." }
+          "0": { "mistake": "thinks only one unit can be right", "hint": "Steve's steps are bigger than blocks. Do bigger units fit more times, or fewer?", "say": "You measured in blocks: 8 blocks. Steve measured in big steps, twice as long: 4 steps. You're both right, because the units are different!" },
+          "1": { "mistake": "thinks the smaller number is the true one", "hint": "Steve used steps. You used blocks. Are they the same size?", "say": "Steve's steps are twice as long as a block, so only 4 fit. 8 blocks and 4 steps are both right! The units are different." }
         },
-        "reveal": "8 blocks, or 4 Steve steps. Same wall, different units.",
+        "reveal": "8 blocks, or 4 Steve steps. Same wall, different units!",
         "revealAnimation": [{ "at": 0, "action": "set", "mode": "line", "item": "sheep", "total": 4, "extra": 8, "choice": 4 }]
       }
     },
     {
       "id": "make-units",
       "kind": "make",
-      "narration": { "text": "Now try carrots. Carrots are smaller than blocks. How many carrots long is the wall? Choose a number and tap the hammer to lay them out. Keep going until they fit." },
+      "narration": { "text": "Now let's try carrots! Carrots are smaller than blocks. How many carrots long is the wall? Pick a number, and tap the hammer to lay them out. Keep going until they fit!" },
       "make": { "mode": "line", "item": "carrot", "total": 12, "extra": 8, "max": 14 }
     },
     {
       "id": "pattern",
-      "narration": { "text": "12 carrots, 8 blocks, 4 Steve steps. The smaller the unit, the more of them fit. That's why you always say the unit: not 8, but 8 blocks." }
+      "narration": { "text": "12 carrots. 8 blocks. 4 Steve steps. The smaller the unit, the more of them fit! That's why you always say the unit. Not 8. 8 blocks!" }
     },
     {
       "id": "rule",
       "kind": "rule",
       "rule": {
         "text": "Measuring means counting how many units fit.",
-        "ask": "Can you say why Steve got a different number? Say it out loud. Then tap the eye.",
+        "ask": "Why did Steve get a different number? Say it out loud! Then tap the eye.",
         "spoken": "Measuring means counting how many units fit. Smaller units, bigger number. And always say the unit."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: the wall is 8 blocks long. How long would it be in half-blocks?",
+    "prompt": "Bonus! The wall is 8 blocks long. How long is it in half-blocks?",
     "choices": ["4", "8", "16"],
     "answer": 2,
     "reveal": "16 half-blocks! Each block is two halves, so twice as many fit."
