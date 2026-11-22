@@ -8,8 +8,8 @@ import { skinModel, skinTexture, type SkinName } from './skins'
 
 // Steve, the sidekick: a real Minecraft player model (skinview3d) wearing a Minecraft skin.
 // Used in the farm game and in lesson scenes. Moods drive simple poses.
-export type Mood = 'idle' | 'happy' | 'sad' | 'talk' | 'think'
-export const MOODS: Mood[] = ['idle', 'talk', 'happy', 'sad', 'think']
+export type Mood = 'idle' | 'happy' | 'sad' | 'talk' | 'think' | 'sit'
+export const MOODS: Mood[] = ['idle', 'talk', 'happy', 'sad', 'think', 'sit']
 
 /** Height in scene units (a block is 1). */
 const HEIGHT = 2
@@ -68,6 +68,12 @@ export function Steve({ mood, pos, skin = 'steve', name = 'Steve', turn = -0.5 }
       sk.head.rotation.set(0.5, 0, 0)
       sk.rightArm.rotation.set(0.1, 0, 0.02)
       sk.leftArm.rotation.set(0.1, 0, -0.02)
+    } else if (mood === 'sit') {
+      // thighs forward, as if on a chair (the hips are 0.75 above the feet)
+      sk.rightLeg.rotation.set(-Math.PI / 2, 0, 0.05)
+      sk.leftLeg.rotation.set(-Math.PI / 2, 0, -0.05)
+      sk.rightArm.rotation.set(-0.5, 0, 0.1)
+      sk.leftArm.rotation.set(-0.5, 0, -0.1)
     } else if (mood === 'think') {
       sk.head.rotation.set(-0.15, 0.2, calm ? 0.15 : 0.15 + Math.sin(t * 1.5) * 0.05)
       sk.rightArm.rotation.set(-1.9, 0, 0.55)

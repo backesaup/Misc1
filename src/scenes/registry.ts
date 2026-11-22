@@ -18,9 +18,10 @@ import { board } from './diagram/Board'
 import { nature } from './diagram/Nature'
 import { lab } from './diagram/Lab'
 import { solids } from './voxel/Solids'
+import { made } from './voxel/Made'
 
 export const scenes: Record<string, Record<string, SceneDef>> = {
-  voxel: { blocks64, solarCube, disco, arrange, solids },
+  voxel: { blocks64, solarCube, disco, arrange, solids, made },
   diagram: { wiring, power, balance, grid, fraction, clock, coins, gauge, shapes, board, nature, lab },
 }
 

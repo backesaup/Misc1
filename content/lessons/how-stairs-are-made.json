@@ -1,0 +1,316 @@
+{
+  "id": "how-stairs-are-made",
+  "section": "made",
+  "title": "How does Steve get upstairs?",
+  "cardArt": "stairs",
+  "status": "ready",
+  "order": 11,
+  "_story": "Steve can't jump up to the next floor. A real builder measures the height, splits it into equal steps, cuts stringers, adds treads, risers and a handrail. Steve climbs it, then trips on a step that's taller than the rest.",
+  "_stepChain": "too high to jump → measure floor to floor (240 cm) → equal steps of 20 → count in 20s: 12 steps → why not giant steps? (UK homes: at most 22 cm) → stringers → treads + risers → handrail + balusters → climb → one odd step: trip → every step the same",
+  "assumes": [
+    "counting",
+    "centimetre"
+  ],
+  "requires": [
+    "why-we-need-rulers"
+  ],
+  "talk": [
+    {
+      "ask": "Why must every step be the same height?",
+      "goodAnswer": "your legs get used to the height after a step or two; a step that's different catches your foot and you trip."
+    },
+    {
+      "ask": "How do builders work out how many steps?",
+      "goodAnswer": "measure the height from floor to floor, then share it into equal steps that aren't too tall, like 240 centimetres into 12 steps of 20."
+    }
+  ],
+  "handsOn": "With a grown-up, measure one step of your stairs with a ruler. How tall is it? Count the steps, then count up in that number to find how high your upstairs floor is.",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": {
+        "type": "voxel",
+        "preset": "made",
+        "params": {
+          "object": "stairs",
+          "steps": 12
+        }
+      },
+      "narration": {
+        "speaker": "steve",
+        "text": "I want to get upstairs, but it's far too high to jump. In my world I'd pile up blocks. How do builders make real stairs?"
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "steve",
+          "mood": "sad"
+        }
+      ]
+    },
+    {
+      "id": "measure",
+      "narration": {
+        "text": "First the builder measures from this floor to the floor upstairs. Here it's 240 centimetres. That's taller than a grown-up."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "steve",
+          "mood": "think"
+        }
+      ]
+    },
+    {
+      "id": "count",
+      "question": {
+        "narration": {
+          "text": "The builder wants every step to be 20 centimetres tall."
+        },
+        "prompt": "Count up in twenties to 240. How many steps?",
+        "choices": [
+          "10",
+          "12",
+          "24"
+        ],
+        "answer": 1,
+        "onRight": "Yes. 20, 40, 60 … 240 is 12 steps of 20.",
+        "wrong": {
+          "0": {
+            "mistake": "stopped counting at 200",
+            "hint": "Keep counting past 200: 220, 240.",
+            "say": "10 steps of 20 is only 200. Two more steps reach 240: 12 steps."
+          },
+          "2": {
+            "mistake": "counted in tens instead of twenties",
+            "hint": "Each step is 20, not 10. Count 20, 40, 60…",
+            "say": "24 steps would be steps of 10. In twenties: 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240. That's 12."
+          }
+        },
+        "reveal": "12 steps of 20 centimetres make 240."
+      }
+    },
+    {
+      "id": "giant",
+      "question": {
+        "narration": {
+          "speaker": "steve",
+          "text": "Why not make 4 giant steps instead? That's less work!"
+        },
+        "prompt": "Why don't builders make giant steps?",
+        "choices": [
+          "Our legs can't step that high safely",
+          "Giant steps use more wood",
+          "Stairs must have 12 steps"
+        ],
+        "answer": 0,
+        "onRight": "Yes. In homes in the UK, each step can be at most 22 centimetres tall, so legs can reach it safely.",
+        "wrong": {
+          "1": {
+            "mistake": "thinks it's about the amount of wood",
+            "hint": "Imagine climbing a step as high as your tummy.",
+            "say": "It's about our legs. A step as high as your tummy is hard to climb and easy to fall from. In UK homes, each step is at most 22 centimetres."
+          },
+          "2": {
+            "mistake": "thinks there's a fixed number of steps",
+            "hint": "Do taller houses have more steps?",
+            "say": "Stairs can have any number of steps. The rule is that each step mustn't be too tall: at most 22 centimetres in UK homes."
+          }
+        },
+        "reveal": "Steps must be low enough for legs: at most 22 centimetres in UK homes."
+      }
+    },
+    {
+      "id": "stringers",
+      "term": "stringer",
+      "narration": {
+        "text": "The builder cuts two long boards with a zig-zag edge. They hold the steps up, like the sides of a ladder. They're called stringers."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "steve",
+          "mood": "idle"
+        },
+        {
+          "at": 0.4,
+          "action": "raw",
+          "to": 1
+        },
+        {
+          "at": 2,
+          "action": "cut",
+          "to": 1,
+          "duration": 2
+        },
+        {
+          "at": 4.5,
+          "action": "build",
+          "to": 0.052,
+          "duration": 1.5
+        },
+        {
+          "at": 6,
+          "action": "hot",
+          "part": "stringer"
+        }
+      ]
+    },
+    {
+      "id": "treads",
+      "term": "tread",
+      "narration": {
+        "text": "Then the parts you stand on go across, one for each step. They're called treads. Between them go upright boards called risers, all exactly 20 centimetres tall."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "hot",
+          "part": ""
+        },
+        {
+          "at": 0.4,
+          "action": "build",
+          "to": 0.667,
+          "duration": 7
+        },
+        {
+          "at": 6,
+          "action": "hot",
+          "part": "step"
+        }
+      ]
+    },
+    {
+      "id": "rail",
+      "term": "handrail",
+      "narration": {
+        "text": "Last comes a handrail to hold on to, on thin posts, so nobody falls off the side."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "hot",
+          "part": ""
+        },
+        {
+          "at": 0.4,
+          "action": "build",
+          "to": 1,
+          "duration": 4
+        },
+        {
+          "at": 4,
+          "action": "finish",
+          "to": 1
+        }
+      ]
+    },
+    {
+      "id": "climb",
+      "narration": {
+        "speaker": "steve",
+        "text": "Up I go! Every step is the same height, so after one or two steps my legs know exactly what to do."
+      },
+      "animation": [
+        {
+          "at": 0.5,
+          "action": "steve",
+          "mood": "happy"
+        },
+        {
+          "at": 0.5,
+          "action": "climb",
+          "from": 0,
+          "to": 12,
+          "duration": 6
+        }
+      ]
+    },
+    {
+      "id": "odd",
+      "question": {
+        "narration": {
+          "text": "Now watch. What if one step is taller than the rest?"
+        },
+        "prompt": "Why did Steve trip?",
+        "choices": [
+          "One step was taller than the others",
+          "He was going too fast",
+          "The stairs were too long"
+        ],
+        "answer": 0,
+        "onRight": "Yes. His legs expected 20 centimetres, but that step was taller, so his foot caught it.",
+        "wrong": {
+          "1": {
+            "mistake": "blames speed instead of the odd step",
+            "hint": "Watch which step he tripped on. Is it the same as the others?",
+            "say": "He climbed at the same speed as before. This time one step was taller, so his foot caught its edge."
+          },
+          "2": {
+            "mistake": "thinks long stairs cause trips",
+            "hint": "He climbed the same long stairs before without tripping. What changed?",
+            "say": "The stairs are as long as before. What changed is one step: it's taller than the others, and his foot caught it."
+          }
+        },
+        "reveal": "One step was taller, so his foot caught it. That's why every step must be the same."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "set",
+          "odd": true
+        },
+        {
+          "at": 0.3,
+          "action": "steve",
+          "mood": "happy"
+        },
+        {
+          "at": 0.5,
+          "action": "climb",
+          "from": 0,
+          "to": 12,
+          "duration": 6
+        },
+        {
+          "at": 2.3,
+          "action": "steve",
+          "mood": "sad"
+        }
+      ]
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Measure the height, then make every step the same.",
+        "ask": "Can you say how stairs are made? Say it out loud. Then tap the eye.",
+        "spoken": "Measure from floor to floor, share it into equal steps that aren't too tall, then build: stringers, treads, risers and a handrail."
+      }
+    }
+  ],
+  "bonus": {
+    "prompt": "Bonus: each step is 20 centimetres. How high are 5 steps?",
+    "choices": [
+      "25",
+      "100",
+      "50"
+    ],
+    "answer": 1,
+    "onRight": "Yes. 20, 40, 60, 80, 100.",
+    "wrong": {
+      "0": {
+        "mistake": "added 20 and 5",
+        "hint": "Each of the 5 steps is 20 tall. Count in twenties.",
+        "say": "You added 20 and 5. Count 20 for each step: 20, 40, 60, 80, 100."
+      },
+      "2": {
+        "mistake": "counted steps of 10",
+        "hint": "Each step is 20, not 10.",
+        "say": "50 would be 5 steps of 10. In twenties it's 100."
+      }
+    },
+    "reveal": "5 steps of 20 is 100 centimetres."
+  }
+}

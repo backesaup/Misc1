@@ -57,3 +57,12 @@ Status: ✅ built · 🟡 partly (an existing lesson touches it) · ⬜ to do. M
 ## Engineering stretch
 - ✅ Sunlight into power (solar cube, facts checked against the source video)
 - ✅ Shadows · Make the bulb light · What lets electricity through? · Magnets · Levers and gears · Solid, liquid, gas (diagram:lab)
+
+## How real things are made (Esa's request, 2026-11-22)
+- ✅ Why didn't Steve's chair fall apart? (tree → kiln → joints, rails, varnish; 3 legs is the fewest)
+- ✅ The table that wouldn't stop rocking (3 feet always touch; why 4 legs anyway)
+- ✅ How does Steve get upstairs? (equal steps: 240 cm = 12 × 20; UK homes ≤ 22 cm; the odd step)
+- ✅ From a roll of steel to a car (press, weld ~5,000 spots, paint, assembly line, test)
+- ✅ Why don't trains fall off the track? (aluminium body, bogies, cone-shaped wheels + flange)
+- ✅ What's hiding inside an iPad? (CNC-carved case, battery, chip, screen, touch layer, glass)
+

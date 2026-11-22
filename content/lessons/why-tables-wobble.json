@@ -1,0 +1,293 @@
+{
+  "id": "why-tables-wobble",
+  "section": "made",
+  "title": "The table that wouldn't stop rocking",
+  "cardArt": "table",
+  "status": "ready",
+  "order": 10,
+  "_story": "Steve's table rocks every time he puts his cake down. Ismaeel sees how a table is made, finds the bump under one leg, then discovers that a 3-legged table never rocks: 3 feet always touch. So why do most tables have 4?",
+  "_stepChain": "a rocking table → made like a chair: top, legs, apron → floors aren't flat: a bump → why does it rock? → 3 legs on the same bump: steady → 3 points always touch (tripod) → so why 4? harder to tip → fixing a wobble",
+  "assumes": [
+    "counting"
+  ],
+  "requires": [
+    "how-a-chair-is-made"
+  ],
+  "talk": [
+    {
+      "ask": "Why does a 3-legged table never rock?",
+      "goodAnswer": "3 feet can always all touch the floor at once, even on a bump; a 4th leg can be left hanging in the air."
+    },
+    {
+      "ask": "Then why do most tables have 4 legs?",
+      "goodAnswer": "4 legs make it harder to tip over when you lean on an edge, and they fit neatly at the corners."
+    }
+  ],
+  "handsOn": "Find a table or chair at home that wobbles. Which leg lifts off the floor? Fold a piece of card and slide it under that leg. Did it stop?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": {
+        "type": "voxel",
+        "preset": "made",
+        "params": {
+          "object": "table",
+          "build": 1,
+          "cut": 1,
+          "raw": 1,
+          "finish": 1
+        }
+      },
+      "narration": {
+        "speaker": "steve",
+        "text": "Every time I put my cake on this table, it rocks! Tip, tap, tip, tap. What's wrong with it?"
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "steve",
+          "mood": "sad"
+        },
+        {
+          "at": 0.4,
+          "action": "test",
+          "to": 1,
+          "duration": 0.5
+        }
+      ]
+    },
+    {
+      "id": "made",
+      "term": "apron",
+      "narration": {
+        "text": "A table is made like a chair. Wood from a log is dried, then cut into a top, 4 legs and 4 rails. Under a table, the rails are called the apron. Joints and glue lock them together."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "steve",
+          "mood": "idle"
+        },
+        {
+          "at": 0,
+          "action": "test",
+          "from": 1,
+          "to": 0,
+          "duration": 0.4
+        },
+        {
+          "at": 0.5,
+          "action": "explode",
+          "to": 1,
+          "duration": 1.6
+        },
+        {
+          "at": 4,
+          "action": "tags"
+        },
+        {
+          "at": 9,
+          "action": "tags",
+          "on": false
+        },
+        {
+          "at": 9.5,
+          "action": "explode",
+          "to": 0,
+          "duration": 1.6
+        }
+      ]
+    },
+    {
+      "id": "bump",
+      "narration": {
+        "text": "But floors are never perfectly flat. Here, one leg is standing on a tiny bump."
+      },
+      "animation": [
+        {
+          "at": 0.8,
+          "action": "test",
+          "to": 1,
+          "duration": 0.4
+        }
+      ]
+    },
+    {
+      "id": "why",
+      "question": {
+        "narration": {
+          "text": "Watch the table rock."
+        },
+        "prompt": "Why does it rock?",
+        "choices": [
+          "One leg is on a bump, so only 3 legs touch at a time",
+          "The table is too heavy",
+          "The glue has come out"
+        ],
+        "answer": 0,
+        "onRight": "Yes. With one leg on a bump, only 3 legs can touch at once. It rocks between them.",
+        "wrong": {
+          "1": {
+            "mistake": "blames weight instead of the floor",
+            "hint": "Count the legs touching the floor while it rocks.",
+            "say": "A heavy table would sit still. It rocks because one leg is on a bump, so only 3 legs touch at a time, and it tips between them."
+          },
+          "2": {
+            "mistake": "thinks rocking means it's broken",
+            "hint": "Are the joints loose, or is it the floor?",
+            "say": "The joints are tight. The table rocks because the floor has a bump: only 3 legs can touch at once."
+          }
+        },
+        "reveal": "Only 3 legs can touch at once, so it rocks."
+      }
+    },
+    {
+      "id": "three",
+      "question": {
+        "narration": {
+          "text": "Now here's a round table with 3 legs, on the same bumpy floor."
+        },
+        "prompt": "Will the 3-legged table rock?",
+        "choices": [
+          "Yes",
+          "No"
+        ],
+        "answer": 1,
+        "onRight": "Yes, you predicted it. It tilts a tiny bit, but it doesn't rock.",
+        "wrong": {
+          "0": {
+            "mistake": "thinks a bump always makes a table rock",
+            "hint": "How many legs does it have to touch the floor with? Can they all touch?",
+            "say": "Watch: it tilts a tiny bit, but all 3 feet still touch the floor. So it doesn't rock."
+          }
+        },
+        "reveal": "It stands still: all 3 feet touch.",
+        "revealAnimation": [
+          {
+            "at": 0,
+            "action": "test",
+            "to": 1,
+            "duration": 0.4
+          }
+        ]
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "test",
+          "from": 1,
+          "to": 0,
+          "duration": 0.3
+        },
+        {
+          "at": 0.3,
+          "action": "set",
+          "legs": 3
+        }
+      ]
+    },
+    {
+      "id": "tripod",
+      "term": "tripod",
+      "narration": {
+        "text": "3 feet can always all touch the ground at once, even on a bumpy floor. That's why a camera stand has 3 legs. It's called a tripod."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "steve",
+          "mood": "think"
+        }
+      ]
+    },
+    {
+      "id": "why-four",
+      "question": {
+        "narration": {
+          "speaker": "steve",
+          "text": "So why does my table have 4 legs, if 3 never rock?"
+        },
+        "prompt": "Why do most tables have 4 legs?",
+        "choices": [
+          "4 legs are harder to tip over",
+          "4 legs use less wood",
+          "4 legs are quieter"
+        ],
+        "answer": 0,
+        "onRight": "Yes. Lean on the edge of a 3-legged table, between two legs, and it tips. 4 legs at the corners hold it steady.",
+        "wrong": {
+          "1": {
+            "mistake": "thinks more legs means less wood",
+            "hint": "Count the legs: which needs more wood, 3 or 4?",
+            "say": "4 legs need more wood, not less. The reason is safety: 4 legs at the corners make a table much harder to tip over."
+          },
+          "2": {
+            "mistake": "guesses at a reason that isn't about balance",
+            "hint": "Think about leaning on the edge of the table.",
+            "say": "Legs don't make noise. 4 legs make a table harder to tip over when you lean on an edge."
+          }
+        },
+        "reveal": "4 legs are harder to tip over."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "set",
+          "legs": 4
+        },
+        {
+          "at": 0,
+          "action": "test",
+          "from": 0,
+          "to": 0,
+          "duration": 0.1
+        }
+      ]
+    },
+    {
+      "id": "fix",
+      "narration": {
+        "text": "So how do people stop a 4-legged table rocking? Some tables have little feet that screw up and down, so each leg can be made the right length. Or you can fold a piece of card under the short leg."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "steve",
+          "mood": "happy"
+        }
+      ]
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "3 feet always touch. 4 legs are harder to tip, but can rock.",
+        "ask": "Can you say why tables rock? Say it out loud. Then tap the eye.",
+        "spoken": "3 legs always touch the floor, so they never rock. 4 legs are harder to tip over, but on a bump they can rock."
+      }
+    }
+  ],
+  "bonus": {
+    "prompt": "Bonus: a camera tripod has 3 legs. How many legs do 4 tripods have?",
+    "choices": [
+      "7",
+      "12",
+      "9"
+    ],
+    "answer": 1,
+    "onRight": "Yes. 4 lots of 3 is 12.",
+    "wrong": {
+      "0": {
+        "mistake": "added 4 and 3",
+        "hint": "Each tripod has its own 3 legs. Count 3 at a time.",
+        "say": "You added 4 and 3. Count 3 for each tripod: 3, 6, 9, 12."
+      },
+      "2": {
+        "mistake": "counted 3 tripods instead of 4",
+        "hint": "Count the tripods again: there are 4.",
+        "say": "9 is 3 tripods. One more makes 12."
+      }
+    },
+    "reveal": "4 lots of 3 is 12."
+  }
+}

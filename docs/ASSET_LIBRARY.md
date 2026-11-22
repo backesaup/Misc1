@@ -123,6 +123,17 @@ Presets: `stack64`, `solarCube`, `disco`, `made` (chair), `build` (grass-topped 
   wearing the Kai skin. Animations available from skinview3d: idle, walk, run, fly, wave, crouch, hit, swim.
 - **Iron golem** — named in *Alive or not?* (built, never alive). No 3D model yet.
 
+## 2c. `voxel:made` — how real things are made (`src/scenes/voxel/Made.tsx`)
+Real-looking objects (not blocks), built from their real parts with PBR materials (procedural wood
+grain, steel, aluminium, glass, rubber, paint): **chair, table (4 or 3 legs), stairs (any number of
+steps, optional odd step), car (with welding robots), train carriage (bogies with cone-shaped,
+flanged wheels, on track), iPad (layers)**. Shared values tell the making story: `raw` (log, steel
+coil, aluminium bars/block) → `cut` (parts laid out) → `build` (parts fly into place in order; tween
+to k/n to stop after k parts) → `finish` (varnish, paint, screen on) → `explode`. Tests: `test`
+(table rocks on a bump, car drives, train rolls), `steve` (`sit` on the chair, moods), `climb` (Steve
+climbs n steps, `from` to restart), `touch` (iPad ripple). `tags` shows every part label; `hot` or an
+explore part shows one. Used by the six real-world lessons (order 9–14 in the made section).
+
 ## 3a. Real 3D Minecraft mobs (`src/scenes/voxel/mobs.ts`)
 - Built from Mojang's Bedrock geometry files + textures (bedrock-samples; the sheep uses the Java body +
   wool textures stacked). `models` in `content/textures.json`: chicken, sheep, pig, cow, iron_golem,
@@ -273,6 +284,7 @@ has errors (Bedrock cake stack size says 64), so verify any fact a lesson depend
   `activity.json` (replays, wrong answers chosen, where he stopped). Make lessons from these.
 
 ## Changelog
+- 2026-11-22 — voxel:made scene + six real-world lessons: chair, table, stairs, car, train, iPad (facts checked).
 - 2026-11-22 — 3D block models from Java model files: Create, Farmer's Delight, MrCrayfish furniture, vanilla.
 - 2026-11-22 — real 3D Minecraft mobs from Bedrock geometry (chickens and sheep in counting lessons); narration runs no longer clash.
 - 2026-11-22 — Steve (real player model + skin) replaces the robot everywhere; Minecraft item icons and mob faces on boards; skins/items/mobs fetched at build.

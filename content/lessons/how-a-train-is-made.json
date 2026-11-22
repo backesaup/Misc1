@@ -1,0 +1,256 @@
+{
+  "id": "how-a-train-is-made",
+  "section": "made",
+  "title": "Why don't trains fall off the track?",
+  "cardArt": "train",
+  "status": "ready",
+  "order": 13,
+  "_story": "Steve's minecart flies off his rails on bends. Ismaeel watches a real carriage being made from aluminium, finds the bogies, and discovers the secret: train wheels are slightly cone-shaped, so a train steers itself round bends.",
+  "_stepChain": "minecart flies off → aluminium bars → welded body → bogies, 4 wheels each → 2 × 4 = 8 → paint, windows, doors → the wheel isn't flat: cone + flange → predict why → on a bend the outside wheel rolls on its wide part → the flange is the back-up",
+  "assumes": [
+    "counting",
+    "times"
+  ],
+  "talk": [
+    {
+      "ask": "How does a train go round a bend without a steering wheel?",
+      "goodAnswer": "the wheels are cone-shaped; on a bend the outside wheel rolls on its wide part and goes further each turn than the inside wheel, so the train turns by itself."
+    },
+    {
+      "ask": "What's the flange for?",
+      "goodAnswer": "it's a rim on the inside of the wheel: a back-up that stops the wheel slipping off the rail."
+    }
+  ],
+  "handsOn": "Tape two paper cups together at their wide ends. Roll them along two pencils or rulers laid side by side. Push them a little to one side: do they roll back to the middle?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": {
+        "type": "voxel",
+        "preset": "made",
+        "params": {
+          "object": "train"
+        }
+      },
+      "narration": {
+        "speaker": "steve",
+        "text": "When my minecart goes round a corner too fast, it flies off the rails! Real trains are long and heavy. How do they stay on the track round a bend?"
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "steve",
+          "mood": "sad"
+        }
+      ]
+    },
+    {
+      "id": "aluminium",
+      "term": "aluminium",
+      "narration": {
+        "text": "Many trains are made of a light, strong metal called aluminium. Hot aluminium is pushed through a shaped hole, like toothpaste, so it comes out as long bars of exactly the right shape."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "steve",
+          "mood": "idle"
+        },
+        {
+          "at": 0.6,
+          "action": "raw",
+          "to": 1
+        }
+      ]
+    },
+    {
+      "id": "body",
+      "narration": {
+        "text": "The long pieces are welded side by side into the floor, the sides and the roof. Together they make one strong tube: the body."
+      },
+      "animation": [
+        {
+          "at": 0.5,
+          "action": "cut",
+          "to": 1,
+          "duration": 2
+        },
+        {
+          "at": 3,
+          "action": "build",
+          "to": 0.571,
+          "duration": 5
+        }
+      ]
+    },
+    {
+      "id": "bogies",
+      "term": "bogie",
+      "question": {
+        "narration": {
+          "text": "Under the carriage are two sets of wheels. Each set is called a bogie, and each bogie has 4 wheels."
+        },
+        "prompt": "How many wheels under one carriage?",
+        "choices": [
+          "6",
+          "8",
+          "4"
+        ],
+        "answer": 1,
+        "onRight": "Yes. 2 bogies with 4 wheels each is 8.",
+        "wrong": {
+          "0": {
+            "mistake": "added 2 and 4",
+            "hint": "Each bogie has its own 4 wheels.",
+            "say": "You added 2 and 4. Count 4 for each bogie: 4, 8."
+          },
+          "2": {
+            "mistake": "counted only one bogie",
+            "hint": "There's a bogie at each end of the carriage.",
+            "say": "4 is one bogie. There's another at the other end: 8."
+          }
+        },
+        "reveal": "2 bogies of 4 wheels is 8 wheels.",
+        "revealAnimation": [
+          {
+            "at": 0,
+            "action": "hot",
+            "part": "bogie"
+          }
+        ]
+      }
+    },
+    {
+      "id": "finish",
+      "narration": {
+        "text": "Then the windows and doors go in, and the train is painted."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "hot",
+          "part": ""
+        },
+        {
+          "at": 0.5,
+          "action": "build",
+          "to": 1,
+          "duration": 3
+        },
+        {
+          "at": 3,
+          "action": "finish",
+          "to": 1,
+          "duration": 1.5
+        }
+      ]
+    },
+    {
+      "id": "wheel",
+      "term": "flange",
+      "narration": {
+        "text": "Now look closely at a train wheel. It isn't flat like a car tyre. It's slightly cone-shaped: wider on the inside, narrower on the outside. And on the inside edge there's a rim, called a flange."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "explode",
+          "to": 1,
+          "duration": 1.6
+        },
+        {
+          "at": 1.6,
+          "action": "hot",
+          "part": "bogie"
+        }
+      ]
+    },
+    {
+      "id": "why-cone",
+      "question": {
+        "narration": {
+          "speaker": "steve",
+          "text": "Why would anyone make a wheel cone-shaped?"
+        },
+        "prompt": "What do you think the cone shape is for?",
+        "choices": [
+          "It helps the train steer round bends",
+          "It makes the wheels lighter",
+          "It makes the train quieter"
+        ],
+        "answer": 0,
+        "onRight": "Yes. The cone shape steers the train. Let's see how.",
+        "wrong": {
+          "1": {
+            "mistake": "thinks the shape is about weight",
+            "hint": "A train has no steering wheel. What could steer it?",
+            "say": "The wheels weigh the same either way. The cone shape is how a train steers itself round bends."
+          },
+          "2": {
+            "mistake": "thinks the shape is about noise",
+            "hint": "Think about bends: what has to happen there?",
+            "say": "It's about bends: the cone shape steers the train, so it can go round without a steering wheel."
+          }
+        },
+        "reveal": "The cone shape steers the train round bends."
+      }
+    },
+    {
+      "id": "steer",
+      "narration": {
+        "text": "On a bend, the train pushes outwards. So the outside wheel rolls on its wide part, and the inside wheel on its narrow part. The wide part goes further each time it turns. So the outside wheel goes further, and the train turns round the bend by itself. The flange is a back-up, to stop it slipping off."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "hot",
+          "part": ""
+        },
+        {
+          "at": 0.5,
+          "action": "explode",
+          "to": 0,
+          "duration": 1.4
+        },
+        {
+          "at": 2,
+          "action": "test",
+          "to": 1,
+          "duration": 6
+        }
+      ]
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Cone-shaped wheels steer a train round bends.",
+        "ask": "Can you say how a train stays on the track? Say it out loud. Then tap the eye.",
+        "spoken": "Train wheels are cone-shaped. On a bend, the outside wheel rolls on its wide part and goes further, so the train steers itself. The flange is a back-up."
+      }
+    }
+  ],
+  "bonus": {
+    "prompt": "Bonus: a train has 5 carriages, each with 8 wheels. How many wheels?",
+    "choices": [
+      "13",
+      "40",
+      "45"
+    ],
+    "answer": 1,
+    "onRight": "Yes. 5 lots of 8 is 40.",
+    "wrong": {
+      "0": {
+        "mistake": "added 5 and 8",
+        "hint": "Each carriage has its own 8 wheels.",
+        "say": "You added 5 and 8. Count 8 for each carriage: 8, 16, 24, 32, 40."
+      },
+      "2": {
+        "mistake": "counted one carriage too many",
+        "hint": "Count the carriages: 5.",
+        "say": "45 isn't a count of eights. 5 lots of 8: 8, 16, 24, 32, 40."
+      }
+    },
+    "reveal": "5 lots of 8 is 40 wheels."
+  }
+}

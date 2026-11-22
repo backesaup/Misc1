@@ -1,0 +1,324 @@
+{
+  "id": "whats-inside-an-ipad",
+  "section": "made",
+  "title": "What's hiding inside an iPad?",
+  "cardArt": "ipad",
+  "status": "ready",
+  "order": 14,
+  "_story": "Steve wonders if Ismaeel's iPad is full of tiny blocks. They watch a block of aluminium carved into a case, then fill it: a huge battery, the chip, speakers, the screen, the touch layer and the glass. Then: how does it feel your finger?",
+  "_stepChain": "is it full of blocks? → solid aluminium block → CNC machines carve it → how much is carved away? (most) → battery fills most of it → the chip does billions of sums a second → speakers + camera → screen, touch layer, glass → pull it apart, tap the layers → touch layer: a grid feels your finger's electricity → why a plastic pen doesn't work",
+  "assumes": [
+    "counting",
+    "electricity",
+    "battery"
+  ],
+  "talk": [
+    {
+      "ask": "What are the main parts inside an iPad?",
+      "goodAnswer": "an aluminium case, a big battery, the chips on a small board, speakers and cameras, the screen, the touch layer and the glass on top."
+    },
+    {
+      "ask": "How does an iPad know where you touched it?",
+      "goodAnswer": "a see-through grid of tiny wires under the glass feels the little bit of electricity in your finger, so it knows where your finger is."
+    }
+  ],
+  "handsOn": "Try touching an iPad screen with your finger, then a plastic spoon, then a metal spoon held in your hand. Which ones work? Tell a grown-up why you think so.",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": {
+        "type": "voxel",
+        "preset": "made",
+        "params": {
+          "object": "ipad",
+          "raw": 1,
+          "cut": 1,
+          "build": 1,
+          "finish": 1
+        }
+      },
+      "narration": {
+        "speaker": "steve",
+        "text": "Ismaeel, you use an iPad every day. But what's inside it? Is it full of tiny blocks, like my world?"
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "steve",
+          "mood": "think"
+        }
+      ]
+    },
+    {
+      "id": "block",
+      "term": "CNC machine",
+      "narration": {
+        "text": "The back of an iPad is aluminium. A solid block of it goes into a machine that cuts by itself, following instructions from a computer. It's called a CNC machine. It shaves away metal, bit by bit, until only a thin case is left."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "steve",
+          "mood": "idle"
+        },
+        {
+          "at": 0,
+          "action": "finish",
+          "to": 0,
+          "duration": 0.3
+        },
+        {
+          "at": 0,
+          "action": "build",
+          "to": 0,
+          "duration": 0.5
+        },
+        {
+          "at": 0.2,
+          "action": "cut",
+          "to": 0,
+          "duration": 0.5
+        },
+        {
+          "at": 1.2,
+          "action": "raw",
+          "to": 1
+        },
+        {
+          "at": 5,
+          "action": "cut",
+          "to": 1,
+          "duration": 2
+        },
+        {
+          "at": 7,
+          "action": "build",
+          "to": 0.143,
+          "duration": 1.5
+        }
+      ]
+    },
+    {
+      "id": "carved",
+      "question": {
+        "narration": {
+          "text": "Think about that block and the thin case that's left."
+        },
+        "prompt": "How much of the block gets carved away?",
+        "choices": [
+          "A little",
+          "About half",
+          "Most of it"
+        ],
+        "answer": 2,
+        "onRight": "Yes. Most of the block is shaved away. Only a thin case is left.",
+        "wrong": {
+          "0": {
+            "mistake": "thinks the case is nearly as thick as the block",
+            "hint": "Is the case as thick as the block was?",
+            "say": "The block was thick, and the case is thin: most of the metal is shaved away."
+          },
+          "1": {
+            "mistake": "thinks the case keeps half the metal",
+            "hint": "Compare the thin case with the thick block.",
+            "say": "The case is much thinner than half the block. Most of it is shaved away."
+          }
+        },
+        "reveal": "Most of the block is carved away."
+      }
+    },
+    {
+      "id": "battery",
+      "narration": {
+        "text": "Inside, the biggest part is the battery. It fills most of the space, so the iPad can run all day."
+      },
+      "animation": [
+        {
+          "at": 0.4,
+          "action": "build",
+          "to": 0.286,
+          "duration": 1.5
+        },
+        {
+          "at": 1.5,
+          "action": "hot",
+          "part": "battery"
+        }
+      ]
+    },
+    {
+      "id": "chip",
+      "term": "chip",
+      "narration": {
+        "text": "This thin board holds the chips. The biggest chip is like the iPad's brain. It does billions of sums every second, so your games and videos work."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "hot",
+          "part": ""
+        },
+        {
+          "at": 0.4,
+          "action": "build",
+          "to": 0.429,
+          "duration": 1.2
+        },
+        {
+          "at": 1.4,
+          "action": "hot",
+          "part": "chip"
+        }
+      ]
+    },
+    {
+      "id": "screen",
+      "term": "touch layer",
+      "narration": {
+        "text": "Then the speakers and camera, the screen that makes the light and colours, a see-through touch layer, and glass on top to protect it all."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "hot",
+          "part": ""
+        },
+        {
+          "at": 0.4,
+          "action": "build",
+          "to": 1,
+          "duration": 5
+        }
+      ]
+    },
+    {
+      "id": "layers",
+      "kind": "explore",
+      "narration": {
+        "text": "Let's pull it apart. Tap a layer to hear what it does."
+      },
+      "parts": [
+        {
+          "id": "glass",
+          "label": "Glass",
+          "narration": "Hard glass on top protects everything underneath."
+        },
+        {
+          "id": "touch layer",
+          "label": "Touch layer",
+          "narration": "The see-through touch layer feels where your finger is."
+        },
+        {
+          "id": "screen",
+          "label": "Screen",
+          "narration": "The screen makes tiny dots of coloured light."
+        },
+        {
+          "id": "battery",
+          "label": "Battery",
+          "narration": "The battery stores the electricity."
+        },
+        {
+          "id": "chip",
+          "label": "Chip",
+          "narration": "The chip follows the instructions in your apps, billions of times a second."
+        }
+      ],
+      "animation": [
+        {
+          "at": 0,
+          "action": "explode",
+          "to": 1,
+          "duration": 1.6
+        }
+      ]
+    },
+    {
+      "id": "touch",
+      "narration": {
+        "text": "Here's how it feels your touch. The touch layer is a grid of tiny wires, too thin to see. Your finger carries a little bit of electricity. When you touch the glass, the grid feels exactly where your finger is."
+      },
+      "animation": [
+        {
+          "at": 0,
+          "action": "explode",
+          "to": 0,
+          "duration": 1.2
+        },
+        {
+          "at": 1.2,
+          "action": "finish",
+          "to": 1,
+          "duration": 1
+        },
+        {
+          "at": 2.5,
+          "action": "touch",
+          "repeat": 3
+        }
+      ]
+    },
+    {
+      "id": "pen",
+      "question": {
+        "narration": {
+          "speaker": "steve",
+          "text": "I tried tapping it with a plastic pen, and nothing happened!"
+        },
+        "prompt": "Why doesn't the iPad feel a plastic pen?",
+        "choices": [
+          "Plastic doesn't carry electricity like a finger",
+          "The pen is too small",
+          "Pens are too light"
+        ],
+        "answer": 0,
+        "onRight": "Yes. Plastic doesn't let electricity through, so the grid can't feel it.",
+        "wrong": {
+          "1": {
+            "mistake": "thinks it's about size",
+            "hint": "A finger tip and a pen tip are both small. What's different about them?",
+            "say": "A small finger tip works fine. The difference is electricity: your finger carries a little, and plastic doesn't."
+          },
+          "2": {
+            "mistake": "thinks it's about weight",
+            "hint": "The iPad doesn't need you to press hard. What does it feel?",
+            "say": "A gentle finger works, so it isn't about weight. The grid feels electricity, and plastic doesn't carry it."
+          }
+        },
+        "reveal": "The grid feels electricity, and plastic doesn't carry it."
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "A carved case, a battery, a chip, and a screen with a touch layer under glass.",
+        "ask": "Can you say what's inside an iPad? Say it out loud. Then tap the eye.",
+        "spoken": "An aluminium case carved by machines, a big battery, a chip that does billions of sums, and a screen with a touch layer and glass on top."
+      }
+    }
+  ],
+  "bonus": {
+    "prompt": "Bonus: an iPad has 4 speakers. How many speakers in 3 iPads?",
+    "choices": [
+      "7",
+      "12",
+      "16"
+    ],
+    "answer": 1,
+    "onRight": "Yes. 3 lots of 4 is 12.",
+    "wrong": {
+      "0": {
+        "mistake": "added 3 and 4",
+        "hint": "Each iPad has its own 4 speakers.",
+        "say": "You added 3 and 4. Count 4 for each iPad: 4, 8, 12."
+      },
+      "2": {
+        "mistake": "counted 4 iPads",
+        "hint": "Count the iPads again: 3.",
+        "say": "16 is 4 iPads. 3 iPads is 4, 8, 12."
+      }
+    },
+    "reveal": "3 lots of 4 is 12 speakers."
+  }
+}
