@@ -15,11 +15,13 @@ import { coins } from './diagram/Coins'
 import { gauge } from './diagram/Gauge'
 import { shapes } from './diagram/Shapes'
 import { board } from './diagram/Board'
+import { nature } from './diagram/Nature'
+import { lab } from './diagram/Lab'
 import { solids } from './voxel/Solids'
 
 export const scenes: Record<string, Record<string, SceneDef>> = {
   voxel: { blocks64, solarCube, disco, arrange, solids },
-  diagram: { wiring, power, balance, grid, fraction, clock, coins, gauge, shapes, board },
+  diagram: { wiring, power, balance, grid, fraction, clock, coins, gauge, shapes, board, nature, lab },
 }
 
 export const sceneKey = (s: SceneRef) => `${s.type}:${s.preset}`

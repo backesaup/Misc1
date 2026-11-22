@@ -1,0 +1,67 @@
+{
+  "id": "whats-it-made-of",
+  "section": "science",
+  "title": "What's it made of?",
+  "cardArt": "science",
+  "status": "ready",
+  "order": 10,
+  "_map": "What's it made of? (Y1). Big idea: wood, metal, plastic, glass, rock and water have different properties. Creative: build the robot a raincoat, a window, a bridge: which material for each, and why?",
+  "_story": "The robot needs a raincoat, a window and a bridge. It wants to make the window out of wood. Ismaeel matches each job to the best material using its properties.",
+  "_stepChain": "things are made of materials → each has properties: see-through, waterproof, strong, bendy → choose a material for its job → the robot's wooden window → design",
+  "assumes": ["property"],
+  "requires": ["secret-sorting-rule"],
+  "talk": [
+    { "ask": "Why is a window made of glass?", "goodAnswer": "glass is see-through, so light comes in, and it keeps the rain out." },
+    { "ask": "What would make a good raincoat?", "goodAnswer": "something waterproof and bendy, like plastic." }
+  ],
+  "handsOn": "Go on a materials hunt at home: find something made of wood, metal, plastic, glass and fabric. Why was each material chosen for that job?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "w:Window|r:Raincoat|b:Bridge", "items": "g:glasses:Glass:|p:umbrella:Plastic:|m:hammer:Metal:|wd:tree:Wood:|wl:shirt:Wool:" } },
+      "narration": { "speaker": "robot", "text": "I need three things: a raincoat for rainy days, a window for my shed, and a bridge over the stream. What should I make them from?" }
+    },
+    {
+      "id": "material",
+      "term": "material",
+      "narration": { "text": "Everything is made of some stuff: wood, metal, plastic, glass, wool. The stuff something is made of is called its material. Each material has properties: it might be see-through, waterproof, strong or bendy." }
+    },
+    {
+      "id": "window",
+      "question": {
+        "narration": { "speaker": "robot", "text": "I'll make my window out of wood. Wood is strong!" },
+        "prompt": "What's the best material for a window?",
+        "choices": ["Wood", "Glass", "Wool"],
+        "answer": 1,
+        "onRight": "Yes. A window needs to be see-through, and glass is see-through.",
+        "wrong": {
+          "0": { "mistake": "picked strength when the job needs see-through", "hint": "What does a window need to let in?", "say": "Wood is strong, but you can't see through it. A window lets light in, so it needs a see-through material: glass." },
+          "2": { "mistake": "picked a soft material that isn't see-through", "hint": "Can you see through wool? Does it keep rain out?", "say": "Wool isn't see-through, and rain soaks through it. Glass is see-through and keeps the rain out." }
+        },
+        "reveal": "Glass is see-through: perfect for a window.",
+        "revealAnimation": [{ "at": 0, "action": "move", "id": "g", "zone": "w" }]
+      }
+    },
+    {
+      "id": "others",
+      "narration": { "text": "A raincoat needs to be waterproof and bendy, so plastic is good. A bridge needs to be strong, so metal or wood." },
+      "animation": [{ "at": 0.6, "action": "move", "id": "p", "zone": "r" }, { "at": 2.6, "action": "move", "id": "m", "zone": "b" }, { "at": 3.4, "action": "move", "id": "wd", "zone": "b" }]
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Choose a material for its properties.",
+        "ask": "Can you say why a window is made of glass? Say it out loud. Then tap the eye.",
+        "spoken": "Different materials have different properties. We choose a material that suits the job: glass to see through, plastic to keep rain out, metal to be strong."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: why are saucepans made of metal, with plastic handles?",
+    "choices": ["Looks nice", "Metal heats, plastic doesn't", "It's cheaper"],
+    "answer": 1,
+    "reveal": "Metal lets the heat through to cook the food, but a plastic handle stays cool to hold."
+  }
+}

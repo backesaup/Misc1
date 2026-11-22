@@ -1,0 +1,66 @@
+{
+  "id": "growing-up",
+  "section": "science",
+  "title": "Growing up",
+  "cardArt": "science",
+  "status": "ready",
+  "order": 9,
+  "_map": "Growing up (Y2). Big idea: animals have young that grow into adults; they need food, water and air. Creative: match babies to adults (lamb, chick, tadpole); which change the most?",
+  "_story": "Spring on the farm: babies everywhere. The robot can't tell which baby belongs to which grown-up. Ismaeel matches them and finds the one that changes most: the tadpole becomes a frog.",
+  "_stepChain": "living things make new living things (alive-or-not) → babies grow into adults → lamb to sheep, chick to hen → some look like their parents, some don't → tadpole to frog changes most → all need food, water and air",
+  "assumes": ["living thing"],
+  "requires": ["alive-or-not"],
+  "talk": [
+    { "ask": "Which baby changes the most as it grows up?", "goodAnswer": "the tadpole: it grows legs, loses its tail and becomes a frog." },
+    { "ask": "What do all baby animals need to grow?", "goodAnswer": "food, water and air." }
+  ],
+  "handsOn": "Look at photos of yourself as a baby. What has changed? What has stayed the same? Then find pictures of a caterpillar and a butterfly.",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "chain", "items": "a:egg:Chick:|b:bird:Hen:" } },
+      "narration": { "speaker": "robot", "text": "It's spring, and there are babies everywhere! Little chicks, woolly lambs, and wriggly things in the pond. Which baby grows into which grown-up?" }
+    },
+    {
+      "id": "chick",
+      "narration": { "text": "A chick hatches from an egg, and grows into a hen. A lamb grows into a sheep. They look quite like their parents, only smaller." },
+      "animation": [{ "at": 4.4, "action": "set", "items": "a:baby:Lamb:|b:paw:Sheep:" }]
+    },
+    {
+      "id": "tadpole",
+      "question": {
+        "narration": { "speaker": "robot", "text": "In the pond there are tiny black wriggly things with tails. They look like little fish. So they'll grow into big fish!" },
+        "prompt": "What do tadpoles grow into?",
+        "choices": ["Big fish", "Frogs", "Ducks"],
+        "answer": 1,
+        "onRight": "Yes. Tadpoles grow legs, lose their tails, and become frogs.",
+        "wrong": {
+          "0": { "mistake": "judged by how the baby looks now", "hint": "Some babies look very different from their parents. Which pond animal has a tail when it's young but not when it's grown?", "say": "Tadpoles look like fish at first, but they grow legs, lose their tails and hop out as frogs. They change more than any other farm baby." },
+          "2": { "mistake": "guessed another pond animal", "hint": "Ducklings hatch from eggs with feathers. Do tadpoles have feathers?", "say": "Ducks hatch as fluffy ducklings. Tadpoles grow legs and lose their tails to become frogs." }
+        },
+        "reveal": "Tadpole, then froglet, then frog. The biggest change of all!",
+        "revealAnimation": [{ "at": 0, "action": "set", "items": "a:egg:Frogspawn:|b:fish:Tadpole:|c:footprints:Froglet:|d:turtle:Frog:" }]
+      }
+    },
+    {
+      "id": "needs",
+      "narration": { "text": "Every baby animal needs the same things to grow: food, water, and air to breathe. And a grown-up to keep it safe." }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Babies grow into adults. Some change a lot.",
+        "ask": "Can you say which baby changes the most as it grows? Say it out loud. Then tap the eye.",
+        "spoken": "Animals have babies that grow into adults. Some look like their parents, and some, like tadpoles, change a lot. All of them need food, water and air."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: a caterpillar grows into…",
+    "choices": ["A worm", "A butterfly", "A snake"],
+    "answer": 1,
+    "reveal": "A butterfly! It wraps itself up and comes out completely changed."
+  }
+}

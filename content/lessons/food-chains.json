@@ -1,0 +1,61 @@
+{
+  "id": "food-chains",
+  "section": "science",
+  "title": "Food chains",
+  "cardArt": "science",
+  "status": "ready",
+  "order": 8,
+  "_map": "Food chains (Y2). Big idea: energy passes from plants to animals. Creative: make a chain: grass → rabbit → fox. What happens if the grass disappears?",
+  "_story": "Who eats whom near the farm. The robot draws a chain from grass to rabbit to fox, then wonders: what if a drought dried up the grass?",
+  "_stepChain": "herbivores and carnivores (who-eats-what) → grass gets energy from the sun → the rabbit eats grass → the fox eats the rabbit → arrows show who is eaten by whom: a food chain → take the grass away → everything after it suffers",
+  "assumes": ["herbivore", "carnivore", "sun"],
+  "requires": ["who-eats-what"],
+  "talk": [
+    { "ask": "Can you say a food chain?", "goodAnswer": "something like grass, then rabbit, then fox; it always starts with a plant." },
+    { "ask": "What happens to the fox if the grass disappears?", "goodAnswer": "the rabbits have nothing to eat, so there are fewer rabbits, so the fox goes hungry too." }
+  ],
+  "handsOn": "Draw your own food chain: start with a plant, then something that eats it, then something that eats that. What would happen if the plant disappeared?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "chain", "items": "s:sun:Sun:|g:wheat:Grass:|r:rabbit:Rabbit:|f:dog:Fox:" } },
+      "narration": { "speaker": "robot", "text": "I've been watching the fields. The rabbits eat grass, and a fox sometimes chases the rabbits. It's like a chain!" }
+    },
+    {
+      "id": "chain",
+      "term": "food chain",
+      "narration": { "text": "The grass gets its energy from the sun. The rabbit eats the grass. The fox eats the rabbit. Energy passes along, from one to the next. This is called a food chain. It always starts with a plant." }
+    },
+    {
+      "id": "disappear",
+      "question": {
+        "narration": { "speaker": "robot", "text": "Oh no, there's been no rain for weeks. The grass has dried up! The fox doesn't eat grass, so the fox will be fine." },
+        "prompt": "Will the fox be fine?",
+        "choices": ["Yes", "No"],
+        "answer": 1,
+        "onRight": "Yes, you followed the chain. No grass, so fewer rabbits, so the fox goes hungry too.",
+        "wrong": {
+          "0": { "mistake": "only looked at what the fox eats directly", "hint": "What does the rabbit need? And what does the fox need?", "say": "The fox eats rabbits, and rabbits eat grass. With no grass, the rabbits go hungry and there are fewer of them. Then the fox has less to eat too." }
+        },
+        "reveal": "Everything along the chain needs the grass.",
+        "revealAnimation": [{ "at": 0, "action": "move", "id": "g", "zone": "gone" }, { "at": 1.2, "action": "hot", "id": "f" }]
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "A food chain starts with a plant.",
+        "ask": "Can you say a food chain, and what happens if the plant disappears? Say it out loud. Then tap the eye.",
+        "spoken": "A food chain shows who eats what. It starts with a plant, which gets energy from the sun. If the plant disappears, everything along the chain goes hungry."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: what's at the start of a food chain in the sea?",
+    "choices": ["Sharks", "Tiny plants", "Fish"],
+    "answer": 1,
+    "reveal": "Tiny plants, so small you can't see them, floating in the water. Little fish eat them, and bigger fish eat those."
+  }
+}

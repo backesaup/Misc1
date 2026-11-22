@@ -1,7 +1,7 @@
 // The lesson format. Every lesson is a JSON file in content/lessons/.
 // Adding a lesson never needs player code unless it adds a new scene type.
 
-export type SectionId = 'made' | 'build' | 'maths'
+export type SectionId = 'made' | 'build' | 'maths' | 'science'
 
 /** One spoken line. Captions are always this same text, so they never drift. */
 export interface Line {

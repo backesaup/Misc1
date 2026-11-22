@@ -16,7 +16,7 @@ export function validateLesson(lesson: Lesson, catalog?: SceneCatalog): string[]
   const at = (s: Step | undefined, msg: string) => errs.push(`${lesson.id}${s ? `/${s.id}` : ''}: ${msg}`)
 
   if (!lesson.id || !/^[a-z0-9-]+$/.test(lesson.id)) at(undefined, 'id must be kebab-case')
-  if (!['made', 'build', 'maths'].includes(lesson.section)) at(undefined, `unknown section "${lesson.section}"`)
+  if (!['made', 'build', 'maths', 'science'].includes(lesson.section)) at(undefined, `unknown section "${lesson.section}"`)
   if (!lesson.steps?.length) at(undefined, 'has no steps')
   if (lesson.verify?.length && lesson.status !== 'draft')
     at(undefined, 'has unverified facts, so it must be marked "status": "draft"')

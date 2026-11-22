@@ -41,7 +41,7 @@ export default function App() {
         <Sandbox />
       </Suspense>
     )
-  if (route.name === 'section' && ['made', 'build', 'maths'].includes(route.id)) return <Section id={route.id as SectionId} />
+  if (route.name === 'section' && ['made', 'build', 'maths', 'science'].includes(route.id)) return <Section id={route.id as SectionId} />
   if (route.name === 'lesson' && lesson && !blocked)
     return (
       <Suspense fallback={<div className="player loading" aria-busy="true" />}>

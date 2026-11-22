@@ -19,5 +19,7 @@ export const sceneCatalog = {
     gauge: ['place', 'fill', 'set'],
     shapes: ['set'],
     board: ['move', 'set', 'hot'],
+    nature: ['view', 'hot', 'grow', 'season'],
+    lab: ['view', 'circuit', 'attract', 'poles', 'lamp', 'pivot', 'lift', 'gears', 'heat'],
   },
 } satisfies Record<string, Record<string, string[]>>

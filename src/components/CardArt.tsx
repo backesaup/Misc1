@@ -55,6 +55,16 @@ const presets: Record<string, () => Vox[]> = {
     for (let x = 1; x < 3; x++) for (let z = 1; z < 3; z++) for (let y = 3; y < 5; y++) v.push(block(x, y, z, '#c9d0de'))
     return v
   },
+  science: () => {
+    // a flower pot with a sprouting plant
+    const v: Vox[] = []
+    for (let x = 0; x < 3; x++) for (let z = 0; z < 3; z++) v.push(block(x, 0, z, '#c4553e'))
+    for (let y = 1; y < 4; y++) v.push(block(1, y, 1, '#3f9b5a'))
+    v.push(block(0, 3, 1, '#58b368'), block(2, 2, 1, '#58b368'))
+    for (const [x, z] of [[0, 1], [2, 1], [1, 0], [1, 2]]) v.push(block(x, 4, z, '#ff6b5c'))
+    v.push(block(1, 4, 1, '#ffd166'))
+    return v
+  },
   maths: () => {
     // doubling: 1, 2, 4, 8
     const v: Vox[] = []

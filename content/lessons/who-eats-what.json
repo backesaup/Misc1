@@ -1,0 +1,74 @@
+{
+  "id": "who-eats-what",
+  "section": "science",
+  "title": "Who eats what?",
+  "cardArt": "science",
+  "status": "ready",
+  "order": 4,
+  "_map": "Who eats what? (Y1). Big idea: herbivores, carnivores and omnivores. Creative: plan the farm's feeding: who gets grass, who gets meat, who gets both?",
+  "_story": "Feeding time: the robot is about to give a rabbit a bone. Ismaeel sorts the animals by what they eat and plans the menu.",
+  "_stepChain": "animals eat different things → plant eaters are herbivores → meat eaters are carnivores → both: omnivores → sort the animals → the robot's mistake → plan the menu",
+  "assumes": ["property"],
+  "requires": ["secret-sorting-rule"],
+  "talk": [
+    { "ask": "What's a herbivore?", "goodAnswer": "an animal that only eats plants, like a rabbit." },
+    { "ask": "Are people herbivores, carnivores or omnivores?", "goodAnswer": "usually omnivores: we can eat plants and meat." }
+  ],
+  "handsOn": "Look at your dinner plate. Which foods come from plants, and which from animals? Are you being a herbivore, carnivore or omnivore tonight?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "h:Plants only|c:Meat only|o:Both", "items": "r:rabbit:Rabbit:|s:squirrel:Squirrel:|c1:cat:Cat:|d:dog:Dog:|b:bird:Hen:|t:turtle:Tortoise:" } },
+      "narration": { "speaker": "robot", "text": "Feeding time! I've got grass, bones and a big bucket of everything. Who gets what?" }
+    },
+    {
+      "id": "herbivore",
+      "term": "herbivore",
+      "narration": { "text": "Rabbits and tortoises only eat plants: grass, carrots, leaves. An animal that only eats plants is called a herbivore." },
+      "animation": [{ "at": 0.6, "action": "move", "id": "r", "zone": "h" }, { "at": 1.4, "action": "move", "id": "t", "zone": "h" }]
+    },
+    {
+      "id": "carnivore",
+      "term": "carnivore",
+      "narration": { "text": "Cats are hunters, and eat meat. An animal that eats meat is called a carnivore." },
+      "animation": [{ "at": 0.6, "action": "move", "id": "c1", "zone": "c" }]
+    },
+    {
+      "id": "omnivore",
+      "term": "omnivore",
+      "narration": { "text": "Dogs, hens and squirrels can eat plants and meat or bugs. An animal that eats both is called an omnivore." },
+      "animation": [{ "at": 0.6, "action": "move", "id": "d", "zone": "o" }, { "at": 1.4, "action": "move", "id": "b", "zone": "o" }, { "at": 2.2, "action": "move", "id": "s", "zone": "o" }]
+    },
+    {
+      "id": "robot-mistake",
+      "question": {
+        "narration": { "speaker": "robot", "text": "The rabbit looks hungry. I'll give it a big juicy bone!" },
+        "prompt": "Is a bone good food for a rabbit?",
+        "choices": ["Yes", "No"],
+        "answer": 1,
+        "onRight": "Yes, you remembered. A rabbit is a herbivore: it needs plants, like grass and carrots.",
+        "wrong": {
+          "0": { "mistake": "forgot which group the rabbit was in", "hint": "Which group did the rabbit go in?", "say": "The rabbit is a herbivore. It only eats plants, so a bone is no good. Give it grass or a carrot." }
+        },
+        "reveal": "Grass and carrots for the rabbit!",
+        "revealAnimation": [{ "at": 0, "action": "hot", "id": "r" }]
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Herbivores: plants. Carnivores: meat. Omnivores: both.",
+        "ask": "Can you say what a herbivore, a carnivore and an omnivore eat? Say it out loud. Then tap the eye.",
+        "spoken": "Herbivores eat plants. Carnivores eat meat. Omnivores eat both."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: a cow eats grass all day. What is it?",
+    "choices": ["Herbivore", "Carnivore", "Omnivore"],
+    "answer": 0,
+    "reveal": "A herbivore! Cows only eat plants."
+  }
+}

@@ -44,6 +44,7 @@ export const COMMON_LINES: Record<string, string> = {
   'section-made': "How it's really made.",
   'section-build': 'Build it.',
   'section-maths': 'Maths shorts.',
+  'section-science': 'The science lab.',
   'build-empty': 'New builds are on the way.',
   'ask-empty': 'Tap the microphone and tell me what you want to learn about. Or take a photo.',
   'section-play': 'Free building. Make anything you like.',

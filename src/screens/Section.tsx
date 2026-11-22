@@ -17,6 +17,7 @@ const FOG: Record<SectionId, [number, number, number]> = {
   made: [0xffd9b0, 0xf2a37a, 0xe9c7a0],
   build: [0xd8efc0, 0x9fcf86, 0xc9e2b1],
   maths: [0xd6e9ff, 0x8fb8ef, 0xc4dbf5],
+  science: [0xffe7f0, 0xe8a0c0, 0xf3cddc],
 }
 
 /** A draggable liquid-glass lens over the hero art: look closer at how things are made. */

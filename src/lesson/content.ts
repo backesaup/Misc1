@@ -23,4 +23,5 @@ export const sections: SectionInfo[] = [
   { id: 'made', title: "How it's really made", subtitle: 'Real machines, opened up', art: 'made', tone: 'made' },
   { id: 'build', title: 'Build it', subtitle: 'Step by step, for Minecraft Bedrock', art: 'build', tone: 'build' },
   { id: 'maths', title: 'Maths shorts', subtitle: 'Guess, then see why', art: 'maths', tone: 'maths' },
+  { id: 'science', title: 'Science lab', subtitle: 'Experiments you run', art: 'science', tone: 'science' },
 ]

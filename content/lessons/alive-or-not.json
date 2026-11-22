@@ -1,0 +1,82 @@
+{
+  "id": "alive-or-not",
+  "section": "science",
+  "title": "Alive, dead or never alive?",
+  "cardArt": "science",
+  "status": "ready",
+  "order": 6,
+  "_map": "Alive, dead or never alive? (Y2). Big idea: living things grow, feed and reproduce. Creative: sort farm objects into three groups; argue the tricky ones (a seed? a log?).",
+  "_story": "The robot thinks it might be alive because it moves. Ismaeel learns what living things do, sorts farm things into three groups, and argues the tricky ones.",
+  "_stepChain": "living things grow, feed and make new living things → a sheep: alive → a stone: never alive → a log: was alive, now dead → the robot moves, but does it grow or feed? → tricky ones: a seed",
+  "assumes": ["property"],
+  "requires": ["secret-sorting-rule"],
+  "talk": [
+    { "ask": "How can you tell if something is alive?", "goodAnswer": "it grows, it needs food (or light and water), and it makes new living things." },
+    { "ask": "Is a log alive, dead or never alive?", "goodAnswer": "dead: it was part of a living tree." }
+  ],
+  "handsOn": "Collect things from the garden or park: a leaf, a stone, a twig, a shell. Sort them into alive, dead and never alive. Which one was hardest?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "a:Alive|d:Dead|n:Never alive", "items": "s:paw:Sheep:|st:mountain:Stone:|l:tree:Log:|f:flower:Flower:|g:gem:Glass:|sh:shell:Empty shell:" } },
+      "narration": { "speaker": "robot", "text": "I move, I talk, I beep. So I must be alive! Right?" }
+    },
+    {
+      "id": "living",
+      "term": "living thing",
+      "narration": { "text": "A living thing grows, needs food or sunlight and water, and makes new living things like babies or seeds. A sheep does all of those. So does a flower." },
+      "animation": [{ "at": 1, "action": "move", "id": "s", "zone": "a" }, { "at": 1.8, "action": "move", "id": "f", "zone": "a" }]
+    },
+    {
+      "id": "never",
+      "narration": { "text": "A stone and glass never grew, never ate, and were never alive." },
+      "animation": [{ "at": 0.6, "action": "move", "id": "st", "zone": "n" }, { "at": 1.4, "action": "move", "id": "g", "zone": "n" }]
+    },
+    {
+      "id": "log",
+      "question": {
+        "narration": { "text": "Now a tricky one: a log." },
+        "prompt": "Where does the log go?",
+        "choices": ["Alive", "Dead", "Never alive"],
+        "answer": 1,
+        "onRight": "Yes. The log was part of a living tree, but it isn't growing any more. So it's dead.",
+        "wrong": {
+          "0": { "mistake": "remembered it came from a tree, but not that it stopped living", "hint": "Is the log still growing new leaves?", "say": "The log was alive once, as part of a tree. But it's not growing or making seeds now. So it's dead." },
+          "2": { "mistake": "forgot it came from something that was alive", "hint": "Where did the log come from? Was that alive?", "say": "The log came from a tree, and the tree was alive. So the log was alive once: now it's dead, not never alive." }
+        },
+        "reveal": "The log is dead: it was once alive.",
+        "revealAnimation": [{ "at": 0, "action": "move", "id": "l", "zone": "d" }, { "at": 0.8, "action": "move", "id": "sh", "zone": "d" }]
+      }
+    },
+    {
+      "id": "robot",
+      "question": {
+        "narration": { "speaker": "robot", "text": "So what about me? Do I grow? Do I eat? Can I have baby robots?" },
+        "prompt": "Is the robot alive?",
+        "choices": ["Yes", "No"],
+        "answer": 1,
+        "onRight": "Yes, you used the rules. Moving isn't enough. The robot doesn't grow, eat or have babies.",
+        "wrong": {
+          "0": { "mistake": "thinks moving means alive", "hint": "Check the rules: does the robot grow, eat food and make babies?", "say": "The robot moves, but so does a car. It doesn't grow, eat food or make baby robots. So it's never been alive." }
+        },
+        "reveal": "The robot is never alive. But it's still a very good friend!"
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Living things grow, feed and make new living things.",
+        "ask": "Can you say how to tell if something is alive? Say it out loud. Then tap the eye.",
+        "spoken": "Living things grow, need food, and make new living things. Things that were alive and stopped are dead. Things like stones were never alive."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: is a seed alive?",
+    "choices": ["Yes", "No", "Tricky!"],
+    "answer": 0,
+    "reveal": "Yes! It's resting, but plant it with water and it grows. Lots of grown-ups find that one tricky too."
+  }
+}

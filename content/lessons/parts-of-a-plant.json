@@ -1,0 +1,67 @@
+{
+  "id": "parts-of-a-plant",
+  "section": "science",
+  "title": "Parts of a plant",
+  "cardArt": "science",
+  "status": "ready",
+  "order": 1,
+  "_map": "Parts of a plant (Y1). Big idea: roots, stem, leaves and flowers each have a job. Creative: design a plant for a strange place (a cave, the desert).",
+  "_story": "The robot planted a flower and wants to know what each bit is for. Ismaeel taps each part to find its job, then designs a plant for a desert.",
+  "_stepChain": "a plant has parts → each part has a job: roots drink and hold, stem carries and holds up, leaves make food from sunlight, flowers make seeds → the robot thinks leaves are only decoration → design a plant for a strange place",
+  "assumes": ["sun", "light"],
+  "talk": [
+    { "ask": "What do roots do?", "goodAnswer": "they hold the plant in the ground and drink water from the soil." },
+    { "ask": "What would a desert plant need?", "goodAnswer": "something like long roots to find water, thick leaves or stem to store it, or spikes so animals don't eat it." }
+  ],
+  "handsOn": "Pull up a weed (with permission!) and find its roots, stem and leaves. Then draw a plant for a strange place, like the moon or under the sea.",
+  "steps": [
+    {
+      "id": "hook",
+      "kind": "explore",
+      "scene": { "type": "diagram", "preset": "nature", "params": { "view": "plant" } },
+      "narration": { "speaker": "robot", "text": "I grew a flower! But I don't know what all these bits are for. Tap each part to find out its job." },
+      "parts": [
+        { "id": "roots", "label": "Roots", "narration": "Roots grow down into the soil. They hold the plant tight, and drink up water, like straws." },
+        { "id": "stem", "label": "Stem", "narration": "The stem holds the plant up tall, and carries water from the roots up to the leaves." },
+        { "id": "leaves", "label": "Leaves", "narration": "Leaves catch sunlight, and use it to make food for the plant. That's why they spread out wide." },
+        { "id": "flower", "label": "Flower", "narration": "The flower makes seeds, so new plants can grow. Its bright colours bring bees to help." }
+      ]
+    },
+    {
+      "id": "robot-mistake",
+      "question": {
+        "narration": { "speaker": "robot", "text": "I'm going to cut off all the leaves. They're only there to look pretty!" },
+        "prompt": "Will the plant be OK without its leaves?",
+        "choices": ["Yes", "No"],
+        "answer": 1,
+        "onRight": "Yes, you remembered. Leaves make the plant's food from sunlight.",
+        "wrong": {
+          "0": { "mistake": "thinks leaves are decoration", "hint": "What did the leaves do with sunlight?", "say": "Leaves catch sunlight and make the plant's food. Without them, the plant would go hungry and wilt." }
+        },
+        "reveal": "No leaves, no food. Keep the leaves!",
+        "revealAnimation": [{ "at": 0, "action": "hot", "part": "leaves" }]
+      }
+    },
+    {
+      "id": "design",
+      "narration": { "text": "Now design a plant for a strange place. In a hot desert there's hardly any water. What would your plant's roots need to do? Its leaves? Draw it and tell a grown-up!" },
+      "animation": [{ "at": 0, "action": "hot", "part": "" }]
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Roots drink. Stem carries. Leaves make food. Flowers make seeds.",
+        "ask": "Can you say what each part of a plant does? Say it out loud. Then tap the eye.",
+        "spoken": "Roots hold the plant and drink water. The stem holds it up and carries water. Leaves make food from sunlight. Flowers make seeds."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: a cactus has spikes instead of leaves. Why might that help in the desert?",
+    "choices": ["Keeps animals away", "Saves water", "Both"],
+    "answer": 2,
+    "reveal": "Both! Spikes lose less water than big leaves, and they stop thirsty animals from eating it."
+  }
+}

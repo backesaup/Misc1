@@ -1,0 +1,75 @@
+{
+  "id": "animal-groups",
+  "section": "science",
+  "title": "Animal groups",
+  "cardArt": "science",
+  "status": "ready",
+  "order": 3,
+  "_map": "Animal groups (Y1). Big idea: mammals, birds, fish, reptiles and amphibians share features. Creative: invent a new animal and decide which group it belongs to, and why.",
+  "_story": "New animals keep arriving at the farm and the robot needs to know which pen they go in. Ismaeel learns what each group shares, sorts them, then invents a brand new animal.",
+  "_stepChain": "sorting by properties (secret-sorting-rule) → birds: feathers, lay eggs → fish: fins, live in water → mammals: fur, babies drink milk → reptiles: dry scales → amphibians: start in water, then land → sort the arrivals → invent an animal",
+  "assumes": ["property"],
+  "requires": ["secret-sorting-rule"],
+  "talk": [
+    { "ask": "Is a dog a mammal? How do you know?", "goodAnswer": "yes: it has fur and its puppies drink milk." },
+    { "ask": "What group is your invented animal in, and why?", "goodAnswer": "any group, with a reason from its features." }
+  ],
+  "handsOn": "Go on an animal hunt in a book or the garden. For each animal, decide: mammal, bird, fish, reptile or amphibian? Then draw an animal nobody has seen before.",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "bird:Birds|fish:Fish|mam:Mammals", "items": "a:bird:Hen:|b:fish:Goldfish:|c:dog:Dog:|d:cat:Cat:|e:feather:Duck:|f:rabbit:Rabbit:" } },
+      "narration": { "speaker": "robot", "text": "New animals keep arriving at my farm! I need to know which group each one belongs to." }
+    },
+    {
+      "id": "birds",
+      "narration": { "text": "Birds have feathers and wings, and lay eggs. The hen and the duck are birds." },
+      "animation": [{ "at": 0.4, "action": "move", "id": "a", "zone": "bird" }, { "at": 1.6, "action": "move", "id": "e", "zone": "bird" }]
+    },
+    {
+      "id": "mammals",
+      "term": "mammal",
+      "narration": { "text": "Dogs, cats and rabbits have fur, and their babies drink milk from their mums. Animals like that are called mammals. You're a mammal too!" },
+      "animation": [{ "at": 0.4, "action": "move", "id": "c", "zone": "mam" }, { "at": 1.2, "action": "move", "id": "d", "zone": "mam" }, { "at": 2, "action": "move", "id": "f", "zone": "mam" }]
+    },
+    {
+      "id": "fish",
+      "question": {
+        "prompt": "Where does the goldfish go?",
+        "choices": ["Birds", "Fish", "Mammals"],
+        "answer": 1,
+        "onRight": "Yes. It has fins and lives in water, breathing through gills.",
+        "wrong": {
+          "0": { "mistake": "guessed without checking features", "hint": "Does a goldfish have feathers?", "say": "A goldfish has no feathers or wings. It has fins and lives in water, so it's a fish." },
+          "2": { "mistake": "guessed without checking features", "hint": "Does a goldfish have fur? Do its babies drink milk?", "say": "A goldfish has no fur, and its babies hatch from eggs in the water. It has fins: it's a fish." }
+        },
+        "reveal": "The goldfish is a fish.",
+        "revealAnimation": [{ "at": 0, "action": "move", "id": "b", "zone": "fish" }]
+      }
+    },
+    {
+      "id": "more",
+      "narration": { "text": "There are two more groups. Reptiles, like lizards and turtles, have dry scaly skin. Amphibians, like frogs, start life in water as tadpoles, then live on land too." }
+    },
+    {
+      "id": "invent",
+      "narration": { "speaker": "robot", "text": "Now invent a brand new animal! Does it have fur, feathers, fins or scales? Does it lay eggs? Then decide which group it belongs to, and tell a grown-up why." }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Animals in a group share features.",
+        "ask": "Can you say what makes an animal a mammal? Say it out loud. Then tap the eye.",
+        "spoken": "Animals in the same group share features. Birds have feathers, fish have fins, and mammals have fur and feed their babies milk."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: a whale lives in the sea. Is it a fish or a mammal?",
+    "choices": ["Fish", "Mammal"],
+    "answer": 1,
+    "reveal": "A mammal! Whales breathe air, and their babies drink milk, even though they live in water."
+  }
+}

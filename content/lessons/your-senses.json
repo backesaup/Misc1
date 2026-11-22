@@ -1,0 +1,65 @@
+{
+  "id": "your-senses",
+  "section": "science",
+  "title": "Your senses",
+  "cardArt": "science",
+  "status": "ready",
+  "order": 5,
+  "_map": "Your senses (Y1). Big idea: five senses and the body parts that sense them. Creative: mystery boxes: work out what's inside without looking.",
+  "_story": "The robot only has eyes and wonders how people know so much about the world. Ismaeel matches each sense to its body part, then plays the mystery box game for real.",
+  "_stepChain": "you find out about the world → seeing (eyes), hearing (ears), touching (skin, hands), smelling (nose), tasting (tongue) → each is called a sense → the robot can only see → a mystery box uses the other senses",
+  "assumes": ["ears"],
+  "talk": [
+    { "ask": "What are your five senses?", "goodAnswer": "seeing, hearing, touching, smelling and tasting." },
+    { "ask": "In the mystery box game, which senses did you use?", "goodAnswer": "touch, hearing, and maybe smell. Not sight!" }
+  ],
+  "handsOn": "Mystery box! A grown-up hides something in a bag or box. Without looking, use touch, sound and smell to guess what it is. Then swap.",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "chain", "items": "e:eye:Seeing:|a:ear:Hearing:|h:hand:Touching:" } },
+      "narration": { "speaker": "robot", "text": "I've only got camera eyes. But people know so much about the world! How do you find things out?" }
+    },
+    {
+      "id": "sense",
+      "term": "sense",
+      "narration": { "text": "You see with your eyes, hear with your ears, and touch with your skin, especially your hands. Each way of finding out about the world is called a sense." }
+    },
+    {
+      "id": "five",
+      "question": {
+        "narration": { "text": "There are two more: smelling, with your nose, and tasting, with your tongue." },
+        "prompt": "How many senses is that altogether?",
+        "choices": ["3", "5", "10"],
+        "answer": 1,
+        "onRight": "Yes. Seeing, hearing, touching, smelling and tasting: 5 senses.",
+        "wrong": {
+          "0": { "mistake": "counted only the first three", "hint": "Don't forget smelling and tasting.", "say": "Seeing, hearing, touching: that's 3. Add smelling and tasting: 5 senses." },
+          "2": { "mistake": "counted fingers or body parts, not senses", "hint": "Count the ways of sensing: see, hear, touch, smell, taste.", "say": "Count each sense once: seeing, hearing, touching, smelling, tasting. That's 5." }
+        },
+        "reveal": "5 senses.",
+        "revealAnimation": [{ "at": 0, "action": "set", "items": "e:eye:See:|a:ear:Hear:|h:hand:Touch:|s:flower:Smell:|t:cherry:Taste:" }]
+      }
+    },
+    {
+      "id": "mystery",
+      "narration": { "speaker": "robot", "text": "Here's a game where you can't use your eyes: the mystery box. Feel it, shake it and listen, sniff it. Can you guess what's inside? Play it with a grown-up!" }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "5 senses: see, hear, touch, smell, taste.",
+        "ask": "Can you say your five senses? Say them out loud. Then tap the eye.",
+        "spoken": "We have five senses: seeing with our eyes, hearing with our ears, touching with our skin, smelling with our nose, and tasting with our tongue."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: why does food taste of less when you have a blocked nose?",
+    "choices": ["Smell helps taste", "Your tongue is tired", "Food changes"],
+    "answer": 0,
+    "reveal": "Smell and taste work together! A lot of what we call taste is really smell."
+  }
+}

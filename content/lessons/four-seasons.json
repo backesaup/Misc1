@@ -1,0 +1,71 @@
+{
+  "id": "four-seasons",
+  "section": "science",
+  "title": "The four seasons",
+  "cardArt": "science",
+  "status": "ready",
+  "order": 12,
+  "_map": "The four seasons (Y1). Big idea: weather and day length change across the year. Creative: watch the farm through a year in one minute; what changes? Plan what to plant when.",
+  "_story": "The robot watches one apple tree for a whole year, sped up. Blossom, green leaves, orange leaves, bare branches. Days get longer then shorter. When should we plant?",
+  "_stepChain": "a year (days-weeks-months) → the year has four parts called seasons → spring, summer, autumn, winter → the tree changes → days are long in summer, short in winter → plan planting",
+  "assumes": ["month", "sun"],
+  "requires": ["days-weeks-months"],
+  "talk": [
+    { "ask": "What are the four seasons, in order?", "goodAnswer": "spring, summer, autumn, winter." },
+    { "ask": "When are the days longest?", "goodAnswer": "in summer. In winter they're short and it gets dark early." }
+  ],
+  "handsOn": "Pick one tree near you. Take a photo of it every month for a year. Put the photos in order. What changed?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "nature", "params": { "view": "seasons", "season": 0 } },
+      "narration": { "speaker": "robot", "text": "I'm going to watch my apple tree for a whole year! Sped up, very fast." }
+    },
+    {
+      "id": "seasons",
+      "term": "season",
+      "narration": { "text": "A year has four parts, each about 3 months long. Each part is called a season. Spring: blossom. Summer: green leaves. Autumn: leaves turn orange and fall. Winter: bare branches, and maybe snow." },
+      "animation": [
+        { "at": 7, "action": "season", "to": 1 },
+        { "at": 9.4, "action": "season", "to": 2 },
+        { "at": 12.4, "action": "season", "to": 3 }
+      ]
+    },
+    {
+      "id": "daylight",
+      "question": {
+        "narration": { "text": "Look at the yellow bar. It shows how many hours of daylight there are." },
+        "prompt": "When are the days longest?",
+        "choices": ["Summer", "Winter"],
+        "answer": 0,
+        "onRight": "Yes. In summer the sun is up for about 16 hours. In winter, only about 8.",
+        "wrong": {
+          "1": { "mistake": "mixed up summer and winter", "hint": "When does it stay light until bedtime?", "say": "In winter it gets dark early, with only about 8 hours of daylight. In summer it's light for about 16 hours." }
+        },
+        "reveal": "Summer has the longest days.",
+        "revealAnimation": [{ "at": 0, "action": "season", "to": 1 }]
+      }
+    },
+    {
+      "id": "plan",
+      "narration": { "speaker": "robot", "text": "When should I plant my seeds? Spring is warm and getting lighter, perfect for seeds. Then they grow all summer, and I pick pumpkins in autumn!" },
+      "animation": [{ "at": 0, "action": "season", "to": 0 }]
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Spring, summer, autumn, winter.",
+        "ask": "Can you say the four seasons in order? Say them out loud. Then tap the eye.",
+        "spoken": "The four seasons are spring, summer, autumn and winter. The days are longest in summer and shortest in winter."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: in Australia, it's summer at Christmas! Why?",
+    "choices": ["They're on the other side of the world", "They have a different sun", "Magic"],
+    "answer": 0,
+    "reveal": "They're on the other half of the Earth, so their seasons are the opposite way round to ours."
+  }
+}
