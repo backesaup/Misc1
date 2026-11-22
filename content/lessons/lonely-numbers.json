@@ -20,37 +20,37 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "rows", "item": "chicken", "total": 7, "choice": 1, "robot": true } },
-      "narration": { "speaker": "steve", "text": "Seven new chicks hatched! They want to line up in equal rows like the big chickens. But they keep getting into a muddle." },
+      "narration": { "speaker": "steve", "text": "Crack, crack! Seven new chicks have hatched! Peep peep! They want to line up in equal rows, like the big chickens in the parade. But they keep getting in a muddle!" },
       "animation": [{ "at": 0, "action": "arrive", "duration": 1.6 }, { "at": 0, "action": "robot", "mood": "think" }]
     },
     {
       "id": "make-7",
       "kind": "make",
-      "narration": { "text": "Try different numbers of rows for 7 chicks. Which ones work with nobody left over?" },
+      "narration": { "text": "Try different numbers of rows for 7 chicks. Which ones work, with nobody left over?" },
       "make": { "mode": "rows", "item": "chicken", "total": 7, "goal": 2, "exactOnly": true }
     },
     {
       "id": "prime",
       "term": "prime number",
-      "narration": { "text": "7 only works as one long row, or every chick on its own. Any other number of rows leaves chicks over. A lonely number like that, that only makes one row, is called a prime number." },
+      "narration": { "text": "Look! 7 only works as one long row. Any other number of rows leaves a chick all alone. Aww! A lonely number like that, that can only make one row, has a special name. It's called a prime number." },
       "animation": [{ "at": 0, "action": "set", "choice": 1 }]
     },
     {
       "id": "make-11",
       "kind": "make",
-      "narration": { "text": "Let's test 11. Can 11 chicks make any equal rows, apart from one long row?" },
+      "narration": { "text": "Let's test 11 chicks! Can 11 make any equal rows, apart from one long row?" },
       "make": { "mode": "rows", "item": "chicken", "total": 11, "goal": 2, "exactOnly": true }
     },
     {
       "id": "robot-9",
       "question": {
-        "narration": { "speaker": "steve", "text": "I think 9 is a lonely number too! It's odd, and it feels lonely." },
+        "narration": { "speaker": "steve", "text": "I think 9 is a lonely number too! It's odd, and it looks lonely." },
         "prompt": "Is 9 a lonely number?",
         "choices": ["Yes", "No"],
         "answer": 1,
-        "onRight": "Yes, you caught it. 9 makes 3 rows of 3, so it isn't lonely.",
+        "onRight": "Yes, you caught him! 9 makes 3 rows of 3. Not lonely at all!",
         "wrong": {
-          "0": { "mistake": "thinks odd numbers are always prime", "hint": "Try 3 rows. Do 9 chicks fit with none left over?", "say": "Being odd doesn't make a number lonely. 9 chicks make 3 rows of 3, with none left over. So 9 isn't prime." }
+          "0": { "mistake": "thinks odd numbers are always prime", "hint": "Try 3 rows. Do 9 chicks fit, with none left over?", "say": "Being odd doesn't make a number lonely! 9 chicks make 3 rows of 3, with none left over. So 9 isn't prime." }
         },
         "reveal": "9 is 3 rows of 3. Not lonely at all!",
         "revealAnimation": [{ "at": 0, "action": "set", "total": 9, "choice": 3 }, { "at": 0, "action": "robot", "mood": "happy" }]
@@ -58,23 +58,23 @@
     },
     {
       "id": "hunt",
-      "narration": { "text": "The lonely numbers up to 30 are: 2, 3, 5, 7, 11, 13, 17, 19, 23 and 29. Mathematicians have been hunting for bigger and bigger lonely numbers for thousands of years, and they never run out." }
+      "narration": { "text": "Here are the lonely numbers up to 30: 2, 3, 5, 7, 11, 13, 17, 19, 23 and 29. Mathematicians have been hunting for bigger and bigger lonely numbers for thousands of years. And guess what? They never run out!" }
     },
     {
       "id": "rule",
       "kind": "rule",
       "rule": {
         "text": "A prime number only makes one row.",
-        "ask": "Can you say what makes a number lonely? Say it out loud. Then tap the eye.",
+        "ask": "What makes a number lonely? Say it out loud! Then tap the eye.",
         "spoken": "A prime number, a lonely number, can only make one row. Any other rows leave some left over."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: is 1 a lonely number?",
+    "prompt": "Bonus! Is 1 a lonely number?",
     "choices": ["Yes", "No", "Not sure"],
     "answer": 1,
-    "reveal": "Mathematicians decided 1 isn't a prime number. It's a special number of its own. Even mathematicians had to agree on a rule for that one!"
+    "reveal": "Mathematicians decided 1 isn't prime. It's a special number all of its own. Even mathematicians had to agree on a rule for that one!"
   }
 }

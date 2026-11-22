@@ -20,29 +20,29 @@
     {
       "id": "add",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "split", "item": "sheep", "total": 8, "choice": 3, "robot": true } },
-      "narration": { "text": "3 sheep in this field, and 5 in that field. 3 add 5 is 8." },
+      "narration": { "text": "3 sheep in this field, and 5 sheep in that field. Baa! 3 add 5 is 8." },
       "label": "3 + 5 = 8",
       "animation": [{ "at": 0, "action": "arrive", "duration": 1.4 }]
     },
     {
       "id": "swap",
       "question": {
-        "narration": { "speaker": "steve", "text": "Let's swap the fields round! Now it's 5 add 3. I bet that's a different number now." },
+        "narration": { "speaker": "steve", "text": "Let's swap the fields round! Whoosh! Now it's 5 add 3. I bet that makes a different number!" },
         "prompt": "What is 5 add 3?",
         "choices": ["8", "2", "53"],
         "answer": 0,
-        "onRight": "Yes. Swapping didn't change any sheep: still 8.",
+        "onRight": "Yes! Swapping didn't change a single sheep. Still 8!",
         "wrong": {
-          "1": { "mistake": "took away instead of adding", "hint": "We're still adding the two fields together. Count them all.", "say": "2 would be taking away. We're adding: 5 sheep and 3 more sheep. Count on from 5: 6, 7, 8." },
-          "2": { "mistake": "wrote the numbers side by side", "hint": "53 is 5 and 3 written next to each other. How many sheep are there altogether?", "say": "53 is the two numbers written side by side. Count all the sheep: 5, then 6, 7, 8. Still 8." }
+          "1": { "mistake": "took away instead of adding", "hint": "We're still adding the two fields together. Count them all.", "say": "2 would be taking away. We're adding! 5 sheep, and 3 more sheep. Count on from 5: 6, 7, 8." },
+          "2": { "mistake": "wrote the numbers side by side", "hint": "53 is the 5 and the 3 squashed together. How many sheep are there altogether?", "say": "53 is the two numbers squashed side by side. Let's count the sheep: 5, then 6, 7, 8. Still 8!" }
         },
-        "reveal": "5 add 3 is 8, the same as 3 add 5. When you add, the order doesn't matter.",
+        "reveal": "5 add 3 is 8, the same as 3 add 5! When you add, the order doesn't matter.",
         "revealAnimation": [{ "at": 0, "action": "set", "choice": 5 }]
       }
     },
     {
       "id": "takeaway",
-      "narration": { "speaker": "steve", "text": "So swapping always works! Let's try it with take away. I have 5 sheep, and 3 go home. 5 minus 3 is 2. Now swap it: I have 3 sheep, and 5 go home…" },
+      "narration": { "speaker": "steve", "text": "So swapping always works! Does it work for take away too? I have 5 sheep, and 3 go home. 5 minus 3 is 2. Now swap it! I have 3 sheep, and 5 go home. Hmm…" },
       "animation": [
         { "at": 0, "action": "set", "mode": "split", "total": 5, "choice": 2 },
         { "at": 0, "action": "robot", "mood": "think" }
@@ -51,14 +51,14 @@
     {
       "id": "stuck",
       "question": {
-        "prompt": "Can 5 sheep go home if there are only 3?",
+        "prompt": "Can 5 sheep go home, if there are only 3?",
         "choices": ["Yes", "No"],
         "answer": 1,
-        "onRight": "Yes, you spotted it. You can't take 5 away from 3. So 3 minus 5 isn't the same as 5 minus 3.",
+        "onRight": "Yes, you spotted it! You can't take 5 away from 3. So 3 minus 5 isn't the same as 5 minus 3.",
         "wrong": {
-          "0": { "mistake": "thinks swapping works for take-away like it does for adding", "hint": "There are only 3 sheep. Can 5 of them walk away?", "say": "There are only 3 sheep. After 3 go home, the field is empty, and nobody is left for the other 2. So swapping doesn't work for take away." }
+          "0": { "mistake": "thinks swapping works for take-away like it does for adding", "hint": "There are only 3 sheep. Can 5 of them walk away?", "say": "There are only 3 sheep! After 3 go home, the field is empty. Nobody's left for the other 2! So swapping doesn't work for take away." }
         },
-        "reveal": "Swapping works for adding, but not for take away.",
+        "reveal": "Swapping works for adding. But not for take away!",
         "revealAnimation": [{ "at": 0, "action": "robot", "mood": "sad" }]
       }
     },
@@ -66,16 +66,16 @@
       "id": "hunt",
       "question": {
         "open": true,
-        "narration": { "text": "Here's a hunt. Is there any take-away where swapping still works?" },
+        "narration": { "text": "Treasure hunt! Is there any take-away where swapping still works?" },
         "prompt": "Which one stays the same when you swap it?",
         "choices": ["7 − 2", "4 − 4", "9 − 1"],
         "answer": 1,
-        "reveal": "4 minus 4! Swap it, and it's still 4 minus 4. Swapping only works for take away when both numbers are the same."
+        "reveal": "4 minus 4! Swap it, and it's still 4 minus 4. Swapping only works for take away when both numbers are the same!"
       }
     },
     {
       "id": "undo",
-      "narration": { "text": "One more trick. 5 add 3 is 8. Now take the 3 away again: back to 5. Adding and taking away undo each other, like walking forwards, then walking back." },
+      "narration": { "text": "One more trick! 5 add 3 is 8. Now take the 3 away again. Back to 5! Adding and taking away undo each other. Like taking 3 steps forwards, then 3 steps back. Try it!" },
       "animation": [
         { "at": 0, "action": "set", "mode": "split", "total": 8, "choice": 5 },
         { "at": 3.4, "action": "set", "mode": "split", "total": 5, "choice": 5 },
@@ -87,16 +87,16 @@
       "kind": "rule",
       "rule": {
         "text": "3 + 5 = 5 + 3, but 5 − 3 isn't 3 − 5.",
-        "ask": "Can you say when swapping works, and when it doesn't? Say it out loud. Then tap the eye.",
+        "ask": "When does swapping work, and when doesn't it? Say it out loud! Then tap the eye.",
         "spoken": "When you add, you can swap the numbers. When you take away, you usually can't. And adding and taking away undo each other."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: does swapping work for times? Is 2 rows of 6 the same as 6 rows of 2?",
+    "prompt": "Bonus! Does swapping work for times? Is 2 rows of 6 the same as 6 rows of 2?",
     "choices": ["Yes", "No"],
     "answer": 0,
-    "reveal": "Yes! It's the same array turned round, like the chickens. 2 times 6 equals 6 times 2."
+    "reveal": "Yes! It's the same array turned round, like the chicken parade. 2 times 6 equals 6 times 2."
   }
 }

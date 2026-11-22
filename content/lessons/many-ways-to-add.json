@@ -20,7 +20,7 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "tens", "item": "brick", "total": 63, "choice": 5, "robot": true } },
-      "narration": { "speaker": "steve", "text": "I've got 38 bricks in one bucket and 25 in the other. I tried counting them all, one by one. I got lost at 41! There must be a faster way." },
+      "narration": { "speaker": "steve", "text": "I've got 38 bricks in one bucket, and 25 in the other. I tried counting them all, one by one. 39, 40, 41… I got lost! There must be a faster way!" },
       "animation": [
         { "at": 0, "action": "arrive", "duration": 2.2 },
         { "at": 0, "action": "robot", "mood": "sad" }
@@ -28,7 +28,7 @@
     },
     {
       "id": "way1",
-      "narration": { "text": "Way one: tens with tens, ones with ones. 38 is 3 tens and 8 ones. 25 is 2 tens and 5 ones. Tens together: 5 tens. Ones together: 13 ones. But 10 of those ones snap into a new ten! So 6 tens and 3 ones: 63." },
+      "narration": { "text": "Shortcut number one: tens with tens, ones with ones! 38 is 3 tens and 8 ones. 25 is 2 tens and 5 ones. Tens together: 5 tens. Ones together: 13 ones. But wait! 10 of those ones snap into a new ten! Click! So 6 tens and 3 ones. 63!" },
       "label": "50 + 13 = 63",
       "animation": [
         { "at": 0, "action": "set", "mode": "tens", "total": 63, "choice": 5 },
@@ -38,39 +38,39 @@
     {
       "id": "way2",
       "term": "make a ten",
-      "narration": { "text": "Way two: make a ten first. 38 is only 2 away from 40. So take 2 bricks from the 25 and give them to the 38. Now it's 40 and 23. That's easy: 63! Moving bricks to finish a ten is called making a ten." },
+      "narration": { "text": "Shortcut number two! 38 is only 2 away from 40. So take 2 bricks from the 25, and give them to the 38. Now it's 40 and 23. That's much quicker to add! 63! Moving bricks to finish a ten is called making a ten." },
       "label": "40 + 23 = 63"
     },
     {
       "id": "way3",
-      "narration": { "text": "Way three: count on. Start at 38. Jump on 2 tens: 48, 58. Then 5 ones: 59, 60, 61, 62, 63." },
+      "narration": { "text": "Shortcut number three: count on! Start at 38. Jump 2 tens: 48, 58. Then hop 5 ones: 59, 60, 61, 62, 63!" },
       "label": "38 → 48 → 58 → 63"
     },
     {
       "id": "favourite",
       "question": {
         "open": true,
-        "narration": { "speaker": "steve", "text": "Three different ways, and they all made 63! Every way is a good way if you can explain it." },
-        "prompt": "Which way do you like best?",
+        "narration": { "speaker": "steve", "text": "Three shortcuts, and they all made 63! Any way is a good way, if you can explain it." },
+        "prompt": "Which shortcut do you like best?",
         "choices": ["Tens and ones", "Make a ten", "Count on"],
         "answer": 1,
-        "reveal": "Any of them works. Mathematicians pick whichever is easiest for the numbers in front of them. Making a ten is extra handy when one number is close to a ten, like 38.",
+        "reveal": "They all work! Mathematicians pick whichever is quickest for their numbers. Making a ten is extra handy when a number is close to a ten, like 38.",
         "revealAnimation": [{ "at": 0, "action": "robot", "mood": "happy" }]
       }
     },
     {
       "id": "try",
       "question": {
-        "narration": { "text": "Try one with your favourite way. 29 bricks and 14 bricks." },
+        "narration": { "text": "Your turn! Use your favourite shortcut. 29 bricks, and 14 bricks." },
         "prompt": "What is 29 add 14?",
         "choices": ["33", "43", "313"],
         "answer": 1,
-        "onRight": "Yes. Maybe you made a ten: 29 and 1 is 30, and 13 more is 43.",
+        "onRight": "Yes! Maybe you made a ten: 29 and 1 is 30, and 13 more is 43!",
         "wrong": {
-          "0": { "mistake": "forgot the new ten made from the ones", "hint": "9 ones and 4 ones make 13 ones. That's a new ten, and 3.", "say": "Tens: 2 and 1 make 3 tens. Ones: 9 and 4 make 13, which snaps into another ten and 3. So 4 tens and 3 ones: 43." },
-          "2": { "mistake": "wrote the ones total next to the tens without making a new ten", "hint": "Can you have 13 in the ones place? 10 ones snap into a ten.", "say": "313 writes 3 tens next to 13 ones. But 13 ones make a new ten and 3. So 4 tens and 3 ones: 43." }
+          "0": { "mistake": "forgot the new ten made from the ones", "hint": "9 ones and 4 ones make 13 ones. That's a new ten, and 3.", "say": "Tens: 2 and 1 make 3 tens. Ones: 9 and 4 make 13. That snaps into another ten and 3! So 4 tens and 3 ones: 43." },
+          "2": { "mistake": "wrote the ones total next to the tens without making a new ten", "hint": "Can you have 13 in the ones place? Remember, 10 ones snap into a ten.", "say": "313 puts 3 tens next to 13 ones. But 13 ones make a new ten and 3! So 4 tens and 3 ones: 43." }
         },
-        "reveal": "29 add 14 is 43.",
+        "reveal": "29 add 14 is 43!",
         "revealAnimation": [{ "at": 0, "action": "set", "mode": "tens", "total": 43, "choice": 4 }]
       }
     },
@@ -79,16 +79,16 @@
       "kind": "rule",
       "rule": {
         "text": "Add tens and ones, or make a ten first.",
-        "ask": "Can you say one way to add two big numbers? Say it out loud. Then tap the eye.",
+        "ask": "Tell me one shortcut for adding big numbers! Say it out loud! Then tap the eye.",
         "spoken": "To add big numbers, you can add the tens and the ones, or make a ten first, or count on. Every way gets the same answer."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: 99 + 99. Which way would be quickest?",
+    "prompt": "Bonus! 99 add 99. Which shortcut would be quickest?",
     "choices": ["Count on by ones", "Make a hundred", "Tens and ones"],
     "answer": 1,
-    "reveal": "Make a hundred! 99 is 1 away from 100. 100 and 98 is 198."
+    "reveal": "Make a hundred! 99 is only 1 away from 100. 100 and 98 is 198!"
   }
 }

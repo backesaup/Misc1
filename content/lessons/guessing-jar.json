@@ -20,23 +20,23 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "scatter", "item": "apple", "total": 47, "robot": true } },
-      "narration": { "speaker": "steve", "text": "Harvest day! I tipped all my apples into a big heap. How many are there? Counting them one by one would take forever!" },
+      "narration": { "speaker": "steve", "text": "Harvest day! I tipped all my apples into one giant heap. Bump, bump, bump! How many are there? Counting them one by one would take all day!" },
       "animation": [{ "at": 0, "action": "arrive", "duration": 2.4 }]
     },
     {
       "id": "estimate",
       "term": "estimate",
-      "narration": { "text": "When something's hard to count, you can make a careful guess using what you can see. A guess like that is called an estimate. It doesn't have to be exactly right. The fun is seeing how close you get." }
+      "narration": { "text": "When something's hard to count, you can make a smart guess, using what you can see. A guess like that is called an estimate. It doesn't have to be exactly right. The fun is seeing how close you get!" }
     },
     {
       "id": "guess1",
       "question": {
         "open": true,
-        "narration": { "speaker": "steve", "text": "My estimate is 500 apples! Hmm, wait. That's a really big number. Let me check my own guess. 500 would fill the whole farm. Maybe I should guess smaller." },
+        "narration": { "speaker": "steve", "text": "My estimate is 500 apples! Hmm, wait. 500 would fill the whole farm! Let me check my own guess. Maybe I should guess smaller." },
         "prompt": "What's your estimate?",
         "choices": ["About 20", "About 50", "About 100"],
         "answer": 1,
-        "reveal": "Let's count in tens to check. 1 ten, 2 tens, 3 tens, 4 tens, and 7 left. 47 apples! About 50 was very close.",
+        "reveal": "Let's count in tens to check! 1 ten, 2 tens, 3 tens, 4 tens, and 7 left. 47 apples! How close were you?",
         "revealAnimation": [{ "at": 1.4, "action": "set", "mode": "tens", "total": 47, "choice": 4 }]
       }
     },
@@ -44,11 +44,11 @@
       "id": "guess2",
       "question": {
         "open": true,
-        "narration": { "text": "Here's a new heap. Now you know what 47 apples looks like. Use that to help you guess." },
+        "narration": { "text": "Here's a new heap! Now you know what 47 apples looks like. Use that to help you guess!" },
         "prompt": "Is this heap more or fewer than 47?",
         "choices": ["Fewer", "About the same", "More"],
         "answer": 2,
-        "reveal": "More! Let's count in tens: 7 tens and 3. 73 apples. Using the first heap helps you guess the next one.",
+        "reveal": "More! Let's count in tens: 7 tens and 3. 73 apples! The first heap helped you guess the next one.",
         "revealAnimation": [
           { "at": 0, "action": "set", "mode": "scatter", "total": 73 },
           { "at": 4, "action": "set", "mode": "tens", "total": 73, "choice": 7 }
@@ -60,16 +60,16 @@
       "kind": "rule",
       "rule": {
         "text": "Estimate first, then count to check.",
-        "ask": "Can you say what an estimate is? Say it out loud. Then tap the eye.",
+        "ask": "What's an estimate? Say it out loud! Then tap the eye.",
         "spoken": "An estimate is a careful guess. Make one first, then count in tens to check how close you were."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: a barrel holds 10 rows of 10 apples. Estimate how many before counting!",
+    "prompt": "Bonus! A barrel holds 10 rows of 10 apples. Estimate how many, before you count!",
     "choices": ["About 50", "About 100", "About 1,000"],
     "answer": 1,
-    "reveal": "100. 10 rows of 10, the same as the farm and the disco ball."
+    "reveal": "100! 10 rows of 10, like the carrot farm."
   }
 }

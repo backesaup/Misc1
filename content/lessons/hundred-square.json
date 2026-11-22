@@ -20,55 +20,55 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "grid", "params": { "cols": 10, "rows": 10, "numbers": true } },
-      "narration": { "speaker": "steve", "text": "I made a floor of 100 squares that light up, with the numbers 1 to 100 in rows of 10. Let's make patterns!" }
+      "narration": { "speaker": "steve", "text": "Look what I made! A magic floor of 100 squares that light up! The numbers 1 to 100, in rows of 10. Let's make patterns!" }
     },
     {
       "id": "tens",
-      "narration": { "text": "Light up every number you say when counting in 10s: 10, 20, 30. Look! They make a straight line down the side. Every tens number ends in zero." },
+      "narration": { "text": "Let's light up the numbers we say when we count in tens. 10, 20, 30… Ping, ping, ping! Look! A straight line down the side. And every one ends in zero!" },
       "animation": [{ "at": 1.4, "action": "every", "n": 10 }]
     },
     {
       "id": "make-every",
       "kind": "make",
-      "narration": { "text": "Now you choose. Pick a number to count in, then tap the hammer to light it up. Try 2, 5, 3, and any others. What patterns do you see?" },
+      "narration": { "text": "Now you choose! Pick a number to count in, then tap the hammer to light it up. Try 2. Try 5. Try 3! What patterns can you see?" },
       "make": { "mode": "every", "item": "block", "total": 100, "goal": 4 }
     },
     {
       "id": "predict-3",
       "question": {
         "open": true,
-        "narration": { "text": "Counting in 2s made stripes. Counting in 10s made one line." },
-        "prompt": "What do you think counting in 3s looks like?",
+        "narration": { "text": "Counting in twos made stripes. Counting in tens made one line." },
+        "prompt": "What do you think counting in threes looks like?",
         "choices": ["Stripes", "One line", "Slanting lines"],
         "answer": 2,
-        "reveal": "Slanting lines! Counting in 3s jumps across the rows, so the lit squares make diagonal lines.",
+        "reveal": "Slanting lines! Counting in threes jumps across the rows, so the lights make slopes, like a slide!",
         "revealAnimation": [{ "at": 0, "action": "every", "n": 3, "n2": 0 }]
       }
     },
     {
       "id": "both",
-      "narration": { "text": "Here's counting in 2s in yellow, and counting in 3s in blue. The green squares are in both: 6, 12, 18. Those are the numbers you say when counting in 6s!" },
+      "narration": { "text": "Here's counting in twos in yellow, and counting in threes in blue. Ooh, look at the green ones! They're in both! 6, 12, 18. Those are the numbers you say when you count in sixes!" },
       "animation": [{ "at": 0.4, "action": "every", "n": 2, "n2": 3 }]
     },
     {
       "id": "invent",
-      "narration": { "speaker": "steve", "text": "Your turn to trick me! Think of a counting pattern, light it up on paper, and see if I, or a grown-up, can guess your rule." }
+      "narration": { "speaker": "steve", "text": "Now try to trick me! Think of a counting pattern. Colour it on paper. Can I, or a grown-up, guess your rule?" }
     },
     {
       "id": "rule",
       "kind": "rule",
       "rule": {
         "text": "Counting in steps makes patterns.",
-        "ask": "Can you say what pattern counting in 10s makes, and why? Say it out loud. Then tap the eye.",
+        "ask": "What pattern does counting in tens make? Say it out loud! Then tap the eye.",
         "spoken": "Counting in steps makes patterns on the hundred square. Tens make a straight line, twos make stripes, and threes make slanting lines."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: counting in 9s makes a slanting line the other way. Guess why!",
+    "prompt": "Bonus! Counting in nines makes a slanting line the other way. Guess why!",
     "choices": ["9 is odd", "9 is 1 less than 10", "9 is big"],
     "answer": 1,
-    "reveal": "Because 9 is 1 less than 10. Each jump of 9 goes down a row and back one square."
+    "reveal": "Because 9 is 1 less than 10! Each jump of 9 goes down a row, and back one square."
   }
 }

@@ -20,36 +20,36 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "share", "item": "apple", "total": 12, "extra": 3, "choice": 0, "robot": true } },
-      "narration": { "speaker": "steve", "text": "My three friends are coming for lunch: a sheep, a pig and a hen. I've got 12 apples. And everyone must get the same, or someone will be grumpy!" },
+      "narration": { "speaker": "steve", "text": "My three friends are coming for lunch! A sheep, a pig and a hen. Baa, oink, bawk! I've got 12 apples. And everyone must get the same, or someone will get grumpy!" },
       "animation": [{ "at": 0, "action": "arrive", "duration": 1.6 }]
     },
     {
       "id": "make-12",
       "kind": "make",
-      "narration": { "text": "Choose how many apples each friend gets, then tap the hammer. Can you share them so that nobody gets more than anybody else?" },
+      "narration": { "text": "Pick how many apples each friend gets, then tap the hammer. Can you share them so nobody gets more than anybody else?" },
       "make": { "mode": "share", "item": "apple", "total": 12, "extra": 3, "goal": 1, "exactOnly": true }
     },
     {
       "id": "seventeen",
       "kind": "make",
-      "narration": { "speaker": "steve", "text": "Uh oh. The apple tree dropped some more. Now I've got 17 apples! Can you share them fairly now?" },
+      "narration": { "speaker": "steve", "text": "Uh oh! Thud, thud! The apple tree dropped some more. Now I've got 17 apples! Can you share them fairly now?" },
       "make": { "mode": "share", "item": "apple", "total": 17, "extra": 3 }
     },
     {
       "id": "remainder",
       "term": "remainder",
-      "narration": { "text": "5 each, and 2 apples are left in the middle. 2 apples can't be shared between 3 friends without cutting them. The amount left over after sharing is called the remainder." },
+      "narration": { "text": "5 each, and 2 apples are left in the middle. Hmm! 2 apples can't go to 3 friends without cutting them. The bit left over after sharing has a name. It's called the remainder." },
       "animation": [{ "at": 0, "action": "set", "mode": "share", "total": 17, "extra": 3, "choice": 5 }]
     },
     {
       "id": "ideas",
       "question": {
         "open": true,
-        "narration": { "speaker": "steve", "text": "What should we do with the 2 left-over apples? I've got some ideas, but I want to hear yours." },
-        "prompt": "Which idea do you like? Any fair idea counts.",
+        "narration": { "speaker": "steve", "text": "What should we do with the 2 left-over apples? I've got some ideas. But I want to hear yours!" },
+        "prompt": "Which idea do you like? Any fair idea counts!",
         "choices": ["Cut them up", "Save them", "Give them away"],
         "answer": 0,
-        "reveal": "All of those are fair! You could cut each apple into 3 equal pieces, save them for tomorrow, or give them to the horse. A fair idea is one where nobody gets more than anyone else."
+        "reveal": "They're all fair! Cut each apple into 3 equal pieces. Or save them for tomorrow. Or give them to the horse! Fair means nobody gets more than anyone else."
       }
     },
     {
@@ -57,20 +57,20 @@
       "kind": "rule",
       "rule": {
         "text": "Sharing fairly means everyone gets the same.",
-        "ask": "Can you say what a remainder is? Say it out loud. Then tap the eye.",
+        "ask": "What's a remainder? Say it out loud! Then tap the eye.",
         "spoken": "Sharing fairly means everyone gets the same amount. What's left over is called the remainder."
       }
     }
   ],
   "bonus": {
-    "prompt": "Bonus: 20 apples shared between 4 friends. How many each?",
+    "prompt": "Bonus! 20 apples, shared between 4 friends. How many each?",
     "choices": ["4", "5", "16"],
     "answer": 1,
-    "onRight": "Yes. 4 friends with 5 each is 20, with none left over.",
+    "onRight": "Yes! 4 friends with 5 each is 20, and none left over.",
     "wrong": {
-      "0": { "mistake": "gave the number of friends", "hint": "4 is how many friends. How many apples does each one get?", "say": "4 is the number of friends. Give them one apple each, round and round: each friend ends up with 5. 5, 10, 15, 20." },
-      "2": { "mistake": "took 4 away instead of sharing", "hint": "We're sharing all 20 apples, not taking 4 away.", "say": "16 is 20 take away 4. Sharing means giving them out fairly: 5 each, because 4 lots of 5 is 20." }
+      "0": { "mistake": "gave the number of friends", "hint": "4 is how many friends. How many apples does each one get?", "say": "4 is how many friends there are. Give out one apple each, round and round, and each friend gets 5! 5, 10, 15, 20." },
+      "2": { "mistake": "took 4 away instead of sharing", "hint": "We're sharing all 20 apples, not taking 4 away.", "say": "16 is 20 take away 4. But sharing means giving them all out fairly. 5 each, because 4 lots of 5 is 20." }
     },
-    "reveal": "5 each. 4 times 5 is 20."
+    "reveal": "5 each! 4 times 5 is 20."
   }
 }

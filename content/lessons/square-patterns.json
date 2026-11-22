@@ -20,12 +20,12 @@
     {
       "id": "hook",
       "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "square", "item": "grass", "total": 1, "choice": 1, "robot": true } },
-      "narration": { "speaker": "steve", "text": "You know square numbers: 1, 4, 9, 16. I'm building a square grass floor, and I want to make it bigger and bigger. Watch my trick." },
+      "narration": { "speaker": "steve", "text": "Ismaeel, you know square numbers! 1, 4, 9, 16. I'm building a square grass floor, and I want it bigger and bigger. Watch my secret trick!" },
       "animation": [{ "at": 0, "action": "arrive", "duration": 0.6 }]
     },
     {
       "id": "grow",
-      "narration": { "text": "Start with 1 block. Wrap an L-shape round it: 3 more blocks. Now it's a 2 by 2 square: 4. Wrap another L: 5 more blocks. Now it's 3 by 3: 9." },
+      "narration": { "text": "Start with 1 block. Now wrap an L-shape round it: 3 more blocks. Ta-da! A 2 by 2 square: 4! Wrap another L: 5 more blocks. Now it's 3 by 3: 9!" },
       "animation": [
         { "at": 3, "action": "set", "mode": "square", "total": 4, "choice": 2 },
         { "at": 7, "action": "set", "mode": "square", "total": 9, "choice": 3 }
@@ -34,12 +34,12 @@
     {
       "id": "make-square",
       "kind": "make",
-      "narration": { "text": "Now you grow it. Choose how big the square is, then tap the hammer. Each L-shaped layer is a new colour. Count the blocks in each L." },
+      "narration": { "text": "Now you grow it! Pick how big the square is, then tap the hammer. Each L is a new colour. Count the blocks in each L!" },
       "make": { "mode": "square", "item": "brick", "total": 64, "max": 8 }
     },
     {
       "id": "odds",
-      "narration": { "text": "The L-shapes add 1, then 3, then 5, then 7. Those are the odd numbers! So every square number is made of odd numbers added together. 1 and 3 is 4. 1, 3 and 5 is 9." },
+      "narration": { "text": "Look at the L-shapes! They add 1, then 3, then 5, then 7. Those are the odd numbers! So every square number is odd numbers added up. 1 and 3 is 4. 1, 3 and 5 is 9. Whoa!" },
       "label": "1 + 3 + 5 = 9"
     },
     {
@@ -49,12 +49,12 @@
         "prompt": "How many blocks does the next L add, to make 6 by 6?",
         "choices": ["6", "11", "36"],
         "answer": 1,
-        "onRight": "Yes. The odd numbers go 1, 3, 5, 7, 9, then 11. And 25 and 11 is 36.",
+        "onRight": "Yes! The odd numbers go 1, 3, 5, 7, 9, then 11! And 25 and 11 is 36.",
         "wrong": {
-          "0": { "mistake": "added one side only", "hint": "The L goes along two sides and round the corner.", "say": "An L covers two sides: 6 along one side and 5 more along the other. That's 11. And 25 and 11 make 36." },
-          "2": { "mistake": "gave the new square's total instead of the L", "hint": "36 is the whole new square. How many is the new L on its own?", "say": "36 is the whole 6 by 6 square. The new L is the part we add: 36 take away 25 is 11." }
+          "0": { "mistake": "added one side only", "hint": "The L goes along two sides and round the corner.", "say": "An L covers two sides! 6 along one side, and 5 more along the other. That's 11. And 25 and 11 make 36." },
+          "2": { "mistake": "gave the new square's total instead of the L", "hint": "36 is the whole new square. How many is the new L on its own?", "say": "36 is the whole 6 by 6 square. The new L is only the part we add! 36 take away 25 is 11." }
         },
-        "reveal": "The L adds 11, and 25 and 11 make 36.",
+        "reveal": "The L adds 11. 25 and 11 make 36!",
         "revealAnimation": [{ "at": 0, "action": "set", "mode": "square", "item": "brick", "total": 36, "choice": 6 }]
       }
     },
@@ -63,14 +63,14 @@
       "kind": "rule",
       "rule": {
         "text": "Each square is the last square plus an odd number.",
-        "ask": "Can you say how to grow a square, and what each L adds? Say it out loud. Then tap the eye.",
+        "ask": "How do you grow a square? Say it out loud! Then tap the eye.",
         "spoken": "To grow a square, add an L. Each L adds the next odd number. 1, 4, 9, 16, 25."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: what's 1 + 3 + 5 + 7 + 9 + 11 + 13 + 15? Use the trick!",
+    "prompt": "Bonus! What's 1 and 3 and 5 and 7 and 9 and 11 and 13 and 15? Use the trick!",
     "choices": ["49", "64", "81"],
     "answer": 1,
     "reveal": "64! Eight odd numbers make an 8 by 8 square. That's a Minecraft stack again!"
