@@ -11,5 +11,7 @@ export const sceneCatalog = {
     wiring: ['flow', 'lightFace', 'lightRails'],
     power: ['stage', 'charge'],
     balance: ['set', 'signs', 'addOnes'],
+    grid: ['every', 'cells', 'mirror', 'robot', 'cards'],
+    fraction: ['cut'],
   },
 } satisfies Record<string, Record<string, string[]>>

@@ -1,0 +1,77 @@
+{
+  "id": "half-of-the-flock",
+  "section": "maths",
+  "title": "Half of the flock",
+  "cardArt": "maths",
+  "status": "ready",
+  "order": 21,
+  "_map": "Half of the flock (Y1–2). Big idea: finding a fraction of a number. Creative: half the sheep go to the barn: how many? A quarter? Make up his own.",
+  "_story": "Bedtime on the farm. Half of the 12 sheep go into the barn. Then a quarter of them go to the top field. Ismaeel shares them out, then invents his own fraction puzzle.",
+  "_stepChain": "halves of shapes (halves) → half of a group: share into 2 equal groups → half of 12 is 6 → a quarter: share into 4 → a quarter of 12 is 3 → the robot halves 12 into 5 and 7 → invent one",
+  "assumes": ["half", "quarter", "counting"],
+  "requires": ["sharing-pies"],
+  "talk": [
+    { "ask": "How do you find half of 12 sheep?", "goodAnswer": "share them into 2 equal groups: 6 in each." },
+    { "ask": "How do you find a quarter?", "goodAnswer": "share into 4 equal groups: a quarter of 12 is 3." }
+  ],
+  "handsOn": "Get 12 Lego bricks. Find half by sharing into 2 piles, then a quarter by sharing into 4 piles. Can you find a third?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "share", "item": "sheep", "total": 12, "extra": 2, "choice": 0, "robot": true } },
+      "narration": { "speaker": "robot", "text": "It's bedtime! Half of my 12 sheep sleep in the barn, and the other half sleep in the field. How many go in the barn?" },
+      "animation": [{ "at": 0, "action": "arrive", "duration": 1.6 }]
+    },
+    {
+      "id": "make-half",
+      "kind": "make",
+      "narration": { "text": "Half means sharing into 2 equal groups. Choose how many sheep go in each group, and tap the hammer." },
+      "make": { "mode": "share", "item": "sheep", "total": 12, "extra": 2, "goal": 1, "exactOnly": true }
+    },
+    {
+      "id": "quarter",
+      "narration": { "text": "Half of 12 is 6. Now a quarter: share the 12 sheep into 4 equal groups. Each group has 3. A quarter of 12 is 3." },
+      "label": "1/4 of 12 = 3",
+      "animation": [{ "at": 2.8, "action": "set", "mode": "share", "total": 12, "extra": 4, "choice": 3 }]
+    },
+    {
+      "id": "robot-mistake",
+      "question": {
+        "narration": { "speaker": "robot", "text": "I put 5 sheep in the barn and 7 in the field. That's half and half!" },
+        "prompt": "Is that half and half?",
+        "choices": ["Yes", "No"],
+        "answer": 1,
+        "onRight": "Yes, you caught it. Halves must be equal: 6 and 6.",
+        "wrong": {
+          "0": { "mistake": "thinks any split into 2 groups is halves", "hint": "Are the two groups the same size?", "say": "5 and 7 aren't equal, so they aren't halves. Halves of 12 are 6 and 6." }
+        },
+        "reveal": "Half of 12 is 6 and 6.",
+        "revealAnimation": [{ "at": 0, "action": "set", "mode": "share", "total": 12, "extra": 2, "choice": 6 }]
+      }
+    },
+    {
+      "id": "invent",
+      "narration": { "text": "Now you make up a puzzle. Pick a number of animals, and ask a grown-up to find half, or a quarter. Can you check their answer by sharing?" }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Half: share into 2. Quarter: share into 4.",
+        "ask": "Can you say how to find a quarter of a group? Say it out loud. Then tap the eye.",
+        "spoken": "To find half of a group, share it into 2 equal groups. To find a quarter, share it into 4."
+      }
+    }
+  ],
+  "bonus": {
+    "prompt": "Bonus: three quarters of 12 sheep. How many?",
+    "choices": ["3", "9", "4"],
+    "answer": 1,
+    "onRight": "Yes. A quarter is 3, so three quarters is 3, 6, 9.",
+    "wrong": {
+      "0": { "mistake": "found one quarter, not three", "hint": "3 is one quarter. We want three of those quarters.", "say": "One quarter of 12 is 3. Three quarters is three of those groups: 3, 6, 9." },
+      "2": { "mistake": "confused the number of parts with the answer", "hint": "4 is how many groups. How many sheep are in 3 of the groups?", "say": "Share 12 into 4 groups of 3. Three of those groups make 9." }
+    },
+    "reveal": "Three quarters of 12 is 9."
+  }
+}

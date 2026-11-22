@@ -1,0 +1,82 @@
+{
+  "id": "equivalent-fractions",
+  "section": "maths",
+  "title": "Same amount, different name",
+  "cardArt": "maths",
+  "status": "ready",
+  "order": 20,
+  "_map": "Same amount, different name (Y2). Big idea: 2/4 = 1/2 (equivalent fractions). Creative: find other fractions that are the same as one half.",
+  "_story": "Two fields side by side. The robot gets half of one; Ismaeel gets two quarters of the other. The robot thinks it got less because 1 is smaller than 2. They compare.",
+  "_stepChain": "halves and quarters (sharing-pies) → half a field next to two quarters of the same field → same amount → different names for the same amount are called equivalent → hunt: 3/6, 4/8 → the robot's mistake",
+  "assumes": ["half", "quarter", "equals sign"],
+  "requires": ["sharing-pies", "stack-64"],
+  "talk": [
+    { "ask": "Is 2/4 the same as 1/2? How do you know?", "goodAnswer": "yes: put them side by side and the shaded parts cover the same amount." },
+    { "ask": "Can you think of another fraction that's the same as one half?", "goodAnswer": "3/6, 4/8, 5/10: half of the parts shaded." }
+  ],
+  "handsOn": "Fold a paper strip in half and colour one half. Fold another strip into quarters and colour two. Lay them side by side. Same?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "fraction", "params": { "shape": "square", "compare": true, "parts": 2, "shaded": 1, "parts2": 4, "shaded2": 2, "style": 0, "style2": 0 } },
+      "narration": { "speaker": "robot", "text": "We each got part of a field. I got half of this one. You got 2 quarters of that one. I got 1 part and you got 2 parts. That's not fair!" }
+    },
+    {
+      "id": "compare",
+      "question": {
+        "prompt": "Who has more of the field?",
+        "choices": ["The robot", "Same", "Me"],
+        "answer": 1,
+        "onRight": "Yes. You compared the shaded parts, not the number of pieces.",
+        "wrong": {
+          "0": { "mistake": "thinks bigger pieces means more in total", "hint": "Look at how much green there is in each field, not how many pieces.", "say": "The robot's piece is bigger, but you have two pieces. Together your 2 quarters cover exactly the same as one half." },
+          "2": { "mistake": "thinks more pieces means more in total", "hint": "You have 2 pieces, but they're smaller. Compare how much green there is.", "say": "You have 2 pieces, but each is a quarter, half the size of a half. 2 quarters cover exactly the same as 1 half." }
+        },
+        "reveal": "1/2 and 2/4 cover the same amount.",
+        "revealAnimation": [{ "at": 0, "action": "cut", "same": true }]
+      }
+    },
+    {
+      "id": "equivalent",
+      "term": "equivalent",
+      "narration": { "text": "Different names for the same amount are called equivalent fractions. One half is equivalent to two quarters." },
+      "label": "1/2 = 2/4"
+    },
+    {
+      "id": "hunt",
+      "narration": { "text": "Let's hunt for more. Cut a field into 8 equal strips and shade 4. Still half! Shade half of the parts, and it's always one half." },
+      "animation": [{ "at": 1.4, "action": "cut", "parts2": 8, "shaded2": 4 }]
+    },
+    {
+      "id": "robot-try",
+      "question": {
+        "narration": { "speaker": "robot", "text": "I found one! 3 out of 4 is the same as a half!" },
+        "prompt": "Is 3/4 the same as 1/2?",
+        "choices": ["Yes", "No"],
+        "answer": 1,
+        "onRight": "Yes, you caught it. 3 of 4 is more than half. Half of 4 parts is 2 parts.",
+        "wrong": {
+          "0": { "mistake": "doesn't check that exactly half the parts are shaded", "hint": "Half of 4 parts is how many parts?", "say": "Half of 4 parts is 2 parts. 3 parts is more than half: it's three quarters." }
+        },
+        "reveal": "3/4 is more than 1/2. 2/4 is the half.",
+        "revealAnimation": [{ "at": 0, "action": "cut", "parts2": 4, "shaded2": 3, "same": false }]
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "1/2 = 2/4 = 4/8",
+        "ask": "Can you say what equivalent fractions are? Say it out loud. Then tap the eye.",
+        "spoken": "Equivalent fractions are different names for the same amount. One half equals two quarters equals four eighths."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: which is the same as one half: 5/10, 5/8 or 2/5?",
+    "choices": ["5/10", "5/8", "2/5"],
+    "answer": 0,
+    "reveal": "5/10! 5 is half of 10."
+  }
+}

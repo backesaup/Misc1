@@ -179,7 +179,7 @@ function Items({ ctrl }: SceneProps) {
     const k = 1 - Math.exp(-dt * 9)
     // fit everything in view
     let ext = 1
-    for (const t of target) ext = Math.max(ext, Math.abs(t.x) + 0.6, Math.abs(t.z) + 0.6)
+    for (const t of target) if (t.group !== -9) ext = Math.max(ext, Math.abs(t.x) + 0.6, Math.abs(t.z) + 0.6, t.y * 0.75 + 1.2)
     if (mode === 'split') ext = Math.max(ext, 4.9) // keep both fenced fields in view
     if (mode === 'share') ext = Math.max(ext, 4.8)
     if (group.current) group.current.scale.setScalar(THREE.MathUtils.lerp(group.current.scale.x, Math.min(1.3, 4.8 / ext), k))
@@ -197,7 +197,7 @@ function Items({ ctrl }: SceneProps) {
           if (!m) return
           tmp.m.compose(tmp.p.clone().add(new THREE.Vector3(...part.at)), tmp.q, tmp.s.clone().multiply(new THREE.Vector3(...part.size)))
           m.setMatrixAt(i, tmp.m)
-          if (item === 'brick') m.setColorAt(i, tmp.c.set(BRICK_COLOURS[t && t.group >= 0 ? t.group % 2 === 0 ? 0 : 1 : 2]))
+          if (item === 'brick') m.setColorAt(i, tmp.c.set(BRICK_COLOURS[t && t.group >= 0 ? (mode === 'square' || mode === 'stairs' ? t.group % 5 : t.group % 2) : 2]))
         })
       } else {
         tmp.m.compose(tmp.p.clone().add(new THREE.Vector3(0, 0.45, 0)), tmp.q, tmp.s.clone().multiplyScalar(0.8))

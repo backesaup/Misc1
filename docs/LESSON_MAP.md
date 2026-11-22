@@ -28,13 +28,13 @@ Status: ✅ built · 🟡 partly (an existing lesson touches it) · ⬜ to do. M
 
 ## Multiplication, division, patterns, fractions
 - ✅ Rows of chickens + Turn the farm (make: rows, open question)
-- ⬜ Lonely numbers (stretch) [make: rows, total 7/11/13, goal 2]
+- ✅ Lonely numbers
 - ✅ Pairs and odd ones out (make: pairs)
-- ⬜ Patterns on the hundred square [new: hundred-square scene]
-- ⬜ Fair shares [make: share, 17 apples, 3 friends; leftovers: any fair idea]
-- ⬜ Growing patterns [blocks: staircase]
-- ⬜ Square patterns (stretch) [blocks64-style L layers]
-- ⬜ Halves that look different / Sharing pies / Same amount, different name / Half of the flock [new: cutting scene; arrange share/split]
+- ✅ Patterns on the hundred square (diagram:grid; make: every)
+- ✅ Fair shares
+- ✅ Growing staircases (make: stairs)
+- ✅ Growing squares (make: square, L-layers)
+- ✅ Halves that look different · Sharing pies · Same amount, different name · Half of the flock (diagram:fraction; make: cut)
 
 ## Measurement, time, money
 - ⬜ Measure with anything / Why we need rulers [farm: measure the barn in blocks, steps, carrots]
