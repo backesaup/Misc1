@@ -536,6 +536,12 @@
       "from": [
         "inventive:oak_sapling.png"
       ]
+    },
+    "frogspawn": {
+      "file": "items/frogspawn.png",
+      "from": [
+        "inventive:frogspawn.png"
+      ]
     }
   },
   "mobs": {
@@ -980,6 +986,96 @@
         "file": "models/cod.png",
         "from": [
           "bedrock-rp:textures/entity/fish/cod.png"
+        ]
+      }
+    },
+    "frog": {
+      "id": "geometry.frog",
+      "geo": {
+        "file": "models/frog.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/frog.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/frog.png",
+        "from": [
+          "bedrock-rp:textures/entity/frog/temperate_frog.png"
+        ]
+      }
+    },
+    "tadpole": {
+      "id": "geometry.tadpole",
+      "geo": {
+        "file": "models/tadpole.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/tadpole.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/tadpole.png",
+        "from": [
+          "bedrock-rp:textures/entity/tadpole/tadpole.png"
+        ]
+      }
+    },
+    "turtle": {
+      "id": "geometry.turtle",
+      "geo": {
+        "file": "models/turtle.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/turtle.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/turtle.png",
+        "from": [
+          "bedrock-rp:textures/entity/sea_turtle.png"
+        ]
+      }
+    },
+    "goat": {
+      "id": "geometry.goat",
+      "geo": {
+        "file": "models/goat.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/goat.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/goat.png",
+        "from": [
+          "bedrock-rp:textures/entity/goat/goat.png"
+        ]
+      }
+    },
+    "panda": {
+      "id": "geometry.panda",
+      "geo": {
+        "file": "models/panda.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/panda.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/panda.png",
+        "from": [
+          "bedrock-rp:textures/entity/panda/panda.png"
+        ]
+      }
+    },
+    "chick": {
+      "id": "geometry.chicken.baby",
+      "geo": {
+        "file": "models/chick.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/baby_chicken.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/chick.png",
+        "from": [
+          "bedrock-rp:textures/entity/chicken/chicken_temperate_baby.png"
         ]
       }
     }

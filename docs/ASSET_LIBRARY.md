@@ -134,6 +134,17 @@ to k/n to stop after k parts) → `finish` (varnish, paint, screen on) → `expl
 climbs n steps, `from` to restart), `touch` (iPad ripple). `tags` shows every part label; `hot` or an
 explore part shows one. Used by the six real-world lessons (order 9–14 in the made section).
 
+## 2c2. `voxel:pens` — the science farm in 3D (`src/scenes/voxel/Pens.tsx`)
+Same data and actions as `diagram:board` (items `id:icon:label:zone|…`, zones, `move` / `set` /
+`hot`, plus `robot` for Steve), drawn as coloured fenced pens on the grass with signs. Icons become
+**real Minecraft mobs** (chicken, parrot, cod, wolf, fox, rabbit, sheep, lamb = small sheep, turtle,
+frog, froglet, tadpole, chick, bee, pig, cow, goat, panda, iron golem, villager, llama), Minecraft
+item sprites (egg, wheat, flower, diamond, frogspawn…), a stone block, a glowing sun, or a drawn
+icon card (cat, squirrel, eye…). `mode: "chain"` lines them up with 3D arrows (`zone: "gone"`
+shrinks one and crosses it out). Used by animal-groups, who-eats-what, alive-or-not, habitats,
+food-chains, growing-up, secret-sorting-rule. To move another board lesson to 3D, change its scene to
+`{ "type": "voxel", "preset": "pens" }`.
+
 ## 2d. Lesson covers (`src/components/Thumb.tsx`)
 YouTube-style thumbnails on lesson cards and the lesson start screen: a real frame from the lesson's
 own scene (`npm run thumbs` → `src/assets/thumbs/<id>.jpg`, committed), zoomed in, with the lesson's
@@ -290,6 +301,7 @@ has errors (Bedrock cake stack size says 64), so verify any fact a lesson depend
   `activity.json` (replays, wrong answers chosen, where he stopped). Make lessons from these.
 
 ## Changelog
+- 2026-11-22 — voxel:pens: science sorting and chains in 3D with real mobs; more mobs (frog, tadpole, turtle, goat, panda, chick); audio recovery after the microphone.
 - 2026-11-22 — YouTube-style lesson covers (real scene frames + captions + Steve); every lesson retitled as a mystery.
 - 2026-11-22 — voxel:made scene + six real-world lessons: chair, table, stairs, car, train, iPad (facts checked).
 - 2026-11-22 — 3D block models from Java model files: Create, Farmer's Delight, MrCrayfish furniture, vanilla.

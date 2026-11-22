@@ -19,7 +19,7 @@
   "steps": [
     {
       "id": "hook",
-      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "a:Alive|d:Dead|n:Never alive", "items": "s:sheep:Sheep:|st:mountain:Stone:|l:tree:Log:|f:flower:Flower:|g:gem:Glass:|sh:shell:Empty shell:" } },
+      "scene": { "type": "voxel", "preset": "pens", "params": { "mode": "sort", "zones": "a:Alive|d:Dead|n:Never alive", "items": "s:sheep:Sheep:|st:mountain:Stone:|l:tree:Log:|f:flower:Flower:|g:gem:Glass:|sh:shell:Empty shell:|ig:golem:Iron golem:" } },
       "narration": { "speaker": "steve", "text": "Look! I built an iron golem out of iron blocks and a pumpkin. It moves! It walks around the farm. So it must be alive! Right?" }
     },
     {
@@ -60,7 +60,8 @@
         "wrong": {
           "0": { "mistake": "thinks moving means alive", "hint": "Check the rules: does the iron golem grow, eat food and make babies?", "say": "The golem moves, but so does a car. It doesn't grow, eat food or make baby golems. It's made of iron blocks and a pumpkin. So it's never been alive." }
         },
-        "reveal": "The iron golem was never alive. But it's still a very good guard for the farm!"
+        "reveal": "The iron golem was never alive. But it's still a very good guard for the farm!",
+        "revealAnimation": [{ "at": 0, "action": "move", "id": "ig", "zone": "n" }]
       }
     },
     {

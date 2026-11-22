@@ -19,7 +19,7 @@
   "steps": [
     {
       "id": "hook",
-      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "chain", "items": "s:sun:Sun:|g:wheat:Grass:|r:rabbit:Rabbit:|f:fox:Fox:" } },
+      "scene": { "type": "voxel", "preset": "pens", "params": { "mode": "chain", "items": "s:sun:Sun:|g:wheat:Grass:|r:rabbit:Rabbit:|f:fox:Fox:" } },
       "narration": { "speaker": "steve", "text": "I've been watching the fields. The rabbits eat grass, and a fox sometimes chases the rabbits. It's like a chain!" }
     },
     {

@@ -6,6 +6,7 @@ export const sceneCatalog = {
     solarCube: ['spin', 'countPanels', 'panelsOff', 'sunrise', 'pulsePanels', 'twist', 'explode', 'focusEdge', 'sunAngle', 'tag'],
     arrange: ['arrive', 'set', 'robot'],
     solids: ['show', 'roll', 'spin', 'fold'],
+    pens: ['move', 'set', 'hot', 'robot'],
     made: ['raw', 'cut', 'build', 'finish', 'explode', 'spin', 'test', 'set', 'tags', 'hot', 'steve', 'climb', 'touch'],
     disco: ['lights', 'spin', 'dots', 'secondLight', 'oneMirror', 'countMirrors', 'clearCount', 'music', 'colour', 'floorDance', 'countFloor', 'tag', 'untag'],
   },

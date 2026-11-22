@@ -2,7 +2,7 @@ import { createRoot } from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
 import { useMob, type MobName } from '@/scenes/voxel/mobs'
 const ONLY = new URLSearchParams(location.search).get('only')
-const ALL: MobName[] = ['chicken', 'sheep', 'pig', 'cow', 'iron_golem', 'wolf', 'bee', 'rabbit', 'fox', 'villager', 'llama', 'parrot', 'cod']
+const ALL: MobName[] = ['chicken', 'sheep', 'pig', 'cow', 'iron_golem', 'wolf', 'bee', 'rabbit', 'fox', 'villager', 'llama', 'parrot', 'cod', 'frog', 'tadpole', 'turtle', 'goat', 'panda', 'chick']
 const NAMES = ONLY ? (ONLY.split(',') as MobName[]) : ALL
 const ROT = Number(new URLSearchParams(location.search).get('rot') ?? 0.6)
 function M({ name, x, y }: { name: MobName; x: number; y: number }) {

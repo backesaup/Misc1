@@ -19,7 +19,7 @@
   "steps": [
     {
       "id": "hook",
-      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "p:Pond|b:Burrow|n:Nest", "items": "f:fish:Fish:n|r:rabbit:Rabbit:|bd:bird:Bird:|w:worm:Worm:|t:turtle:Turtle:" } },
+      "scene": { "type": "voxel", "preset": "pens", "params": { "mode": "sort", "zones": "p:Pond|b:Burrow|n:Nest", "items": "f:fish:Fish:n|r:rabbit:Rabbit:|bd:bird:Bird:|w:worm:Worm:|t:turtle:Turtle:" } },
       "narration": { "speaker": "steve", "text": "New animals! I put the fish in a nest up a tree. It looks very uncomfortable. Hmm." }
     },
     {

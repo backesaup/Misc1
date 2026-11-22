@@ -19,7 +19,7 @@
   "steps": [
     {
       "id": "hook",
-      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "h:Plants only|c:Meat only|o:Both", "items": "r:rabbit:Rabbit:|s:squirrel:Squirrel:|c1:cat:Cat:|d:dog:Dog:|b:chicken:Hen:|t:turtle:Tortoise:" } },
+      "scene": { "type": "voxel", "preset": "pens", "params": { "mode": "sort", "zones": "h:Plants only|c:Meat only|o:Both", "items": "r:rabbit:Rabbit:|s:squirrel:Squirrel:|c1:cat:Cat:|d:dog:Dog:|b:chicken:Hen:|t:turtle:Tortoise:" } },
       "narration": { "speaker": "steve", "text": "Feeding time! I've got grass, bones and a big bucket of everything. Who gets what?" }
     },
     {

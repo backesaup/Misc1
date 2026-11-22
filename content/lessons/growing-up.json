@@ -19,7 +19,7 @@
   "steps": [
     {
       "id": "hook",
-      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "chain", "items": "a:egg:Chick:|b:chicken:Hen:" } },
+      "scene": { "type": "voxel", "preset": "pens", "params": { "mode": "chain", "items": "a:chick:Chick:|b:chicken:Hen:" } },
       "narration": { "speaker": "steve", "text": "It's spring, and there are babies everywhere! Little chicks, woolly lambs, and wriggly things in the pond. Which baby grows into which grown-up?" }
     },
     {
@@ -40,7 +40,7 @@
           "2": { "mistake": "guessed another pond animal", "hint": "Ducklings hatch from eggs with feathers. Do tadpoles have feathers?", "say": "Ducks hatch as fluffy ducklings. Tadpoles grow legs and lose their tails to become frogs." }
         },
         "reveal": "Tadpole, then froglet, then frog. The biggest change of all!",
-        "revealAnimation": [{ "at": 0, "action": "set", "items": "a:egg:Frogspawn:|b:fish:Tadpole:|c:footprints:Froglet:|d:frog:Frog:" }]
+        "revealAnimation": [{ "at": 0, "action": "set", "items": "a:frogspawn:Frogspawn:|b:tadpole:Tadpole:|c:froglet:Froglet:|d:frog:Frog:" }]
       }
     },
     {

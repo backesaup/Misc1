@@ -10,7 +10,7 @@ import manifest from '@content/textures.json'
 // Files are fetched by `npm run textures:fetch` / `npm run build`; until then useMob() returns null
 // and scenes keep their simple built-in shapes.
 
-export type MobName = 'chicken' | 'sheep' | 'pig' | 'cow' | 'iron_golem' | 'wolf' | 'bee' | 'rabbit' | 'fox' | 'villager' | 'llama' | 'parrot' | 'cod'
+export type MobName = 'chicken' | 'sheep' | 'pig' | 'cow' | 'iron_golem' | 'wolf' | 'bee' | 'rabbit' | 'fox' | 'villager' | 'llama' | 'parrot' | 'cod' | 'frog' | 'tadpole' | 'turtle' | 'goat' | 'panda' | 'chick'
 type FileRef = { file: string }
 const MODELS = (manifest as unknown as { models: Record<string, { id: string; geo: FileRef; texture: FileRef; hide?: string[]; textureSize?: number[]; overlay?: FileRef & { y: number } }> }).models
 const urls = import.meta.glob<string>('../../assets/textures/models/*', { eager: true, query: '?url', import: 'default' })

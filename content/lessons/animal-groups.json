@@ -19,7 +19,7 @@
   "steps": [
     {
       "id": "hook",
-      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "bird:Birds|fish:Fish|mam:Mammals", "items": "a:chicken:Hen:|b:fish:Goldfish:|c:dog:Dog:|d:cat:Cat:|e:feather:Duck:|f:rabbit:Rabbit:" } },
+      "scene": { "type": "voxel", "preset": "pens", "params": { "mode": "sort", "zones": "bird:Birds|fish:Fish|mam:Mammals", "items": "a:chicken:Hen:|b:fish:Goldfish:|c:dog:Dog:|d:cat:Cat:|e:feather:Duck:|f:rabbit:Rabbit:" } },
       "narration": { "speaker": "steve", "text": "New animals keep arriving at my farm! I need to know which group each one belongs to." }
     },
     {

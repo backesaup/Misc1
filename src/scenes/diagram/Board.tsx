@@ -3,7 +3,7 @@ import {
   Dog, Droplet, Drumstick, Ear, Egg, Eye, Feather, Fish, Flame, Flower, Footprints, Gem, Gift, Glasses, Grape, Ham, Hammer, Hand,
   Heart, House, IceCreamCone, Key, Leaf, Lightbulb, Magnet, Milk, Moon, Mountain, Nut, Package, PawPrint, Pizza, Rabbit, Rat, Rocket,
   Salad, Shell, Ship, Shirt, Snail, Snowflake, Sprout, Squirrel, Star, Sun, Tent, Thermometer, TreeDeciduous, TreePine, Turtle,
-  Umbrella, Waves, Wheat, Wind, Worm, Battery, Scissors, Skull,
+  Umbrella, Waves, Wheat, Wind, Worm, Battery, Scissors, Skull, Shield,
   type LucideIcon,
 } from 'lucide-react'
 import type { SceneDef, SceneProps } from '../types'
@@ -40,20 +40,20 @@ export const ICONS: Record<string, LucideIcon> = {
   tree: TreeDeciduous, pine: TreePine, turtle: Turtle, umbrella: Umbrella, waves: Waves, wheat: Wheat, wind: Wind, worm: Worm,
   battery: Battery, scissors: Scissors, skull: Skull,
   // animals drawn from Minecraft faces when fetched; these are the backups
-  pig: PawPrint, cow: PawPrint, sheep: PawPrint, chicken: Bird, wolf: Dog, fox: Dog, bee: Bug, frog: Turtle, parrot: Bird, horse: PawPrint, axolotl: Fish,
+  chick: Bird, tadpole: Fish, froglet: Turtle, frogspawn: Egg, golem: Shield, pig: PawPrint, cow: PawPrint, sheep: PawPrint, chicken: Bird, wolf: Dog, fox: Dog, bee: Bug, frog: Turtle, parrot: Bird, horse: PawPrint, axolotl: Fish,
 }
-const ZONE_COLS = ['#ffd166', '#4f8ff0', '#58b368', '#ff6b5c', '#e8789a']
+export const ZONE_COLS = ['#ffd166', '#4f8ff0', '#58b368', '#ff6b5c', '#e8789a']
 
-interface Item { id: string; icon: string; label: string; zone: string }
-interface Zone { id: string; label: string }
+export interface Item { id: string; icon: string; label: string; zone: string }
+export interface Zone { id: string; label: string }
 
-function parseItems(s?: string): Item[] {
+export function parseItems(s?: string): Item[] {
   return (s ?? '').split('|').filter(Boolean).map((p) => {
     const [id, icon, label, zone] = p.split(':')
     return { id, icon, label: label ?? '', zone: zone ?? '' }
   })
 }
-function parseZones(s?: string): Zone[] {
+export function parseZones(s?: string): Zone[] {
   return (s ?? '').split('|').filter(Boolean).map((p) => {
     const [id, label] = p.split(':')
     return { id, label: label ?? id }
