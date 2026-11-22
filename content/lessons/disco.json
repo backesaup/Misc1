@@ -47,7 +47,7 @@
         "preset": "disco"
       },
       "narration": {
-        "text": "This is a disco. The music is playing, and lots of little lights are dancing round the walls. But look: there's only one light shining. How can one light make all these dots?"
+        "text": "Welcome to the disco, Ismaeel! The music's pumping, and loads of little lights are dancing round the walls! But look closely. There's only one light shining. So how can one light make all these dots? Let's find out!"
       },
       "animation": [
         {
@@ -87,7 +87,7 @@
       "id": "reflect",
       "term": "reflect",
       "narration": {
-        "text": "Let's look at one tiny mirror. Light travels in straight lines. When it hits a mirror, it bounces off in a new direction, and makes a bright dot where it lands. Bouncing light like that is called reflecting."
+        "text": "Let's look at one tiny mirror. Light zooms in straight lines. When it hits a mirror, it bounces off in a new direction, ping! And it makes a bright dot where it lands. Light bouncing off like that is called reflecting."
       },
       "animation": [
         {
@@ -130,7 +130,7 @@
     {
       "id": "ball",
       "narration": {
-        "text": "The shiny ball is covered in tiny mirrors, all pointing different ways. It's called a disco ball. Each mirror reflects the light to a different place."
+        "text": "This shiny ball is covered in tiny mirrors, all pointing different ways. It's called a disco ball! Each mirror bounces the light somewhere different."
       },
       "animation": [
         {
@@ -163,20 +163,20 @@
           "1,000"
         ],
         "answer": 1,
-        "onRight": "Yes. You saw 10 rows of 10, and counted in tens to 100.",
+        "onRight": "Yes! 10 rows of 10. Counting in tens, all the way to 100!",
         "wrong": {
           "0": {
             "mistake": "added 10 and 10 instead of 10 rows of 10",
             "hint": "There aren't 2 rows. There are 10 rows, each with 10 mirrors. Try counting in tens.",
-            "say": "You added 10 and 10. That's only 2 rows. There are 10 rows of 10. Count in tens: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100."
+            "say": "Ooh, close! You added 10 and 10. That's only 2 rows. There are 10 rows of 10! Count in tens with me: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100."
           },
           "2": {
             "mistake": "multiplied by 10 again, as if there were 10 balls",
             "hint": "There's only one ball. It has 10 rows, each with 10 mirrors.",
-            "say": "1,000 would be 10 balls like this one. One ball has 10 rows of 10. Count in tens: 10, 20, 30, up to 100."
+            "say": "1,000 would be 10 whole balls like this one! One ball has 10 rows of 10. Count in tens: 10, 20, 30, all the way to 100."
           }
         },
-        "reveal": "10 rows of 10 is 100 mirrors.",
+        "reveal": "10 rows of 10 is 100 mirrors!",
         "revealAnimation": [
           {
             "at": 0,
@@ -199,20 +199,20 @@
           "200"
         ],
         "answer": 1,
-        "onRight": "Yes. Every mirror reflects its own bit of light, so 100 mirrors make 100 dots.",
+        "onRight": "Yes! Every mirror bounces its own bit of light. So 100 mirrors make 100 dots!",
         "wrong": {
           "0": {
             "mistake": "thinks one light can only make one dot",
             "hint": "Each mirror bounces its own little bit of the light. How many mirrors are there?",
-            "say": "There's one light, but it hits 100 mirrors. Every mirror reflects its own bit of light to its own place. So 100 mirrors make 100 dots."
+            "say": "There's one light, but it hits 100 mirrors! Every mirror bounces its own bit of light to its own spot. So 100 mirrors make 100 dots."
           },
           "2": {
             "mistake": "doubled when nothing was doubled",
             "hint": "How many lights are there? And how many mirrors?",
-            "say": "There's only 1 light here. Each of the 100 mirrors makes 1 dot. So that's 100 dots."
+            "say": "There's only 1 light here. Each of the 100 mirrors makes 1 dot. So that's 100 dots!"
           }
         },
-        "reveal": "100 mirrors make 100 dots.",
+        "reveal": "100 mirrors make 100 dots!",
         "revealAnimation": [
           {
             "at": 0,
@@ -231,7 +231,7 @@
       "id": "guess-two",
       "question": {
         "narration": {
-          "text": "Now we add a second light, shining at the ball from somewhere else."
+          "text": "Now let's add a second light, shining at the ball from another side!"
         },
         "prompt": "How many dots now?",
         "choices": [
@@ -240,20 +240,20 @@
           "100"
         ],
         "answer": 1,
-        "onRight": "Yes. Each light makes 100 dots, so two lights make 200. That's doubling.",
+        "onRight": "Yes! Each light makes 100 dots. So two lights make 200! That's doubling!",
         "wrong": {
           "0": {
             "mistake": "added 1 for the new light instead of 100 more dots",
             "hint": "The new light hits all 100 mirrors too. How many dots does it make?",
-            "say": "The second light doesn't make only 1 dot. It hits all 100 mirrors, so it makes 100 more dots. 100 and 100 is 200."
+            "say": "The second light doesn't only make 1 dot! It hits all 100 mirrors, so it makes 100 more dots. 100 and 100 is 200."
           },
           "2": {
             "mistake": "thinks the number of dots stays the same",
             "hint": "The first light makes 100 dots. Does the second light make any?",
-            "say": "The first light still makes its 100 dots, and the second light makes 100 more. 100 and 100 more is 200. Doubling!"
+            "say": "The first light still makes its 100 dots. And the second light makes 100 more! 100 and 100 more is 200. Doubling!"
           }
         },
-        "reveal": "Two lights, 100 dots each, make 200 dots.",
+        "reveal": "Two lights, 100 dots each. 200 dots!",
         "revealAnimation": [
           {
             "at": 0,
@@ -267,7 +267,7 @@
       "id": "motor",
       "term": "motor",
       "narration": {
-        "text": "But the dots move! Up on the ceiling there's a small machine that turns the ball slowly round and round. A machine that makes something spin is called a motor. As the ball turns, every mirror points somewhere new, so the dots sweep round the room."
+        "text": "But wait, the dots are moving! Up on the ceiling, there's a little machine that turns the ball slowly, round and round. A machine that makes something spin is called a motor. As the ball turns, every mirror points somewhere new. So the dots sweep round the room! Whoosh!"
       },
       "animation": [
         {
@@ -299,7 +299,7 @@
       "id": "vibration",
       "term": "vibration",
       "narration": {
-        "text": "Now the music. Sound is the air shaking, very fast. Put your hand on your throat and hum. Can you feel it shaking? Fast shaking like that is called vibration."
+        "text": "Now the music! Sound is the air shaking, very, very fast. Put your hand on your throat, and hum. Mmmmm! Can you feel it shaking? Fast shaking like that is called vibration."
       },
       "animation": [
         {
@@ -323,7 +323,7 @@
       "id": "speaker",
       "kind": "explore",
       "narration": {
-        "text": "Inside a speaker is a round cone. Electricity makes the cone push forwards and backwards, very fast. The cone pushes the air, the air vibrates, and the vibration reaches your ears. That's the sound you hear. Tap the parts of the disco to hear what they do."
+        "text": "Inside a speaker, there's a round cone. Electricity makes the cone push forwards and backwards, really fast. The cone shoves the air. The air vibrates. And the vibration reaches your ears. That's the sound you hear! Tap the parts of the disco to hear what they do."
       },
       "animation": [
         {
@@ -342,12 +342,12 @@
         {
           "id": "speaker",
           "label": "Speaker",
-          "narration": "The cone pushes the air back and forth. The air vibrates, and that's the sound."
+          "narration": "The cone pushes the air back and forth, back and forth. The air vibrates, and that's the sound!"
         },
         {
           "id": "ball",
           "label": "Disco ball",
-          "narration": "100 tiny mirrors. Each one reflects its own bit of the light."
+          "narration": "100 tiny mirrors. Each one bounces its own bit of the light."
         },
         {
           "id": "light",
@@ -357,7 +357,7 @@
         {
           "id": "motor",
           "label": "Motor",
-          "narration": "The motor turns the ball round and round, so the dots move."
+          "narration": "The motor turns the ball round and round, so the dots dance across the room."
         }
       ]
     },
@@ -365,7 +365,7 @@
       "id": "beat",
       "term": "beat",
       "narration": {
-        "text": "Listen. Boom, boom, boom, boom. Thumps that come again and again, evenly, are called the beat. Dancers move to the beat, and this floor lights up to it."
+        "text": "Listen! Boom, boom, boom, boom. Thumps that keep coming, evenly, are called the beat. Dancers move to the beat, and this floor lights up to it! Can you clap along?"
       },
       "animation": [
         {
@@ -403,26 +403,26 @@
           "5"
         ],
         "answer": 1,
-        "onRight": "Yes. 10 seconds with 2 beats in each one: 10 lots of 2 is 20.",
+        "onRight": "Yes! 10 seconds, 2 beats in each. 10 lots of 2 is 20!",
         "wrong": {
           "0": {
             "mistake": "added 10 and 2 instead of 10 lots of 2",
             "hint": "Every second has its own 2 beats. How many lots of 2 are there?",
-            "say": "You added 10 and 2. But every one of the 10 seconds has 2 beats. Count in twos: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20."
+            "say": "You added 10 and 2. But every one of the 10 seconds has 2 beats! Count in twos: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20."
           },
           "2": {
             "mistake": "shared 10 by 2 instead of 10 lots of 2",
             "hint": "There are more beats than seconds. Each second has 2.",
-            "say": "5 would be if the beats were slower than the seconds. Here every second has 2 beats. Count in twos: 2, 4, 6, up to 20."
+            "say": "There are more beats than seconds! Every second has 2 beats. Count in twos: 2, 4, 6, all the way to 20."
           }
         },
-        "reveal": "10 lots of 2 is 20 beats."
+        "reveal": "10 lots of 2 is 20 beats!"
       }
     },
     {
       "id": "colours",
       "narration": {
-        "text": "One more trick. Watch the spotlight. Red light. Green light. Now red and green light shining together make yellow light! Light mixes differently from paint. Red and green paint would make a muddy brown."
+        "text": "One more trick! Watch the spotlight. Red light. Green light. Now red and green shining together make… yellow light! Whoa! Light mixes in a different way from paint. Red and green paint would make a muddy brown. Yuck!"
       },
       "animation": [
         {
@@ -470,7 +470,7 @@
       "id": "guess-floor",
       "question": {
         "narration": {
-          "text": "Last one. The light-up floor is made of square tiles: 4 rows, with 4 tiles in each row."
+          "text": "Last one! The light-up floor is made of square tiles. 4 rows, with 4 tiles in each row."
         },
         "prompt": "How many tiles are on the floor?",
         "choices": [
@@ -479,20 +479,20 @@
           "44"
         ],
         "answer": 1,
-        "onRight": "Yes. 4 rows of 4: 4, 8, 12, 16.",
+        "onRight": "Yes! 4 rows of 4: 4, 8, 12, 16!",
         "wrong": {
           "0": {
             "mistake": "added 4 and 4 instead of 4 rows of 4",
             "hint": "There aren't 2 rows. Count the rows of tiles: there are 4.",
-            "say": "You added 4 and 4. That's only 2 rows. There are 4 rows of 4. Count in fours: 4, 8, 12, 16."
+            "say": "You added 4 and 4. That's only 2 rows! There are 4 rows of 4. Count in fours: 4, 8, 12, 16."
           },
           "2": {
             "mistake": "put the two 4s side by side",
             "hint": "44 is the two 4s written side by side. Try counting in fours.",
-            "say": "44 is the 4s written next to each other. We need 4 rows of 4 tiles. Count in fours: 4, 8, 12, 16."
+            "say": "44 is the two 4s squashed together! We need 4 rows of 4 tiles. Count in fours: 4, 8, 12, 16."
           }
         },
-        "reveal": "4 rows of 4 is 16 tiles.",
+        "reveal": "4 rows of 4 is 16 tiles! Let's dance!",
         "revealAnimation": [
           {
             "at": 0,
@@ -529,32 +529,32 @@
       ],
       "rule": {
         "text": "Mirrors bounce light. Speakers shake the air.",
-        "ask": "Can you say how a disco ball makes so many dots, and how a speaker makes sound? Say it out loud. Then tap the eye to check.",
+        "ask": "How does a disco ball make so many dots? And how does a speaker make sound? Say it out loud! Then tap the eye.",
         "spoken": "The disco ball's mirrors bounce one light into lots of dots. And the speakers shake the air to make the music."
       }
     }
   ],
   "bonus": {
-    "prompt": "Our ball has 100 mirrors. A giant disco ball has 10 times as many. How many mirrors does the giant ball have?",
+    "prompt": "Bonus! Our ball has 100 mirrors. A giant disco ball has 10 times as many. How many mirrors does the giant ball have?",
     "choices": [
       "110",
       "1,000",
       "200"
     ],
     "answer": 1,
-    "onRight": "Yes. 10 lots of 100 is 1,000.",
+    "onRight": "Yes! 10 lots of 100 is 1,000!",
     "wrong": {
       "0": {
         "mistake": "added 10 instead of 10 times as many",
         "hint": "10 times as many means 10 lots of 100, not 100 and 10 more.",
-        "say": "You added 10. 10 times as many means 10 lots of 100. Count in hundreds: 100, 200, 300, up to 1,000."
+        "say": "You added 10. But 10 times as many means 10 lots of 100! Count in hundreds: 100, 200, 300, all the way to 1,000."
       },
       "2": {
         "mistake": "doubled instead of 10 times",
         "hint": "200 is 2 lots of 100. We need 10 lots.",
-        "say": "200 is only 2 lots of 100. We need 10 lots. Count in hundreds: 100, 200, 300, up to 1,000."
+        "say": "200 is only 2 lots of 100. We need 10 lots! Count in hundreds: 100, 200, 300, all the way to 1,000."
       }
     },
-    "reveal": "10 lots of 100 is 1,000 mirrors."
+    "reveal": "10 lots of 100 is 1,000 mirrors!"
   }
 }

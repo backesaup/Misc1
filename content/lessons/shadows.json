@@ -20,37 +20,37 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "lab", "params": { "view": "shadow", "dist": 0.5 } },
-      "narration": { "speaker": "steve", "text": "Aaah! There's a giant dark shape on the barn wall! Oh. It moves when I move. Is that me?" }
+      "narration": { "speaker": "steve", "text": "Aaah! Help! There's a giant dark shape on the barn wall! Oh. Wait. It moves when I move. I wave, it waves. Is that me?" }
     },
     {
       "id": "shadow",
       "term": "shadow",
-      "narration": { "text": "Light travels in straight lines. Steve blocks some of the lamp's light, and light can't bend round him. So behind Steve there's a dark patch, the same shape as Steve. That dark patch is called a shadow." }
+      "narration": { "text": "Light zooms in straight lines, and it can't bend round corners. Steve gets in the way of some of the lamp's light. So behind Steve, there's a dark patch, the same shape as Steve! That dark patch is called a shadow." }
     },
     {
       "id": "closer",
       "question": {
         "open": true,
-        "narration": { "text": "Now we move the lamp closer to Steve." },
+        "narration": { "text": "Now let's move the lamp closer to Steve!" },
         "prompt": "What will happen to the shadow?",
         "choices": ["Bigger", "Smaller", "Same"],
         "answer": 0,
-        "reveal": "Bigger! The lamp is close, so Steve blocks a wide fan of light.",
+        "reveal": "Bigger! Whoa! The lamp is close, so Steve blocks a really wide fan of light.",
         "revealAnimation": [{ "at": 0, "action": "lamp", "to": 0.1, "duration": 1.6 }]
       }
     },
     {
       "id": "further",
       "question": {
-        "narration": { "speaker": "steve", "text": "I want a tiny shadow. So I'll move the lamp closer still!" },
+        "narration": { "speaker": "steve", "text": "I want a teeny tiny shadow. So I'll move the lamp closer still!" },
         "prompt": "How do you make the shadow smaller?",
         "choices": ["Lamp closer", "Lamp further away"],
         "answer": 1,
-        "onRight": "Yes. Move the lamp further away, and the shadow shrinks.",
+        "onRight": "Yes! Move the lamp further away, and the shadow shrinks!",
         "wrong": {
-          "0": { "mistake": "mixed up which way makes the shadow smaller", "hint": "When the lamp came closer, did the shadow grow or shrink?", "say": "Moving the lamp closer made the shadow bigger. To shrink it, move the lamp further away." }
+          "0": { "mistake": "mixed up which way makes the shadow smaller", "hint": "When the lamp came closer, did the shadow grow or shrink?", "say": "Moving the lamp closer made the shadow bigger! To shrink it, move the lamp further away." }
         },
-        "reveal": "Far lamp, small shadow.",
+        "reveal": "Far lamp, small shadow. Close lamp, giant shadow!",
         "revealAnimation": [{ "at": 0, "action": "lamp", "to": 0.95, "duration": 1.6 }]
       }
     },
@@ -59,16 +59,16 @@
       "kind": "rule",
       "rule": {
         "text": "Blocked light makes a shadow. Closer light, bigger shadow.",
-        "ask": "Can you say how a shadow is made, and how to make it bigger? Say it out loud. Then tap the eye.",
+        "ask": "How is a shadow made? How do you make it bigger? Say it out loud! Then tap the eye.",
         "spoken": "Light travels in straight lines. When something blocks it, there's a shadow behind. Move the light closer, and the shadow gets bigger."
       }
     }
   ],
   "bonus": {
     "open": true,
-    "prompt": "Bonus: when is your shadow longest outside?",
+    "prompt": "Bonus! When is your shadow longest, outside?",
     "choices": ["Midday", "Early morning or evening"],
     "answer": 1,
-    "reveal": "Early morning or evening, when the sun is low in the sky. At midday it's short."
+    "reveal": "Early in the morning, or in the evening, when the sun is low in the sky! At lunchtime, it's short."
   }
 }
