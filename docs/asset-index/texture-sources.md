@@ -103,3 +103,9 @@ Could not list (HTTP 401). Run this script on a machine with internet access (se
 Edition: java. Licence: Mojang assets, Minecraft EULA (1.21.5: one spawn-egg picture per mob). Base path: `assets/minecraft/textures/item`.
 
 Could not list (HTTP 401). Run this script on a machine with internet access (set GITHUB_TOKEN if rate-limited).
+
+## bedrock-rp: Mojang/bedrock-samples@main
+
+Edition: bedrock. Licence: Mojang sample pack, Minecraft EULA / usage guidelines. Base path: `resource_pack`.
+
+Could not list (HTTP 401). Run this script on a machine with internet access (set GITHUB_TOKEN if rate-limited).

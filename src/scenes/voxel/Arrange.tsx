@@ -7,6 +7,7 @@ import { dur } from '../types'
 import { useTicker } from '../useTicker'
 import { blockTexture } from './textures'
 import { Steve, MOODS } from './Steve'
+import { useMob, type MobName } from './mobs'
 
 // "Make it": the world arranges things the way he chooses, so many answers can be right.
 // Modes: rows (equal rows + leftovers), pairs (odd/even), split (two fields),
@@ -14,7 +15,9 @@ import { Steve, MOODS } from './Steve'
 // Items: chicken, sheep, apple, brick (an original toy brick with studs), block (game block).
 
 export const MODES = ['rows', 'pairs', 'split', 'tens', 'share', 'stairs', 'square', 'groups', 'line', 'scatter'] as const
-export const ITEMS = ['chicken', 'sheep', 'apple', 'brick', 'block', 'pumpkin', 'egg', 'carrot', 'stone', 'grass'] as const
+export const ITEMS = ['chicken', 'sheep', 'apple', 'brick', 'block', 'pumpkin', 'egg', 'carrot', 'stone', 'grass', 'pig', 'cow', 'bee', 'rabbit'] as const
+/** Items drawn as real Minecraft mobs once their models are fetched. */
+const MOB_ITEMS: Partial<Record<string, MobName>> = { chicken: 'chicken', sheep: 'sheep', pig: 'pig', cow: 'cow', bee: 'bee', rabbit: 'rabbit' }
 export type Mode = (typeof MODES)[number]
 export type Item = (typeof ITEMS)[number]
 const MAX = 100
@@ -44,6 +47,19 @@ const PARTS: Record<Exclude<Item, 'block' | 'stone' | 'grass'>, Part[]> = {
     { size: [0.62, 0.5, 0.82], at: [0, 0.48, 0], color: '#f4efe4' },
     { size: [0.3, 0.32, 0.32], at: [0, 0.6, 0.5], color: '#3a3330' },
     { size: [0.46, 0.24, 0.6], at: [0, 0.12, 0], color: '#3a3330' },
+  ],
+  pig: [
+    { size: [0.5, 0.45, 0.75], at: [0, 0.4, 0], color: '#f0a3a0' },
+    { size: [0.4, 0.4, 0.35], at: [0, 0.55, 0.45], color: '#f0a3a0' },
+  ],
+  cow: [
+    { size: [0.55, 0.5, 0.85], at: [0, 0.5, 0], color: '#4a3b30' },
+    { size: [0.4, 0.4, 0.35], at: [0, 0.65, 0.5], color: '#4a3b30' },
+  ],
+  bee: [{ size: [0.35, 0.35, 0.45], at: [0, 0.5, 0], color: '#f2c13b' }],
+  rabbit: [
+    { size: [0.35, 0.35, 0.45], at: [0, 0.2, 0], color: '#a07850' },
+    { size: [0.08, 0.25, 0.05], at: [0, 0.5, 0.15], color: '#a07850' },
   ],
   apple: [
     { size: [0.42, 0.4, 0.42], at: [0, 0.21, 0], color: '#d8402f' },
@@ -162,7 +178,10 @@ function Items({ ctrl }: SceneProps) {
   const item = ITEMS[Math.round(v.item)] ?? 'block'
   const mode = MODES[Math.round(v.mode)] ?? 'rows'
   const isBlock = item === 'block' || item === 'stone' || item === 'grass'
-  const parts = isBlock ? null : PARTS[item as keyof typeof PARTS]
+  const mob = useMob(MOB_ITEMS[item] ?? null)
+  const parts = isBlock || mob ? null : PARTS[item as keyof typeof PARTS]
+  const mobScale = mob ? Math.min(1.1, 0.95 / mob.length, 1.15 / mob.height) : 1
+  const mobMesh = useRef<THREE.InstancedMesh>(null)
   const meshes = useRef<(THREE.InstancedMesh | null)[]>([])
   const shell = useRef<THREE.InstancedMesh>(null)
   const blockMesh = useRef<THREE.InstancedMesh>(null)
@@ -190,7 +209,10 @@ function Items({ ctrl }: SceneProps) {
       tmp.s.setScalar(on ? 1 : 0.0001)
       const bob = t?.left ? Math.abs(Math.sin(performance.now() / 300 + i)) * 0.15 : 0
       tmp.p.copy(c).y += bob
-      if (parts) {
+      if (mob) {
+        tmp.m.compose(tmp.p, tmp.q, tmp.s.clone().multiplyScalar(mobScale))
+        mobMesh.current?.setMatrixAt(i, tmp.m)
+      } else if (parts) {
         parts.forEach((part, pi) => {
           const m = meshes.current[pi]
           if (!m) return
@@ -208,7 +230,7 @@ function Items({ ctrl }: SceneProps) {
       tmp.m.compose(new THREE.Vector3(c.x, 0.02, c.z), tmp.q, tmp.s.clone().multiplyScalar(on && t?.left ? 1 : 0.0001))
       rings.current?.setMatrixAt(i, tmp.m)
     }
-    for (const m of [...meshes.current, blockMesh.current, shell.current, rings.current]) {
+    for (const m of [...meshes.current, mobMesh.current, blockMesh.current, shell.current, rings.current]) {
       if (!m) continue
       m.instanceMatrix.needsUpdate = true
       if (m.instanceColor) m.instanceColor.needsUpdate = true
@@ -223,7 +245,8 @@ function Items({ ctrl }: SceneProps) {
           <meshStandardMaterial color={item === 'brick' ? '#ffffff' : part.color} roughness={item === 'brick' ? 0.35 : 0.8} />
         </instancedMesh>
       ))}
-      {!parts && (
+      {mob && <instancedMesh frustumCulled={false} key={`mob-${item}`} ref={mobMesh} args={[mob.geometry, mob.material, MAX]} castShadow />}
+      {!parts && !mob && (
         <>
           <instancedMesh frustumCulled={false} ref={blockMesh} args={[undefined, undefined, MAX]} castShadow>
             <boxGeometry />

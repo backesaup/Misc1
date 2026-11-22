@@ -79,6 +79,7 @@ jobs:
             echo "No new narration."
           else
             git commit -m "Record narration"
-            git pull --rebase origin "${GITHUB_REF_NAME}"
+            # an earlier run may have pushed the same lines: keep this run's copy
+            git pull --rebase -X theirs origin "${GITHUB_REF_NAME}"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi

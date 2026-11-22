@@ -21,6 +21,8 @@ const url = (sourceId, path) => {
 
 let got = 0, kept = 0, failed = []
 const entries = ['blocks', 'skins', 'items', 'mobs'].flatMap((g) => Object.entries(manifest[g] ?? {}))
+// a 3D model is two files: its geometry and its texture
+for (const [key, m] of Object.entries(manifest.models ?? {})) entries.push([`${key} (model)`, m.geo], [`${key} (texture)`, m.texture], ...(m.overlay ? [[`${key} (overlay)`, m.overlay]] : []))
 for (const [key, entry] of entries) {
   const out = join(root, 'src/assets/textures', entry.file)
   if (existsSync(out) && !force) { kept++; continue }

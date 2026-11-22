@@ -123,7 +123,17 @@ Presets: `stack64`, `solarCube`, `disco`, `made` (chair), `build` (grass-topped 
   wearing the Kai skin. Animations available from skinview3d: idle, walk, run, fly, wave, crouch, hit, swim.
 - **Iron golem** — named in *Alive or not?* (built, never alive). No 3D model yet.
 
-## 3a. Minecraft items and mob faces (`diagram:board`)
+## 3a. Real 3D Minecraft mobs (`src/scenes/voxel/mobs.ts`)
+- Built from Mojang's Bedrock geometry files + textures (bedrock-samples; the sheep uses the Java body +
+  wool textures stacked). `models` in `content/textures.json`: chicken, sheep, pig, cow, iron_golem,
+  wolf, bee, rabbit, fox, villager, llama, parrot, cod. Each becomes one merged geometry in its rest
+  pose (blocks, feet on 0, facing the camera): `useMob(name)` → `{ geometry, material, height, length }`,
+  ready for `<mesh>` or an instanced mesh. `hide` drops bones (llama chests, villager hat layers).
+- `voxel:arrange` items chicken, sheep, pig, cow, bee, rabbit draw as these (built-in shapes until fetched).
+- Look at them all: `npm run dev`, then open `/dev/mobs.html` (`?only=sheep,cow&zoom=150&rot=0.5`).
+- Not yet: limb animation (rest pose only), cat (needs its setup pose), horse (no default entity file).
+
+## 3b0. Minecraft items and mob faces (`diagram:board`)
 - `items` in `content/textures.json`: 16×16 item icons (apple, carrot, wheat, egg, cod, diamond, gold
   nugget, bucket, torch, compass, clock, …). `mobs`: animal faces cut from mob textures (`face` rect)
   — pig, cow, sheep, wolf, cat, chicken, fox, bee — or whole 1.21.5 spawn eggs (rabbit, turtle, frog,
@@ -248,6 +258,7 @@ has errors (Bedrock cake stack size says 64), so verify any fact a lesson depend
   `activity.json` (replays, wrong answers chosen, where he stopped). Make lessons from these.
 
 ## Changelog
+- 2026-11-22 — real 3D Minecraft mobs from Bedrock geometry (chickens and sheep in counting lessons); narration runs no longer clash.
 - 2026-11-22 — Steve (real player model + skin) replaces the robot everywhere; Minecraft item icons and mob faces on boards; skins/items/mobs fetched at build.
 - 2026-11-22 — lesson-map scenes: balance, grid, fraction, clock, coins, gauge, shapes, solids, board, nature, lab; Science lab section; 70+ lessons.
 - 2026-11-21 — disco scene + lesson, speech input, music, recorded-narration workflow, Blocky name.

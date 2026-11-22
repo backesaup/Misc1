@@ -1,5 +1,5 @@
 {
-  "_note": "Block textures for voxel scenes. `npm run textures:fetch` downloads each block's first available candidate into src/assets/textures/<key>.png (gitignored, bundled only when present). A block whose file is missing uses its built-in original look. Add a key here, then reference it from a scene. See docs/ASSET_LIBRARY.md. `skins` are 64×64 player skins (src/assets/textures/skins/), `items` are 16×16 item icons (src/assets/textures/items/), used by the Steve character and the sorting board. `npm run build` fetches them first. `mobs` are animal faces cut from Minecraft mob textures (`face` = x,y,w,h in a texture of `size`), or a whole spawn-egg icon; the sorting board uses them for animal icons.",
+  "_note": "Block textures for voxel scenes. `npm run textures:fetch` downloads each block's first available candidate into src/assets/textures/<key>.png (gitignored, bundled only when present). A block whose file is missing uses its built-in original look. Add a key here, then reference it from a scene. See docs/ASSET_LIBRARY.md. `skins` are 64×64 player skins (src/assets/textures/skins/), `items` are 16×16 item icons (src/assets/textures/items/), used by the Steve character and the sorting board. `npm run build` fetches them first. `mobs` are animal faces cut from Minecraft mob textures (`face` = x,y,w,h in a texture of `size`), or a whole spawn-egg icon; the sorting board uses them for animal icons. `models` are real 3D Minecraft mobs: a Bedrock geometry file (`geo`, picked by `id`) and its texture, from Mojang's bedrock-samples; src/scenes/voxel/mobs.ts builds them.",
   "sources": {
     "bedrock": {
       "repo": "Mojang/bedrock-samples",
@@ -136,6 +136,14 @@
       "base": "assets/minecraft/textures/item",
       "edition": "java",
       "licence": "Mojang assets, Minecraft EULA (1.21.5: one spawn-egg picture per mob)",
+      "verified": true
+    },
+    "bedrock-rp": {
+      "repo": "Mojang/bedrock-samples",
+      "branch": "main",
+      "base": "resource_pack",
+      "edition": "bedrock",
+      "licence": "Mojang sample pack, Minecraft EULA / usage guidelines",
       "verified": true
     }
   },
@@ -754,6 +762,226 @@
         16,
         16
       ]
+    }
+  },
+  "models": {
+    "chicken": {
+      "id": "geometry.chicken.v1.12",
+      "geo": {
+        "file": "models/chicken.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/chicken.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/chicken.png",
+        "from": [
+          "bedrock-rp:textures/entity/chicken/chicken.png"
+        ]
+      }
+    },
+    "sheep": {
+      "id": "geometry.sheep.v1.8",
+      "geo": {
+        "file": "models/sheep.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/sheep.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/sheep.png",
+        "from": [
+          "inventive-entity:sheep/sheep.png"
+        ]
+      },
+      "overlay": {
+        "file": "models/sheep_fur.png",
+        "from": [
+          "inventive-entity:sheep/sheep_fur.png"
+        ],
+        "y": 32
+      },
+      "textureSize": [
+        64,
+        64
+      ]
+    },
+    "pig": {
+      "id": "geometry.pig.v3",
+      "geo": {
+        "file": "models/pig.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/pig.v3.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/pig.png",
+        "from": [
+          "bedrock-rp:textures/entity/pig/pig_v3.png"
+        ]
+      }
+    },
+    "cow": {
+      "id": "geometry.cow.v2",
+      "geo": {
+        "file": "models/cow.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/cow.v2.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/cow.png",
+        "from": [
+          "bedrock-rp:textures/entity/cow/cow_v2.png"
+        ]
+      }
+    },
+    "iron_golem": {
+      "id": "geometry.irongolem",
+      "geo": {
+        "file": "models/iron_golem.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/iron_golem.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/iron_golem.png",
+        "from": [
+          "bedrock-rp:textures/entity/iron_golem.png"
+        ]
+      }
+    },
+    "wolf": {
+      "id": "geometry.wolf",
+      "geo": {
+        "file": "models/wolf.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/wolf.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/wolf.png",
+        "from": [
+          "bedrock-rp:textures/entity/wolf/wolf.png"
+        ]
+      }
+    },
+    "bee": {
+      "id": "geometry.bee",
+      "geo": {
+        "file": "models/bee.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/bee.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/bee.png",
+        "from": [
+          "bedrock-rp:textures/entity/bee/bee.png"
+        ]
+      }
+    },
+    "rabbit": {
+      "id": "geometry.rabbit.v2",
+      "geo": {
+        "file": "models/rabbit.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/rabbit.v2.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/rabbit.png",
+        "from": [
+          "bedrock-rp:textures/entity/rabbit/rabbit_brown.png"
+        ]
+      }
+    },
+    "fox": {
+      "id": "geometry.fox",
+      "geo": {
+        "file": "models/fox.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/fox.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/fox.png",
+        "from": [
+          "bedrock-rp:textures/entity/fox/fox.png"
+        ]
+      }
+    },
+    "villager": {
+      "id": "geometry.villager_v2",
+      "geo": {
+        "file": "models/villager.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/villager_v2.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/villager.png",
+        "from": [
+          "bedrock-rp:textures/entity/villager2/villager.png"
+        ]
+      },
+      "hide": [
+        "helmet",
+        "brim"
+      ],
+      "textureSize": [
+        64,
+        64
+      ]
+    },
+    "llama": {
+      "id": "geometry.llama.v1.8",
+      "geo": {
+        "file": "models/llama.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/llama.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/llama.png",
+        "from": [
+          "bedrock-rp:textures/entity/llama/llama_creamy.png"
+        ]
+      },
+      "hide": [
+        "chest1",
+        "chest2"
+      ]
+    },
+    "parrot": {
+      "id": "geometry.parrot",
+      "geo": {
+        "file": "models/parrot.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/parrot.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/parrot.png",
+        "from": [
+          "bedrock-rp:textures/entity/parrot/parrot_blue.png"
+        ]
+      }
+    },
+    "cod": {
+      "id": "geometry.cod",
+      "geo": {
+        "file": "models/cod.geo.json",
+        "from": [
+          "bedrock-rp:models/entity/cod.geo.json"
+        ]
+      },
+      "texture": {
+        "file": "models/cod.png",
+        "from": [
+          "bedrock-rp:textures/entity/fish/cod.png"
+        ]
+      }
     }
   }
 }

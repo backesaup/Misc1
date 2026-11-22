@@ -13,6 +13,7 @@ Files in `src/assets/textures/` when the index was built (gitignored; fetch with
 - `lever.png`
 - `mek_steel_casing.png`
 - `mobs`
+- `models`
 - `planks.png`
 - `redstone_dust.png`
 - `repeater.png`
