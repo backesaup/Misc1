@@ -1,5 +1,5 @@
 {
-  "_note": "Block textures for voxel scenes. `npm run textures:fetch` downloads each block's first available candidate into src/assets/textures/<key>.png (gitignored, bundled only when present). A block whose file is missing uses its built-in original look. Add a key here, then reference it from a scene. See docs/ASSET_LIBRARY.md. `skins` are 64×64 player skins (src/assets/textures/skins/), `items` are 16×16 item icons (src/assets/textures/items/), used by the Steve character and the sorting board. `npm run build` fetches them first. `mobs` are animal faces cut from Minecraft mob textures (`face` = x,y,w,h in a texture of `size`), or a whole spawn-egg icon; the sorting board uses them for animal icons. `models` are real 3D Minecraft mobs: a Bedrock geometry file (`geo`, picked by `id`) and its texture, from Mojang's bedrock-samples; src/scenes/voxel/mobs.ts builds them.",
+  "_note": "Block textures for voxel scenes. `npm run textures:fetch` downloads each block's first available candidate into src/assets/textures/<key>.png (gitignored, bundled only when present). A block whose file is missing uses its built-in original look. Add a key here, then reference it from a scene. See docs/ASSET_LIBRARY.md. `skins` are 64×64 player skins (src/assets/textures/skins/), `items` are 16×16 item icons (src/assets/textures/items/), used by the Steve character and the sorting board. `npm run build` fetches them first. `mobs` are animal faces cut from Minecraft mob textures (`face` = x,y,w,h in a texture of `size`), or a whole spawn-egg icon; the sorting board uses them for animal icons. `models` are real 3D Minecraft mobs: a Bedrock geometry file (`geo`, picked by `id`) and its texture, from Mojang's bedrock-samples; src/scenes/voxel/mobs.ts builds them. `blockModels` are Java block models (vanilla and mods) fetched by scripts/fetch-blockmodels.mjs, looked up through `namespaces`; src/scenes/voxel/blockmodels.ts draws them in 3D.",
   "sources": {
     "bedrock": {
       "repo": "Mojang/bedrock-samples",
@@ -982,6 +982,131 @@
           "bedrock-rp:textures/entity/fish/cod.png"
         ]
       }
+    }
+  },
+  "namespaces": {
+    "minecraft": {
+      "repo": "InventivetalentDev/minecraft-assets",
+      "branch": "1.21.4",
+      "roots": [
+        "assets/minecraft"
+      ],
+      "licence": "Mojang assets, Minecraft EULA"
+    },
+    "create": {
+      "repo": "Creators-of-Create/Create",
+      "branch": "mc1.20.1/dev",
+      "roots": [
+        "src/main/resources/assets/create",
+        "src/generated/resources/assets/create"
+      ],
+      "licence": "Create mod (MIT code; art by the Create team)"
+    },
+    "farmersdelight": {
+      "repo": "vectorwing/FarmersDelight",
+      "branch": "1.20",
+      "roots": [
+        "src/main/resources/assets/farmersdelight",
+        "src/generated/resources/assets/farmersdelight"
+      ],
+      "licence": "Farmer's Delight (MIT code; art by vectorwing and contributors)"
+    },
+    "refurbished_furniture": {
+      "repo": "MrCrayfish/MrCrayfishFurnitureMod-Refurbished",
+      "branch": "26.1.2",
+      "roots": [
+        "common/src/main/resources/assets/refurbished_furniture"
+      ],
+      "licence": "MrCrayfish's Furniture Mod: Refurbished, models 'All Rights Reserved' (fetched for private use, not committed)"
+    }
+  },
+  "blockModels": {
+    "cogwheel": {
+      "model": "create:block/cogwheel"
+    },
+    "large_cogwheel": {
+      "model": "create:block/large_cogwheel"
+    },
+    "shaft": {
+      "model": "create:block/shaft"
+    },
+    "gearbox": {
+      "model": "create:block/gearbox/block"
+    },
+    "hand_crank": {
+      "model": "create:block/hand_crank/block"
+    },
+    "encased_fan": {
+      "model": "create:block/encased_fan/block"
+    },
+    "millstone": {
+      "model": "create:block/millstone/block"
+    },
+    "mechanical_press": {
+      "model": "create:block/mechanical_press/block"
+    },
+    "cooking_pot": {
+      "model": "farmersdelight:block/cooking_pot"
+    },
+    "stove": {
+      "model": "farmersdelight:block/stove"
+    },
+    "cutting_board": {
+      "model": "farmersdelight:block/cutting_board"
+    },
+    "chair": {
+      "model": "refurbished_furniture:block/chair",
+      "textures": {
+        "texture": "refurbished_furniture:block/oak_chair"
+      }
+    },
+    "table": {
+      "model": "refurbished_furniture:block/table",
+      "textures": {
+        "texture": "refurbished_furniture:block/oak_table"
+      }
+    },
+    "stool": {
+      "model": "refurbished_furniture:block/stool",
+      "textures": {
+        "texture": "refurbished_furniture:block/brown_stool"
+      }
+    },
+    "desk": {
+      "model": "refurbished_furniture:block/desk",
+      "textures": {
+        "texture": "refurbished_furniture:block/oak_desk"
+      }
+    },
+    "sofa": {
+      "model": "refurbished_furniture:block/sofa",
+      "textures": {
+        "texture": "refurbished_furniture:block/light_gray_sofa"
+      }
+    },
+    "lamp": {
+      "model": "refurbished_furniture:block/lamp_on",
+      "textures": {
+        "texture": "refurbished_furniture:block/yellow_lamp"
+      }
+    },
+    "fridge": {
+      "model": "refurbished_furniture:block/fridge_closed",
+      "textures": {
+        "texture": "refurbished_furniture:block/light_fridge"
+      }
+    },
+    "oak_stairs": {
+      "model": "minecraft:block/oak_stairs"
+    },
+    "crafting_table": {
+      "model": "minecraft:block/crafting_table"
+    },
+    "furnace": {
+      "model": "minecraft:block/furnace"
+    },
+    "oak_door": {
+      "model": "minecraft:block/oak_door_bottom_left"
     }
   }
 }

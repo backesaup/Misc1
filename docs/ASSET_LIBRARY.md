@@ -133,6 +133,21 @@ Presets: `stack64`, `solarCube`, `disco`, `made` (chair), `build` (grass-topped 
 - Look at them all: `npm run dev`, then open `/dev/mobs.html` (`?only=sheep,cow&zoom=150&rot=0.5`).
 - Not yet: limb animation (rest pose only), cat (needs its setup pose), horse (no default entity file).
 
+## 3a2. Real 3D block models: vanilla + mods (`src/scenes/voxel/blockmodels.ts`)
+- Java block models fetched by `scripts/fetch-blockmodels.mjs` (runs inside `textures:fetch` and the
+  build). `blockModels` in `content/textures.json` names each model; `namespaces` says which repo
+  and folders hold each namespace. Parents are followed, `#texture` references resolved, and
+  template models (MrCrayfish) get their wood/colour from `textures` overrides.
+- Ready now: **Create** cogwheel, large_cogwheel, shaft, gearbox, hand_crank (base), encased_fan,
+  millstone, mechanical_press (body); **Farmer's Delight** cooking_pot, stove, cutting_board;
+  **MrCrayfish's Furniture** chair, table, stool, desk, sofa, lamp, fridge (oak / colours by
+  override; 100+ more models in that repo: kitchen, bathroom, garden, electronics); **vanilla**
+  oak_stairs, crafting_table, furnace, oak_door. Add any other model by id (e.g. `create:block/…`).
+- `useBlockModel(name)` → `{ geometry, materials, size }` (one block = 1 unit, centred, on y = 0).
+- Look at them all: `npm run dev`, then `/dev/blocks.html` (`?only=chair,table&zoom=140&rot=0.5`).
+- Not handled: OBJ models (Create's water wheels, Mekanism machines), multipart blockstates, and
+  moving parts drawn by code (press head, crank handle, fan propeller are separate models: add them).
+
 ## 3b0. Minecraft items and mob faces (`diagram:board`)
 - `items` in `content/textures.json`: 16×16 item icons (apple, carrot, wheat, egg, cod, diamond, gold
   nugget, bucket, torch, compass, clock, …). `mobs`: animal faces cut from mob textures (`face` rect)
@@ -258,6 +273,7 @@ has errors (Bedrock cake stack size says 64), so verify any fact a lesson depend
   `activity.json` (replays, wrong answers chosen, where he stopped). Make lessons from these.
 
 ## Changelog
+- 2026-11-22 — 3D block models from Java model files: Create, Farmer's Delight, MrCrayfish furniture, vanilla.
 - 2026-11-22 — real 3D Minecraft mobs from Bedrock geometry (chickens and sheep in counting lessons); narration runs no longer clash.
 - 2026-11-22 — Steve (real player model + skin) replaces the robot everywhere; Minecraft item icons and mob faces on boards; skins/items/mobs fetched at build.
 - 2026-11-22 — lesson-map scenes: balance, grid, fraction, clock, coins, gauge, shapes, solids, board, nature, lab; Science lab section; 70+ lessons.

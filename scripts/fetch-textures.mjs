@@ -43,3 +43,6 @@ for (const [key, entry] of entries) {
 }
 console.log(`\n${got} downloaded, ${kept} already present, ${failed.length} failed${failed.length ? ': ' + failed.join(', ') : ''}`)
 if (failed.length && !soft) process.exitCode = 1
+
+// then the 3D block models (vanilla + mods)
+await import('./fetch-blockmodels.mjs')

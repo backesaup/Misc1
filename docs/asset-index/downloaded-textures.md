@@ -2,6 +2,7 @@
 
 Files in `src/assets/textures/` when the index was built (gitignored; fetch with `npm run textures:fetch`).
 
+- `blockmodels`
 - `craft_atlas.png`
 - `create_andesite_casing.png`
 - `create_cogwheel.png`
