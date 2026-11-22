@@ -1,0 +1,93 @@
+{
+  "id": "many-ways-to-add",
+  "section": "maths",
+  "title": "Many ways to add",
+  "cardArt": "build",
+  "status": "ready",
+  "order": 11,
+  "_map": "Many ways to add (Y2). Big idea: two-digit numbers can be added by tens and ones, or by making a ten first. Creative: find three ways to work out 38 + 25 and pick a favourite.",
+  "_story": "Two buckets of toy bricks, 38 and 25. The robot counts them one by one and keeps losing its place. Ismaeel tries three builder's shortcuts with rods of ten, then picks his favourite.",
+  "_stepChain": "38 and 25 as tens and ones (bundles-of-ten) → way 1: tens with tens, ones with ones; 13 ones snap into a new ten → way 2: make a ten first (38 + 2 = 40, then 23 more) → way 3: count on in tens then ones → all make 63 → pick a favourite",
+  "assumes": ["counting", "adding", "tens"],
+  "requires": ["bundles-of-ten"],
+  "talk": [
+    { "ask": "Which way of adding 38 + 25 did you like best? Why?", "goodAnswer": "any of them, as long as he can explain it: tens and ones; making a ten first; or counting on." },
+    { "ask": "In 38 + 25, why do 8 ones and 5 ones make a new ten?", "goodAnswer": "they make 13 ones, and 10 of those snap into a ten, leaving 3." }
+  ],
+  "handsOn": "With Lego rods of 10 and single bricks, build 38 and 25. Add them one way, then a different way. Do you always get 63?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "tens", "item": "brick", "total": 63, "choice": 5, "robot": true } },
+      "narration": { "speaker": "robot", "text": "I've got 38 bricks in one bucket and 25 in the other. I tried counting them all, one by one. I got lost at 41! There must be a faster way." },
+      "animation": [
+        { "at": 0, "action": "arrive", "duration": 2.2 },
+        { "at": 0, "action": "robot", "mood": "sad" }
+      ]
+    },
+    {
+      "id": "way1",
+      "narration": { "text": "Way one: tens with tens, ones with ones. 38 is 3 tens and 8 ones. 25 is 2 tens and 5 ones. Tens together: 5 tens. Ones together: 13 ones. But 10 of those ones snap into a new ten! So 6 tens and 3 ones: 63." },
+      "label": "50 + 13 = 63",
+      "animation": [
+        { "at": 0, "action": "set", "mode": "tens", "total": 63, "choice": 5 },
+        { "at": 12, "action": "set", "mode": "tens", "total": 63, "choice": 6 }
+      ]
+    },
+    {
+      "id": "way2",
+      "term": "make a ten",
+      "narration": { "text": "Way two: make a ten first. 38 is only 2 away from 40. So take 2 bricks from the 25 and give them to the 38. Now it's 40 and 23. That's easy: 63! Moving bricks to finish a ten is called making a ten." },
+      "label": "40 + 23 = 63"
+    },
+    {
+      "id": "way3",
+      "narration": { "text": "Way three: count on. Start at 38. Jump on 2 tens: 48, 58. Then 5 ones: 59, 60, 61, 62, 63." },
+      "label": "38 → 48 → 58 → 63"
+    },
+    {
+      "id": "favourite",
+      "question": {
+        "open": true,
+        "narration": { "speaker": "robot", "text": "Three different ways, and they all made 63! Every way is a good way if you can explain it." },
+        "prompt": "Which way do you like best?",
+        "choices": ["Tens and ones", "Make a ten", "Count on"],
+        "answer": 1,
+        "reveal": "Any of them works. Mathematicians pick whichever is easiest for the numbers in front of them. Making a ten is extra handy when one number is close to a ten, like 38.",
+        "revealAnimation": [{ "at": 0, "action": "robot", "mood": "happy" }]
+      }
+    },
+    {
+      "id": "try",
+      "question": {
+        "narration": { "text": "Try one with your favourite way. 29 bricks and 14 bricks." },
+        "prompt": "What is 29 add 14?",
+        "choices": ["33", "43", "313"],
+        "answer": 1,
+        "onRight": "Yes. Maybe you made a ten: 29 and 1 is 30, and 13 more is 43.",
+        "wrong": {
+          "0": { "mistake": "forgot the new ten made from the ones", "hint": "9 ones and 4 ones make 13 ones. That's a new ten, and 3.", "say": "Tens: 2 and 1 make 3 tens. Ones: 9 and 4 make 13, which snaps into another ten and 3. So 4 tens and 3 ones: 43." },
+          "2": { "mistake": "wrote the ones total next to the tens without making a new ten", "hint": "Can you have 13 in the ones place? 10 ones snap into a ten.", "say": "313 writes 3 tens next to 13 ones. But 13 ones make a new ten and 3. So 4 tens and 3 ones: 43." }
+        },
+        "reveal": "29 add 14 is 43.",
+        "revealAnimation": [{ "at": 0, "action": "set", "mode": "tens", "total": 43, "choice": 4 }]
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Add tens and ones, or make a ten first.",
+        "ask": "Can you say one way to add two big numbers? Say it out loud. Then tap the eye.",
+        "spoken": "To add big numbers, you can add the tens and the ones, or make a ten first, or count on. Every way gets the same answer."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: 99 + 99. Which way would be quickest?",
+    "choices": ["Count on by ones", "Make a hundred", "Tens and ones"],
+    "answer": 1,
+    "reveal": "Make a hundred! 99 is 1 away from 100. 100 and 98 is 198."
+  }
+}

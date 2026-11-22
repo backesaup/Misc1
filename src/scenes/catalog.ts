@@ -10,5 +10,6 @@ export const sceneCatalog = {
   diagram: {
     wiring: ['flow', 'lightFace', 'lightRails'],
     power: ['stage', 'charge'],
+    balance: ['set', 'signs', 'addOnes'],
   },
 } satisfies Record<string, Record<string, string[]>>

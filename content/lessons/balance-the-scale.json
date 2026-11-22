@@ -1,0 +1,89 @@
+{
+  "id": "balance-the-scale",
+  "section": "maths",
+  "title": "Balance the scale",
+  "cardArt": "maths",
+  "status": "ready",
+  "order": 6,
+  "_map": "Balance the scale (Y2). Big idea: <, > and = compare amounts. Creative: balance with different mixes of blocks; how many ways?",
+  "_story": "The robot's market scale is wonky. Heavier side goes down; he learns the signs by watching, then balances 15 blocks every way he can with 5-blocks and 1-blocks, and catches the robot reading the sign backwards.",
+  "_stepChain": "a balance scale: heavier goes down → same amount balances → = means the same → the sign's open side faces the bigger amount: > and < → many mixes can balance the same amount → the robot reads 8 < 5",
+  "assumes": ["counting", "adding", "equals sign"],
+  "requires": ["stack-64"],
+  "talk": [
+    { "ask": "How can you tell which side of a balance has more?", "goodAnswer": "the heavier side goes down; if they're the same, it balances flat." },
+    { "ask": "How do you remember which way round < and > go?", "goodAnswer": "the open, wide side faces the bigger number; the point faces the smaller one." }
+  ],
+  "handsOn": "Make a balance from a coat hanger and two cups. Put Lego bricks in each cup. Can you make it balance with big bricks on one side and small bricks on the other?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "diagram", "preset": "balance", "params": { "left": 8, "fives": 0, "ones": 5 } },
+      "narration": { "speaker": "robot", "text": "This is my balance scale. I put 8 blocks on this side, and 5 blocks on that side. Whoa! It tipped right over!" }
+    },
+    {
+      "id": "heavier",
+      "narration": { "text": "The side with more blocks is heavier, so it goes down. The side with fewer blocks goes up. Let's add blocks to the light side, one at a time, and watch." },
+      "animation": [{ "at": 3.6, "action": "addOnes", "to": 8, "duration": 2.4 }]
+    },
+    {
+      "id": "equal",
+      "narration": { "text": "8 and 8. Now it balances, perfectly flat. When both sides are the same, we use the equals sign: 8 equals 8." },
+      "animation": [{ "at": 0.4, "action": "signs", "on": true }]
+    },
+    {
+      "id": "greater",
+      "term": "greater than",
+      "narration": { "text": "Now take some away from this side. 8 on the left, 5 on the right. The sign's wide open side faces the bigger amount, and its point faces the smaller one. This one means greater than: 8 is greater than 5." },
+      "animation": [{ "at": 0.4, "action": "set", "ones": 5 }]
+    },
+    {
+      "id": "less",
+      "term": "less than",
+      "narration": { "text": "And the other way: 3 on the left, 6 on the right. The open side faces the 6. This one means less than: 3 is less than 6." },
+      "animation": [{ "at": 0.4, "action": "set", "left": 3, "ones": 6 }]
+    },
+    {
+      "id": "make-balance",
+      "kind": "make",
+      "narration": { "text": "Now a challenge. 15 blocks on the left. On the right you can use big blue 5-blocks and small yellow 1-blocks. Choose how many 5-blocks to use, tap the hammer, and I'll fill up the rest with 1-blocks. How many different ways can you balance it?" },
+      "scene": { "type": "diagram", "preset": "balance", "params": { "left": 15, "fives": 0, "ones": 0, "signs": true } },
+      "make": { "mode": "balance", "item": "block", "total": 15, "goal": 4 }
+    },
+    {
+      "id": "robot-mistake",
+      "question": {
+        "narration": { "speaker": "robot", "text": "I wrote 8, then the sign, then 5. The point is next to the 8, so I'm saying 8 is less than 5!" },
+        "prompt": "Is the robot right that 8 is less than 5?",
+        "choices": ["Yes", "No"],
+        "answer": 1,
+        "onRight": "Yes, you caught it. 8 is more than 5, so the open side should face the 8.",
+        "wrong": {
+          "0": {
+            "mistake": "reads the sign the wrong way round",
+            "hint": "Which side would go down on the scale: 8 blocks or 5 blocks?",
+            "say": "8 blocks are heavier than 5, so the 8 side goes down. The open side of the sign faces the bigger number, 8. So 8 is greater than 5."
+          }
+        },
+        "reveal": "8 is greater than 5. The open side faces the 8.",
+        "revealAnimation": [{ "at": 0, "action": "set", "left": 8, "fives": 1, "ones": 0 }]
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "The open side faces the bigger amount.",
+        "ask": "Can you say how to tell which way round the sign goes? Say it out loud. Then tap the eye.",
+        "spoken": "Heavier goes down. The same balances, and that's equals. The open side of the sign faces the bigger amount."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: with 10-blocks, 5-blocks and 1-blocks, how many ways could you balance 20? Guess!",
+    "choices": ["5", "9", "20"],
+    "answer": 1,
+    "reveal": "9 ways! Adding a new size of block makes lots more mixes."
+  }
+}

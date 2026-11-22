@@ -1,0 +1,74 @@
+{
+  "id": "guessing-jar",
+  "section": "maths",
+  "title": "The guessing barrel",
+  "cardArt": "maths",
+  "status": "ready",
+  "order": 12,
+  "_map": "The guessing jar (Y1–2). Big idea: estimating before counting. Creative: guess how many apples are in the barrel, then count in tens to check. How close was he?",
+  "_story": "A harvest heap of apples. Guess first, then sort into tens to count quickly. The robot guesses wildly and checks its own work out loud. The point is getting closer, not being exact.",
+  "_stepChain": "a heap is hard to count → a guess that uses what you see is called an estimate → guess → sort into tens to count → compare → a second heap: use the first one to guess better",
+  "assumes": ["counting", "tens"],
+  "requires": ["bundles-of-ten"],
+  "talk": [
+    { "ask": "How did you make your guess?", "goodAnswer": "anything thoughtful: comparing to a number he knows, imagining rows of ten, or using the first heap." },
+    { "ask": "Was your second guess closer than your first? Why?", "goodAnswer": "usually yes: he'd seen how big 47 looks, so he could compare." }
+  ],
+  "handsOn": "Fill a jar or bowl with pasta, Lego or buttons. Everyone guesses how many, then count them in tens together. Whose guess was closest?",
+  "steps": [
+    {
+      "id": "hook",
+      "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "scatter", "item": "apple", "total": 47, "robot": true } },
+      "narration": { "speaker": "robot", "text": "Harvest day! I tipped all my apples into a big heap. How many are there? Counting them one by one would take forever!" },
+      "animation": [{ "at": 0, "action": "arrive", "duration": 2.4 }]
+    },
+    {
+      "id": "estimate",
+      "term": "estimate",
+      "narration": { "text": "When something's hard to count, you can make a careful guess using what you can see. A guess like that is called an estimate. It doesn't have to be exactly right. The fun is seeing how close you get." }
+    },
+    {
+      "id": "guess1",
+      "question": {
+        "open": true,
+        "narration": { "speaker": "robot", "text": "My estimate is 500 apples! Hmm, wait. That's a really big number. Let me check my own guess. 500 would fill the whole farm. Maybe I should guess smaller." },
+        "prompt": "What's your estimate?",
+        "choices": ["About 20", "About 50", "About 100"],
+        "answer": 1,
+        "reveal": "Let's count in tens to check. 1 ten, 2 tens, 3 tens, 4 tens, and 7 left. 47 apples! About 50 was very close.",
+        "revealAnimation": [{ "at": 1.4, "action": "set", "mode": "tens", "total": 47, "choice": 4 }]
+      }
+    },
+    {
+      "id": "guess2",
+      "question": {
+        "open": true,
+        "narration": { "text": "Here's a new heap. Now you know what 47 apples looks like. Use that to help you guess." },
+        "prompt": "Is this heap more or fewer than 47?",
+        "choices": ["Fewer", "About the same", "More"],
+        "answer": 2,
+        "reveal": "More! Let's count in tens: 7 tens and 3. 73 apples. Using the first heap helps you guess the next one.",
+        "revealAnimation": [
+          { "at": 0, "action": "set", "mode": "scatter", "total": 73 },
+          { "at": 4, "action": "set", "mode": "tens", "total": 73, "choice": 7 }
+        ]
+      }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Estimate first, then count to check.",
+        "ask": "Can you say what an estimate is? Say it out loud. Then tap the eye.",
+        "spoken": "An estimate is a careful guess. Make one first, then count in tens to check how close you were."
+      }
+    }
+  ],
+  "bonus": {
+    "open": true,
+    "prompt": "Bonus: a barrel holds 10 rows of 10 apples. Estimate how many before counting!",
+    "choices": ["About 50", "About 100", "About 1,000"],
+    "answer": 1,
+    "reveal": "100. 10 rows of 10, the same as the farm and the disco ball."
+  }
+}

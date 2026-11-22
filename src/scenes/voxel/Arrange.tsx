@@ -14,7 +14,7 @@ import { readJSON } from '@/lib/storage'
 // tens (towers of ten + ones), share (equal shares + leftovers).
 // Items: chicken, sheep, apple, brick (an original toy brick with studs), block (game block).
 
-export const MODES = ['rows', 'pairs', 'split', 'tens', 'share', 'stairs', 'square', 'groups', 'line'] as const
+export const MODES = ['rows', 'pairs', 'split', 'tens', 'share', 'stairs', 'square', 'groups', 'line', 'scatter'] as const
 export const ITEMS = ['chicken', 'sheep', 'apple', 'brick', 'block', 'pumpkin', 'egg', 'carrot', 'stone', 'grass'] as const
 export type Mode = (typeof MODES)[number]
 export type Item = (typeof ITEMS)[number]
@@ -124,6 +124,14 @@ export function layout(mode: Mode, total: number, choice: number, extra: number)
         const k = i - groups * size
         pos.push({ x: ((k % 8) - 3.5) * 0.95, y: 0, z: -2.2 + groups * 1.05 + 0.6 + Math.floor(k / 8) * 0.95, left: false, group: -2 })
       }
+    }
+  } else if (mode === 'scatter') {
+    // a jumbled heap, the same every time (for estimating before counting)
+    let seed = 7
+    const rnd = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646
+    for (let i = 0; i < total; i++) {
+      const r = Math.sqrt(rnd()) * 3.2, a = rnd() * Math.PI * 2
+      pos.push({ x: Math.cos(a) * r, y: Math.floor(rnd() * 2) * 0.4, z: Math.sin(a) * r * 0.75, left: false, group: 0 })
     }
   } else if (mode === 'line') {
     // measuring: `choice` units laid end to end along something `extra` long (unit length = total/choice)
@@ -315,7 +323,8 @@ function Labels({ ctrl }: SceneProps) {
   const total = Math.round(v.total)
   const choice = Math.round(v.choice)
   let text = ''
-  if (v.shown < total || v.tried < 0.5) text = `${total}`
+  if (mode === 'scatter') text = 'How many?'
+  else if (v.shown < total || v.tried < 0.5) text = `${total}`
   else if (mode === 'rows') {
     const cols = Math.floor(total / Math.max(1, choice)), left = total - choice * cols
     text = `${choice} ${choice === 1 ? 'row' : 'rows'} of ${cols}` + (left ? `, ${left} left over` : '')

@@ -17,14 +17,14 @@ Status: ✅ built · 🟡 partly (an existing lesson touches it) · ⬜ to do. M
 ## Number, place value, adding and subtracting
 - ✅ The counter that rolls over (in Bundles of ten: 39 → 40, bonus 99 → 100)
 - ✅ Bundles of ten (make: tens, Lego rods)
-- ⬜ A robot with 8 fingers (stretch) [blocks64 groups of 8]
-- ⬜ What is zero? [arrange: zero animals in a field]
-- ⬜ Balance the scale [new: balance scene]
+- ✅ A robot with 8 fingers (make: groups of 8, carrots)
+- ✅ What is zero?
+- ✅ Balance the scale (diagram:balance; make: balance with fives and ones)
 - ✅ Splitting the flock (make: split)
-- ⬜ Joining and taking away [arrange: split + robot's missing-number puzzle]
-- ⬜ Swap test [arrange: split both ways]
-- ⬜ Many ways to add [tens rods]
-- ⬜ The guessing jar (real world + open estimate)
+- ✅ Joining and taking away (robot's missing-number mystery)
+- ✅ Swap test
+- ✅ Many ways to add (three ways, pick a favourite)
+- ✅ The guessing barrel (arrange: scatter, estimate, count in tens)
 
 ## Multiplication, division, patterns, fractions
 - ✅ Rows of chickens + Turn the farm (make: rows, open question)

@@ -1,0 +1,96 @@
+{
+  "id": "joining-and-taking-away",
+  "section": "maths",
+  "title": "Joining and taking away",
+  "cardArt": "maths",
+  "status": "ready",
+  "order": 9,
+  "_map": "Joining and taking away (Y1). Big idea: adding joins groups; subtracting takes away or finds the difference. Creative: invent a missing-number puzzle for the robot (? − 9 = 7).",
+  "_story": "Apples on the farm: two baskets join, sheep nibble some away, the robot compares two baskets (difference), then the robot is baffled by a mystery: some apples, 9 eaten, 7 left. How many at the start? Ismaeel works it out by putting them back.",
+  "_stepChain": "adding joins two groups → taking away removes some → the difference: how many more one has → minus sign in words → a missing number: put the eaten ones back → invent a puzzle",
+  "assumes": ["counting", "adding", "taking away", "equals sign"],
+  "requires": ["stack-64"],
+  "talk": [
+    { "ask": "Some apples, the sheep ate 9, and 7 were left. How did you find how many there were at the start?", "goodAnswer": "put the 9 eaten ones back with the 7 left: 9 + 7 = 16." },
+    { "ask": "What's the difference between 10 and 6?", "goodAnswer": "4: line them up and see how many more the bigger one has." }
+  ],
+  "handsOn": "Make a missing-number puzzle for a grown-up with Lego: hide some bricks under a cup, take some away, show what's left, and ask how many were hiding.",
+  "steps": [
+    {
+      "id": "join",
+      "scene": { "type": "voxel", "preset": "arrange", "params": { "mode": "split", "item": "apple", "total": 9, "choice": 4, "robot": true } },
+      "narration": { "speaker": "robot", "text": "I picked 4 apples, and you picked 5. Let's tip them into one big basket. Adding joins two groups together. 4 add 5 is 9." },
+      "animation": [
+        { "at": 0, "action": "arrive", "duration": 1.4 },
+        { "at": 5, "action": "set", "mode": "rows", "total": 9, "choice": 1 },
+        { "at": 5, "action": "robot", "mood": "happy" }
+      ]
+    },
+    {
+      "id": "take",
+      "term": "minus sign",
+      "narration": { "text": "Then a sheep comes along and munches 3 apples! Taking away makes the group smaller. 9 take away 3 is 6. We write take away with a little line called the minus sign: 9 minus 3 equals 6." },
+      "label": "9 − 3 = 6",
+      "animation": [{ "at": 3, "action": "set", "mode": "rows", "total": 6, "choice": 1 }]
+    },
+    {
+      "id": "difference",
+      "question": {
+        "narration": { "text": "Taking away can also compare. Here's a basket of 10 apples next to a basket of 6." },
+        "prompt": "How many more apples are in the big basket?",
+        "choices": ["16", "4", "10"],
+        "answer": 1,
+        "onRight": "Yes. You compared them: 10 is 4 more than 6. That's called the difference.",
+        "wrong": {
+          "0": { "mistake": "added the two baskets instead of comparing", "hint": "We're not tipping them together. We're seeing how many extra the big basket has.", "say": "16 is both baskets tipped together. Line them up instead: 6 match up, and the big basket has 4 extra. 10 take away 6 is 4." },
+          "2": { "mistake": "gave the size of the big basket, not how many more", "hint": "The big basket has 10. But how many more than the small one?", "say": "10 is how many the big basket has. To compare, match them up: 6 apples match, and 4 are extra. So 4 more." }
+        },
+        "reveal": "10 take away 6 is 4. The difference is 4.",
+        "revealAnimation": [{ "at": 0, "action": "set", "mode": "split", "total": 16, "choice": 10 }]
+      }
+    },
+    {
+      "id": "mystery",
+      "question": {
+        "narration": { "speaker": "robot", "text": "Now I'm stuck on a mystery! I had a basket of apples. The sheep ate 9 of them. Now there are 7 left. But how many did I have at the start?" },
+        "prompt": "How many apples were there at the start?",
+        "choices": ["2", "16", "63"],
+        "answer": 1,
+        "onRight": "Yes. You put the 9 eaten apples back with the 7: 16.",
+        "wrong": {
+          "0": { "mistake": "took 7 from 9 instead of putting the eaten ones back", "hint": "The 9 eaten apples were in the basket at the start. Imagine putting them back with the 7.", "say": "2 would be the difference between 9 and 7. But we need the whole basket: put the 9 eaten apples back with the 7 left. 9 and 7 make 16." },
+          "2": { "mistake": "multiplied instead of putting back", "hint": "We aren't making 9 rows of 7. We're putting the eaten apples back.", "say": "63 is 9 rows of 7, which is much too many. Put the 9 eaten apples back with the 7 left: 9 add 7 is 16." }
+        },
+        "reveal": "16 take away 9 is 7. So there were 16 at the start.",
+        "revealAnimation": [
+          { "at": 0, "action": "set", "mode": "split", "total": 16, "choice": 9 },
+          { "at": 0, "action": "robot", "mood": "happy" }
+        ]
+      }
+    },
+    {
+      "id": "invent",
+      "narration": { "text": "Now you be the puzzle maker! Make up a mystery like that for the robot, or for a grown-up. Some apples, some eaten, some left. Can they work out the missing number?" }
+    },
+    {
+      "id": "rule",
+      "kind": "rule",
+      "rule": {
+        "text": "Adding joins. Taking away removes or compares.",
+        "ask": "Can you say how to find a missing number like the robot's mystery? Say it out loud. Then tap the eye.",
+        "spoken": "Adding joins groups. Taking away removes some, or finds the difference. And to find what you started with, put back what was taken."
+      }
+    }
+  ],
+  "bonus": {
+    "prompt": "Bonus mystery: some sheep, 12 more joined them, now there are 20. How many were there at the start?",
+    "choices": ["32", "8", "12"],
+    "answer": 1,
+    "onRight": "Yes. Take the 12 new sheep away again: 8.",
+    "wrong": {
+      "0": { "mistake": "added instead of undoing the adding", "hint": "The 12 joined later. Take them away to see the start.", "say": "32 would be adding 12 again. To get back to the start, take the 12 newcomers away: 20 take away 12 is 8." },
+      "2": { "mistake": "gave the number that joined", "hint": "12 is how many joined. How many were already there?", "say": "12 is the sheep that joined. 20 take away those 12 leaves 8, the sheep from the start." }
+    },
+    "reveal": "8 sheep, then 12 joined: 20."
+  }
+}

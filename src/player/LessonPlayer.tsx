@@ -187,7 +187,7 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
         const m = s.make
         const d0 = startDial(m)
         const t0 = m.mode === 'pairs' ? (m.min ?? 2) : m.mode === 'stairs' ? (d0 * (d0 + 1)) / 2 : m.mode === 'square' ? d0 * d0 : m.total
-        cur.def.applyParams?.(cur.ctrl, { mode: m.mode, item: m.item, total: t0, extra: m.extra ?? 3, choice: m.mode === 'stairs' || m.mode === 'square' ? d0 : 0 })
+        cur.def.applyParams?.(cur.ctrl, { mode: m.mode, item: m.item, total: t0, extra: m.extra ?? 3, choice: m.mode === 'stairs' || m.mode === 'square' ? d0 : 0, ...(m.mode === 'balance' ? { fives: 0, ones: 0 } : {}) })
         cur.ctrl.values.shown = 0
         gsap.to(cur.ctrl.values, { shown: cur.ctrl.values.total, duration: reducedMotion ? 0.001 : 1.6, ease: 'power1.inOut' })
         setMade({ found: [], tried: false, dial: startDial(m) })
@@ -245,6 +245,7 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
     narrator.stop()
     const total = m.mode === 'pairs' ? n : m.mode === 'stairs' ? (n * (n + 1)) / 2 : m.mode === 'square' ? n * n : m.total
     Object.assign(ctrl.values, { choice: n, total, shown: total, tried: 1 })
+    if (m.mode === 'balance') Object.assign(ctrl.values, { left: m.total, fives: n, ones: m.total - 5 * n })
     const r = makeResult(m, n)
     const isNew = r.counts && !made.found.includes(r.key)
     const found = isNew ? [...made.found, r.key] : made.found
@@ -737,6 +738,7 @@ function dialRange(m: Make): [number, number] {
   if (m.mode === 'square') return [1, m.max ?? 8]
   if (m.mode === 'groups') return [0, Math.floor(m.total / Math.max(1, m.extra ?? 10))]
   if (m.mode === 'line') return [1, m.max ?? 12]
+  if (m.mode === 'balance') return [0, Math.floor(m.total / 5)]
   if (m.mode === 'pairs') return [m.min ?? 2, m.max ?? 20]
   if (m.mode === 'split') return [0, m.total]
   if (m.mode === 'tens') return [0, Math.floor(m.total / 10)]
@@ -746,10 +748,11 @@ function startDial(m: Make) {
   if (m.mode === 'tens') return Math.floor(m.total / 10)
   if (m.mode === 'groups') return Math.floor(m.total / Math.max(1, m.extra ?? 10))
   if (m.mode === 'stairs' || m.mode === 'square' || m.mode === 'line') return 1
+  if (m.mode === 'balance') return 0
   if (m.mode === 'split' || m.mode === 'share') return 1
   return dialRange(m)[0] + (m.mode === 'rows' ? 1 : 0)
 }
-const UNIT: Record<Make['mode'], string> = { rows: 'rows', pairs: 'animals', split: 'in this field', tens: 'tens', share: 'each', stairs: 'steps', square: 'long', groups: 'groups', line: 'units' }
+const UNIT: Record<Make['mode'], string> = { rows: 'rows', pairs: 'animals', split: 'in this field', tens: 'tens', share: 'each', stairs: 'steps', square: 'long', groups: 'groups', line: 'units', balance: 'fives' }
 const w = (k: string) => commonLine(k)
 
 /** What his choice made, as a label for the "found" list and the words to say. */
@@ -781,6 +784,10 @@ export function makeResult(m: Make, n: number): { key: string; counts: boolean; 
     return { key: `${n} × ${size} + ${ones}`, counts: true, say: [numberLine(n), w(n === 1 ? 'w-group-of' : 'w-groups-of'), numberLine(size), w('w-and'), numberLine(ones), w('w-left-over')] }
   }
   if (m.mode === 'line') return { key: `${n} long`, counts: true, say: [numberLine(n), w(n === 1 ? 'w-unit-long' : 'w-units-long')] }
+  if (m.mode === 'balance') {
+    const ones = T - 5 * n
+    return { key: `${n} fives + ${ones} ones`, counts: true, say: [numberLine(n), w(n === 1 ? 'w-five' : 'w-fives'), w('w-and'), numberLine(ones), w(ones === 1 ? 'w-one' : 'w-ones'), w('w-balances')] }
+  }
   const E = Math.max(1, m.extra ?? 3), left = T - n * E
   const say = [numberLine(n), w('w-each')]
   if (left) say.push(w('w-and'), numberLine(left), w('w-left-over'))
