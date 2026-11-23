@@ -15,16 +15,16 @@
     { "ask": "What's a good material for a trampoline? Why?", "goodAnswer": "something stretchy that springs back, like rubber or elastic fabric." },
     { "ask": "Which materials could you squash?", "goodAnswer": "things like sponge, play dough, a pillow. Not a stone or a metal spoon." }
   ],
-  "handsOn": "Test some things: a sponge, an elastic band, play dough, a spoon. Can you squash, bend, twist or stretch each one? Does it go back to its shape?",
+  "handsOn": "Test some things: a sponge, a rubber band, play dough, a spoon. Can you squash, bend, twist or stretch each one? Does it go back to its shape?",
   "steps": [
     {
       "id": "hook",
-      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "y:Springs back|c:Stays changed|n:Won't change", "items": "sp:box:Sponge:|el:gift:Elastic band:|pd:cookie:Play dough:|st:mountain:Stone:|sp2:key:Metal spoon:" } },
+      "scene": { "type": "diagram", "preset": "board", "params": { "mode": "sort", "zones": "y:Springs back|c:Stays changed|n:Won't change", "items": "sp:box:Sponge:|el:gift:Rubber band:|pd:cookie:Play dough:|st:mountain:Stone:|sp2:key:Metal spoon:" } },
       "narration": { "speaker": "steve", "text": "I want to build a trampoline! Boing, boing! I need a material that bounces. Let's test some!" }
     },
     {
       "id": "test",
-      "narration": { "text": "Squash a sponge: it springs back! Stretch an elastic band: it springs back too! Squash play dough: squish! It stays squashed. And a stone? It won't change shape at all!" },
+      "narration": { "text": "Squash a sponge: it springs back! Stretch a rubber band: it springs back too! Squash play dough: squish! It stays squashed. And a stone? It won't change shape at all!" },
       "animation": [
         { "at": 1.4, "action": "move", "id": "sp", "zone": "y" },
         { "at": 3.2, "action": "move", "id": "el", "zone": "y" },

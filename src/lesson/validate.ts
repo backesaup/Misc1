@@ -1,5 +1,5 @@
 import type { Cue, Lesson, Question, Step } from './types.ts'
-import { allLessonLines } from './lines.ts'
+import { allLessonLines, stepLines } from './lines.ts'
 import { stepKind } from './types.ts'
 
 export interface SceneCatalog {
@@ -78,6 +78,15 @@ export function validateLesson(lesson: Lesson, catalog?: SceneCatalog): string[]
     const hit = l.text.match(BANNED)
     if (hit) at(undefined, `line "${l.key}" uses "${hit[0]}" (see docs/LESSON_DIRECTION.md)`)
   }
+  // Never use a word before it's explained: a step's term may not appear in any earlier step.
+  lesson.steps.forEach((step, i) => {
+    if (!step.term) return
+    const esc = step.term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    const word = new RegExp(`\\b${esc}s?\\b`, 'i')
+    for (const prev of lesson.steps.slice(0, i))
+      for (const l of Object.values(stepLines(lesson.id, prev)))
+        if (word.test(l.text)) at(step, `"${step.term}" is used in "${l.key}" before this step explains it`)
+  })
   const last = lesson.steps[lesson.steps.length - 1]
   if (!last || stepKind(last) !== 'rule') at(undefined, 'must end with a closing rule')
   return errs

@@ -20,7 +20,7 @@
     {
       "id": "hook",
       "scene": { "type": "diagram", "preset": "coins", "params": { "coins": "100", "item": "A customer has £1" } },
-      "narration": { "speaker": "steve", "text": "Ismaeel, today you're the shopkeeper! Ding ding! A customer has come in, with a one-pound coin." }
+      "narration": { "speaker": "steve", "text": "Ismaeel, today you're the shopkeeper! Ding ding! A customer has come in, with a big gold coin!" }
     },
     {
       "id": "pound",

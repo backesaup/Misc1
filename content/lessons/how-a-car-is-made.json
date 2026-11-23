@@ -37,7 +37,7 @@
       },
       "narration": {
         "speaker": "steve",
-        "text": "In my world, I make a minecart from 5 iron ingots, and it pops out in one go. But a real car has thousands of parts. How do people put a car together?"
+        "text": "In my world, I put 5 iron ingots in the crafting table, and pop! A minecart! But a real car has thousands and thousands of parts. How do people put a car together?"
       },
       "animation": [
         {
@@ -51,7 +51,7 @@
       "id": "steel",
       "term": "steel",
       "narration": {
-        "text": "Most of a car's body is made of a strong metal called steel. It arrives at the factory as a giant roll of thin steel, called a coil."
+        "text": "Most of a car's body is made of a strong metal called steel. It comes to the factory as a giant roll of thin steel, as tall as Steve! It's called a coil."
       },
       "animation": [
         {
@@ -70,7 +70,7 @@
       "id": "press",
       "term": "press",
       "narration": {
-        "text": "The steel is cut into flat sheets. Then a huge machine called a press squashes each sheet into a shape, like pressing play dough into a mould: doors, a roof, sides, a bonnet."
+        "text": "The steel is cut into flat sheets. Then a huge machine called a press squashes each sheet into a shape. Ka-CHUNK! Like pressing play dough into a mould! Doors, a roof, sides, and a bonnet."
       },
       "animation": [
         {
@@ -85,7 +85,7 @@
       "id": "weld",
       "term": "weld",
       "narration": {
-        "text": "Robots join the pieces with electricity. It melts a tiny spot of metal, which cools and holds the pieces tight. Each spot is called a weld."
+        "text": "Now robots join the pieces together! Zap! They use electricity to melt a tiny spot of metal. It cools, and holds the pieces tight. Each little spot is called a weld."
       },
       "animation": [
         {
@@ -105,7 +105,7 @@
       "id": "how-many-welds",
       "question": {
         "narration": {
-          "text": "The robots make weld after weld, all over the body."
+          "text": "The robots make weld after weld after weld, all over the car. Zap, zap, zap!"
         },
         "prompt": "How many welds do you think one car has?",
         "choices": [
@@ -115,15 +115,15 @@
         ],
         "answer": 2,
         "open": true,
-        "onRight": "Here's the real number.",
-        "reveal": "About 5,000 welds in a family car! Every one in exactly the right place."
+        "onRight": "Here's the real number!",
+        "reveal": "About 5,000 welds in a family car! Every single one in exactly the right place."
       }
     },
     {
       "id": "paint",
       "term": "rust",
       "narration": {
-        "text": "Steel goes brown and crumbly if it gets wet. That's called rust. So the body is painted in layers: one that stops rust, then the colour, then a clear shiny coat on top."
+        "text": "Steel goes brown and crumbly if it gets wet. That's called rust. Yuck! So the car is painted in layers. First a coat that stops rust. Then the colour! Then a clear, shiny coat on top."
       },
       "animation": [
         {
@@ -143,7 +143,7 @@
       "id": "assembly",
       "term": "assembly line",
       "narration": {
-        "text": "Then the car rolls slowly along a moving line. People and machines add the parts one by one: the battery, the motor, the seats, the windows and the wheels. That's called an assembly line."
+        "text": "Then the car rolls slowly along a moving track. People and machines add the parts, one by one. The battery, the motor, the seats, the windows, and the wheels! That's called an assembly line."
       },
       "animation": [
         {
@@ -162,28 +162,28 @@
       "id": "parts",
       "kind": "explore",
       "narration": {
-        "text": "Tap a part to hear what it does."
+        "text": "Tap a part, and find out what it does!"
       },
       "parts": [
         {
           "id": "battery",
           "label": "Battery",
-          "narration": "The big flat battery under the floor stores the electricity."
+          "narration": "The big flat battery under the floor is like a lunchbox for electricity. It stores it up."
         },
         {
           "id": "motor",
           "label": "Motor",
-          "narration": "The motor uses the electricity to turn the wheels."
+          "narration": "The motor uses the electricity to turn the wheels. Vroom!"
         },
         {
           "id": "wheel",
           "label": "Wheel",
-          "narration": "Rubber tyres grip the road."
+          "narration": "Rubber tyres grip the road, so the car doesn't slide."
         },
         {
           "id": "body",
           "label": "Body",
-          "narration": "The welded, painted steel body keeps everyone safe inside."
+          "narration": "The strong steel body keeps everyone safe inside."
         }
       ],
       "animation": [
@@ -198,7 +198,7 @@
       "id": "test",
       "narration": {
         "speaker": "steve",
-        "text": "Last, every car is tested: the lights, the brakes, and a drive. Off it goes!"
+        "text": "Last, every car gets tested! The lights: flash! The brakes: screech! And a drive. Off it goes! Vroom!"
       },
       "animation": [
         {
@@ -218,7 +218,7 @@
       "id": "wheels",
       "question": {
         "narration": {
-          "text": "A factory puts 4 wheels on every car."
+          "text": "The factory puts 4 wheels on every car."
         },
         "prompt": "How many wheels for 6 cars?",
         "choices": [
@@ -227,20 +227,20 @@
           "20"
         ],
         "answer": 1,
-        "onRight": "Yes. 6 lots of 4 is 24.",
+        "onRight": "Yes! 6 lots of 4 is 24!",
         "wrong": {
           "0": {
             "mistake": "added 6 and 4",
             "hint": "Every car gets its own 4 wheels. Count 4 at a time.",
-            "say": "You added 6 and 4. Count 4 for each car: 4, 8, 12, 16, 20, 24."
+            "say": "You added 6 and 4. Count 4 for each car: 4, 8, 12, 16, 20, 24!"
           },
           "2": {
             "mistake": "counted 5 cars",
             "hint": "Count the cars again: 6.",
-            "say": "20 is 5 cars. One more car adds 4: 24."
+            "say": "20 is only 5 cars. One more car adds 4 more: 24!"
           }
         },
-        "reveal": "6 lots of 4 is 24 wheels."
+        "reveal": "6 lots of 4 is 24 wheels!"
       },
       "animation": [
         {
@@ -257,20 +257,20 @@
       "kind": "rule",
       "rule": {
         "text": "Press it, weld it, paint it, build it, test it.",
-        "ask": "Can you say how a car is made? Say it out loud. Then tap the eye.",
+        "ask": "How is a car made? Say it out loud! Then tap the eye.",
         "spoken": "Steel is pressed into shapes, welded together, painted, then the parts are added on the assembly line, and every car is tested."
       }
     }
   ],
   "bonus": {
-    "prompt": "Bonus: each car has 4 seats. How many seats in 3 cars?",
+    "prompt": "Bonus! Each car has 4 seats. How many seats in 3 cars?",
     "choices": [
       "7",
       "12",
       "8"
     ],
     "answer": 1,
-    "onRight": "Yes. 3 lots of 4 is 12.",
+    "onRight": "Yes! 3 lots of 4 is 12!",
     "wrong": {
       "0": {
         "mistake": "added 3 and 4",
@@ -283,6 +283,6 @@
         "say": "8 is 2 cars. The third car adds 4 more: 12."
       }
     },
-    "reveal": "3 lots of 4 is 12 seats."
+    "reveal": "3 lots of 4 is 12 seats!"
   }
 }

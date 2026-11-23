@@ -40,7 +40,7 @@
       },
       "narration": {
         "speaker": "steve",
-        "text": "Ismaeel, you use an iPad every day. But what's inside it? Is it full of tiny blocks, like my world?"
+        "text": "Ismaeel, you use an iPad every day! But what's hiding inside it? Is it full of tiny blocks, like my world? Let's find out!"
       },
       "animation": [
         {
@@ -54,7 +54,7 @@
       "id": "block",
       "term": "CNC machine",
       "narration": {
-        "text": "The back of an iPad is aluminium. A solid block of it goes into a machine that cuts by itself, following instructions from a computer. It's called a CNC machine. It shaves away metal, bit by bit, until only a thin case is left."
+        "text": "The back of an iPad is a metal called aluminium. A solid block of it goes into a machine that cuts all by itself, following instructions from a computer. It's called a CNC machine. Whirrr! It shaves away the metal, bit by bit, until only a thin case is left."
       },
       "animation": [
         {
@@ -103,7 +103,7 @@
       "id": "carved",
       "question": {
         "narration": {
-          "text": "Think about that block and the thin case that's left."
+          "text": "Think about that big block, and the thin case that's left."
         },
         "prompt": "How much of the block gets carved away?",
         "choices": [
@@ -112,26 +112,26 @@
           "Most of it"
         ],
         "answer": 2,
-        "onRight": "Yes. Most of the block is shaved away. Only a thin case is left.",
+        "onRight": "Yes! Most of the block is shaved away. Only a thin case is left!",
         "wrong": {
           "0": {
             "mistake": "thinks the case is nearly as thick as the block",
             "hint": "Is the case as thick as the block was?",
-            "say": "The block was thick, and the case is thin: most of the metal is shaved away."
+            "say": "The block was thick, and the case is thin! Most of the metal is shaved away."
           },
           "1": {
             "mistake": "thinks the case keeps half the metal",
             "hint": "Compare the thin case with the thick block.",
-            "say": "The case is much thinner than half the block. Most of it is shaved away."
+            "say": "The case is much thinner than half the block! Most of it is shaved away."
           }
         },
-        "reveal": "Most of the block is carved away."
+        "reveal": "Most of the block is carved away!"
       }
     },
     {
       "id": "battery",
       "narration": {
-        "text": "Inside, the biggest part is the battery. It fills most of the space, so the iPad can run all day."
+        "text": "Inside, the biggest part is the battery! It fills up most of the space, so the iPad can keep going all day."
       },
       "animation": [
         {
@@ -151,7 +151,7 @@
       "id": "chip",
       "term": "chip",
       "narration": {
-        "text": "This thin board holds the chips. The biggest chip is like the iPad's brain. It does billions of sums every second, so your games and videos work."
+        "text": "This thin board holds the chips. The biggest chip is like the iPad's brain! It does billions of sums every single second, so your games and videos work. Billions!"
       },
       "animation": [
         {
@@ -176,7 +176,7 @@
       "id": "screen",
       "term": "touch layer",
       "narration": {
-        "text": "Then the speakers and camera, the screen that makes the light and colours, a see-through touch layer, and glass on top to protect it all."
+        "text": "Then come the speakers and the camera. Then the screen, which makes all the light and colours. Then a see-through touch layer. And glass on top, to protect it all!"
       },
       "animation": [
         {
@@ -196,7 +196,7 @@
       "id": "layers",
       "kind": "explore",
       "narration": {
-        "text": "Let's pull it apart. Tap a layer to hear what it does."
+        "text": "Let's pull it apart! Whoosh! Tap a layer, and find out what it does."
       },
       "parts": [
         {
@@ -207,22 +207,22 @@
         {
           "id": "touch layer",
           "label": "Touch layer",
-          "narration": "The see-through touch layer feels where your finger is."
+          "narration": "The see-through touch layer feels where your finger is!"
         },
         {
           "id": "screen",
           "label": "Screen",
-          "narration": "The screen makes tiny dots of coloured light."
+          "narration": "The screen makes millions of tiny dots of coloured light."
         },
         {
           "id": "battery",
           "label": "Battery",
-          "narration": "The battery stores the electricity."
+          "narration": "The battery stores the electricity, like a lunchbox."
         },
         {
           "id": "chip",
           "label": "Chip",
-          "narration": "The chip follows the instructions in your apps, billions of times a second."
+          "narration": "The chip follows the instructions in your apps, billions of times a second!"
         }
       ],
       "animation": [
@@ -237,7 +237,7 @@
     {
       "id": "touch",
       "narration": {
-        "text": "Here's how it feels your touch. The touch layer is a grid of tiny wires, too thin to see. Your finger carries a little bit of electricity. When you touch the glass, the grid feels exactly where your finger is."
+        "text": "Here's how it feels your touch! The touch layer is a grid of tiny wires, too thin to see. And guess what? Your finger carries a tiny bit of electricity! When you touch the glass, the grid feels exactly where your finger is. Tap!"
       },
       "animation": [
         {
@@ -264,7 +264,7 @@
       "question": {
         "narration": {
           "speaker": "steve",
-          "text": "I tried tapping it with a plastic pen, and nothing happened!"
+          "text": "I tried tapping the iPad with a plastic pen, and nothing happened!"
         },
         "prompt": "Why doesn't the iPad feel a plastic pen?",
         "choices": [
@@ -273,20 +273,20 @@
           "Pens are too light"
         ],
         "answer": 0,
-        "onRight": "Yes. Plastic doesn't let electricity through, so the grid can't feel it.",
+        "onRight": "Yes! Plastic doesn't let electricity through. So the grid can't feel it!",
         "wrong": {
           "1": {
             "mistake": "thinks it's about size",
             "hint": "A finger tip and a pen tip are both small. What's different about them?",
-            "say": "A small finger tip works fine. The difference is electricity: your finger carries a little, and plastic doesn't."
+            "say": "A little fingertip works fine! The difference is electricity. Your finger carries a little, and plastic doesn't."
           },
           "2": {
             "mistake": "thinks it's about weight",
             "hint": "The iPad doesn't need you to press hard. What does it feel?",
-            "say": "A gentle finger works, so it isn't about weight. The grid feels electricity, and plastic doesn't carry it."
+            "say": "A gentle finger works, so it isn't about weight! The grid feels electricity, and plastic doesn't carry it."
           }
         },
-        "reveal": "The grid feels electricity, and plastic doesn't carry it."
+        "reveal": "The grid feels electricity, and plastic doesn't carry it!"
       }
     },
     {
@@ -294,20 +294,20 @@
       "kind": "rule",
       "rule": {
         "text": "A carved case, a battery, a chip, and a screen with a touch layer under glass.",
-        "ask": "Can you say what's inside an iPad? Say it out loud. Then tap the eye.",
+        "ask": "What's inside an iPad? Say it out loud! Then tap the eye.",
         "spoken": "An aluminium case carved by machines, a big battery, a chip that does billions of sums, and a screen with a touch layer and glass on top."
       }
     }
   ],
   "bonus": {
-    "prompt": "Bonus: an iPad has 4 speakers. How many speakers in 3 iPads?",
+    "prompt": "Bonus! An iPad has 4 speakers. How many speakers in 3 iPads?",
     "choices": [
       "7",
       "12",
       "16"
     ],
     "answer": 1,
-    "onRight": "Yes. 3 lots of 4 is 12.",
+    "onRight": "Yes! 3 lots of 4 is 12!",
     "wrong": {
       "0": {
         "mistake": "added 3 and 4",
@@ -320,6 +320,6 @@
         "say": "16 is 4 iPads. 3 iPads is 4, 8, 12."
       }
     },
-    "reveal": "3 lots of 4 is 12 speakers."
+    "reveal": "3 lots of 4 is 12 speakers!"
   }
 }
